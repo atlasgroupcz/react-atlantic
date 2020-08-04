@@ -4,7 +4,7 @@ import { theme } from '../../theme';
 import { IconProps } from './Icon';
 
 export const spin = () => {
-  return keyframes`
+    return keyframes`
   100% {
       -webkit-transform: rotate(360deg);
       transform: rotate(360deg);
@@ -12,36 +12,36 @@ export const spin = () => {
 };
 
 export const StyledIcon = styled.i<IconProps>`
-  display: inline-block;
-  cursor: ${(props) => (props.onClick ? 'pointer' : 'inherit')};
-  line-height: 0;
-  height: ${(props) => props.theme.font.size.md};
-  width: ${(props) => props.theme.font.size.md};
-  color: ${(props) => props.theme.color.text.alpha};
-  font-style: normal;
-  text-align: center;
-  text-transform: none;
+    display: inline-block;
+    cursor: ${(props) => (props.onClick ? 'pointer' : 'inherit')};
+    line-height: 0;
+    height: ${(props) => props.theme.font.size.md};
+    width: ${(props) => props.theme.font.size.md};
+    color: ${(props) => props.theme.color.text.alpha};
+    font-style: normal;
+    text-align: center;
+    text-transform: none;
 
-  svg {
-    vertical-align: top;
-    width: 100%;
-    height: 100%;
-    font-size: inherit;
-  }
+    svg {
+        vertical-align: top;
+        width: 100%;
+        height: 100%;
+        font-size: inherit;
+    }
 
-  ${(props) =>
-    props.isRotating &&
-    css`
-      -webkit-animation: ${spin} 4s linear infinite;
-      -moz-animation: ${spin} 4s linear infinite;
-      animation: ${spin} 4s linear infinite;
-    `}
+    ${(props) =>
+        props.isRotating &&
+        css`
+            -webkit-animation: ${spin} 4s linear infinite;
+            -moz-animation: ${spin} 4s linear infinite;
+            animation: ${spin} 4s linear infinite;
+        `}
 `;
 
 export const StyledSVG = styled(animated.svg)``;
 
 StyledIcon.defaultProps = {
-  theme,
+    theme,
 };
 
 StyledIcon.displayName = 'StyledIcon';

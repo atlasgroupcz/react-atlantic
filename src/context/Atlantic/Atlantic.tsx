@@ -1,21 +1,24 @@
-import React, { FC, PropsWithChildren, ReactElement } from 'react';
-import { ThemeProvider, ThemeProviderProps } from '../../theme';
-import { DeviceProvider, DeviceProviderProps } from '../Device';
+import React, { FC } from 'react';
+import { DeviceProviderProps, DeviceProvider } from '../Device';
+import { ThemeProviderProps, ThemeProvider } from '../Theme';
+import { theme as defaultTheme } from '../../theme';
 
-export interface AtlanticProviderProps
-  extends ThemeProviderProps,
-    DeviceProviderProps {}
+export interface AtlanticContextState
+    extends DeviceProviderProps,
+        ThemeProviderProps {}
 
-export const AtlanticProvider: FC<Readonly<
-  PropsWithChildren<Readonly<AtlanticProviderProps>>
->> = (props): Readonly<ReactElement> => {
-  const { theme, children, currentDevice, devices } = props;
+export interface AtlanticProviderProps extends AtlanticContextState {}
 
-  return (
-    <ThemeProvider theme={theme}>
-      <DeviceProvider currentDevice={currentDevice} devices={devices}>
-        {children}
-      </DeviceProvider>
-    </ThemeProvider>
-  );
+type AtlanticProviderType = FC<AtlanticProviderProps>;
+export const AtlanticProvider: AtlanticProviderType = ({
+    currentDevice,
+    devices,
+    children,
+    theme = defaultTheme,
+}) => {
+    return (
+        <DeviceProvider devices={devices} currentDevice={currentDevice}>
+            <ThemeProvider theme={theme}>{children}</ThemeProvider>
+        </DeviceProvider>
+    );
 };

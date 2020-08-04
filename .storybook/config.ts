@@ -1,12 +1,13 @@
-import { configure, addDecorator } from "@storybook/react";
-import { withInfo } from "@storybook/addon-info";
+import { configure, addDecorator } from '@storybook/react';
+import { withInfo } from '@storybook/addon-info';
+import { withAtlantic } from './decorators/withAtlantic';
 
-// automatically import all files ending in *.stories.tsx
-const req = require.context("../src", true, /.story.jsx$|.story.tsx$/);
+// automatically import all files ending in *.story.tsx
+const req = require.context('../stories', true, /.story.jsx$|.story.tsx$/);
 
 function loadStories() {
-  addDecorator(withInfo);
-  req.keys().forEach(req);
+    addDecorator(withInfo);
+    addDecorator(withAtlantic);
+    req.keys().forEach(req);
 }
-
 configure(loadStories, module);
