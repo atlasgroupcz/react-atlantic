@@ -1,14 +1,26 @@
-import { Size, Type, CommonHTMLProps } from '../../../types';
-import { MouseEvents } from '../../../types/HTMLEvents';
+import {
+    CommonHTMLProps,
+    MouseEvents,
+    SizeWithDocs,
+    Type,
+    TypeWithDocs,
+} from '../../../types';
 
 export type ButtonStyleType = Type | 'dashed';
 
+type ButtonTypeWithDocs =
+    | TypeWithDocs
+    | {
+          /** dashed */
+          type?: ButtonStyleType;
+      };
+
 export type ButtonProps = {
-    type?: ButtonStyleType;
     isRound?: boolean;
     isDisabled?: boolean;
-    size?: Size;
     isFullWidth?: boolean;
     isTransparent?: boolean;
-} & CommonHTMLProps<HTMLButtonElement> &
-    MouseEvents<HTMLButtonElement>;
+} & CommonHTMLProps &
+    MouseEvents<HTMLButtonElement> &
+    SizeWithDocs &
+    ButtonTypeWithDocs;
