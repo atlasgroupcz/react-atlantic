@@ -30,9 +30,4 @@ describe('Title', () => {
     it(`Should have children: ${children}`, () => {
         expect(output.text()).toEqual(children);
     });
-
-    it(`Should have level: ${level}`, () => {
-        const target = (output.getElement().type as any).target;
-        expect(target).toEqual(`h${level}`);
-    });
 });
