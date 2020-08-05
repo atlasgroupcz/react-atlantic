@@ -1,7 +1,6 @@
 import styled, { css } from 'styled-components';
-import { theme, ThemeType } from '../../theme';
-import { Type } from '../../types';
-import { ElementProps } from '../../types/utils/ElementProps';
+import { ThemeType } from '../../../theme';
+import { TextProps } from './Text';
 
 export const getDefaultStyledText = (props: { theme: ThemeType }) => css`
     color: ${props.theme.color.text.alpha};
@@ -27,13 +26,7 @@ export const getDefaultStyledText = (props: { theme: ThemeType }) => css`
     }
 `;
 
-export interface StyledTextProps extends ElementProps {}
-
-export interface StyledTextPropsWithType extends StyledTextProps {
-    type: Type;
-}
-
-export const StyledText = styled.span<StyledTextPropsWithType>`
+export const StyledText = styled.span<TextProps>`
   ${getDefaultStyledText};
   
   ${(props) =>
@@ -61,7 +54,7 @@ export const StyledText = styled.span<StyledTextPropsWithType>`
       `}
 `;
 
-export const StyledStrongText = styled.strong<StyledTextPropsWithType>`
+export const StyledStrongText = styled.strong<TextProps>`
   ${getDefaultStyledText};
 
   font-weight: 600;
@@ -91,13 +84,13 @@ export const StyledStrongText = styled.strong<StyledTextPropsWithType>`
       `}
 `;
 
-export const StyledMarkText = styled.mark<StyledTextPropsWithType>`
+export const StyledMarkText = styled.mark<TextProps>`
     ${getDefaultStyledText};
     padding: 0 ${(props) => props.theme.padding.xs};
     background-color: ${(props) => props.theme.color.warning.gamma};
 `;
 
-export const StyledCodeText = styled.code<StyledTextPropsWithType>`
+export const StyledCodeText = styled.code<TextProps>`
     ${getDefaultStyledText};
     margin: 0 ${(props) => props.theme.margin.sm};
     font-size: ${(props) => props.theme.font.size.sm};
@@ -108,37 +101,8 @@ export const StyledCodeText = styled.code<StyledTextPropsWithType>`
         ${(props) => props.theme.padding.md};
 `;
 
-export const StyledInsText = styled.ins<StyledTextPropsWithType>`
-    ${getDefaultStyledText};
-    padding: 0 ${(props) => props.theme.padding.xs};
-    background-color: ${(props) => props.theme.color.success.gamma};
-`;
-
-export const StyledDelText = styled.del<StyledTextPropsWithType>`
+export const StyledDelText = styled.del<TextProps>`
     ${getDefaultStyledText};
     padding: 0 ${(props) => props.theme.padding.xs};
     background-color: ${(props) => props.theme.color.error.gamma};
 `;
-
-StyledText.defaultProps = {
-    theme,
-};
-
-StyledStrongText.defaultProps = {
-    theme,
-};
-
-StyledMarkText.defaultProps = {
-    theme,
-};
-
-StyledCodeText.defaultProps = {
-    theme,
-};
-
-StyledInsText.defaultProps = {
-    theme,
-};
-StyledDelText.defaultProps = {
-    theme,
-};
