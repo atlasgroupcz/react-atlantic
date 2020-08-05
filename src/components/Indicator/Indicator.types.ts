@@ -1,8 +1,10 @@
-import { CommonHTMLProps, Size, Type, WithoutChildren } from '../../types';
+import {
+    CommonHTMLProps,
+    SizeWithDocs,
+    TypeWithDocs,
+    WithoutChildren,
+} from '../../types';
 
 export type IndicatorProps = WithoutChildren<
-    {
-        type?: Type;
-        size?: Size;
-    } & CommonHTMLProps<HTMLElement>
+    CommonHTMLProps<HTMLElement> & TypeWithDocs & SizeWithDocs
 >;
