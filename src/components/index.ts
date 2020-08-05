@@ -1,3 +1,4 @@
+export * from './Badge';
 export * from './Button';
 export * from './Device';
 export * from './Input';
