@@ -20,6 +20,6 @@ jobs:
             - run: yarn install
             - run: yarn typecheck
             - run: yarn lint
-            - run: yarn test --if-present
+            - run: yarn run test --if-present
               env:
                   CI: true
