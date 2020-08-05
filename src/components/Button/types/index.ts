@@ -20,7 +20,7 @@ export type ButtonProps = {
     isDisabled?: boolean;
     isFullWidth?: boolean;
     isTransparent?: boolean;
-} & CommonHTMLProps &
+} & CommonHTMLProps<HTMLButtonElement> &
     MouseEvents<HTMLButtonElement> &
     SizeWithDocs &
     ButtonTypeWithDocs;
