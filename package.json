@@ -21,7 +21,8 @@
         "build:storybook": "build-storybook -s public",
         "test": "cross-env NODE_ENV=test jest",
         "build": "cross-env NODE_ENV=production babel src -d lib --extensions .ts,.tsx --config-file ./babelrc.build.json && tsc -p ./tsconfig.build.json",
-        "lint": "eslint -c ./.eslintrc.json"
+        "lint": "eslint -c ./.eslintrc.json",
+        "typecheck": "tsc --noEmit"
     },
     "browserslist": [
         ">0.2%",
