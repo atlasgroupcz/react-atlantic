@@ -3,14 +3,12 @@ import { MouseEvents } from '../../../types/HTMLEvents';
 
 export type ButtonStyleType = Type | 'dashed';
 
-export type StyledButtonProps = {
+export type ButtonProps = {
     type?: ButtonStyleType;
     isRound?: boolean;
+    isDisabled?: boolean;
     size?: Size;
     isFullWidth?: boolean;
-    animationRunning?: boolean;
     isTransparent?: boolean;
-} & CommonHTMLProps &
-    MouseEvents;
-
-export type ButtonProps = Omit<StyledButtonProps, ''>;
+} & CommonHTMLProps<HTMLButtonElement> &
+    MouseEvents<HTMLButtonElement>;

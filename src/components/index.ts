@@ -1,4 +1,5 @@
 export * from './Badge';
+export * from './Indicator';
 export * from './Button';
 export * from './Device';
 export * from './Input';

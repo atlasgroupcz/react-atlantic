@@ -1,8 +1,12 @@
+import React from 'react';
 import styled, { css } from 'styled-components';
-import { theme } from '../../../../theme';
-import { StyledInputProps } from '../../types';
+import { InputProps } from '../../types';
 
-export const StyledInput = styled.input<StyledInputProps>`
+export const StyledInput = styled(
+    ({ size, isRound, isFullWidth, isDisabled, ...props }: InputProps) => (
+        <input {...props} />
+    )
+)<InputProps>`
   font-family: ${(props) => props.theme.font.family};
   padding: ${(props) => props.theme.padding.sm} ${(props) =>
     props.theme.padding.md};
@@ -47,7 +51,7 @@ export const StyledInput = styled.input<StyledInputProps>`
   }
 
   ${(props) =>
-      props.disabled &&
+      props.isDisabled &&
       css`
           color: ${props.theme.color.text.beta};
           ::placeholder {
@@ -81,7 +85,7 @@ export const StyledInput = styled.input<StyledInputProps>`
       `} 
 
   ${(props) =>
-      props.inputSize === 'small' &&
+      props.size === 'small' &&
       css`
           width: 180px;
           height: ${props.theme.height.sm};
@@ -94,7 +98,7 @@ export const StyledInput = styled.input<StyledInputProps>`
       `} 
   
     ${(props) =>
-        props.inputSize === 'large' &&
+        props.size === 'large' &&
         css`
             width: 220px;
             height: ${props.theme.height.lg};
@@ -113,7 +117,3 @@ export const StyledInput = styled.input<StyledInputProps>`
             width: 100%;
         `} 
 `;
-
-StyledInput.defaultProps = {
-    theme,
-};
