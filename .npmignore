@@ -1,0 +1,16 @@
+# dirs
+stories
+tests
+.github
+.storybook
+storybook-static
+
+# config
+.prettierrc
+.prettierignore
+.eslintignore
+.eslintrc
+.babelrc.build.json
+.babelrc
+.commitlint.config.json
+jest.config.js
