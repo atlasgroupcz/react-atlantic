@@ -5,19 +5,19 @@ import { storiesOf } from '@storybook/react';
 import { defaultValues } from './constants';
 import {
     ControllerInputProps,
+    Input,
     InputProps,
-    InputView,
     Size,
     StyledInputProps,
 } from '../src';
-import { Input } from '../src/components/Input/Input';
+import { InputHoc } from '../src/components/Input/Input';
 
 const stories = storiesOf('Input', module);
 
 stories.addDecorator(withKnobs);
 
 //Input-HOC
-stories.add('Overview', () => <Input size={'large'} />, {
+stories.add('Overview', () => <InputHoc size={'large'} />, {
     info: { inline: true },
 });
 
@@ -64,7 +64,7 @@ stories.add(
             value,
         };
 
-        const button = <InputView {...styledProps} {...controlProps} />;
+        const button = <Input {...styledProps} {...controlProps} />;
 
         return button;
     },

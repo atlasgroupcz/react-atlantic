@@ -4,6 +4,6 @@ import { InputProps } from '../types';
 import { FC } from 'react';
 
 export type InputType = FC<InputProps>;
-export const InputView: InputType = (props) => {
+export const Input: InputType = (props) => {
     return <StyledInput {...props} />;
 };

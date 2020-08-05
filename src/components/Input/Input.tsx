@@ -1,18 +1,18 @@
 import React, { FC } from 'react';
-import { useInputChange } from './Controller';
-import { InputView } from './View';
 import { InputEventProps, StyledInputProps } from './types';
 import { HTMLInputDefaultElementProps } from '../../types';
+import { useInputChange } from './hooks';
+import { Input } from './view';
 
 type InputType = FC<
     StyledInputProps & HTMLInputDefaultElementProps & InputEventProps
 >;
 
-export const Input: InputType = ({ defaultValue, ...props }) => {
+export const InputHoc: InputType = ({ defaultValue, ...props }) => {
     const handlers = useInputChange({
         defaultValue,
         onChange: props?.onChange,
     });
 
-    return <InputView {...handlers} {...props} />;
+    return <Input {...handlers} {...props} />;
 };
