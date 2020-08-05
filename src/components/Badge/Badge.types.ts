@@ -6,4 +6,4 @@ export type BadgeProps = {
     type?: Type;
     /** small | medium | large */
     size?: Size;
-};
+} & CommonHTMLProps;
