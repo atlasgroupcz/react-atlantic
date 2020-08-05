@@ -1,22 +1,44 @@
 name: 'publish'
 
 on:
-  push:
-    branches:
-      - 'master'
+    push:
+        branches:
+            - 'master'
 
 jobs:
-  publish:
-    name: 'Publish'
-    runs-on: 'ubuntu-latest'
+    release:
+        name: 'Release'
+        runs-on: 'ubuntu-latest'
+        if: "!contains(github.event.head_commit.message,'#no-release')"
 
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: '12.x'
-          registry-url: 'https://registry.npmjs.org'
-      - run: yarn
-      - run: npm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        steps:
+            - uses: actions/checkout@master
+            - uses: actions/setup-node@v1
+              with:
+                  node-version: '12.x'
+                  registry-url: 'https://registry.npmjs.org'
+
+            - name: get-npm-version
+              id: package-version
+              uses: martinbeentjes/npm-get-version-action@master
+
+            - uses: 'marvinpinto/action-automatic-releases@latest'
+              with:
+                  repo_token: '${{ secrets.GITHUB_TOKEN }}'
+                  automatic_release_tag: '${{ steps.package-version.outputs.current-version }}'
+                  prerelease: false
+    publish:
+        name: 'Publish'
+        runs-on: 'ubuntu-latest'
+        if: "!contains(github.event.head_commit.message,'#no-publish')"
+
+        steps:
+            - uses: actions/checkout@v2
+            - uses: actions/setup-node@v1
+              with:
+                  node-version: '12.x'
+                  registry-url: 'https://registry.npmjs.org'
+            - run: yarn install
+            - run: npm publish --access public
+              env:
+                  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
