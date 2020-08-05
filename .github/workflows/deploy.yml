@@ -13,9 +13,9 @@ jobs:
 
         steps:
             - uses: actions/checkout@v2
-            - uses: fusion-engineering/setup-git-credentials@v2
+            - uses: oleksiyrudenko/gha-git-credentials@v1
               with:
-                  credentials: ${{secrets.GIT_CREDENTIALS}}
+                  token: '${{ secrets.GITHUB_TOKEN }}'
             - uses: actions/setup-node@v1
               with:
                   node-version: '12.x'
