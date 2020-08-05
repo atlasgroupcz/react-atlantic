@@ -4,14 +4,33 @@ import {
     FormEvents,
     KeyboardEvents,
     FocusEvents,
+    HTMLInputElementProps,
+    HTMLInputDefaultElementProps,
 } from '../../../types';
+import { ElementProps } from '../../../types/utils';
 
-export type InputProps = {
+type InputElementExtraProps = Pick<
+    ElementProps<HTMLInputElement>,
+    'placeholder'
+>;
+
+export type StyledInputProps = {
     isRound?: boolean;
     size: Size;
     isFullWidth?: boolean;
     isDisabled?: boolean;
-} & CommonHTMLProps<HTMLInputElement> &
-    FormEvents<HTMLInputElement> &
+} & InputElementExtraProps;
+
+type InputElementProps = HTMLInputElementProps &
+    HTMLInputDefaultElementProps &
+    InputElementExtraProps;
+
+export type InputEventProps = FormEvents<HTMLInputElement> &
     KeyboardEvents<HTMLInputElement> &
     FocusEvents<HTMLInputElement>;
+
+export type ControllerInputProps = CommonHTMLProps<HTMLInputElement> &
+    InputEventProps &
+    InputElementProps;
+
+export type InputProps = StyledInputProps & ControllerInputProps;
