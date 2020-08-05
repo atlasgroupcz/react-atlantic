@@ -1,7 +1,7 @@
 {
     "name": "@atlasgroup/react-atlantic",
     "version": "0.1.0",
-    "private": true,
+    "private": false,
     "dependencies": {
         "d3-ease": "^1.0.6",
         "react": "^16.13.1",
