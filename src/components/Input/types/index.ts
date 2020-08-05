@@ -1,9 +1,9 @@
 import {
+    Size,
     CommonHTMLProps,
-    FocusEvents,
     FormEvents,
     KeyboardEvents,
-    Size,
+    FocusEvents,
 } from '../../../types';
 
 export type InputProps = {
@@ -11,7 +11,7 @@ export type InputProps = {
     size: Size;
     isFullWidth?: boolean;
     isDisabled?: boolean;
-} & CommonHTMLProps &
+} & CommonHTMLProps<HTMLInputElement> &
     FormEvents<HTMLInputElement> &
     KeyboardEvents<HTMLInputElement> &
     FocusEvents<HTMLInputElement>;

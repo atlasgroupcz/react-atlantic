@@ -1,3 +1,6 @@
 import { ElementProps } from './utils';
 
-export type CommonHTMLProps = Pick<ElementProps, 'id' | 'className' | 'ref'>;
+export type CommonHTMLProps<T extends HTMLElement = HTMLElement> = Pick<
+    ElementProps<T>,
+    'id' | 'className' | 'ref'
+>;
