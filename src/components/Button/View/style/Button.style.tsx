@@ -2,7 +2,7 @@ import React from 'react';
 import { css, keyframes } from 'styled-components';
 import { StyledIcon } from '../../../Icon/Icon.style';
 import { ButtonProps } from '../../types';
-import { StyledText } from '../../../Text/Text.style';
+import { StyledText } from '../../../Typography/Text/Text.style';
 import { styled } from '../../../../styled';
 
 const focusAnimation = keyframes`

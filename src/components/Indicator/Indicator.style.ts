@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components';
-import { theme } from '../../theme';
 import { IndicatorProps } from './Indicator.types';
 
 export const StyledIndicator = styled.sup<IndicatorProps>`
@@ -54,7 +53,3 @@ export const StyledIndicator = styled.sup<IndicatorProps>`
           border-radius: ${props.theme.padding.lg};
       `}
 `;
-
-StyledIndicator.defaultProps = {
-    theme,
-};
