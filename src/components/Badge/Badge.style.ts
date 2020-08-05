@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components';
-import { theme } from '../../theme';
 import { BadgeProps } from './Badge.types';
 
 export const StyledBadge = styled.sup<BadgeProps>`
@@ -63,7 +62,3 @@ export const StyledBadge = styled.sup<BadgeProps>`
               font-size: ${props.theme.font.size.lg};
           `}
 `;
-
-StyledBadge.defaultProps = {
-    theme,
-};

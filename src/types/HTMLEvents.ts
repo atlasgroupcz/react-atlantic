@@ -1,18 +1,18 @@
 import {
+    AnimationEventHandler,
     ClipboardEventHandler,
     CompositionEventHandler,
+    DragEventHandler,
     FocusEventHandler,
     FormEventHandler,
     KeyboardEventHandler,
-    ReactEventHandler,
-    PointerEventHandler,
-    UIEventHandler,
-    AnimationEventHandler,
-    TransitionEventHandler,
-    WheelEventHandler,
     MouseEventHandler,
-    DragEventHandler,
+    PointerEventHandler,
+    ReactEventHandler,
     TouchEventHandler,
+    TransitionEventHandler,
+    UIEventHandler,
+    WheelEventHandler,
 } from 'react';
 
 type FallbackType = Element;
@@ -120,15 +120,7 @@ export type MediaEvents<T extends ConstraintType = FallbackType> = {
     onWaitingCapture?: ReactEventHandler<T>;
 };
 
-export type MouseEvents<T extends ConstraintType = FallbackType> = {
-    onAuxClick?: MouseEventHandler<T>;
-    onAuxClickCapture?: MouseEventHandler<T>;
-    onClick?: MouseEventHandler<T>;
-    onClickCapture?: MouseEventHandler<T>;
-    onContextMenu?: MouseEventHandler<T>;
-    onContextMenuCapture?: MouseEventHandler<T>;
-    onDoubleClick?: MouseEventHandler<T>;
-    onDoubleClickCapture?: MouseEventHandler<T>;
+export type DragEvents<T extends ConstraintType = FallbackType> = {
     onDrag?: DragEventHandler<T>;
     onDragCapture?: DragEventHandler<T>;
     onDragEnd?: DragEventHandler<T>;
@@ -145,6 +137,17 @@ export type MouseEvents<T extends ConstraintType = FallbackType> = {
     onDragStartCapture?: DragEventHandler<T>;
     onDrop?: DragEventHandler<T>;
     onDropCapture?: DragEventHandler<T>;
+};
+
+export type MouseEvents<T extends ConstraintType = FallbackType> = {
+    onAuxClick?: MouseEventHandler<T>;
+    onAuxClickCapture?: MouseEventHandler<T>;
+    onClick?: MouseEventHandler<T>;
+    onClickCapture?: MouseEventHandler<T>;
+    onContextMenu?: MouseEventHandler<T>;
+    onContextMenuCapture?: MouseEventHandler<T>;
+    onDoubleClick?: MouseEventHandler<T>;
+    onDoubleClickCapture?: MouseEventHandler<T>;
     onMouseDown?: MouseEventHandler<T>;
     onMouseDownCapture?: MouseEventHandler<T>;
     onMouseEnter?: MouseEventHandler<T>;
