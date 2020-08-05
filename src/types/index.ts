@@ -8,3 +8,4 @@ export * from './Type';
 export * from './VerticalPosition';
 export * from './HTMLEvents';
 export * from './PropsWithoutChildren';
+export * from './HTMLInputProps';
