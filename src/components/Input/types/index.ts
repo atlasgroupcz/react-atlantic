@@ -1,23 +1,17 @@
-import { ElementProps } from '../../../types/utils';
-import { Size, CommonHTMLProps } from '../../../types';
-import { PartitionProps } from '../../../types/utils';
+import {
+    Size,
+    CommonHTMLProps,
+    FormEvents,
+    KeyboardEvents,
+    FocusEvents,
+} from '../../../types';
 
-type HTMLInputProps = ElementProps<HTMLInputElement>;
-type NewStyledInputProps = {
+export type InputProps = {
     isRound?: boolean;
-    inputSize: Size;
+    size: Size;
     isFullWidth?: boolean;
-};
-
-type InputPropsPartition = PartitionProps<
-    NewStyledInputProps,
-    HTMLInputProps,
-    CommonHTMLProps | 'onFocus' | 'onBlur' | 'onChange'
->;
-
-export type StyledInputProps = InputPropsPartition['main'] &
-    InputPropsPartition['rest'];
-
-export type InputProps = InputPropsPartition['main'] & {
-    htmlProps: InputPropsPartition['rest'];
-};
+    isDisabled?: boolean;
+} & CommonHTMLProps<HTMLInputElement> &
+    FormEvents<HTMLInputElement> &
+    KeyboardEvents<HTMLInputElement> &
+    FocusEvents<HTMLInputElement>;

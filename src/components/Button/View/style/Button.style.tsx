@@ -1,8 +1,9 @@
-import styled, { css, keyframes } from 'styled-components';
-
+import React from 'react';
+import { css, keyframes } from 'styled-components';
 import { StyledIcon } from '../../../Icon/Icon.style';
-import { StyledButtonProps } from '../../types';
+import { ButtonProps } from '../../types';
 import { StyledText } from '../../../Text/Text.style';
+import { styled } from '../../../../styled';
 
 const focusAnimation = keyframes`
     0%    {
@@ -22,7 +23,16 @@ const focusAnimation = keyframes`
     }
 `;
 
-const DefaultButton = styled.button`
+const DefaultButton = styled(
+    ({
+        isFullWidth,
+        isRound,
+        isTransparent,
+        isDisabled,
+        type,
+        ...props
+    }: ButtonProps) => <button {...props} />
+)<ButtonProps>`
     position: relative;
     display: inline-block;
     padding: 0 ${(props) => props.theme.padding.md};
@@ -80,11 +90,10 @@ const DefaultButton = styled.button`
     }
 `;
 
-export const StyledButton = styled(DefaultButton)<StyledButtonProps>`
+export const StyledButton = styled(DefaultButton)<ButtonProps>`
 ${(props) =>
-    !props.disabled &&
+    !props.isDisabled &&
     props.isTransparent &&
-    props.animationRunning &&
     css`
         &:after {
             content: '';
@@ -163,7 +172,7 @@ ${(props) =>
   }}
 
   ${(props) =>
-      props.disabled &&
+      props.isDisabled &&
       css`
           background-color: ${props.theme.color.default};
           color: ${props.theme.color.text.beta};
