@@ -27,7 +27,7 @@ export const getDefaultStyledText = (props: { theme: ThemeType }) => css`
     }
 `;
 
-export interface StyledTextProps extends ElementProps<HTMLElement> {}
+export interface StyledTextProps extends ElementProps {}
 
 export interface StyledTextPropsWithType extends StyledTextProps {
     type: Type;

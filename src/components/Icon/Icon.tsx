@@ -1,7 +1,7 @@
 import React from 'react';
 import * as Icons from '../../Icons';
 import { StyledIcon } from './Icon.style';
-import { ElementProps } from '../../types/utils/ElementProps';
+import { ElementProps } from '../../types/utils';
 
 export const IconsMap = {
     arrowsVertical: 'arrowsVertical',
@@ -136,7 +136,7 @@ export const IconsMap = {
 
 export type IconName = keyof typeof IconsMap;
 
-export interface IconProps extends ElementProps<HTMLElement> {
+export interface IconProps extends ElementProps {
     name: IconName;
     isRotating?: boolean;
 }

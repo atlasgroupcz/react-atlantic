@@ -1,10 +1,10 @@
 import {
     CommonHTMLProps,
+    PropsWithoutChildren,
     SizeWithDocs,
     TypeWithDocs,
-    WithoutChildren,
 } from '../../types';
 
-export type IndicatorProps = WithoutChildren<
-    CommonHTMLProps<HTMLElement> & TypeWithDocs & SizeWithDocs
+export type IndicatorProps = PropsWithoutChildren<
+    CommonHTMLProps & TypeWithDocs & SizeWithDocs
 >;

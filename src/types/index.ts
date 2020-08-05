@@ -7,4 +7,4 @@ export * from './Size';
 export * from './Type';
 export * from './VerticalPosition';
 export * from './HTMLEvents';
-export * from './WithoutChildren';
+export * from './PropsWithoutChildren';
