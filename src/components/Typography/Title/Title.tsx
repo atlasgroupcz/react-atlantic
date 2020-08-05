@@ -26,6 +26,6 @@ const levels = {
 export const Title: FC<PropsWithChildren<TitleProps>> = ({
     level = 1,
     children,
-}) => levels[level]?.(children) || levels[1](children);
+}) => <>{levels[level]?.(children) || levels[1](children)}</>;
 
 Title.displayName = `Title`;

@@ -23,5 +23,6 @@ const elements = {
     mark: (props: TextProps) => <StyledMarkText {...props} />,
 };
 
-export const Text: FC<TextProps> = ({ element = 'span', ...props }) =>
-    elements[element]?.(props) || elements['span'](props);
+export const Text: FC<TextProps> = ({ element = 'span', ...props }) => (
+    <>{elements[element]?.(props) || elements['span'](props)}</>
+);
