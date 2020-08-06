@@ -1,5 +1,5 @@
-import React, { FC } from 'react';
-import { shallow } from 'enzyme';
+import React, { FC, ReactElement } from 'react';
+import { EnzymePropSelector, shallow, ShallowWrapper } from 'enzyme';
 import { InputBase } from '../src/components/Input/view/base';
 import { InputWrapper } from '../src/components/Input/view/composed/withFix';
 import { InputFixProps } from '../src/components/Input/view/composed/withFix/types';
@@ -21,17 +21,17 @@ const mockComposedProps: InputFixProps = {
 const mockPropsCheckTest = <T extends {}>(
     mockProps: T,
     Component: FC<T>,
-    findSelector?: string
+    subComponent?: FC<T>
 ) => {
-    Object.keys(mockProps).forEach((key) => {
+    (Object.keys(mockProps) as (keyof T)[]).forEach((key) => {
         it(`${key} should be ${mockProps[key]}`, () => {
-            const inputBase = shallow(<Component {...mockProps} />);
-            if (findSelector) {
-                expect(inputBase.find(findSelector)?.props()?.[key]).toEqual(
-                    mockProps[key]
-                );
+            const shallowWrapper = shallow(<Component {...mockProps} />);
+            if (subComponent) {
+                expect(
+                    shallowWrapper.find(subComponent)?.props()?.[key]
+                ).toEqual(mockProps[key]);
             } else {
-                expect(inputBase.props()?.[key]).toEqual(mockProps[key]);
+                expect(shallowWrapper.props()?.[key]).toEqual(mockProps[key]);
             }
         });
     });
@@ -50,8 +50,8 @@ describe('InputWrapper', () => {
     const { prefix, suffix, ...others } = mockComposedProps;
     it('should render InputWrapper', () => {
         const inputWrapper = shallow(<InputWrapper />);
-        expect(inputWrapper.find).toBeDefined();
+        expect(inputWrapper).toBeDefined();
     });
 
-    mockPropsCheckTest(others, InputWrapper, 'InputBase');
+    mockPropsCheckTest(others, InputWrapper, InputBase);
 });
