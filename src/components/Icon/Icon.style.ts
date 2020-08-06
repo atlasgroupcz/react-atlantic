@@ -1,7 +1,6 @@
-import { animated } from 'react-spring/web.cjs';
 import styled, { css, keyframes } from 'styled-components';
 import { theme } from '../../theme';
-import { IconProps } from './Icon';
+import { IconProps } from './types';
 
 export const spin = () => {
     return keyframes`
@@ -37,8 +36,6 @@ export const StyledIcon = styled.i<IconProps>`
             animation: ${spin} 4s linear infinite;
         `}
 `;
-
-export const StyledSVG = styled(animated.svg)``;
 
 StyledIcon.defaultProps = {
     theme,
