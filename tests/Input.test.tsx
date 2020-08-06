@@ -14,6 +14,8 @@ const mockBaseProps: InputProps = {
 
 const mockComposedProps: InputFixProps = {
     ...mockBaseProps,
+    prefix: <div>one</div>,
+    suffix: <div>two</div>,
 };
 
 const mockPropsCheckTest = <T extends {}>(
@@ -22,7 +24,7 @@ const mockPropsCheckTest = <T extends {}>(
     findSelector?: string
 ) => {
     Object.keys(mockProps).forEach((key) => {
-        it(`${key} should be round ${mockProps[key]}`, () => {
+        it(`${key} should be ${mockProps[key]}`, () => {
             const inputBase = shallow(<Component {...mockProps} />);
             if (findSelector) {
                 expect(inputBase.find(findSelector)?.props()?.[key]).toEqual(
@@ -45,10 +47,11 @@ describe('InputBase', () => {
 });
 
 describe('InputWrapper', () => {
+    const { prefix, suffix, ...others } = mockComposedProps;
     it('should render InputWrapper', () => {
         const inputWrapper = shallow(<InputWrapper />);
         expect(inputWrapper.find).toBeDefined();
     });
 
-    mockPropsCheckTest(mockComposedProps, InputWrapper, 'InputBase');
+    mockPropsCheckTest(others, InputWrapper, 'InputBase');
 });
