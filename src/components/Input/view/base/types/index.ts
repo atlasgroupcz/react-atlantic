@@ -6,6 +6,7 @@ import {
     HTMLInputDefaultElementProps,
     HTMLInputElementProps,
     KeyboardEvents,
+    PropsWithoutChildren,
     Size,
 } from '../../../../../types';
 
@@ -16,6 +17,7 @@ type InputElementExtraProps = Pick<
 
 export type StyledInputProps = {
     isRound?: boolean;
+    /** small | medium | large */
     size?: Size;
     isFullWidth?: boolean;
     isDisabled?: boolean;
@@ -33,4 +35,6 @@ export type ControllerInputProps = CommonHTMLProps<HTMLInputElement> &
     InputEventProps &
     InputElementProps;
 
-export type InputProps = StyledInputProps & ControllerInputProps;
+export type InputProps = PropsWithoutChildren<
+    StyledInputProps & ControllerInputProps
+>;
