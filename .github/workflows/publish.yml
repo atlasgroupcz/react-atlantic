@@ -16,7 +16,7 @@ jobs:
               with:
                   node-version: '12.x'
                   registry-url: 'https://registry.npmjs.org'
-                  scope: '@atlasgroup'
+                  scope: 'atlasgroup'
             - run: yarn install
             - run: yarn publish
             - uses: actions/checkout@master
