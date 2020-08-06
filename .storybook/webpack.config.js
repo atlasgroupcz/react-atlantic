@@ -1,10 +1,31 @@
+const path = require('path');
+
 module.exports = ({ config }) => {
     config.module.rules.push({
         test: /\.tsx?$|\.jsx?$/,
         exclude: /node_modules/,
         use: [
-            require.resolve('babel-loader'),
-            require.resolve('react-docgen-typescript-loader'),
+            {
+                loader: require.resolve('babel-loader'),
+                options: {
+                    cacheDirectory: true,
+                    presets: [
+                        [
+                            'react-app',
+                            {
+                                flow: false,
+                                typescript: true,
+                            },
+                        ],
+                    ],
+                },
+            },
+            {
+                loader: require.resolve('react-docgen-typescript-loader'),
+                options: {
+                    tsconfigPath: path.resolve(__dirname, '../tsconfig.json'),
+                },
+            },
         ],
     });
 
