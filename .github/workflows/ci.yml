@@ -18,11 +18,9 @@ jobs:
             - uses: actions/checkout@v2
             - name: Use Node.js ${{ matrix.node-version }}
               uses: actions/setup-node@v1
-            - name: setup yarn
-              run: yarn install
+            - run: yarn install
             - run: yarn typecheck
             - run: yarn lint
             - run: yarn test
               env:
                   CI: true
-                  YARN_REGISTRY: https://registry.npmjs.org/
