@@ -16,7 +16,7 @@ type InputElementExtraProps = Pick<
 
 export type StyledInputProps = {
     isRound?: boolean;
-    size: Size;
+    size?: Size;
     isFullWidth?: boolean;
     isDisabled?: boolean;
 } & InputElementExtraProps;

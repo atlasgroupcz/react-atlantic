@@ -4,6 +4,6 @@ import { InputProps } from './types';
 
 export type InputBaseType = FC<InputProps>;
 
-export const InputBase: InputBaseType = (props) => {
-    return <StyledInput {...props} />;
+export const InputBase: InputBaseType = ({ size = 'medium', ...props }) => {
+    return <StyledInput {...props} size={size} />;
 };
