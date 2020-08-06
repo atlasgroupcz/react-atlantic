@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
-import { InputEventProps, StyledInputProps } from './types';
 import { HTMLInputDefaultElementProps } from '../../types';
-import { useInputChange } from './hooks';
 import { Input } from './view';
+import { InputEventProps, StyledInputProps } from './view/base/types';
+import { useInputChange } from './hooks';
 
 type InputType = FC<
     StyledInputProps & HTMLInputDefaultElementProps & InputEventProps

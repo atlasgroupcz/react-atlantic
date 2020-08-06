@@ -5,12 +5,12 @@ import { storiesOf } from '@storybook/react';
 import { defaultValues } from './constants';
 import { Icon, Input, Size } from '../src';
 import { InputHoc } from '../src/components/Input/Input';
+import { InputWrapper } from '../src/components/Input/view/composed/withFix';
 import {
     ControllerInputProps,
     InputProps,
     StyledInputProps,
 } from '../src/components/Input/view/base/types';
-import { InputWrapper } from '../src/components/Input/view/composed/withFix';
 
 const stories = storiesOf('Input', module);
 
