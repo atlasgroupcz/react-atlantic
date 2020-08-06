@@ -1,7 +1,11 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { HTMLInputDefaultElementProps } from '../../../types';
-import { ControllerInputProps, InputEventProps, InputProps } from '../types';
 import { useCallback } from 'react';
+import {
+    InputEventProps,
+    ControllerInputProps,
+    InputProps,
+} from '../view/base/types';
 
 type UseInputChangeType = (
     args: HTMLInputDefaultElementProps & Pick<InputEventProps, 'onChange'>
