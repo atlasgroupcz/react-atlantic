@@ -6,30 +6,68 @@ import { CollapseProviderProps } from './context';
 export interface DemoProps {}
 export type DemoType = FC<DemoProps>;
 
+//TODO!: create controller for collapse :]
 export const Demo: DemoType = () => {
     const [activeKeys, setActiveKeys] = useState<
         CollapseProviderProps['activeKey']
     >(1);
+    const [activeKeys2, setActiveKeys2] = useState<
+        CollapseProviderProps['activeKey']
+    >(2);
 
-    console.log(activeKeys);
+    const [activeKeys3, setActiveKeys3] = useState<
+        CollapseProviderProps['activeKey']
+    >(2);
 
-    return (
+    const part = (
         <>
             <Collapse
                 activeKey={activeKeys}
                 setActiveKey={setActiveKeys}
                 accordion
             >
-                <Panel header="ahoj" unique="1">
+                <Panel header="level1 - 1" unique="1">
                     <p>prdel 1</p>
                 </Panel>
-                <Panel header="ahoj" unique="2">
+                <Collapse
+                    activeKey={activeKeys2}
+                    setActiveKey={setActiveKeys2}
+                    accordion
+                >
+                    <Panel header="level2 - 1" unique="1">
+                        <p>prdel 1</p>
+                    </Panel>
+                    <Collapse
+                        activeKey={activeKeys3}
+                        setActiveKey={setActiveKeys3}
+                        accordion
+                    >
+                        <Panel header="level3 - 1" unique="1">
+                            <p>prdel 1</p>
+                        </Panel>
+                        <Panel header="level3 - 2" unique="2">
+                            <p>prdel 2</p>
+                        </Panel>
+                        <Panel header="level3 - 3" unique="3">
+                            <p>prdel 3</p>
+                        </Panel>
+                    </Collapse>
+                    <Panel header="level2 - 2" unique="2">
+                        <p>prdel 2</p>
+                    </Panel>
+                    <Panel header="level2 - 3" unique="3">
+                        <p>prdel 3</p>
+                    </Panel>
+                </Collapse>
+                <Panel header="level1 - 2" unique="2">
                     <p>prdel 2</p>
                 </Panel>
-                <Panel header="ahoj" unique="3">
+                <Panel header="level1 - 3" unique="3">
                     <p>prdel 3</p>
                 </Panel>
             </Collapse>
         </>
     );
+
+    return <>{part}</>;
 };
