@@ -1,15 +1,20 @@
-import { PropsWithChildren, ReactNode } from 'react';
-import { IconProps } from '../..';
+import { PropsWithChildren, Dispatch, SetStateAction } from 'react';
 import { CollapseIconFactoryType } from '../types';
 
 export * from './Context';
 
 export type CollapseProviderPropsWithChildren = PropsWithChildren<
-    CollapseProviderProps
+    CollapseProviderProps & {
+        expandIcon: CollapseIconFactoryType;
+    }
 >;
 
 export type CollapseProviderProps = {
     activeKey: string[] | string | number[] | number;
     accordion?: boolean;
-    expandIcon: CollapseIconFactoryType;
+    setActiveKey: SetActiveKey;
 };
+
+type SetActiveKey = Dispatch<
+    SetStateAction<CollapseProviderProps['activeKey']>
+>;

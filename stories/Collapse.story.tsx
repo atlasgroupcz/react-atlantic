@@ -1,9 +1,9 @@
 import React from 'react';
-import { action } from '@storybook/addon-actions';
-import { boolean, select, withKnobs } from '@storybook/addon-knobs';
+import { withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import { Collapse } from '../src/components/Collapse';
 import { Panel } from '../src/components/Collapse/Panel';
+import { Demo } from '../src/components/Collapse/demo';
 
 const stories = storiesOf('Collapse', module);
 
@@ -13,17 +13,7 @@ stories.add(
     'Overview',
     () => (
         <>
-            <Collapse activeKey={[1, 2]}>
-                <Panel header="ahoj" unique="1">
-                    <p>prdel 1</p>
-                </Panel>
-                <Panel header="ahoj" unique="2">
-                    <p>prdel 2</p>
-                </Panel>
-                <Panel header="ahoj" unique="3">
-                    <p>prdel 3</p>
-                </Panel>
-            </Collapse>
+            <Demo />
         </>
     ),
     {

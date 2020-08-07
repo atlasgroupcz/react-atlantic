@@ -1,4 +1,4 @@
-import React, { FC, useMemo, ReactElement } from 'react';
+import React, { FC, useMemo, useCallback } from 'react';
 import { StyledPanel, StyledPanelHeader, StyledPanelContent } from './style';
 import { PanelProps } from './types';
 import { useCollapseContext } from '../context';
@@ -11,22 +11,37 @@ export const Panel: PanelType = ({
     unique,
     header,
     isDisabled,
+    onClick,
     ...props
 }) => {
-    const { activeKey } = useCollapseContext();
+    const { activeKey, expandIcon, setActiveKey } = useCollapseContext();
 
     const isActive = useMemo(() => isActiveKey(unique, activeKey), [
         unique,
         activeKey,
     ]);
 
+    console.log(activeKey, unique);
+
+    const handleClick = useCallback(
+        (e) => {
+            setActiveKey(unique);
+            onClick?.(e);
+        },
+        [unique, setActiveKey, onClick]
+    );
+
     return (
         <StyledPanel {...props}>
-            {isActive ? (
-                <StyledPanelContent>{children}</StyledPanelContent>
-            ) : (
-                <StyledPanelHeader>{header}</StyledPanelHeader>
-            )}
+            <StyledPanelHeader onClick={handleClick}>
+                <>
+                    {expandIcon({
+                        name: !isActive ? 'arrowRight' : 'arrowDown',
+                    })}
+                    {header}
+                </>
+            </StyledPanelHeader>
+            {isActive && <StyledPanelContent>{children}</StyledPanelContent>}
         </StyledPanel>
     );
 };
