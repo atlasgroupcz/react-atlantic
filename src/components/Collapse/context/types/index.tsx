@@ -13,7 +13,10 @@ export const defaultCollapseContextState: CollapseContextState = {
     activeKey: 1,
     setActiveKey: () => null,
     expandIcon: (props) => (
-        <Icon name={props.name} isRotating={props.isRotating} />
+        <Icon
+            name={props.isActive ? 'arrowDown' : 'arrowRight'}
+            isRotating={props.isActive}
+        />
     ),
 };
 

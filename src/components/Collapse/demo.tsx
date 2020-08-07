@@ -26,45 +26,45 @@ export const Demo: DemoType = () => {
                 setActiveKey={setActiveKeys}
                 accordion
             >
-                <Panel header="level1 - 1" unique="1">
+                <Collapse.Panel header="level1 - 1" unique="1">
                     <p>prdel 1</p>
-                </Panel>
+                </Collapse.Panel>
                 <Collapse
                     activeKey={activeKeys2}
                     setActiveKey={setActiveKeys2}
                     accordion
                 >
-                    <Panel header="level2 - 1" unique="1">
+                    <Collapse.Panel header="level2 - 1" unique="1">
                         <p>prdel 1</p>
-                    </Panel>
+                    </Collapse.Panel>
                     <Collapse
                         activeKey={activeKeys3}
                         setActiveKey={setActiveKeys3}
                         accordion
                     >
-                        <Panel header="level3 - 1" unique="1">
+                        <Collapse.Panel header="level3 - 1" unique="1">
                             <p>prdel 1</p>
-                        </Panel>
-                        <Panel header="level3 - 2" unique="2">
+                        </Collapse.Panel>
+                        <Collapse.Panel header="level3 - 2" unique="2">
                             <p>prdel 2</p>
-                        </Panel>
-                        <Panel header="level3 - 3" unique="3">
+                        </Collapse.Panel>
+                        <Collapse.Panel header="level3 - 3" unique="3">
                             <p>prdel 3</p>
-                        </Panel>
+                        </Collapse.Panel>
                     </Collapse>
-                    <Panel header="level2 - 2" unique="2">
+                    <Collapse.Panel header="level2 - 2" unique="2">
                         <p>prdel 2</p>
-                    </Panel>
-                    <Panel header="level2 - 3" unique="3">
+                    </Collapse.Panel>
+                    <Collapse.Panel header="level2 - 3" unique="3">
                         <p>prdel 3</p>
-                    </Panel>
+                    </Collapse.Panel>
                 </Collapse>
-                <Panel header="level1 - 2" unique="2">
+                <Collapse.Panel header="level1 - 2" unique="2">
                     <p>prdel 2</p>
-                </Panel>
-                <Panel header="level1 - 3" unique="3">
+                </Collapse.Panel>
+                <Collapse.Panel header="level1 - 3" unique="3">
                     <p>prdel 3</p>
-                </Panel>
+                </Collapse.Panel>
             </Collapse>
         </>
     );
@@ -72,15 +72,15 @@ export const Demo: DemoType = () => {
     const level1 = (
         <>
             <Collapse activeKey={activeKeys} setActiveKey={setActiveKeys}>
-                <Panel header="level1 - 1" unique="1">
+                <Collapse.Panel header="level1 - 1" unique="1">
                     <p>prdel 1</p>
-                </Panel>
-                <Panel header="level1 - 2" unique="2">
+                </Collapse.Panel>
+                <Collapse.Panel header="level1 - 2" unique="2">
                     <p>prdel 2</p>
-                </Panel>
-                <Panel header="level1 - 3" unique="3">
+                </Collapse.Panel>
+                <Collapse.Panel header="level1 - 3" unique="3">
                     <p>prdel 3</p>
-                </Panel>
+                </Collapse.Panel>
             </Collapse>
         </>
     );

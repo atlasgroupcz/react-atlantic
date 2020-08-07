@@ -2,21 +2,21 @@ import React, { FC } from 'react';
 import { StyledCollapse } from './style';
 import { CollapseProps } from './types';
 import { CollapseProvider } from './context';
-import { Icon } from '..';
+import { defaultCollapseContextState } from './context/types';
+import { Panel } from './Panel';
 
 export type CollapseType = FC<CollapseProps>;
 
-export const Collapse: CollapseType = ({
+export type CollapseComponentComposition = {
+    Panel: typeof Panel;
+};
+
+export const Collapse: CollapseType & CollapseComponentComposition = ({
     children,
     activeKey,
     accordion = false,
     setActiveKey,
-    expandIcon = (props) => (
-        <Icon
-            name={props.isActive ? 'arrowDown' : 'arrowRight'}
-            isRotating={props.isActive}
-        />
-    ),
+    expandIcon = defaultCollapseContextState.expandIcon,
     ...props
 }) => {
     return (
@@ -30,3 +30,5 @@ export const Collapse: CollapseType = ({
         </CollapseProvider>
     );
 };
+
+Collapse.Panel = Panel;
