@@ -9,10 +9,13 @@ export type CollapseType = FC<CollapseProps>;
 export const Collapse: CollapseType = ({
     children,
     activeKey,
-    accordion,
+    accordion = false,
     setActiveKey,
     expandIcon = (props) => (
-        <Icon name={props.name} isRotating={props.isRotating} />
+        <Icon
+            name={props.isActive ? 'arrowDown' : 'arrowRight'}
+            isRotating={props.isActive}
+        />
     ),
     ...props
 }) => {

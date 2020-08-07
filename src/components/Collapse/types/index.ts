@@ -27,4 +27,10 @@ export type CollapseProps = PropsWithChildren<
         }
 >;
 
-export type CollapseIconFactoryType = (iconProps: IconProps) => ReactNode;
+export type CollapseIconFactoryType = (
+    iconProps: CollapseIconFactoryTypeArgs
+) => ReactNode;
+
+export type CollapseIconFactoryTypeArgs = {
+    isActive: boolean;
+};

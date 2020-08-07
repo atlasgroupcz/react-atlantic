@@ -10,7 +10,7 @@ export type DemoType = FC<DemoProps>;
 export const Demo: DemoType = () => {
     const [activeKeys, setActiveKeys] = useState<
         CollapseProviderProps['activeKey']
-    >(1);
+    >([]);
     const [activeKeys2, setActiveKeys2] = useState<
         CollapseProviderProps['activeKey']
     >(2);
@@ -19,7 +19,7 @@ export const Demo: DemoType = () => {
         CollapseProviderProps['activeKey']
     >(2);
 
-    const part = (
+    const level3 = (
         <>
             <Collapse
                 activeKey={activeKeys}
@@ -69,5 +69,21 @@ export const Demo: DemoType = () => {
         </>
     );
 
-    return <>{part}</>;
+    const level1 = (
+        <>
+            <Collapse activeKey={activeKeys} setActiveKey={setActiveKeys}>
+                <Panel header="level1 - 1" unique="1">
+                    <p>prdel 1</p>
+                </Panel>
+                <Panel header="level1 - 2" unique="2">
+                    <p>prdel 2</p>
+                </Panel>
+                <Panel header="level1 - 3" unique="3">
+                    <p>prdel 3</p>
+                </Panel>
+            </Collapse>
+        </>
+    );
+
+    return <>{level1}</>;
 };

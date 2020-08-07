@@ -1,7 +1,8 @@
-import React, { ReactText } from 'react';
+import React, { useCallback } from 'react';
 import { createContext, useContext, FC } from 'react';
 import { CollapseContextState, defaultCollapseContextState } from './types';
 import { CollapseProviderPropsWithChildren } from '.';
+import { handleContextSet } from './Context.utils';
 
 type CollapseProviderType = FC<CollapseProviderPropsWithChildren>;
 export const CollapseProvider: CollapseProviderType = ({
@@ -12,22 +13,10 @@ export const CollapseProvider: CollapseProviderType = ({
     setActiveKey,
     ...props
 }) => {
-    const handleSetKey: CollapseContextState['setActiveKey'] = (
-        key: ReactText
-    ) => {
-        if (accordion) {
-            setActiveKey(key);
-            console.log(`setting ${key}`);
-        } else {
-            console.log(`setting in else`);
-            setActiveKey((prevState) => {
-                if (Array.isArray(prevState)) {
-                } else {
-                }
-                return prevState;
-            });
-        }
-    };
+    const handleSetKey: CollapseContextState['setActiveKey'] = useCallback(
+        (key) => handleContextSet({ key, accordion, setActiveKey }),
+        [accordion, setActiveKey]
+    );
 
     return (
         <CollapseContext.Provider

@@ -6,7 +6,7 @@ import {
     MouseEvents,
 } from '../../../..';
 import { StyledCollapseProps } from '../../types';
-import { PropsWithChildren, ReactNode } from 'react';
+import { PropsWithChildren, ReactNode, ReactText } from 'react';
 
 export type StyledPanelProps = {};
 
@@ -17,7 +17,7 @@ export type PanelEventProps = FormEvents<HTMLDivElement> &
 
 export type ControllerPanelProps = CommonHTMLProps<HTMLDivElement> &
     PanelEventProps & {
-        unique: string | number;
+        unique: ReactText;
         header: ReactNode;
         isDisabled?: boolean;
     };

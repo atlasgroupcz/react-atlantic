@@ -14,14 +14,13 @@ export const Panel: PanelType = ({
     onClick,
     ...props
 }) => {
+    console.log(props);
     const { activeKey, expandIcon, setActiveKey } = useCollapseContext();
 
     const isActive = useMemo(() => isActiveKey(unique, activeKey), [
         unique,
         activeKey,
     ]);
-
-    console.log(activeKey, unique);
 
     const handleClick = useCallback(
         (e) => {
@@ -35,9 +34,7 @@ export const Panel: PanelType = ({
         <StyledPanel {...props}>
             <StyledPanelHeader onClick={handleClick}>
                 <>
-                    {expandIcon({
-                        name: !isActive ? 'arrowRight' : 'arrowDown',
-                    })}
+                    {expandIcon({ isActive })}
                     {header}
                 </>
             </StyledPanelHeader>

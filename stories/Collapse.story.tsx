@@ -2,7 +2,6 @@ import React from 'react';
 import { withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import { Collapse } from '../src/components/Collapse';
-import { Panel } from '../src/components/Collapse/Panel';
 import { Demo } from '../src/components/Collapse/demo';
 
 const stories = storiesOf('Collapse', module);
