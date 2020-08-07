@@ -11,10 +11,9 @@ export type InputFixType = FC<PropsWithoutChildren<InputFixProps>>;
 export const InputWrapper: InputFixType = forwardRef(
     ({ prefix, suffix, ...props }, ref: RefType<HTMLInputElement>) => {
         let inputRef = useRef<HTMLInputElement | null>();
-        //Should be ref -> cannot get it
+
         const handleFocus = useCallback(
             (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
-                // console.log(inputRef.current, typeof inputRef);
                 inputRef.current?.focus();
             },
             []
