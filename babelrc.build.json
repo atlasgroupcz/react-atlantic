@@ -1,9 +1,4 @@
 {
-    "globals": {
-        "babel-jest": {
-            "babelrcFile": "tests/config/.babelrc"
-        }
-    },
     "presets": ["@babel/env", "@babel/preset-typescript"],
     "plugins": [
         "@babel/plugin-transform-runtime",
