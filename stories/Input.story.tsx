@@ -3,23 +3,33 @@ import { action } from '@storybook/addon-actions';
 import { boolean, select, text, withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import { defaultValues } from './constants';
+import { Icon, Input, Size } from '../src';
+import { InputHoc } from '../src/components/Input/Input';
+import { InputWrapper } from '../src/components/Input/view/composed/withFix';
 import {
     ControllerInputProps,
     InputProps,
-    InputView,
-    Size,
     StyledInputProps,
-} from '../src';
-import { Input } from '../src/components/Input/Input';
+} from '../src/components/Input/view/base/types';
 
 const stories = storiesOf('Input', module);
 
 stories.addDecorator(withKnobs);
 
 //Input-HOC
-stories.add('Overview', () => <Input size={'large'} />, {
-    info: { inline: true },
-});
+stories.add(
+    'Overview',
+    () => (
+        <>
+            <InputHoc size={'large'} />
+            <br />
+            <InputWrapper size={'large'} prefix={<Icon name={'user'} />} />
+        </>
+    ),
+    {
+        info: { inline: true },
+    }
+);
 
 //Input-VIEW
 stories.add(
@@ -64,7 +74,7 @@ stories.add(
             value,
         };
 
-        const button = <InputView {...styledProps} {...controlProps} />;
+        const button = <Input {...styledProps} {...controlProps} />;
 
         return button;
     },
