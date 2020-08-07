@@ -13,10 +13,16 @@ stories.add(
     'Overview',
     () => (
         <>
-            <Collapse>
-                <Panel unique="1">prdel 1</Panel>
-                <Panel unique="2">prdel 2</Panel>
-                <Panel unique="3">prdel 3</Panel>
+            <Collapse activeKey={[1, 2]}>
+                <Panel header="ahoj" unique="1">
+                    <p>prdel 1</p>
+                </Panel>
+                <Panel header="ahoj" unique="2">
+                    <p>prdel 2</p>
+                </Panel>
+                <Panel header="ahoj" unique="3">
+                    <p>prdel 3</p>
+                </Panel>
             </Collapse>
         </>
     ),
@@ -28,7 +34,7 @@ stories.add(
 stories.add(
     'Playground',
     () => {
-        const collapse = <Collapse />;
+        const collapse = <Collapse activeKey={[1, 2]} />;
 
         return collapse;
     },

@@ -5,7 +5,7 @@ import {
     CommonHTMLProps,
 } from '../../../..';
 import { StyledCollapseProps } from '../../types';
-import { PropsWithChildren } from 'react';
+import { PropsWithChildren, ReactNode } from 'react';
 
 export type StyledPanelProps = {};
 
@@ -16,6 +16,8 @@ export type PanelEventProps = FormEvents<HTMLDivElement> &
 export type ControllerPanelProps = CommonHTMLProps<HTMLDivElement> &
     PanelEventProps & {
         unique: string | number;
+        header: ReactNode;
+        isDisabled?: boolean;
     };
 
 export type PanelProps = PropsWithChildren<

@@ -1,12 +1,18 @@
 import React, { FC, useMemo, ReactElement } from 'react';
-import { StyledPanel } from './style';
+import { StyledPanel, StyledPanelHeader, StyledPanelContent } from './style';
 import { PanelProps } from './types';
 import { useCollapseContext } from '../context';
 import { isActiveKey } from './utils';
 
 export type PanelType = FC<PanelProps>;
 
-export const Panel: PanelType = ({ children, unique, ...props }) => {
+export const Panel: PanelType = ({
+    children,
+    unique,
+    header,
+    isDisabled,
+    ...props
+}) => {
     const { activeKey } = useCollapseContext();
 
     const isActive = useMemo(() => isActiveKey(unique, activeKey), [
@@ -15,6 +21,12 @@ export const Panel: PanelType = ({ children, unique, ...props }) => {
     ]);
 
     return (
-        <StyledPanel {...props}>{isActive ? children : 'PRDEL'}</StyledPanel>
+        <StyledPanel {...props}>
+            {isActive ? (
+                <StyledPanelContent>{children}</StyledPanelContent>
+            ) : (
+                <StyledPanelHeader>{header}</StyledPanelHeader>
+            )}
+        </StyledPanel>
     );
 };

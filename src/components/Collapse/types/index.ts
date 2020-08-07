@@ -4,7 +4,9 @@ import {
     KeyboardEvents,
     FocusEvents,
 } from '../../../types';
-import { PropsWithChildren } from 'react';
+import { PropsWithChildren, ReactNode } from 'react';
+import { CollapseProviderProps } from '../context';
+import { IconProps } from '../..';
 
 export type StyledCollapseProps = {};
 
@@ -13,8 +15,14 @@ export type CollapseEventProps = FormEvents<HTMLDivElement> &
     FocusEvents<HTMLDivElement>;
 
 export type ControllerInputProps = CommonHTMLProps<HTMLInputElement> &
-    CollapseEventProps;
+    CollapseEventProps &
+    CollapseProviderProps;
 
 export type CollapseProps = PropsWithChildren<
-    StyledCollapseProps & ControllerInputProps
+    StyledCollapseProps &
+        ControllerInputProps & {
+            expandIcon?: CollapseIconFactoryType;
+        }
 >;
+
+export type CollapseIconFactoryType = (iconProps: IconProps) => ReactNode;
