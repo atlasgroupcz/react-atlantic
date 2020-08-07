@@ -1,13 +1,15 @@
-import { FC } from 'react';
-import { Text, TextProps } from './Text';
-import { Title, TitleProps } from './Title';
+import { Text } from './Text';
+import { Title } from './Title';
+import { Link } from './Link';
 
 type Typography = {
-    Text: FC<TextProps>;
-    Title: FC<TitleProps>;
+    Link: typeof Link;
+    Text: typeof Text;
+    Title: typeof Title;
 };
 
 export const Typography: Typography = {
+    Link,
     Text,
     Title,
 };
