@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import styled, { css } from 'styled-components';
 import { InputProps } from '../types';
+import { RefType } from '../../../../../types/Ref';
 
 export const StyledInput = styled(
-    ({ size, isRound, isFullWidth, isDisabled, ...props }: InputProps) => (
-        <input {...props} />
+    forwardRef(
+        (
+            { size, isRound, isFullWidth, isDisabled, ...props }: InputProps,
+            ref: RefType<HTMLInputElement>
+        ) => <input {...props} ref={ref} />
     )
 )<InputProps>`
   font-family: ${(props) => props.theme.font.family};
