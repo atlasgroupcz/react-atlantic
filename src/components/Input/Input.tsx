@@ -16,8 +16,8 @@ type InputType = FC<
 export const InputHoc: InputType = ({ defaultValue, isDisabled, ...props }) => {
     const handlers = useInputChange({
         defaultValue,
-        isDisabled,
         onChange: props?.onChange,
+        isDisabled,
     });
 
     return <Input {...props} {...handlers} isDisabled={isDisabled} />;
