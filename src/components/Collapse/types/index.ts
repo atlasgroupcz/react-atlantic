@@ -1,12 +1,14 @@
 import { PropsWithChildren, ReactNode } from 'react';
 import { CollapseProviderProps } from '../context';
+import { CommonHTMLProps } from '../../..';
 
 export type StyledCollapseProps = {};
 
 export type ControllerCollapseProps = CollapseProviderProps;
 
 export type CollapseProps = PropsWithChildren<
-    StyledCollapseProps &
+    CommonHTMLProps<HTMLDivElement> &
+        StyledCollapseProps &
         ControllerCollapseProps & {
             expandIcon?: CollapseIconFactoryType;
         }

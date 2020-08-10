@@ -4,7 +4,6 @@ import { useCollapseUnique } from './hooks';
 import { wrap } from '../../utils';
 import { StoryFnReactReturnType } from '@storybook/react/dist/client/preview/types';
 
-//TODO!: create controller for collapse :], onChange
 export const Demo = (): StoryFnReactReturnType => {
     const collapseUniqueState = useCollapseUnique({
         defaultActiveUnique: ['1', '2'],

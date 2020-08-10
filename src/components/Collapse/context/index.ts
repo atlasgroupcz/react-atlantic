@@ -17,7 +17,3 @@ export type CollapseProviderProps = {
     onClick?: SetUniqueKey;
     expandIconPosition?: HorizontalPosition;
 };
-
-// type SetUniqueKey = Dispatch<
-//     SetStateAction<CollapseProviderProps['activeUnique']>
-// >;
