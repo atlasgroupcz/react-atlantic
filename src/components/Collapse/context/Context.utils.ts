@@ -1,10 +1,12 @@
 import { CollapseProviderProps } from '.';
 import { CollapseContextState } from './types';
 import { isActiveKey } from '../Panel/utils';
-import { ReactText } from 'react';
 
-export const handleContextSet: HandleContextSet = ({ accordion, ...args }) => {
-    if (accordion) {
+export const handleContextSet: HandleContextSet = ({
+    isAccordion,
+    ...args
+}) => {
+    if (isAccordion) {
         handleAccordionSet({ ...args });
     } else {
         handleNotAccordionSet({ ...args });
@@ -51,5 +53,5 @@ export type HandleContextSetArgs = Omit<CollapseProviderProps, 'activeKey'> & {
 };
 type HandleWithoutAccordionArgs = Omit<
     HandleContextSetArgs,
-    'accordion' | 'activeKey'
+    'isAccordion' | 'activeKey'
 >;

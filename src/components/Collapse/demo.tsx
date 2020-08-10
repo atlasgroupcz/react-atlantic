@@ -1,12 +1,11 @@
 import React, { FC, useState } from 'react';
 import { Collapse } from '.';
-import { Panel } from './Panel';
 import { CollapseProviderProps } from './context';
 
 export interface DemoProps {}
 export type DemoType = FC<DemoProps>;
 
-//TODO!: create controller for collapse :]
+//TODO!: create controller for collapse :], onChange, activeUnique
 export const Demo: DemoType = () => {
     const [activeKeys, setActiveKeys] = useState<
         CollapseProviderProps['activeKey']
@@ -24,7 +23,7 @@ export const Demo: DemoType = () => {
             <Collapse
                 activeKey={activeKeys}
                 setActiveKey={setActiveKeys}
-                accordion
+                isAccordion
             >
                 <Collapse.Panel header="level1 - 1" unique="1">
                     <p>prdel 1</p>
@@ -32,7 +31,7 @@ export const Demo: DemoType = () => {
                 <Collapse
                     activeKey={activeKeys2}
                     setActiveKey={setActiveKeys2}
-                    accordion
+                    isAccordion
                 >
                     <Collapse.Panel header="level2 - 1" unique="1">
                         <p>prdel 1</p>
@@ -40,7 +39,7 @@ export const Demo: DemoType = () => {
                     <Collapse
                         activeKey={activeKeys3}
                         setActiveKey={setActiveKeys3}
-                        accordion
+                        isAccordion
                     >
                         <Collapse.Panel header="level3 - 1" unique="1">
                             <p>prdel 1</p>

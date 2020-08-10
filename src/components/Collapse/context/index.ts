@@ -11,7 +11,7 @@ export type CollapseProviderPropsWithChildren = PropsWithChildren<
 
 export type CollapseProviderProps = {
     activeKey: string[] | number[] | ReactText;
-    accordion?: boolean;
+    isAccordion?: boolean;
     setActiveKey: SetActiveKey;
 };
 

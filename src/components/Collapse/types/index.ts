@@ -6,7 +6,6 @@ import {
 } from '../../../types';
 import { PropsWithChildren, ReactNode } from 'react';
 import { CollapseProviderProps } from '../context';
-import { IconProps } from '../..';
 import { SetActiveKey } from '../context/types';
 
 export type StyledCollapseProps = {};

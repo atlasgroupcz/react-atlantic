@@ -14,14 +14,14 @@ export type CollapseComponentComposition = {
 export const Collapse: CollapseType & CollapseComponentComposition = ({
     children,
     activeKey,
-    accordion = false,
+    isAccordion = false,
     setActiveKey,
     expandIcon = defaultCollapseContextState.expandIcon,
     ...props
 }) => {
     return (
         <CollapseProvider
-            accordion={accordion}
+            isAccordion={isAccordion}
             activeKey={activeKey}
             setActiveKey={setActiveKey}
             expandIcon={expandIcon}

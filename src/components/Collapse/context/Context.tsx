@@ -7,15 +7,15 @@ import { handleContextSet } from './Context.utils';
 type CollapseProviderType = FC<CollapseProviderPropsWithChildren>;
 export const CollapseProvider: CollapseProviderType = ({
     children,
-    accordion,
+    isAccordion,
     activeKey,
     expandIcon,
     setActiveKey,
     ...props
 }) => {
     const handleSetKey: CollapseContextState['setActiveKey'] = useCallback(
-        (key) => handleContextSet({ key, accordion, setActiveKey }),
-        [accordion, setActiveKey]
+        (key) => handleContextSet({ key, isAccordion, setActiveKey }),
+        [isAccordion, setActiveKey]
     );
 
     return (
