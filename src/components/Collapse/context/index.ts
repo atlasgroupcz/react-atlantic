@@ -13,10 +13,10 @@ export type CollapseProviderPropsWithChildren = PropsWithChildren<
 export type CollapseProviderProps = {
     activeUnique: string[] | number[] | ReactText;
     isAccordion?: boolean;
-    setActiveKey: SetActiveKey;
+    setUniqueKey: SetUniqueKey;
     expandIconPosition?: HorizontalPosition;
 };
 
-type SetActiveKey = Dispatch<
+type SetUniqueKey = Dispatch<
     SetStateAction<CollapseProviderProps['activeUnique']>
 >;

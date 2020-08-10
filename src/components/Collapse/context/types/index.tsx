@@ -10,17 +10,17 @@ export type CollapseContextState = Pick<
 > & {
     expandIcon: CollapseIconFactoryType;
     expandIconPosition: HorizontalPosition;
-    setActiveKey: SetActiveKey;
+    setUniqueKey: SetUniqueKey;
 };
 export type CollapseContextValue = {};
 
 export const defaultCollapseContextState: CollapseContextState = {
     activeUnique: 1,
-    setActiveKey: () => null,
+    setUniqueKey: () => null,
     expandIcon: (props) => (
         <Icon name={props.isActive ? 'arrowDown' : 'arrowRight'} />
     ),
     expandIconPosition: 'left',
 };
 
-export type SetActiveKey = (key: string | number) => void;
+export type SetUniqueKey = (key: string | number) => void;

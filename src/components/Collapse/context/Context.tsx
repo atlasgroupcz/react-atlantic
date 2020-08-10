@@ -11,12 +11,12 @@ export const CollapseProvider: CollapseProviderType = ({
     activeUnique,
     expandIcon,
     expandIconPosition = defaultCollapseContextState.expandIconPosition,
-    setActiveKey,
+    setUniqueKey,
     ...props
 }) => {
-    const handleSetKey: CollapseContextState['setActiveKey'] = useCallback(
-        (key) => handleContextSet({ key, isAccordion, setActiveKey }),
-        [isAccordion, setActiveKey]
+    const handleSetKey: CollapseContextState['setUniqueKey'] = useCallback(
+        (key) => handleContextSet({ key, isAccordion, setUniqueKey }),
+        [isAccordion, setUniqueKey]
     );
 
     return (
@@ -24,7 +24,7 @@ export const CollapseProvider: CollapseProviderType = ({
             value={{
                 expandIconPosition,
                 ...props,
-                setActiveKey: handleSetKey,
+                setUniqueKey: handleSetKey,
                 activeUnique,
                 expandIcon,
             }}

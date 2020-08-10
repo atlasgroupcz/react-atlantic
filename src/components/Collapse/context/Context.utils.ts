@@ -13,17 +13,17 @@ export const handleContextSet: HandleContextSet = ({
     }
 };
 
-const handleAccordionSet: HandleAccordionSet = ({ key, setActiveKey }) => {
-    setActiveKey((prevState) => {
+const handleAccordionSet: HandleAccordionSet = ({ key, setUniqueKey }) => {
+    setUniqueKey((prevState) => {
         return isActiveKey(key, prevState) ? [] : key;
     });
 };
 
 const handleNotAccordionSet: HandleNotAccordionSet = ({
-    setActiveKey,
+    setUniqueKey,
     key,
 }) => {
-    setActiveKey((prevState) => {
+    setUniqueKey((prevState) => {
         if (Array.isArray(prevState)) {
             const newArray: string[] | number[] = [...prevState] as
                 | string[]
@@ -52,7 +52,7 @@ export type HandleContextSetArgs = Omit<
     CollapseProviderProps,
     'activeUnique'
 > & {
-    key: Parameters<CollapseContextState['setActiveKey']>[0];
+    key: Parameters<CollapseContextState['setUniqueKey']>[0];
 };
 type HandleWithoutAccordionArgs = Omit<
     HandleContextSetArgs,

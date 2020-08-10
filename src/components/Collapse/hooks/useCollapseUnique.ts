@@ -10,5 +10,5 @@ export const useCollapseUnique: UseCollapseUnique = ({}) => {
         CollapseProviderProps['activeUnique']
     >([]);
 
-    return { activeUnique, setActiveKey: setActiveUnique };
+    return { activeUnique, setUniqueKey: setActiveUnique };
 };

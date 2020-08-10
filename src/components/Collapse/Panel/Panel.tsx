@@ -18,7 +18,7 @@ export const Panel: PanelType = ({
         activeUnique,
         expandIcon,
         expandIconPosition,
-        setActiveKey,
+        setUniqueKey,
     } = useCollapseContext();
 
     console.log(expandIconPosition);
@@ -31,11 +31,11 @@ export const Panel: PanelType = ({
     const handleClick = useCallback(
         (e) => {
             if (!isDisabled) {
-                setActiveKey(unique);
+                setUniqueKey(unique);
                 onClick?.(e);
             }
         },
-        [unique, setActiveKey, onClick, isDisabled]
+        [unique, setUniqueKey, onClick, isDisabled]
     );
 
     return (

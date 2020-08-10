@@ -22,7 +22,7 @@ export const Demo: DemoType = () => {
         <>
             <Collapse
                 activeUnique={activeKeys}
-                setActiveKey={setActiveKeys}
+                setUniqueKey={setActiveKeys}
                 isAccordion
                 expandIconPosition={'right'}
             >
@@ -31,7 +31,7 @@ export const Demo: DemoType = () => {
                 </Collapse.Panel>
                 <Collapse
                     activeUnique={activeKeys2}
-                    setActiveKey={setActiveKeys2}
+                    setUniqueKey={setActiveKeys2}
                     isAccordion
                 >
                     <Collapse.Panel header="level2 - 1" unique="1">
@@ -39,7 +39,7 @@ export const Demo: DemoType = () => {
                     </Collapse.Panel>
                     <Collapse
                         activeUnique={activeKeys3}
-                        setActiveKey={setActiveKeys3}
+                        setUniqueKey={setActiveKeys3}
                         isAccordion
                     >
                         <Collapse.Panel header="level3 - 1" unique="1">
@@ -73,10 +73,10 @@ export const Demo: DemoType = () => {
         <>
             <Collapse
                 activeUnique={activeKeys}
-                setActiveKey={setActiveKeys}
+                setUniqueKey={setActiveKeys}
                 expandIconPosition={'left'}
             >
-                <Collapse.Panel isDisabled header="level1 - 1" unique="1">
+                <Collapse.Panel header="level1 - 1" unique="1">
                     <p>prdel 1</p>
                 </Collapse.Panel>
                 <Collapse.Panel header="level1 - 2" unique="2">

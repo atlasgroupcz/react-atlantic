@@ -6,7 +6,7 @@ import {
 } from '../../../types';
 import { PropsWithChildren, ReactNode } from 'react';
 import { CollapseProviderProps } from '../context';
-import { SetActiveKey } from '../context/types';
+import { SetUniqueKey } from '../context/types';
 
 export type StyledCollapseProps = {};
 
@@ -22,7 +22,7 @@ export type CollapseProps = PropsWithChildren<
     StyledCollapseProps &
         ControllerCollapseProps & {
             expandIcon?: CollapseIconFactoryType;
-            setActiveKey?: SetActiveKey;
+            setUniqueKey?: SetUniqueKey;
         }
 >;
 
