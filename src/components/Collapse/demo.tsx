@@ -74,7 +74,7 @@ export const Demo: DemoType = () => {
             <Collapse
                 activeUnique={activeKeys}
                 setActiveKey={setActiveKeys}
-                expandIconPosition={'right'}
+                expandIconPosition={'left'}
             >
                 <Collapse.Panel header="level1 - 1" unique="1">
                     <p>prdel 1</p>
