@@ -1,7 +1,7 @@
-import React from 'react';
-import { Collapse } from '.';
+import React, { FC } from 'react';
+import { Collapse, CollapseType, CollapseComponentComposition } from '.';
 import { useCollapseUnique } from './hooks';
-import { wrap } from '../../utils';
+import { wrap, wrapCurried } from '../../utils';
 import { StoryFnReactReturnType } from '@storybook/react/dist/client/preview/types';
 
 export const Demo = (): StoryFnReactReturnType => {
@@ -10,8 +10,23 @@ export const Demo = (): StoryFnReactReturnType => {
         isAccordion: false,
     });
 
-    const firstDemo = wrap(
-        Collapse,
+    // const firstDemo = wrap(
+    //     Collapse,
+    //     collapseUniqueState,
+    //     <>
+    //         <Collapse.Panel header="level1 - 1" unique="1">
+    //             <p>prdel 1</p>
+    //         </Collapse.Panel>
+    //         <Collapse.Panel header="level1 - 2" unique="2">
+    //             <p>prdel 2</p>
+    //         </Collapse.Panel>
+    //         <Collapse.Panel header="level1 - 3" unique="3">
+    //             <p>prdel 3</p>
+    //         </Collapse.Panel>
+    //     </>
+    // );
+
+    const secondDemo = wrapCurried(Collapse)(
         collapseUniqueState,
         <>
             <Collapse.Panel header="level1 - 1" unique="1">
@@ -26,5 +41,5 @@ export const Demo = (): StoryFnReactReturnType => {
         </>
     );
 
-    return firstDemo as StoryFnReactReturnType;
+    return secondDemo() as StoryFnReactReturnType;
 };
