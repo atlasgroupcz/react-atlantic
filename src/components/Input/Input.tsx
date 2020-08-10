@@ -1,18 +1,24 @@
 import React, { FC } from 'react';
-import { useInputChange } from './Controller';
-import { InputView } from './View';
-import { InputEventProps, StyledInputProps } from './types';
-import { HTMLInputDefaultElementProps } from '../../types';
+import {
+    HTMLInputDefaultElementProps,
+    PropsWithoutChildren,
+} from '../../types';
+import { Input } from './view';
+import { InputEventProps, StyledInputProps } from './view/base/types';
+import { useInputChange } from './hooks';
 
 type InputType = FC<
-    StyledInputProps & HTMLInputDefaultElementProps & InputEventProps
+    PropsWithoutChildren<
+        StyledInputProps & HTMLInputDefaultElementProps & InputEventProps
+    >
 >;
 
-export const Input: InputType = ({ defaultValue, ...props }) => {
+export const InputHoc: InputType = ({ defaultValue, isDisabled, ...props }) => {
     const handlers = useInputChange({
         defaultValue,
         onChange: props?.onChange,
+        isDisabled,
     });
 
-    return <InputView {...handlers} {...props} />;
+    return <Input {...props} {...handlers} isDisabled={isDisabled} />;
 };

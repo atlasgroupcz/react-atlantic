@@ -1,13 +1,14 @@
+import { ElementProps } from '../../../../../types/utils';
 import {
-    Size,
     CommonHTMLProps,
-    FormEvents,
-    KeyboardEvents,
     FocusEvents,
-    HTMLInputElementProps,
+    FormEvents,
     HTMLInputDefaultElementProps,
-} from '../../../types';
-import { ElementProps } from '../../../types/utils';
+    HTMLInputElementProps,
+    KeyboardEvents,
+    PropsWithoutChildren,
+    Size,
+} from '../../../../../types';
 
 type InputElementExtraProps = Pick<
     ElementProps<HTMLInputElement>,
@@ -16,7 +17,8 @@ type InputElementExtraProps = Pick<
 
 export type StyledInputProps = {
     isRound?: boolean;
-    size: Size;
+    /** small | medium | large */
+    size?: Size;
     isFullWidth?: boolean;
     isDisabled?: boolean;
 } & InputElementExtraProps;
@@ -33,4 +35,6 @@ export type ControllerInputProps = CommonHTMLProps<HTMLInputElement> &
     InputEventProps &
     InputElementProps;
 
-export type InputProps = StyledInputProps & ControllerInputProps;
+export type InputProps = PropsWithoutChildren<
+    StyledInputProps & ControllerInputProps
+>;
