@@ -14,13 +14,13 @@ export type CollapseEventProps = FormEvents<HTMLDivElement> &
     KeyboardEvents<HTMLDivElement> &
     FocusEvents<HTMLDivElement>;
 
-export type ControllerInputProps = CommonHTMLProps<HTMLInputElement> &
+export type ControllerCollapseProps = CommonHTMLProps<HTMLDivElement> &
     CollapseEventProps &
     CollapseProviderProps;
 
 export type CollapseProps = PropsWithChildren<
     StyledCollapseProps &
-        ControllerInputProps & {
+        ControllerCollapseProps & {
             expandIcon?: CollapseIconFactoryType;
             setActiveKey?: SetActiveKey;
         }
