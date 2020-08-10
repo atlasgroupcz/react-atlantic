@@ -10,6 +10,7 @@ export const CollapseProvider: CollapseProviderType = ({
     isAccordion,
     activeUnique,
     expandIcon,
+    expandIconPosition = defaultCollapseContextState.expandIconPosition,
     setActiveKey,
     ...props
 }) => {
@@ -21,6 +22,7 @@ export const CollapseProvider: CollapseProviderType = ({
     return (
         <CollapseContext.Provider
             value={{
+                expandIconPosition,
                 ...props,
                 setActiveKey: handleSetKey,
                 activeUnique,

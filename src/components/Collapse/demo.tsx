@@ -5,7 +5,7 @@ import { CollapseProviderProps } from './context';
 export interface DemoProps {}
 export type DemoType = FC<DemoProps>;
 
-//TODO!: create controller for collapse :], onChange, activeUnique
+//TODO!: create controller for collapse :], onChange
 export const Demo: DemoType = () => {
     const [activeKeys, setActiveKeys] = useState<
         CollapseProviderProps['activeUnique']
@@ -24,6 +24,7 @@ export const Demo: DemoType = () => {
                 activeUnique={activeKeys}
                 setActiveKey={setActiveKeys}
                 isAccordion
+                expandIconPosition={'right'}
             >
                 <Collapse.Panel header="level1 - 1" unique="1">
                     <p>prdel 1</p>
@@ -70,7 +71,11 @@ export const Demo: DemoType = () => {
 
     const level1 = (
         <>
-            <Collapse activeUnique={activeKeys} setActiveKey={setActiveKeys}>
+            <Collapse
+                activeUnique={activeKeys}
+                setActiveKey={setActiveKeys}
+                expandIconPosition={'right'}
+            >
                 <Collapse.Panel header="level1 - 1" unique="1">
                     <p>prdel 1</p>
                 </Collapse.Panel>

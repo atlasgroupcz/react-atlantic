@@ -16,6 +16,7 @@ export const Collapse: CollapseType & CollapseComponentComposition = ({
     activeUnique,
     isAccordion = false,
     setActiveKey,
+    expandIconPosition,
     expandIcon = defaultCollapseContextState.expandIcon,
     ...props
 }) => {
@@ -25,6 +26,7 @@ export const Collapse: CollapseType & CollapseComponentComposition = ({
             activeUnique={activeUnique}
             setActiveKey={setActiveKey}
             expandIcon={expandIcon}
+            expandIconPosition={expandIconPosition}
         >
             <StyledCollapse {...props}>{children}</StyledCollapse>
         </CollapseProvider>
