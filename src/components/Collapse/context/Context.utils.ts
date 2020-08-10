@@ -28,7 +28,7 @@ const handleNotAccordionSet: HandleNotAccordionSet = ({ setUnique, key }) => {
                 | number[];
 
             const index = newArray.findIndex((item: string | number) => {
-                return item.toString() === key.toString();
+                return `${item}` === `${key}`;
             });
 
             if (index === -1) {
