@@ -1,6 +1,7 @@
 import { CollapseProviderProps } from '.';
 import { CollapseContextState } from './types';
 import { isActiveKey } from '../Panel/utils';
+import { SetStateAction, Dispatch } from 'react';
 
 export const handleContextSet: HandleContextSet = ({
     isAccordion,
@@ -13,17 +14,14 @@ export const handleContextSet: HandleContextSet = ({
     }
 };
 
-const handleAccordionSet: HandleAccordionSet = ({ key, setUniqueKey }) => {
-    setUniqueKey((prevState) => {
+const handleAccordionSet: HandleAccordionSet = ({ key, setUnique }) => {
+    setUnique((prevState) => {
         return isActiveKey(key, prevState) ? [] : key;
     });
 };
 
-const handleNotAccordionSet: HandleNotAccordionSet = ({
-    setUniqueKey,
-    key,
-}) => {
-    setUniqueKey((prevState) => {
+const handleNotAccordionSet: HandleNotAccordionSet = ({ setUnique, key }) => {
+    setUnique((prevState) => {
         if (Array.isArray(prevState)) {
             const newArray: string[] | number[] = [...prevState] as
                 | string[]
@@ -50,9 +48,10 @@ type HandleNotAccordionSet = (args: HandleWithoutAccordionArgs) => void;
 export type HandleContextSet = (args: HandleContextSetArgs) => void;
 export type HandleContextSetArgs = Omit<
     CollapseProviderProps,
-    'activeUnique'
+    'activeUnique' | 'onClick'
 > & {
-    key: Parameters<CollapseContextState['setUniqueKey']>[0];
+    key: Parameters<CollapseContextState['onClick']>[0];
+    setUnique: Dispatch<SetStateAction<CollapseProviderProps['activeUnique']>>;
 };
 type HandleWithoutAccordionArgs = Omit<
     HandleContextSetArgs,

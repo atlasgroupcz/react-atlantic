@@ -15,16 +15,16 @@ export const Collapse: CollapseType & CollapseComponentComposition = ({
     children,
     activeUnique,
     isAccordion = false,
-    setUniqueKey,
+    onClick,
     expandIconPosition,
     expandIcon = defaultCollapseContextState.expandIcon,
     ...props
 }) => {
     return (
         <CollapseProvider
+            onClick={onClick}
             isAccordion={isAccordion}
             activeUnique={activeUnique}
-            setUniqueKey={setUniqueKey}
             expandIcon={expandIcon}
             expandIconPosition={expandIconPosition}
         >

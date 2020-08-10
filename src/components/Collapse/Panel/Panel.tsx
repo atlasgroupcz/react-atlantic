@@ -11,31 +11,30 @@ export const Panel: PanelType = ({
     unique,
     header,
     isDisabled = false,
-    onClick,
     ...props
 }) => {
     const {
         activeUnique,
         expandIcon,
         expandIconPosition,
-        setUniqueKey,
+        onClick,
     } = useCollapseContext();
-
-    console.log(expandIconPosition);
 
     const isActive = useMemo(() => isActiveKey(unique, activeUnique), [
         unique,
         activeUnique,
     ]);
 
+    /**
+     * Method which triggers setState in hook [controller]
+     */
     const handleClick = useCallback(
         (e) => {
             if (!isDisabled) {
-                setUniqueKey(unique);
-                onClick?.(e);
+                onClick(unique);
             }
         },
-        [unique, setUniqueKey, onClick, isDisabled]
+        [unique, isDisabled, onClick]
     );
 
     return (

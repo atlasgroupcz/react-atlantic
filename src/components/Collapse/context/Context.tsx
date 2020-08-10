@@ -1,8 +1,7 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import { createContext, useContext, FC } from 'react';
 import { CollapseContextState, defaultCollapseContextState } from './types';
 import { CollapseProviderPropsWithChildren } from '.';
-import { handleContextSet } from './Context.utils';
 
 type CollapseProviderType = FC<CollapseProviderPropsWithChildren>;
 export const CollapseProvider: CollapseProviderType = ({
@@ -11,20 +10,15 @@ export const CollapseProvider: CollapseProviderType = ({
     activeUnique,
     expandIcon,
     expandIconPosition = defaultCollapseContextState.expandIconPosition,
-    setUniqueKey,
+    onClick,
     ...props
 }) => {
-    const handleSetKey: CollapseContextState['setUniqueKey'] = useCallback(
-        (key) => handleContextSet({ key, isAccordion, setUniqueKey }),
-        [isAccordion, setUniqueKey]
-    );
-
     return (
         <CollapseContext.Provider
             value={{
                 expandIconPosition,
                 ...props,
-                setUniqueKey: handleSetKey,
+                onClick,
                 activeUnique,
                 expandIcon,
             }}
