@@ -5,25 +5,31 @@ import {
     InputEventProps,
     ControllerInputProps,
     InputProps,
+    StyledInputProps,
 } from '../view/base/types';
 
 type UseInputChangeType = (
-    args: HTMLInputDefaultElementProps & Pick<InputEventProps, 'onChange'>
+    args: HTMLInputDefaultElementProps &
+        Pick<InputEventProps, 'onChange'> &
+        Pick<StyledInputProps, 'isDisabled'>
 ) => ControllerInputProps;
 
 export const useInputChange: UseInputChangeType = ({
     defaultValue = '',
+    isDisabled,
     onChange,
 }) => {
     const [value, setValue] = useState<InputProps['value']>(defaultValue);
 
     const handleChange: InputProps['onChange'] = useCallback(
         (e): void => {
-            const { value } = e.currentTarget;
-            setValue(value);
-            onChange?.(e);
+            if (!isDisabled) {
+                const { value } = e.currentTarget;
+                setValue(value);
+                onChange?.(e);
+            }
         },
-        [onChange]
+        [onChange, isDisabled]
     );
 
     return { value, onChange: handleChange };
