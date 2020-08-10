@@ -10,7 +10,7 @@ export const Panel: PanelType = ({
     children,
     unique,
     header,
-    isDisabled,
+    isDisabled = false,
     onClick,
     ...props
 }) => {
@@ -30,10 +30,12 @@ export const Panel: PanelType = ({
 
     const handleClick = useCallback(
         (e) => {
-            setActiveKey(unique);
-            onClick?.(e);
+            if (!isDisabled) {
+                setActiveKey(unique);
+                onClick?.(e);
+            }
         },
-        [unique, setActiveKey, onClick]
+        [unique, setActiveKey, onClick, isDisabled]
     );
 
     return (
