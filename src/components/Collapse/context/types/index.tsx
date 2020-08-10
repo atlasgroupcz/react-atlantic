@@ -10,7 +10,7 @@ export type CollapseContextState = Pick<
 > & {
     expandIcon: CollapseIconFactoryType;
     expandIconPosition: HorizontalPosition;
-    onClick: SetUniqueKey;
+    onClick?: SetUniqueKey;
 };
 export type CollapseContextValue = {};
 

@@ -14,7 +14,7 @@ export type CollapseProviderPropsWithChildren = PropsWithChildren<
 export type CollapseProviderProps = {
     activeUnique: string[] | number[] | ReactText;
     isAccordion?: boolean;
-    onClick: SetUniqueKey;
+    onClick?: SetUniqueKey;
     expandIconPosition?: HorizontalPosition;
 };
 

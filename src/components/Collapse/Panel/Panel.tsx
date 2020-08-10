@@ -31,7 +31,7 @@ export const Panel: PanelType = ({
     const handleClick = useCallback(
         (e) => {
             if (!isDisabled) {
-                onClick(unique);
+                onClick?.(unique);
             }
         },
         [unique, isDisabled, onClick]

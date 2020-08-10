@@ -8,17 +8,9 @@ const stories = storiesOf('Collapse', module);
 
 stories.addDecorator(withKnobs);
 
-stories.add(
-    'Overview',
-    () => (
-        <>
-            <Demo />
-        </>
-    ),
-    {
-        info: { inline: true },
-    }
-);
+stories.add('Overview', () => Demo(), {
+    info: { inline: true },
+});
 
 stories.add(
     'Playground',

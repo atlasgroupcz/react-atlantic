@@ -1,6 +1,5 @@
 import { PropsWithChildren, ReactNode } from 'react';
 import { CollapseProviderProps } from '../context';
-import { SetUniqueKey } from '../context/types';
 
 export type StyledCollapseProps = {};
 
@@ -10,7 +9,6 @@ export type CollapseProps = PropsWithChildren<
     StyledCollapseProps &
         ControllerCollapseProps & {
             expandIcon?: CollapseIconFactoryType;
-            onClick?: SetUniqueKey;
         }
 >;
 
