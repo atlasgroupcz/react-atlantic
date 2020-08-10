@@ -9,7 +9,7 @@ const stories = storiesOf('Typography', module);
 stories.addDecorator(withKnobs);
 
 stories.add('Overview', () => {
-    const { Title, Text } = Typography;
+    const { Title, Text, Link } = Typography;
 
     return (
         <div>
@@ -37,6 +37,10 @@ stories.add('Overview', () => {
                     <Text element={'mark'}>{`Mark Text`}</Text>
                 </div>
             </div>
+
+            <div>
+                <Link>{`Link`}</Link>
+            </div>
         </div>
     );
 });
@@ -44,7 +48,7 @@ stories.add('Overview', () => {
 stories.add(
     'Playground',
     () => {
-        const { Text, Title } = Typography;
+        const { Text, Title, Link } = Typography;
         const children = text(`text:`, defaultValues.value);
         const level = select(`level:`, [1, 2, 3, 4, 5], 1);
 
@@ -56,6 +60,10 @@ stories.add(
 
                 <div>
                     <Text>{children}</Text>
+                </div>
+
+                <div>
+                    <Link>{children}</Link>
                 </div>
             </div>
         );

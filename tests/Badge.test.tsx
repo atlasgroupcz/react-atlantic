@@ -1,11 +1,10 @@
-import { shallow } from 'enzyme';
 import React from 'react';
 import { Badge } from '../src/components/Badge';
-import expect from 'expect';
+import { shallow } from './utils';
 
 describe('Badge', () => {
     it(`Should render`, () => {
-        const badge = shallow(<Badge />);
+        const badge = shallow<typeof Badge>(<Badge />);
         expect(badge).toBeDefined();
     });
 });
