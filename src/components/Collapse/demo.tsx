@@ -8,20 +8,20 @@ export type DemoType = FC<DemoProps>;
 //TODO!: create controller for collapse :], onChange, activeUnique
 export const Demo: DemoType = () => {
     const [activeKeys, setActiveKeys] = useState<
-        CollapseProviderProps['activeKey']
+        CollapseProviderProps['activeUnique']
     >([]);
     const [activeKeys2, setActiveKeys2] = useState<
-        CollapseProviderProps['activeKey']
+        CollapseProviderProps['activeUnique']
     >(2);
 
     const [activeKeys3, setActiveKeys3] = useState<
-        CollapseProviderProps['activeKey']
+        CollapseProviderProps['activeUnique']
     >(2);
 
     const level3 = (
         <>
             <Collapse
-                activeKey={activeKeys}
+                activeUnique={activeKeys}
                 setActiveKey={setActiveKeys}
                 isAccordion
             >
@@ -29,7 +29,7 @@ export const Demo: DemoType = () => {
                     <p>prdel 1</p>
                 </Collapse.Panel>
                 <Collapse
-                    activeKey={activeKeys2}
+                    activeUnique={activeKeys2}
                     setActiveKey={setActiveKeys2}
                     isAccordion
                 >
@@ -37,7 +37,7 @@ export const Demo: DemoType = () => {
                         <p>prdel 1</p>
                     </Collapse.Panel>
                     <Collapse
-                        activeKey={activeKeys3}
+                        activeUnique={activeKeys3}
                         setActiveKey={setActiveKeys3}
                         isAccordion
                     >
@@ -70,7 +70,7 @@ export const Demo: DemoType = () => {
 
     const level1 = (
         <>
-            <Collapse activeKey={activeKeys} setActiveKey={setActiveKeys}>
+            <Collapse activeUnique={activeKeys} setActiveKey={setActiveKeys}>
                 <Collapse.Panel header="level1 - 1" unique="1">
                     <p>prdel 1</p>
                 </Collapse.Panel>

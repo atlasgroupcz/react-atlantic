@@ -15,11 +15,11 @@ export const Panel: PanelType = ({
     ...props
 }) => {
     console.log(props);
-    const { activeKey, expandIcon, setActiveKey } = useCollapseContext();
+    const { activeUnique, expandIcon, setActiveKey } = useCollapseContext();
 
-    const isActive = useMemo(() => isActiveKey(unique, activeKey), [
+    const isActive = useMemo(() => isActiveKey(unique, activeUnique), [
         unique,
-        activeKey,
+        activeUnique,
     ]);
 
     const handleClick = useCallback(

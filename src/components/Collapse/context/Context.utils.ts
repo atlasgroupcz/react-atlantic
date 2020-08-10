@@ -48,10 +48,13 @@ const handleNotAccordionSet: HandleNotAccordionSet = ({
 type HandleAccordionSet = (args: HandleWithoutAccordionArgs) => void;
 type HandleNotAccordionSet = (args: HandleWithoutAccordionArgs) => void;
 export type HandleContextSet = (args: HandleContextSetArgs) => void;
-export type HandleContextSetArgs = Omit<CollapseProviderProps, 'activeKey'> & {
+export type HandleContextSetArgs = Omit<
+    CollapseProviderProps,
+    'activeUnique'
+> & {
     key: Parameters<CollapseContextState['setActiveKey']>[0];
 };
 type HandleWithoutAccordionArgs = Omit<
     HandleContextSetArgs,
-    'isAccordion' | 'activeKey'
+    'isAccordion' | 'activeUnique'
 >;

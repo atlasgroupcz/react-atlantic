@@ -8,7 +8,7 @@ type CollapseProviderType = FC<CollapseProviderPropsWithChildren>;
 export const CollapseProvider: CollapseProviderType = ({
     children,
     isAccordion,
-    activeKey,
+    activeUnique,
     expandIcon,
     setActiveKey,
     ...props
@@ -23,7 +23,7 @@ export const CollapseProvider: CollapseProviderType = ({
             value={{
                 ...props,
                 setActiveKey: handleSetKey,
-                activeKey,
+                activeUnique,
                 expandIcon,
             }}
         >

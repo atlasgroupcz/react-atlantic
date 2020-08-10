@@ -12,5 +12,5 @@ export const isActiveKey: IsActiveKeyType = (key, activeKey) => {
 };
 export type IsActiveKeyType = (
     key: ControllerPanelProps['unique'],
-    activeKey: CollapseProviderProps['activeKey']
+    activeKey: CollapseProviderProps['activeUnique']
 ) => boolean;

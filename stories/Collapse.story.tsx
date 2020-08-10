@@ -23,7 +23,7 @@ stories.add(
 stories.add(
     'Playground',
     () => {
-        const collapse = <Collapse activeKey={[1, 2]} />;
+        const collapse = <Collapse activeUnique={[1, 2]} />;
 
         return collapse;
     },

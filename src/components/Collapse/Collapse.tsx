@@ -13,7 +13,7 @@ export type CollapseComponentComposition = {
 
 export const Collapse: CollapseType & CollapseComponentComposition = ({
     children,
-    activeKey,
+    activeUnique,
     isAccordion = false,
     setActiveKey,
     expandIcon = defaultCollapseContextState.expandIcon,
@@ -22,7 +22,7 @@ export const Collapse: CollapseType & CollapseComponentComposition = ({
     return (
         <CollapseProvider
             isAccordion={isAccordion}
-            activeKey={activeKey}
+            activeUnique={activeUnique}
             setActiveKey={setActiveKey}
             expandIcon={expandIcon}
         >
