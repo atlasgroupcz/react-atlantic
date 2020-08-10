@@ -1,7 +1,7 @@
-import React, { ReactNode, FC } from 'react';
+import React, { ReactNode, FC, ReactElement } from 'react';
 
 //TODO!: please do types :]
-type WrapValue = ReactNode;
+type WrapValue = ReactElement;
 type WrapArgs<T extends FC<T>> = [T, any, ReactNode?];
 type Wrap<T extends FC<any> = FC<any>> = (...args: WrapArgs<T>) => WrapValue;
 
