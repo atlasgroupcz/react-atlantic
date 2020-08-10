@@ -34,3 +34,4 @@ export const Collapse: CollapseType & CollapseComponentComposition = ({
 };
 
 Collapse.Panel = Panel;
+Collapse.displayName = 'Collapse';
