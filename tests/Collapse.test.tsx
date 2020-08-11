@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { mount, shallow } from 'enzyme';
 import { Collapse, useCollapseUnique } from '../src/components/Collapse';
 import { CollapseProps } from '../src/components/Collapse/types';
-import { wrapCurried } from '../src/utils/wrap';
+import { wrapCurried } from '../src/utils/wrap/wrap';
 
 const mockPropsCheckTest = <T extends {}>(
     mockProps: T,
