@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { mount, shallow } from 'enzyme';
 import { Collapse, useCollapseUnique } from '../src/components/Collapse';
 import { CollapseProps } from '../src/components/Collapse/types';
-import { wrap } from '../src/utils';
+import { wrapCurried } from '../src/utils/wrap';
 
 const mockPropsCheckTest = <T extends {}>(
     mockProps: T,
@@ -58,5 +58,17 @@ describe('Collapse - view', () => {
         );
 
         expect(wrapper.find('.custom-tmp-xd').exists()).toBe(true);
+    });
+});
+
+describe('Collapse - hook', () => {
+    const HocCollapse = wrapCurried(Collapse)(
+        useCollapseUnique,
+        <Collapse.Panel header="header" unique="1" className="custom-tmp-xd" />
+    );
+
+    it('should render Collapse', () => {
+        const inputBase = shallow(<HocCollapse />);
+        expect(inputBase).toBeDefined();
     });
 });

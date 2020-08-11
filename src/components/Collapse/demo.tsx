@@ -1,7 +1,7 @@
-import React, { FC } from 'react';
-import { Collapse, CollapseType, CollapseComponentComposition } from '.';
+import React from 'react';
+import { Collapse } from '.';
 import { useCollapseUnique } from './hooks';
-import { wrap, wrapCurried } from '../../utils';
+import { wrapCurried } from '../../utils';
 import { StoryFnReactReturnType } from '@storybook/react/dist/client/preview/types';
 
 export const Demo = (): StoryFnReactReturnType => {

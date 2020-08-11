@@ -18,16 +18,27 @@ export const wrap: Wrap = (View, controllerProps, viewChildren) => {
 
 type WrapCurried = <T extends {}>(
     View: FC<T>
-) => (partialProps: T, children: ReactNode) => WrapCurriedValue<Partial<T>>;
+) => (
+    partialProps: T | (WrapCurriedHook<T> & any),
+    children: ReactNode
+) => WrapCurriedValue<Partial<T>>;
 
+type WrapCurriedHook<T extends {} = {}> = () => T;
 type WrapCurriedValue<T extends {}> = (
     props?: PropsWithChildren<T>,
     context?: any
 ) => ReactElement<any, any> | null;
 
+//TODO!: make better types please :]
 export const wrapCurried: WrapCurried = (View) => (
     partialProps,
     viewChildren
 ) => {
+    if (partialProps instanceof Function) {
+        return () => {
+            const hookProps = partialProps({});
+            return <View {...hookProps}>{viewChildren}</View>;
+        };
+    }
     return () => <View {...partialProps}>{viewChildren}</View>;
 };
