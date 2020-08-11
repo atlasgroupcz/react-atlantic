@@ -1,5 +1,5 @@
 import React, { FC, PropsWithChildren, useRef } from 'react';
-import { CheckSimple } from '../../../Icons';
+import { CheckSimple } from '../../../../Icons';
 import {
     HiddenCheckbox,
     StyledCheckboxIcon,
@@ -12,8 +12,8 @@ import {
     CommonHTMLProps,
     HorizontalPositionWithDocs,
     MouseEvents,
-} from '../../../types';
-import { useChain, useSpring, useTrail } from 'react-spring/web';
+} from '../../../../types';
+import { useChain, useSpring, useTrail } from 'react-spring';
 import * as easings from 'd3-ease';
 
 export type CheckboxType = FC<PropsWithChildren<CheckboxProps>>;
@@ -63,15 +63,12 @@ export const Checkbox: CheckboxType = ({
         isChecked ? 0.075 : 0.225,
     ]);
 
-    console.log(isChecked);
     return (
         <StyledCheckboxLabel
-            onClick={props.onClick}
             isChecked={isChecked}
             isDisabled={isDisabled}
             className={className}
             htmlFor={id}
-            {...props}
         >
             {horizontalPosition === 'right' && children && (
                 <StyledCheckboxSpan
@@ -82,8 +79,12 @@ export const Checkbox: CheckboxType = ({
                 </StyledCheckboxSpan>
             )}
 
-            <HiddenCheckbox id={id} checked={isChecked} disabled={isDisabled} />
-            <input type={'checkbox'} checked={isChecked} />
+            <HiddenCheckbox
+                id={id}
+                checked={isChecked}
+                disabled={isDisabled}
+                {...props}
+            />
             <StyledCheckboxInputShown isDisabled={isDisabled}>
                 {trail.map((style, index) => (
                     <StyledCheckboxMark
