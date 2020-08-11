@@ -4,11 +4,16 @@ import { CollapseProps } from '../types';
 import { CollapseContextState } from '../context/types';
 import { handleContextSet } from '../context/Context.utils';
 
-type UseCollapseProps = {
+export type UseCollapseUniqueProps = {
     defaultActiveUnique?: CollapseProviderProps['activeUnique'];
 } & Pick<CollapseProviderProps, 'isAccordion'>;
-type UseCollapseValue = Pick<CollapseProps, 'activeUnique' | 'onClick'>;
-type UseCollapseUnique = (props: UseCollapseProps) => UseCollapseValue;
+export type UseCollapseUniqueValue = Pick<
+    CollapseProps,
+    'activeUnique' | 'onClick'
+>;
+export type UseCollapseUnique = (
+    props: UseCollapseUniqueProps
+) => UseCollapseUniqueValue;
 
 export const useCollapseUnique: UseCollapseUnique = ({
     defaultActiveUnique,
@@ -28,8 +33,8 @@ export const useCollapseUnique: UseCollapseUnique = ({
 };
 
 type GetDefaultValue = (
-    isAccordion: UseCollapseProps['isAccordion'],
-    defaultValue: UseCollapseProps['defaultActiveUnique']
+    isAccordion: UseCollapseUniqueProps['isAccordion'],
+    defaultValue: UseCollapseUniqueProps['defaultActiveUnique']
 ) => CollapseProviderProps['activeUnique'];
 
 const getDefaultValue: GetDefaultValue = (isAccordion, defaultValue = []) => {

@@ -1,12 +1,25 @@
-import { FC, ReactNode, PropsWithChildren, ReactElement } from 'react';
+import {
+    FC,
+    ReactNode,
+    PropsWithChildren,
+    ReactElement,
+    ComponentProps,
+} from 'react';
 
 export type WrapCurried = <T extends {}>(
     View: FC<T>
 ) => (
-    partialProps: T | (WrapCurriedHook<T> & any),
+    partialProps:
+        | ComponentProps<typeof View>
+        | WrapCurriedHookWithAny<ComponentProps<typeof View>>
+        | WrapCurriedTuple<T>,
     children: ReactNode
 ) => WrapCurriedValue<Partial<T>>;
 
+export type WrapCurriedTuple<T extends {} = {}> = [WrapCurriedHook<T>, T];
+
+export type WrapCurriedHookWithAny<T extends {} = {}> = WrapCurriedHook<T> &
+    any;
 export type WrapCurriedHook<T extends {} = {}> = () => T;
 export type WrapCurriedValue<T extends {}> = (
     props?: PropsWithChildren<T>,

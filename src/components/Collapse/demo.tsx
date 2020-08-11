@@ -29,7 +29,7 @@ export const Demo = (): StoryFnReactReturnType => {
     const secondDemo = wrapCurried(Collapse)(
         collapseUniqueState,
         <>
-            <Collapse.Panel header="level1 - 1" unique="1">
+            <Collapse.Panel header={'level1 - 2'} unique="1">
                 <p>prdel 1</p>
             </Collapse.Panel>
             <Collapse.Panel header="level1 - 2" unique="2">
