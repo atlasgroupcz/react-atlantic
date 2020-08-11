@@ -1,29 +1,9 @@
-import React, { FC, ComponentProps } from 'react';
-import { mount, shallow } from 'enzyme';
+import React from 'react';
+import { mount } from 'enzyme';
 import { Collapse, useCollapseUnique } from '../src/components/Collapse';
 import { CollapseProps } from '../src/components/Collapse/types';
 import { wrapCurried } from '../src/utils/wrap/wrap';
-import { mockPropsCheckTest } from './shared/';
-
-const mountTest = (Component: FC<any>) => {
-    describe(`mount and unmount ${Component?.displayName}`, () => {
-        const wrapper = mount(<Component />);
-        expect(() => {
-            wrapper.setProps({});
-            wrapper.unmount();
-        }).not.toThrow();
-    });
-};
-
-const toBeDefinedTest = <T extends {} = {}>(
-    Component: FC<T>,
-    props?: ComponentProps<FC<T>>
-) => {
-    it(`should render ${Component?.displayName}`, () => {
-        const shallowWrapper = shallow(<Component {...props} />);
-        expect(shallowWrapper).toBeDefined();
-    });
-};
+import { mockPropsCheckTest, toBeDefinedTest, mountTest } from './shared/';
 
 const mockCollapseProps: CollapseProps = {
     activeUnique: [1, 2],
@@ -35,7 +15,7 @@ describe('Collapse - view', () => {
     mockPropsCheckTest(mockCollapseProps, Collapse);
     mountTest(Collapse);
 
-    it('Panel should keep the className - View', () => {
+    it('panel should keep the className', () => {
         const wrapper = mount(
             <Collapse {...mockCollapseProps}>
                 <Collapse.Panel
