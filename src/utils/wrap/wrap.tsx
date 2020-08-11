@@ -9,7 +9,7 @@ import { WrapCurried } from '.';
  * viewChildren - children of View -> actually can be also HoC
  */
 export const wrapCurried: WrapCurried = (View) => (hook, viewChildren) => {
-    if (hook instanceof Function) {
+    if (typeof hook === 'function') {
         return (props) => {
             const hookProps = hook({});
             return (
@@ -18,7 +18,7 @@ export const wrapCurried: WrapCurried = (View) => (hook, viewChildren) => {
                 </View>
             );
         };
-    } else if (hook instanceof Array) {
+    } else if (Array.isArray(hook)) {
         return (props) => {
             /**
              * Here props will not affect state of hook
