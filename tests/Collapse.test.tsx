@@ -18,6 +18,8 @@ describe('Collapse - view', () => {
     mockPropsCheckTest(mockCollapseProps, Collapse);
     mountTest(Collapse);
 
+    const firstPanelClassName = 'custom-tmp-1';
+
     it('panel should keep the className', () => {
         const wrapper = mount(
             <Collapse {...mockCollapseProps}>
@@ -28,7 +30,7 @@ describe('Collapse - view', () => {
                 />
             </Collapse>
         );
-        expect(wrapper.find('.custom-tmp-1').exists()).toBe(true);
+        expect(wrapper.find(`.${firstPanelClassName}`).exists()).toBe(true);
     });
 
     it('expandIcon should has className own-icon', () => {
@@ -43,11 +45,31 @@ describe('Collapse - view', () => {
                 <Collapse.Panel
                     header="header"
                     unique="1"
-                    className="custom-tmp-1"
+                    className={`${firstPanelClassName}`}
                 />
             </Collapse>
         );
         expect(wrapper.find('.own-icon').exists()).toBe(true);
+    });
+
+    it(`it should not have icon`, () => {
+        const expandIcon: CollapseIconFactoryType = (props) => null;
+
+        const wrapper = mount(
+            <Collapse {...mockCollapseProps} expandIcon={expandIcon}>
+                <Collapse.Panel
+                    header="header"
+                    unique="1"
+                    className={`${firstPanelClassName}`}
+                />
+            </Collapse>
+        );
+
+        const panel = wrapper.find(`.${firstPanelClassName} div div`).at(0);
+        const panelChildrenLength = panel.children().length;
+
+        const expectedChildrenLength = 1;
+        expect(panelChildrenLength).toEqual(expectedChildrenLength);
     });
 });
 
