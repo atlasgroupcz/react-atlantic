@@ -1,13 +1,8 @@
 import React, { FC, ComponentProps } from 'react';
 import { mount, shallow } from 'enzyme';
-import {
-    Collapse,
-    useCollapseUnique,
-    UseCollapseUniqueProps,
-} from '../src/components/Collapse';
+import { Collapse, useCollapseUnique } from '../src/components/Collapse';
 import { CollapseProps } from '../src/components/Collapse/types';
 import { wrapCurried } from '../src/utils/wrap/wrap';
-import { WrapCurried } from '../src/utils/wrap';
 
 const mockPropsCheckTest = <T extends {}>(
     mockProps: T,
