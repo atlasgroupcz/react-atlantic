@@ -1,7 +1,10 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { Collapse, useCollapseUnique } from '../src/components/Collapse';
-import { CollapseProps } from '../src/components/Collapse/types';
+import {
+    CollapseProps,
+    CollapseIconFactoryType,
+} from '../src/components/Collapse/types';
 import { wrapCurried } from '../src/utils/wrap/wrap';
 import { mockPropsCheckTest, toBeDefinedTest, mountTest } from './shared/';
 
@@ -26,6 +29,25 @@ describe('Collapse - view', () => {
             </Collapse>
         );
         expect(wrapper.find('.custom-tmp-1').exists()).toBe(true);
+    });
+
+    it('expandIcon should has className own-icon', () => {
+        const expandIcon: CollapseIconFactoryType = (props) => (
+            <div className="own-icon">
+                {props.isActive ? `icon - ano ` : `icon - ne`}
+            </div>
+        );
+
+        const wrapper = mount(
+            <Collapse {...mockCollapseProps} expandIcon={expandIcon}>
+                <Collapse.Panel
+                    header="header"
+                    unique="1"
+                    className="custom-tmp-1"
+                />
+            </Collapse>
+        );
+        expect(wrapper.find('.own-icon').exists()).toBe(true);
     });
 });
 
