@@ -4,8 +4,6 @@ import { boolean, select, text, withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import { defaultValues } from './constants';
 import { Icon, Input, Size } from '../src';
-import { InputHoc } from '../src/components/Input/Input';
-import { InputWrapper } from '../src/components/Input/view/composed/withFix';
 import {
     ControllerInputProps,
     InputProps,
@@ -21,9 +19,9 @@ stories.add(
     'Overview',
     () => (
         <>
-            <InputHoc size={'large'} />
+            <Input size={'large'} />
             <br />
-            <InputWrapper size={'large'} prefix={<Icon name={'user'} />} />
+            <Input size={'large'} prefix={<Icon name={'user'} />} />
         </>
     ),
     {
