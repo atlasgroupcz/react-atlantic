@@ -4,9 +4,9 @@ import { PanelProps } from './types';
 import { useCollapseContext } from '../context';
 import { isActiveKey } from './utils';
 
-export type PanelType = FC<PanelProps>;
+export type CollapsePanelType = FC<PanelProps>;
 
-export const Panel: PanelType = ({
+export const CollapsePanel: CollapsePanelType = ({
     children,
     unique,
     header,
@@ -57,4 +57,4 @@ export const Panel: PanelType = ({
     );
 };
 
-Panel.displayName = `CollapsePanel`;
+CollapsePanel.displayName = `CollapsePanel`;

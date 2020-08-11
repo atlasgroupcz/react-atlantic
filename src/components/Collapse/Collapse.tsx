@@ -3,12 +3,12 @@ import { StyledCollapse } from './style';
 import { CollapseProps } from './types';
 import { CollapseProvider } from './context';
 import { defaultCollapseContextState } from './context/types';
-import { Panel } from './Panel';
+import { CollapsePanel } from './Panel';
 
 export type CollapseType = FC<CollapseProps>;
 
 export type CollapseComponentComposition = {
-    Panel: typeof Panel;
+    Panel: typeof CollapsePanel;
 };
 
 export const Collapse: CollapseType & CollapseComponentComposition = ({
@@ -33,5 +33,5 @@ export const Collapse: CollapseType & CollapseComponentComposition = ({
     );
 };
 
-Collapse.Panel = Panel;
+Collapse.Panel = CollapsePanel;
 Collapse.displayName = 'Collapse';
