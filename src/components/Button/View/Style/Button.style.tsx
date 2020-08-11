@@ -1,7 +1,7 @@
 import React from 'react';
 import { css, keyframes } from 'styled-components';
-import { StyledIcon } from '../../../Icon/Icon.style';
-import { ButtonProps } from '../../types';
+import { StyledIcon } from '../../../Icon/View/Style/Icon.style';
+import { ButtonProps } from '../../Types';
 import { StyledText } from '../../../Typography/Text/Text.style';
 import { styled } from '../../../../styled';
 

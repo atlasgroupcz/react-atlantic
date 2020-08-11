@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
-import { StyledIcon } from './Icon.style';
+import { StyledIcon } from './Style';
 import { IconsMap } from './IconsMap';
-import { IconProps } from './types';
+import { IconProps } from '../Types';
 
 export type IconType = FC<IconProps>;
 
