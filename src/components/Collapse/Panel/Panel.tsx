@@ -56,3 +56,5 @@ export const Panel: PanelType = ({
         </StyledPanel>
     );
 };
+
+Panel.displayName = `CollapsePanel`;
