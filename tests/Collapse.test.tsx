@@ -3,25 +3,7 @@ import { mount, shallow } from 'enzyme';
 import { Collapse, useCollapseUnique } from '../src/components/Collapse';
 import { CollapseProps } from '../src/components/Collapse/types';
 import { wrapCurried } from '../src/utils/wrap/wrap';
-
-const mockPropsCheckTest = <T extends {}>(
-    mockProps: T,
-    Component: FC<T>,
-    subComponent?: FC<T>
-) => {
-    (Object.keys(mockProps) as (keyof T)[]).forEach((key) => {
-        it(`${key} should be ${mockProps[key]}`, () => {
-            const shallowWrapper = shallow(<Component {...mockProps} />);
-            if (subComponent) {
-                expect(
-                    shallowWrapper.find(subComponent)?.props()?.[key]
-                ).toEqual(mockProps[key]);
-            } else {
-                expect(shallowWrapper.props()?.[key]).toEqual(mockProps[key]);
-            }
-        });
-    });
-};
+import { mockPropsCheckTest } from './shared/';
 
 const mountTest = (Component: FC<any>) => {
     describe(`mount and unmount ${Component?.displayName}`, () => {
