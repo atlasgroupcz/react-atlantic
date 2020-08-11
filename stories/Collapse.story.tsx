@@ -7,17 +7,42 @@ import {
     boolean,
 } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
-import { Collapse } from '../src/components/Collapse';
-import { Demo } from '../src/components/Collapse/Demo';
+import { Collapse, useCollapseUnique } from '../src/components/Collapse';
 import { CollapseProps } from '../src/components/Collapse/types';
+import { wrapCurried } from '../src/utils';
+import { StoryFnReactReturnType } from '@storybook/react/dist/client/preview/types';
 
 const stories = storiesOf('Collapse', module);
 
 stories.addDecorator(withKnobs);
 
-stories.add('Overview', () => Demo(), {
-    info: { inline: true },
-});
+stories.add(
+    'Overview',
+    () =>
+        wrapCurried(Collapse)(
+            [
+                useCollapseUnique,
+                {
+                    defaultActiveUnique: ['1', '2'],
+                    isAccordion: false,
+                },
+            ],
+            <>
+                <Collapse.Panel header={'level1 - 2'} unique="1">
+                    <p>prdel 1</p>
+                </Collapse.Panel>
+                <Collapse.Panel header="level1 - 2" unique="2">
+                    <p>prdel 2</p>
+                </Collapse.Panel>
+                <Collapse.Panel header="level1 - 3" unique="3">
+                    <p>prdel 3</p>
+                </Collapse.Panel>
+            </>
+        )() as StoryFnReactReturnType,
+    {
+        info: { inline: true },
+    }
+);
 
 stories.add(
     'Playground',
