@@ -1,8 +1,11 @@
-import { UseCollapseUnique, UseCollapseUniqueProps } from '..';
+import { UseCollapseUnique } from '..';
 import { useState, useCallback } from 'react';
 import { CollapseProviderProps } from '../../context';
 import { CollapseContextState } from '../../context/types';
-import { handleContextSet } from '../../context/Context.utils';
+import {
+    getDefaultUniqueCollapseValue,
+    handleContextSet,
+} from './useCollapseUnique.utils';
 
 export const useCollapseUnique: UseCollapseUnique = ({
     defaultActiveUnique,
@@ -10,7 +13,7 @@ export const useCollapseUnique: UseCollapseUnique = ({
 }) => {
     const [activeUnique, setActiveUnique] = useState<
         CollapseProviderProps['activeUnique']
-    >(getDefaultValue(isAccordion, defaultActiveUnique));
+    >(getDefaultUniqueCollapseValue(isAccordion, defaultActiveUnique));
 
     const handleSetKey: CollapseContextState['onClick'] = useCallback(
         (key) =>
@@ -19,25 +22,4 @@ export const useCollapseUnique: UseCollapseUnique = ({
     );
 
     return { activeUnique, onClick: handleSetKey };
-};
-
-type GetDefaultValue = (
-    isAccordion: UseCollapseUniqueProps['isAccordion'],
-    defaultValue: UseCollapseUniqueProps['defaultActiveUnique']
-) => CollapseProviderProps['activeUnique'];
-
-const getDefaultValue: GetDefaultValue = (isAccordion, defaultValue = []) => {
-    if (Array.isArray(defaultValue)) {
-        if (isAccordion) {
-            return defaultValue[0] ?? ([] as string[] | number[]);
-        } else {
-            return defaultValue;
-        }
-    } else {
-        if (isAccordion) {
-            return defaultValue;
-        } else {
-            return [defaultValue] as string[] | number[];
-        }
-    }
 };
