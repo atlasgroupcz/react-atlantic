@@ -1,6 +1,5 @@
 import React from 'react';
-import { Collapse } from '.';
-import { useCollapseUnique } from './hooks';
+import { Collapse, useCollapseUnique } from '.';
 import { wrapCurried } from '../../utils';
 import { StoryFnReactReturnType } from '@storybook/react/dist/client/preview/types';
 
