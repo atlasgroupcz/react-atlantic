@@ -1,5 +1,5 @@
 import { useCallback, useState } from 'react';
-import { CheckboxProps, CommonCheckboxProps, UseCheckboxArgs } from '../view';
+import { CheckboxProps, CommonCheckboxProps, UseCheckboxArgs } from '../types';
 
 type UseCheckboxValue = CommonCheckboxProps & Pick<CheckboxProps, 'onClick'>;
 
