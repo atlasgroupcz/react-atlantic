@@ -7,7 +7,7 @@ import {
     HTMLInputElementProps,
     KeyboardEvents,
     PropsWithoutChildren,
-    Size,
+    SizeWithDocs,
 } from '../../../../../types';
 
 type InputElementExtraProps = Pick<
@@ -17,8 +17,7 @@ type InputElementExtraProps = Pick<
 
 export type StyledInputProps = {
     isRound?: boolean;
-    /** small | medium | large */
-    size?: Size;
+    size?: SizeWithDocs;
     isFullWidth?: boolean;
     isDisabled?: boolean;
 } & InputElementExtraProps;

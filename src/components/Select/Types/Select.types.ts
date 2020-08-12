@@ -11,8 +11,8 @@ export type StyledSelectProps = {
     size?: Readonly<Size>;
 };
 
-export interface OptionType {
-    value: any;
+export interface OptionType<T = string> {
+    value: T;
     label: string;
 }
 

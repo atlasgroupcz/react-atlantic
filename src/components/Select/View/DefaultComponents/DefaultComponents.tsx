@@ -21,7 +21,12 @@ import React, { FC } from 'react';
 import { Input } from '../../../Input/view';
 import { theme } from '../../../../theme';
 import { Text } from '../../../Typography/Text';
-import { StyledSelectProps } from '../../Types';
+import { OptionType, StyledSelectProps } from '../../Types';
+import {
+    SelectComponents,
+    SelectComponentsConfig,
+} from 'react-select/src/components';
+import { ControlProps } from 'react-select/src/components/Control';
 
 export const OptionComponent: FC<any> = (props) => {
     const { innerRef, innerProps, label, size, ...others } = props;
@@ -44,18 +49,20 @@ export const defaultComponents = ({
     size,
     isDisabled,
     isFullWidth,
-}: Readonly<Partial<StyledSelectProps>>) => {
+}: Readonly<Partial<StyledSelectProps>>): SelectComponentsConfig<
+    OptionType
+> => {
     return {
-        Option: (props: any) => <OptionComponent {...props} theme={theme} />,
-        NoOptionsMessage: ({ children, innerProps }: any) => (
+        Option: (props) => <OptionComponent {...props} theme={theme} />,
+        NoOptionsMessage: ({ children, innerProps }) => (
             <NoOptionsMessage {...innerProps}>{children}</NoOptionsMessage>
         ),
-        ClearIndicator: ({ innerProps }: any) => (
+        ClearIndicator: ({ innerProps }) => (
             <ClearIndicator {...innerProps} theme={theme}>
                 <Icon name={'clear'} />
             </ClearIndicator>
         ),
-        Control: (props: any) => (
+        Control: (props) => (
             <Control
                 {...props.innerProps}
                 isMenuOpened={props.menuIsOpen}
@@ -70,18 +77,18 @@ export const defaultComponents = ({
                 {props.children}
             </Control>
         ),
-        CrossIcon: ({ children, innerProps }: any) => (
+        CrossIcon: ({ children, innerProps }) => (
             <CrossIcon {...innerProps} theme={theme}>
                 <div>{children}</div>
             </CrossIcon>
         ),
-        DownChevron: ({ children, innerProps }: any) => (
+        DownChevron: ({ children, innerProps }) => (
             <div {...innerProps}>
                 {children}
                 <Icon name={'arrowDown'} />
             </div>
         ),
-        DropdownIndicator: ({ innerProps, selectProps }: any) => (
+        DropdownIndicator: ({ innerProps, selectProps }) => (
             <DropdownIndicator
                 isDisabled={isDisabled}
                 {...innerProps}
@@ -91,65 +98,60 @@ export const defaultComponents = ({
                 {!selectProps.menuIsOpen && <Icon name={'arrowDown'} />}
             </DropdownIndicator>
         ),
-        Group: ({ children }: any) => <div>{children}</div>,
-        GroupHeading: ({ children, innerProps }: any) => (
+        Group: ({ children }) => <div>{children}</div>,
+        GroupHeading: ({ children, innerProps }) => (
             <div {...innerProps}>{children}</div>
         ),
-        Menu: ({ children, innerProps }: any) => (
+        Menu: ({ children, innerProps }) => (
             <Menu {...innerProps} theme={theme}>
                 {children}
             </Menu>
         ),
-        MenuList: ({ children }: any) => (
+        MenuList: ({ children }) => (
             <MenuList theme={theme}>{children}</MenuList>
         ),
-        IndicatorsContainer: ({ children }: any) => (
+        IndicatorsContainer: ({ children }) => (
             <IndicatorsContainer size={size} theme={theme}>
                 {children}
             </IndicatorsContainer>
         ),
-        Input: (props: any) => (
+        Input: (props) => (
             <div>
                 <Input placeholder={`Začněte psát`} {...props} theme={theme} />
             </div>
         ),
-        LoadingIndicator: ({ children, innerProps }: any) => (
+        LoadingIndicator: ({ children, innerProps }) => (
             <div {...innerProps}>{children}</div>
         ),
-        LoadingMessage: ({ children, innerProps }: any) => (
+        LoadingMessage: ({ children, innerProps }) => (
             <div {...innerProps}>{children}</div>
         ),
-        MenuPortal: ({ children }: any) => <div>{children}</div>,
-        MultiValue: ({
-            children,
-            innerProps,
-            components,
-            removeProps,
-        }: any) => (
+        MenuPortal: ({ children }) => <div>{children}</div>,
+        MultiValue: ({ children, innerProps, components, removeProps }) => (
             <MultiValue size={size} {...innerProps} theme={theme}>
                 <Text>{children}</Text>
                 {components.Remove(removeProps)}
             </MultiValue>
         ),
-        MultiValueContainer: ({ children, innerProps }: any) => (
+        MultiValueContainer: ({ children, innerProps }) => (
             <div {...innerProps}>{children}</div>
         ),
-        MultiValueLabel: ({ children, innerProps }: any) => (
+        MultiValueLabel: ({ children, innerProps }) => (
             <MultiValueLabel {...innerProps} theme={theme}>
                 {children}
             </MultiValueLabel>
         ),
-        MultiValueRemove: ({ ...props }: any) => (
+        MultiValueRemove: ({ ...props }) => (
             <MultiValueRemove {...props} theme={theme}>
                 <Icon name={'close'} />
             </MultiValueRemove>
         ),
-        Placeholder: ({ children, innerProps }: any) => (
+        Placeholder: ({ children, innerProps }) => (
             <Placeholder {...innerProps} theme={theme}>
                 {children}
             </Placeholder>
         ),
-        SelectContainer: ({ children, innerProps, ...rest }: any) => (
+        SelectContainer: ({ children, innerProps, ...rest }) => (
             <SelectContainer
                 isFullWidth={isFullWidth}
                 size={size}
@@ -159,7 +161,7 @@ export const defaultComponents = ({
                 {children}
             </SelectContainer>
         ),
-        SingleValue: ({ children, innerProps }: any) => (
+        SingleValue: ({ children, innerProps }) => (
             <SingleValue
                 size={size}
                 isFullWidth={isFullWidth}
@@ -169,7 +171,7 @@ export const defaultComponents = ({
                 <Text>{children}</Text>
             </SingleValue>
         ),
-        ValueContainer: ({ children, isMulti, ...props }: any) => (
+        ValueContainer: ({ children, isMulti, ...props }) => (
             <ValueContainer
                 isMulti={isMulti}
                 size={size}

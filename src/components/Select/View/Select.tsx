@@ -6,7 +6,16 @@ import { defaultComponents } from './DefaultComponents';
 export type SelectType = FC<SelectProps>;
 
 export const Select: SelectType = forwardRef<ReactSelect, SelectProps>(
-    ({ ...props }, ref) => {
+    (
+        {
+            blurInputOnSelect = false,
+            isMulti = true,
+            isFullWidth = false,
+            size = 'medium',
+            ...props
+        },
+        ref
+    ) => {
         return (
             <ReactSelect
                 components={defaultComponents({ ...props })}
@@ -19,10 +28,6 @@ export const Select: SelectType = forwardRef<ReactSelect, SelectProps>(
 
 Select.defaultProps = {
     isSearchable: false,
-    blurInputOnSelect: true,
-    isMulti: false,
-    isFullWidth: false,
-    size: 'medium',
 };
 
 Select.displayName = `Select`;

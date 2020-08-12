@@ -1,6 +1,5 @@
 import React from 'react';
-import { shallow } from './utils';
-import { mockPropsCheckTest } from './shared';
+import { mockPropsCheckTest, mountTest, toBeDefinedTest } from './shared';
 import { SelectProps } from '../src/components/Select/Types';
 import { Select } from '../src/components/Select/View';
 
@@ -11,10 +10,7 @@ const mockSelectProps: SelectProps = {
 };
 
 describe('Select', () => {
-    it('should render Select', () => {
-        const select = shallow(<Select />);
-        expect(select).toBeDefined();
-    });
-
+    mountTest(Select);
+    toBeDefinedTest(Select, mockSelectProps);
     mockPropsCheckTest(mockSelectProps, Select);
 });
