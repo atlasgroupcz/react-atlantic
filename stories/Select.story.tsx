@@ -28,12 +28,7 @@ stories.add(
 
         return (
             <>
-                <Select
-                    options={options}
-                    size={'small'}
-                    {...handlers}
-                    onChange={console.log}
-                />
+                <Select options={options} size={'small'} {...handlers} />
                 <br />
                 <Select options={options} isFullWidth {...handlers} />
                 <br />
