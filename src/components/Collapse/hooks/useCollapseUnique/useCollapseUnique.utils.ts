@@ -1,5 +1,5 @@
 import { SetStateAction, Dispatch } from 'react';
-import { isActiveKey } from '../../Panel/utils';
+import { isActiveKey, checkKeyFunc } from '../../Panel/utils';
 import { CollapseProviderProps } from '../../context';
 import { UseCollapseUniqueProps } from '.';
 
@@ -43,7 +43,7 @@ const handleNotAccordionSet: HandleNotAccordionSet = ({ setUnique, key }) => {
                 | number[];
 
             const index = newArray.findIndex((item: string | number) => {
-                return `${item}` === `${key}`;
+                return checkKeyFunc(item, key);
             });
 
             if (index === -1) {
@@ -67,17 +67,33 @@ export const getDefaultUniqueCollapseValue: GetDefaultValue = (
     isAccordion,
     defaultValue = []
 ) => {
-    if (Array.isArray(defaultValue)) {
-        if (isAccordion) {
-            return defaultValue[0] ?? ([] as string[] | number[]);
-        } else {
-            return defaultValue;
-        }
-    } else {
-        if (isAccordion) {
-            return defaultValue;
-        } else {
-            return [defaultValue] as string[] | number[];
-        }
-    }
+    return Array.isArray(defaultValue)
+        ? defaultValueArray(isAccordion, defaultValue)
+        : defaultValueNotArray(isAccordion, defaultValue);
+};
+
+type ParametersGetDefaultValue = Parameters<GetDefaultValue>;
+type ReturnValueGetDefaultValue = ReturnType<GetDefaultValue>;
+type DefaultValueArray = (
+    ...props: [ParametersGetDefaultValue[0], string[] | number[]]
+) => ReturnValueGetDefaultValue;
+
+export const defaultValueArray: DefaultValueArray = (
+    isAccordion,
+    defaultValue
+) => {
+    return isAccordion
+        ? defaultValue[0] ?? ([] as string[] | number[])
+        : defaultValue;
+};
+
+type DefaultValueNotArray = (
+    ...props: [ParametersGetDefaultValue[0], string | number]
+) => ReturnValueGetDefaultValue;
+
+export const defaultValueNotArray: DefaultValueNotArray = (
+    isAccordion,
+    defaultValue
+) => {
+    return isAccordion ? defaultValue : ([defaultValue] as string[] | number[]);
 };
