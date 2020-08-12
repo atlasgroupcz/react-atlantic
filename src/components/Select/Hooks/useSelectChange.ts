@@ -30,7 +30,7 @@ export const useSelectChange: UseSelectChangeType = ({
     const [value, setValue] = useState<SelectProps['value']>(defaultValue);
 
     const handleChange: UseSelectChangeValue['onChange'] = useCallback(
-        (value, action): void => {
+        (value, action?): void => {
             if (!isDisabled) {
                 setValue(value);
 
