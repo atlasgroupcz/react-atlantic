@@ -12,7 +12,7 @@ export type StyledSelectProps = {
 };
 
 export interface OptionType {
-    value: string;
+    value: any;
     label: string;
 }
 
