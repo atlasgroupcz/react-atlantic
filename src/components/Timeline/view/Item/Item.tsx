@@ -6,3 +6,5 @@ export type TimelineItemType = FC<TimelineItemProps>;
 export const TimelineItem: TimelineItemType = () => {
     return <>TimelineItem</>;
 };
+
+TimelineItem.displayName = 'TimelineItem';
