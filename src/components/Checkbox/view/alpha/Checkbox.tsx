@@ -1,4 +1,4 @@
-import React, { FC, PropsWithChildren, useRef } from 'react';
+import React, { CSSProperties, useRef } from 'react';
 import { CheckSimple } from '../../../../Icons';
 import {
     HiddenCheckbox,
@@ -8,31 +8,9 @@ import {
     StyledCheckboxMark,
     StyledCheckboxSpan,
 } from './style';
-import {
-    CommonHTMLProps,
-    HorizontalPositionWithDocs,
-    MouseEvents,
-} from '../../../../types';
 import { useChain, useSpring, useTrail } from 'react-spring';
 import * as easings from 'd3-ease';
-
-export type CheckboxType = FC<PropsWithChildren<CheckboxProps>>;
-
-export type UseCheckboxArgs = {
-    isDefaultChecked?: boolean;
-    isPartiallyChecked?: boolean;
-    isDisabled?: boolean;
-};
-
-export type CommonCheckboxProps = {
-    isChecked?: boolean;
-};
-
-export type CheckboxProps = CommonCheckboxProps &
-    Omit<UseCheckboxArgs, 'isDefaultChecked'> &
-    CommonHTMLProps<HTMLInputElement> &
-    MouseEvents<HTMLInputElement> &
-    HorizontalPositionWithDocs;
+import { CheckboxType } from '../../types';
 
 export const Checkbox: CheckboxType = ({
     isPartiallyChecked,
@@ -86,10 +64,10 @@ export const Checkbox: CheckboxType = ({
                 {...props}
             />
             <StyledCheckboxInputShown isDisabled={isDisabled}>
-                {trail.map((style, index) => (
+                {trail.map((style: unknown, index) => (
                     <StyledCheckboxMark
                         key={index}
-                        style={style}
+                        style={style as any}
                         isDisabled={isDisabled}
                         isChecked={isChecked}
                         isPartiallyChecked={isPartiallyChecked}

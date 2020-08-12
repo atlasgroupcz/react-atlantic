@@ -1,14 +1,14 @@
-import { animated } from 'react-spring/web.cjs';
+import { animated } from 'react-spring';
 import styled, { css } from 'styled-components';
 
-interface StyledCheckboxProps {
+type StyledCheckboxProps = {
     isChecked?: boolean;
     isPartiallyChecked?: boolean;
     isDisabled?: boolean;
     isTextDotted?: boolean;
     name?: string;
     position?: 'right' | 'left';
-}
+};
 
 export const HiddenCheckbox = styled.input.attrs({
     type: 'checkbox',
