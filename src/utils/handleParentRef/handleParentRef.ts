@@ -1,9 +1,6 @@
-import { RefType } from '../types/Ref';
+import { HandleParentRef } from './handleParentRef.types';
 
-export const handleParentRef = <T extends HTMLElement>(
-    ref: RefType<T>,
-    instance: T | null
-) => {
+export const handleParentRef: HandleParentRef = (ref, instance) => {
     if (typeof ref === 'function') {
         ref(instance);
     } else {

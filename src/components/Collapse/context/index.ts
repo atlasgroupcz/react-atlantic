@@ -1,5 +1,7 @@
-import { PropsWithChildren, Dispatch, SetStateAction, ReactText } from 'react';
+import { PropsWithChildren, ReactText } from 'react';
 import { CollapseIconFactoryType } from '../types';
+import { HorizontalPosition } from '../../..';
+import { SetUniqueKey } from './types';
 
 export * from './Context';
 
@@ -10,11 +12,8 @@ export type CollapseProviderPropsWithChildren = PropsWithChildren<
 >;
 
 export type CollapseProviderProps = {
-    activeKey: string[] | number[] | ReactText;
-    accordion?: boolean;
-    setActiveKey: SetActiveKey;
+    activeUnique: string[] | number[] | ReactText;
+    isAccordion?: boolean;
+    onClick?: SetUniqueKey;
+    expandIconPosition?: HorizontalPosition;
 };
-
-type SetActiveKey = Dispatch<
-    SetStateAction<CollapseProviderProps['activeKey']>
->;

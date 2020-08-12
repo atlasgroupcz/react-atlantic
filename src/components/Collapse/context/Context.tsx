@@ -1,29 +1,25 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import { createContext, useContext, FC } from 'react';
 import { CollapseContextState, defaultCollapseContextState } from './types';
 import { CollapseProviderPropsWithChildren } from '.';
-import { handleContextSet } from './Context.utils';
 
 type CollapseProviderType = FC<CollapseProviderPropsWithChildren>;
 export const CollapseProvider: CollapseProviderType = ({
     children,
-    accordion,
-    activeKey,
+    isAccordion,
+    activeUnique,
     expandIcon,
-    setActiveKey,
+    expandIconPosition = defaultCollapseContextState.expandIconPosition,
+    onClick,
     ...props
 }) => {
-    const handleSetKey: CollapseContextState['setActiveKey'] = useCallback(
-        (key) => handleContextSet({ key, accordion, setActiveKey }),
-        [accordion, setActiveKey]
-    );
-
     return (
         <CollapseContext.Provider
             value={{
+                expandIconPosition,
                 ...props,
-                setActiveKey: handleSetKey,
-                activeKey,
+                onClick,
+                activeUnique,
                 expandIcon,
             }}
         >

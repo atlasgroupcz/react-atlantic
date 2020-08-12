@@ -4,41 +4,57 @@ import { PanelProps } from './types';
 import { useCollapseContext } from '../context';
 import { isActiveKey } from './utils';
 
-export type PanelType = FC<PanelProps>;
+export type CollapsePanelType = FC<PanelProps>;
 
-export const Panel: PanelType = ({
+export const CollapsePanel: CollapsePanelType = ({
     children,
     unique,
     header,
-    isDisabled,
-    onClick,
+    isDisabled = false,
     ...props
 }) => {
-    console.log(props);
-    const { activeKey, expandIcon, setActiveKey } = useCollapseContext();
+    const {
+        activeUnique,
+        expandIcon,
+        expandIconPosition,
+        onClick,
+    } = useCollapseContext();
 
-    const isActive = useMemo(() => isActiveKey(unique, activeKey), [
+    const isActive = useMemo(() => isActiveKey(unique, activeUnique), [
         unique,
-        activeKey,
+        activeUnique,
     ]);
 
+    /**
+     * Method which triggers setState in hook [controller]
+     */
     const handleClick = useCallback(
         (e) => {
-            setActiveKey(unique);
-            onClick?.(e);
+            if (!isDisabled) {
+                onClick?.(unique);
+            }
         },
-        [unique, setActiveKey, onClick]
+        [unique, isDisabled, onClick]
     );
 
     return (
         <StyledPanel {...props}>
             <StyledPanelHeader onClick={handleClick}>
-                <>
-                    {expandIcon({ isActive })}
-                    {header}
-                </>
+                {expandIconPosition === 'left' ? (
+                    <>
+                        {expandIcon({ isActive })}
+                        {header}
+                    </>
+                ) : (
+                    <>
+                        {header}
+                        {expandIcon({ isActive })}
+                    </>
+                )}
             </StyledPanelHeader>
             {isActive && <StyledPanelContent>{children}</StyledPanelContent>}
         </StyledPanel>
     );
 };
+
+CollapsePanel.displayName = `CollapsePanel`;

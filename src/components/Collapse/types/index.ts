@@ -1,29 +1,16 @@
-import {
-    CommonHTMLProps,
-    FormEvents,
-    KeyboardEvents,
-    FocusEvents,
-} from '../../../types';
 import { PropsWithChildren, ReactNode } from 'react';
 import { CollapseProviderProps } from '../context';
-import { IconProps } from '../..';
-import { SetActiveKey } from '../context/types';
+import { CommonHTMLProps } from '../../..';
 
 export type StyledCollapseProps = {};
 
-export type CollapseEventProps = FormEvents<HTMLDivElement> &
-    KeyboardEvents<HTMLDivElement> &
-    FocusEvents<HTMLDivElement>;
-
-export type ControllerInputProps = CommonHTMLProps<HTMLInputElement> &
-    CollapseEventProps &
-    CollapseProviderProps;
+export type ControllerCollapseProps = CollapseProviderProps;
 
 export type CollapseProps = PropsWithChildren<
-    StyledCollapseProps &
-        ControllerInputProps & {
+    CommonHTMLProps<HTMLDivElement> &
+        StyledCollapseProps &
+        ControllerCollapseProps & {
             expandIcon?: CollapseIconFactoryType;
-            setActiveKey?: SetActiveKey;
         }
 >;
 

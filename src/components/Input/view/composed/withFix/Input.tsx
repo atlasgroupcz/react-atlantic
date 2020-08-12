@@ -3,7 +3,7 @@ import { InputFixProps } from './types';
 import { StyledComposedInput, StyledPrefix, StyledSuffix } from './style';
 import { InputBase } from '../../base';
 import { PropsWithoutChildren } from '../../../../../types';
-import { handleParentRef } from '../../../../../utils/handleParentRef';
+import { handleParentRef } from '../../../../../utils';
 
 export type InputFixType = FC<PropsWithoutChildren<InputFixProps>>;
 
