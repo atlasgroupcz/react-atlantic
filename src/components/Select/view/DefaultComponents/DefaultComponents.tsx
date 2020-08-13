@@ -17,35 +17,15 @@ import {
     ValueContainer,
     StyledOption,
 } from '../style';
-import React, { ComponentType, FC } from 'react';
-import { Input } from '../../../Input/view';
-import { theme, ThemeType } from '../../../../theme';
+import React from 'react';
+import { theme } from '../../../../theme';
 import { Text } from '../../../Typography/Text';
 import { OptionType, StyledSelectProps } from '../../types';
-import {
-    SelectComponents,
-    SelectComponentsConfig,
-} from 'react-select/src/components';
+import { SelectComponentsConfig } from 'react-select/src/components';
 import { ControlProps } from 'react-select/src/components/Control';
 import { Props } from 'react-select';
-import { ThemeConfig } from 'react-select/src/theme';
-import { InputProps } from 'react-select/src/components/Input';
-
-export const OptionComponent: FC<any> = (props) => {
-    const { innerRef, innerProps, label, size, ...others } = props;
-    const { className } = others.data;
-    return (
-        <StyledOption
-            key={label}
-            ref={innerRef}
-            {...innerProps}
-            size={size}
-            className={className}
-        >
-            {label}
-        </StyledOption>
-    );
-};
+import { OptionProps } from 'react-select/src/components/Option';
+import { SizeWithDocs } from '../../../../types';
 
 export const defaultComponents = ({
     isFocused,
@@ -56,8 +36,23 @@ export const defaultComponents = ({
     OptionType
 > => {
     return {
-        IndicatorSeparator: undefined,
-        Option: (props) => <OptionComponent {...props} theme={theme} />,
+        Option: (optionProps) => {
+            const props = optionProps as OptionProps<OptionType> & {
+                size?: SizeWithDocs;
+            };
+
+            return (
+                <StyledOption
+                    {...props.innerProps}
+                    ref={props.innerRef}
+                    size={size}
+                    className={props.data.className}
+                    key={props.label}
+                >
+                    {props.label}
+                </StyledOption>
+            );
+        },
         NoOptionsMessage: ({ children, innerProps }) => (
             <NoOptionsMessage {...innerProps}>{children}</NoOptionsMessage>
         ),
