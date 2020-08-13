@@ -1,34 +1,43 @@
 import { useCallback, useState } from 'react';
 import { OptionType, SelectProps } from '../types';
 import { Props as ReactSelectProps, ValueType } from 'react-select';
+import { ActionMeta } from 'react-select/src/types';
 
-interface UseSelectChangeValue extends ReactSelectProps {
+export interface UseSelectChangeValue extends ReactSelectProps {
     value: ValueType<OptionType>;
+    onChange?: (
+        value: ValueType<OptionType>,
+        action?: ActionMeta<OptionType>
+    ) => void;
 }
 
 interface UseSelectChangeProps extends ReactSelectProps {
     defaultValue?: ValueType<OptionType>;
     isDisabled?: Readonly<boolean>;
+    onChange?: (
+        value: ValueType<OptionType>,
+        action?: ActionMeta<OptionType>
+    ) => void;
 }
 
-type UseSelectChangeType = (args: UseSelectChangeProps) => UseSelectChangeValue;
+type UseSelectChangeType = (
+    props?: UseSelectChangeProps
+) => UseSelectChangeValue;
 
-export const useSelectChange: UseSelectChangeType = ({
-    defaultValue,
-    isDisabled,
-    onChange,
-}) => {
-    const [value, setValue] = useState<SelectProps['value']>(defaultValue);
+export const useSelectChange: UseSelectChangeType = (props?) => {
+    const [value, setValue] = useState<SelectProps['value']>(
+        props?.defaultValue
+    );
 
     const handleChange: UseSelectChangeValue['onChange'] = useCallback(
-        (value, action): void => {
-            if (!isDisabled) {
+        (value, action?): void => {
+            if (!props?.isDisabled) {
                 setValue(value);
 
-                onChange?.(value, action);
+                props?.onChange?.(value, action || { action: 'select-option' });
             }
         },
-        [onChange, isDisabled]
+        [props?.onChange, props?.isDisabled]
     );
 
     return { value, onChange: handleChange };
