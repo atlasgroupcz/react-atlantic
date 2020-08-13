@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
-import { StyledBadge } from './Style/Badge.style';
-import { BadgeProps } from '../Types/Badge.types';
+import { StyledBadge } from './style/Badge.style';
+import { BadgeProps } from '../types/Badge.types';
 
 export const Badge: FC<BadgeProps> = ({
     type = 'default',

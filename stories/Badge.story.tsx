@@ -1,7 +1,7 @@
 import { select, text, withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
-import { Badge } from '../src/components/Badge/View/Badge';
+import { Badge } from '../src/components/Badge/view/Badge';
 
 const stories = storiesOf('Badge', module);
 

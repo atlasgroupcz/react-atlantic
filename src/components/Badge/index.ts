@@ -1,2 +1,2 @@
-export * from './View';
-export * from './Types';
+export * from './view';
+export * from './types';

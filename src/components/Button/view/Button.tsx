@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
-import { StyledButton } from './Style/Button.style';
-import { ButtonProps } from '../Types';
+import { StyledButton } from './style/Button.style';
+import { ButtonProps } from '../types';
 
 //TODO: Implement css only animation
 export const Button: FC<ButtonProps> = ({ type = 'default', ...props }) => {

@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { IndicatorProps } from '../../Types/Indicator.types';
+import { IndicatorProps } from '../../types/Indicator.types';
 
 export const StyledIndicator = styled.sup<IndicatorProps>`
   display: block;

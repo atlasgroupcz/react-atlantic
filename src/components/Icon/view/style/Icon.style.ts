@@ -1,6 +1,6 @@
 import styled, { css, keyframes } from 'styled-components';
 import { theme } from '../../../../theme';
-import { IconProps } from '../../Types';
+import { IconProps } from '../../types';
 
 export const spin = () => {
     return keyframes`
