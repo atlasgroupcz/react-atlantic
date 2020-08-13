@@ -3,11 +3,11 @@ import { OptionType, SelectProps } from '../types';
 import { Props as ReactSelectProps, ValueType } from 'react-select';
 
 interface UseSelectChangeValue extends ReactSelectProps {
-    value: ValueType<OptionType<string>>;
+    value: ValueType<OptionType>;
 }
 
 interface UseSelectChangeProps extends ReactSelectProps {
-    defaultValue?: ValueType<OptionType<string>>;
+    defaultValue?: ValueType<OptionType>;
     isDisabled?: Readonly<boolean>;
 }
 
