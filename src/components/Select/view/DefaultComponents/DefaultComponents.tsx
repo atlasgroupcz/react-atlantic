@@ -1,4 +1,4 @@
-import { Icon } from '../../../Icon/View';
+import { Icon } from '../../../Icon/view';
 import {
     MenuList,
     NoOptionsMessage,
@@ -16,17 +16,20 @@ import {
     SingleValue,
     ValueContainer,
     StyledOption,
-} from '../Style';
-import React, { FC } from 'react';
+} from '../style';
+import React, { ComponentType, FC } from 'react';
 import { Input } from '../../../Input/view';
-import { theme } from '../../../../theme';
+import { theme, ThemeType } from '../../../../theme';
 import { Text } from '../../../Typography/Text';
-import { OptionType, StyledSelectProps } from '../../Types';
+import { OptionType, StyledSelectProps } from '../../types';
 import {
     SelectComponents,
     SelectComponentsConfig,
 } from 'react-select/src/components';
 import { ControlProps } from 'react-select/src/components/Control';
+import { Props } from 'react-select';
+import { ThemeConfig } from 'react-select/src/theme';
+import { InputProps } from 'react-select/src/components/Input';
 
 export const OptionComponent: FC<any> = (props) => {
     const { innerRef, innerProps, label, size, ...others } = props;
@@ -53,6 +56,7 @@ export const defaultComponents = ({
     OptionType
 > => {
     return {
+        IndicatorSeparator: undefined,
         Option: (props) => <OptionComponent {...props} theme={theme} />,
         NoOptionsMessage: ({ children, innerProps }) => (
             <NoOptionsMessage {...innerProps}>{children}</NoOptionsMessage>
@@ -62,21 +66,26 @@ export const defaultComponents = ({
                 <Icon name={'clear'} />
             </ClearIndicator>
         ),
-        Control: (props) => (
-            <Control
-                {...props.innerProps}
-                isMenuOpened={props.menuIsOpen}
-                isFocused={isFocused}
-                isMulti={props.isMulti}
-                hasValue={props.hasValue}
-                isFullWidth={props.isFullWidth}
-                size={size}
-                isDisabled={props.isDisabled}
-                theme={theme}
-            >
-                {props.children}
-            </Control>
-        ),
+        Control: (controlProps) => {
+            const props = controlProps as ControlProps<OptionType> &
+                Partial<Props<OptionType>>;
+
+            return (
+                <Control
+                    {...props.innerProps}
+                    isMenuOpened={props.menuIsOpen}
+                    isFocused={isFocused}
+                    isMulti={props.isMulti}
+                    hasValue={props.hasValue}
+                    isFullWidth={props.isFullWidth}
+                    size={size}
+                    isDisabled={props.isDisabled}
+                    theme={theme}
+                >
+                    {props.children}
+                </Control>
+            );
+        },
         CrossIcon: ({ children, innerProps }) => (
             <CrossIcon {...innerProps} theme={theme}>
                 <div>{children}</div>
@@ -117,7 +126,7 @@ export const defaultComponents = ({
         ),
         Input: (props) => (
             <div>
-                <Input placeholder={`Začněte psát`} {...props} theme={theme} />
+                <input {...props} />
             </div>
         ),
         LoadingIndicator: ({ children, innerProps }) => (

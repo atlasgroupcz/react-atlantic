@@ -1,8 +1,8 @@
 import React from 'react';
 import { boolean, select, text, withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
-import { Select } from '../src/components/Select/View';
-import { useSelectChange } from '../src/components/Select/Hooks';
+import { Select } from '../src/components/Select/view';
+import { useSelectChange } from '../src/components/Select/hooks';
 import { defaultValues } from './constants';
 import { Size } from '../src/types';
 import { action } from '@storybook/addon-actions';
@@ -10,7 +10,7 @@ import {
     ControllerSelectProps,
     SelectProps,
     StyledSelectProps,
-} from '../src/components/Select/Types';
+} from '../src/components/Select/types';
 
 const stories = storiesOf('Select', module);
 
@@ -30,7 +30,7 @@ stories.add(
             <>
                 <Select options={options} size={'small'} {...handlers} />
                 <br />
-                <Select options={options} isFullWidth {...handlers} />
+                <Select options={options} isFullWidth={true} {...handlers} />
                 <br />
                 <Select options={options} isMulti {...handlers} />
                 <br />

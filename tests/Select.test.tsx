@@ -1,7 +1,7 @@
 import React from 'react';
 import { mockPropsCheckTest, mountTest, toBeDefinedTest } from './shared';
-import { SelectProps } from '../src/components/Select/Types';
-import { Select } from '../src/components/Select/View';
+import { SelectProps } from '../src/components/Select/types';
+import { Select } from '../src/components/Select/view';
 
 const mockSelectProps: SelectProps = {
     size: `small`,

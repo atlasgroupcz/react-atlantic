@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { StyledSelectProps } from '../../Types';
+import { StyledSelectProps } from '../../types';
 import { theme } from '../../../../theme';
 
 export const SelectContainer = styled.div<StyledSelectProps>`

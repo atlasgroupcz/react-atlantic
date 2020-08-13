@@ -1,5 +1,5 @@
 import { useCallback, useState } from 'react';
-import { OptionType, SelectProps } from '../Types';
+import { OptionType, SelectProps } from '../types';
 import { Props as ReactSelectProps, ValueType } from 'react-select';
 
 interface UseSelectChangeValue extends ReactSelectProps {
