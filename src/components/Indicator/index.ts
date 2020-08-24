@@ -1,2 +1,2 @@
-export * from './Indicator';
-export * from './Indicator.types';
+export * from './types';
+export * from './view';

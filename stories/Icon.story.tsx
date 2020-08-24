@@ -2,7 +2,7 @@ import * as React from 'react';
 import { select, withKnobs, boolean } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import { Icon } from '../src';
-import { IconName, IconsMap } from '../src/components/Icon/IconsMap';
+import { IconName, IconsMap } from '../src/components/Icon/view/IconsMap';
 
 const stories = storiesOf('Icon', module);
 const iconNames = Object.keys(IconsMap) as IconName[];

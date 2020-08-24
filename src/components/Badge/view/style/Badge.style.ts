@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { BadgeProps } from './Badge.types';
+import { BadgeProps } from '../../types/Badge.types';
 
 export const StyledBadge = styled.sup<BadgeProps>`
   display: inline-block;

@@ -3,7 +3,7 @@ import {
     PropsWithoutChildren,
     SizeWithDocs,
     TypeWithDocs,
-} from '../../types';
+} from '../../../types';
 
 export type IndicatorProps = PropsWithoutChildren<
     CommonHTMLProps & TypeWithDocs & SizeWithDocs

@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
-import { StyledIndicator } from './Indicator.style';
-import { IndicatorProps } from './Indicator.types';
+import { StyledIndicator } from './style/Indicator.style';
+import { IndicatorProps } from '../types/Indicator.types';
 
 export const Indicator: FC<IndicatorProps> = ({ type, size, ...props }) => (
     <StyledIndicator type={type} size={size} {...props} />

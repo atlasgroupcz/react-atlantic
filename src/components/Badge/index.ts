@@ -1,2 +1,2 @@
-export * from './Badge';
-export * from './Badge.types';
+export * from './view';
+export * from './types';
