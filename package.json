@@ -1,6 +1,6 @@
 {
     "name": "@atlasgroup/react-atlantic",
-    "version": "0.1.14",
+    "version": "0.1.15",
     "homepage": "https://atlasgroupcz.github.io/react-atlantic",
     "private": false,
     "main": "lib/index.js",
@@ -39,7 +39,8 @@
     "husky": {
         "hooks": {
             "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-            "pre-commit": "pretty-quick --staged"
+            "pre-commit": "pretty-quick --staged",
+            "prepare-commit-msg": "devmoji -e --lint"
         }
     },
     "devDependencies": {
@@ -75,6 +76,7 @@
         "babel-loader": "^8.1.0",
         "babel-preset-react-app": "^9.1.2",
         "cross-env": "^7.0.2",
+        "devmoji": "^2.1.9",
         "enzyme": "^3.11.0",
         "enzyme-adapter-react-16": "^1.15.2",
         "eslint": "^7.6.0",
