@@ -8,6 +8,6 @@ export type TimelineComponentComposition = {
 
 export type TimelineCommonHTMLProps = CommonHTMLProps<HTMLDivElement>;
 
-export type TimelineProps = TimelineCommonHTMLProps;
+export type TimelineProps = {};
 
 export type TimelineType = FC<TimelineProps> & TimelineComponentComposition;
