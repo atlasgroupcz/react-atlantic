@@ -28,7 +28,10 @@
         "typecheck": "tsc --noEmit",
         "prepublishOnly": "yarn build",
         "deploy": "gh-pages -d storybook-static",
-        "predeploy": "yarn build:storybook"
+        "predeploy": "yarn build:storybook",
+        "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md",
+        "changelog:all": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
+        "version": "yarn changelog:all"
     },
     "browserslist": [
         ">0.2%",
@@ -75,6 +78,7 @@
         "babel-jest": "^26.2.2",
         "babel-loader": "^8.1.0",
         "babel-preset-react-app": "^9.1.2",
+        "conventional-changelog-cli": "^2.1.0",
         "cross-env": "^7.0.2",
         "devmoji": "^2.1.9",
         "enzyme": "^3.11.0",
