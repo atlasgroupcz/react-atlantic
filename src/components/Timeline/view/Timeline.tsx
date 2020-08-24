@@ -1,16 +1,12 @@
-import React, { FC } from 'react';
-import { StyledTimeline } from './style';
+import React from 'react';
 import { TimelineItem } from './Item/Item';
+import { StyledTimelineContainer } from './style/Timeline.style';
+import { TimelineType } from './Timeline.types';
 
-export interface TimelineProps {}
-export type TimelineType = FC<TimelineProps>;
-
-export type TimelineComponentComposition = {
-    Item: typeof TimelineItem;
-};
-
-export const Timeline: TimelineType & TimelineComponentComposition = () => {
-    return <StyledTimeline>Timeline</StyledTimeline>;
+export const Timeline: TimelineType = ({ children, ...props }) => {
+    return (
+        <StyledTimelineContainer {...props}>{children}</StyledTimelineContainer>
+    );
 };
 
 Timeline.displayName = 'Timeline';
