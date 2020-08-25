@@ -1,11 +1,10 @@
 import React, { forwardRef, PropsWithChildren } from 'react';
-import { css, Type, PureButton, MouseEvents } from '../../../../..';
-import { Link } from '../../../../Typography/Link/Link';
+import { css, Type, PureButton, MouseEvents, StyledIcon } from '../../../../..';
 import { StyledTitle5 } from '../../../../Typography/Title/Title.style';
 import { StyledText } from '../../../../Typography/Text/Text.style';
-import { StyledIcon } from '../../../../Icon/Icon.style';
 import { styled } from '../../../../../styled';
 import { TimelineItemProps } from '../Item.types';
+import { Link } from '../../../../Typography/Link';
 
 const circleSize = `15px`;
 

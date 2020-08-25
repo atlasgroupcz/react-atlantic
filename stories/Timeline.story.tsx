@@ -2,13 +2,13 @@ import React, { ReactNode } from 'react';
 import { storiesOf } from '@storybook/react';
 import { number, select, text, withKnobs } from '@storybook/addon-knobs';
 import { FirstTimelineDemo } from '../src/components/Timeline/demo';
-import { TimelineItemProps } from '../src/components/Timeline/view/Item/Item.types';
 import { Type } from '../src/types';
 import { defaultValues } from './constants';
 import { Timeline, TimelineItem } from '../src/components/Timeline/view';
 import { Icon } from '../src/components/Icon';
 import { Text } from '../src/components/Typography';
 import { TimelineProps } from '../src/components/Timeline/view/Timeline.types';
+import { TimelineItemProps } from '../src/components/Timeline/view/Item/Item.types';
 
 const stories = storiesOf('Timeline', module);
 
@@ -58,17 +58,16 @@ stories.add(
             align,
         };
 
-        const timeline = (
+        return (
             <Timeline {...timelineProps}>
                 {[...Array(numberOfItems).keys()].map((_, i) => (
                     <TimelineItem
+                        key={i}
                         {...timelineItemProps}
                     >{`item ${i}`}</TimelineItem>
                 ))}
             </Timeline>
         );
-
-        return timeline;
     },
     {
         info: { inline: true },
