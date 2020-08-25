@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
-import { mount } from 'enzyme';
+import { mountWithTheme } from '../utils/mountWithTheme';
 
 export const mountTest = (Component: FC<any>) => {
     describe(`mount and unmount ${Component?.displayName}`, () => {
-        const wrapper = mount(<Component />);
+        const wrapper = mountWithTheme(<Component />);
         expect(() => {
             wrapper.setProps({});
             wrapper.unmount();

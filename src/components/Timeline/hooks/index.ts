@@ -1,1 +1,1 @@
-export * from './useTimeline';
+export * from './useTimelineActive';

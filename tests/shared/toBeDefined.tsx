@@ -1,12 +1,13 @@
-import React, { FC, ComponentProps } from 'react';
-import { shallow } from 'enzyme';
+import React, { FC } from 'react';
+import { shallowWithTheme } from '../utils/shallowWithTheme';
 
-export const toBeDefinedTest = <T extends {} = {}>(
-    Component: FC<T>,
-    props?: ComponentProps<FC<T>>
+//TODO: fix type :(
+export const toBeDefinedTest = <F extends FC<any>>(
+    Component: F,
+    props?: any
 ) => {
     it(`should render ${Component?.displayName}`, () => {
-        const shallowWrapper = shallow(<Component {...props} />);
+        const shallowWrapper = shallowWithTheme(<Component {...props} />);
         expect(shallowWrapper).toBeDefined();
     });
 };

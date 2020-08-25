@@ -1,9 +1,9 @@
 import React from 'react';
-import { Timeline } from '../src/components/Timeline';
-import { toBeDefinedTest, mountTest, mockPropsCheckTest } from './shared';
+import { Timeline, TimelineItem } from '../src/components/Timeline';
+import { toBeDefinedTest, mountTest } from './shared';
 import { TimelineItemProps } from '../src/components/Timeline/view/Item/Item.types';
-import { mount } from 'enzyme';
 import { TimelineProps } from '../src/components/Timeline/view/Timeline.types';
+import { mountWithTheme } from './utils/mountWithTheme';
 
 const mockItemProps: TimelineItemProps = {
     dot: 'dot',
@@ -12,16 +12,15 @@ const mockItemProps: TimelineItemProps = {
     type: 'error',
 };
 
-// describe('shared Timeline', () => {
-//     toBeDefinedTest(Timeline);
-//     mountTest(Timeline);
-// });
+describe('shared Timeline', () => {
+    toBeDefinedTest(Timeline);
+    mountTest(Timeline);
+});
 
-// describe('shared TimelineItem', () => {
-//     toBeDefinedTest(Timeline.Item, mockItemProps);
-//     mockPropsCheckTest(mockItemProps, Timeline.Item);
-//     mountTest(Timeline.Item);
-// });
+describe('shared TimelineItem', () => {
+    toBeDefinedTest(TimelineItem, mockItemProps);
+    mountTest(TimelineItem);
+});
 
 const renderer = (
     timelineProps: TimelineProps,
@@ -29,7 +28,7 @@ const renderer = (
 ) => {
     return (
         <Timeline {...timelineProps}>
-            <Timeline.Item {...itemProps} />
+            <TimelineItem {...itemProps} />
         </Timeline>
     );
 };
@@ -39,7 +38,7 @@ describe('Timeline - view', () => {
     const itemClassName = 'custom-timelineItem-1';
 
     it('should keep the className', () => {
-        const wrapper = mount(
+        const wrapper = mountWithTheme(
             renderer(
                 {
                     className: timelineClassName,
@@ -54,12 +53,28 @@ describe('Timeline - view', () => {
         expect(wrapper.find(`.${timelineClassName}`).exists()).toBe(true);
     });
 
+    it('should has 3 children', () => {
+        const wrapper = mountWithTheme(
+            renderer(
+                {
+                    className: timelineClassName,
+                },
+                {
+                    ...mockItemProps,
+                    className: itemClassName,
+                }
+            )
+        );
+
+        expect(wrapper.find(`.${itemClassName} li`).children().length).toBe(3);
+    });
+
     it('should has own dot component', () => {
         const dotClassName = 'own-dot';
         const dot: TimelineItemProps['dot'] = (
             <div className={`${dotClassName}`}>dot</div>
         );
-        const wrapper = mount(
+        const wrapper = mountWithTheme(
             renderer(
                 {
                     className: timelineClassName,
@@ -72,8 +87,19 @@ describe('Timeline - view', () => {
         );
 
         expect(
-            wrapper.find(`.${itemClassName} .${dotClassName}`).exists()
+            wrapper.find(`.${itemClassName} li .${dotClassName}`).exists()
         ).toBe(true);
+
+        /**
+         * Without label should be len of children equals to 2..
+         * */
+        expect(wrapper.find(`.${itemClassName} li`).children().length).toBe(2);
+        expect(
+            wrapper
+                .find(`.${itemClassName} li .${dotClassName}`)
+                .children()
+                .text()
+        ).toEqual(mockItemProps.dot);
     });
 
     it('should has own label component', () => {
@@ -82,7 +108,7 @@ describe('Timeline - view', () => {
             <div className={`${labelClassName}`}>label</div>
         );
 
-        const wrapper = mount(
+        const wrapper = mountWithTheme(
             renderer(
                 {
                     className: timelineClassName,
@@ -97,6 +123,4 @@ describe('Timeline - view', () => {
             wrapper.find(`.${itemClassName} .${labelClassName}`).exists()
         ).toBe(true);
     });
-
-    it('should has content on right side', () => {});
 });

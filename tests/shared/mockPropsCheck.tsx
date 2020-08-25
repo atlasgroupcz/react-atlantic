@@ -1,5 +1,7 @@
 import React, { FC } from 'react';
 import { shallow } from 'enzyme';
+import { theme } from '../../src/theme';
+import { shallowWithTheme } from '../utils/shallowWithTheme';
 
 export const mockPropsCheckTest = <T extends {}>(
     mockProps: T,
@@ -8,7 +10,9 @@ export const mockPropsCheckTest = <T extends {}>(
 ) => {
     (Object.keys(mockProps) as (keyof T)[]).forEach((key) => {
         it(`${key} should be ${mockProps[key]}`, () => {
-            const shallowWrapper = shallow(<Component {...mockProps} />);
+            const shallowWrapper = shallowWithTheme(
+                <Component {...mockProps} />
+            );
             if (subComponent) {
                 expect(
                     shallowWrapper.find(subComponent)?.props()?.[key]
