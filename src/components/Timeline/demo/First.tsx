@@ -37,6 +37,7 @@ export const FirstTimelineDemo = () => {
                 onClick={handleClick2}
                 type={'primary'}
                 label={'prdel 2 label'}
+                unique={1}
             >
                 <p>prdel 2</p>
             </Timeline.Item>

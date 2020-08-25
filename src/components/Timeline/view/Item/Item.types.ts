@@ -10,7 +10,7 @@ export type TimelineItemEventProps = Omit<
 
 export type TimelineOnClick = (
     e: Parameters<NonNullable<MouseEvents<HTMLLIElement>['onClick']>>[0],
-    i: number
+    unique: TimelineItemExtraProps['unique']
 ) => void;
 
 export type TimelineItemCommonHTMLProps = CommonHTMLProps<HTMLLIElement>;
@@ -19,6 +19,7 @@ export type TimelineItemExtraProps = {
     dot?: ReactNode;
     label?: ReactNode;
     type?: Type;
+    unique?: string | number;
 };
 
 export type TimelineItemProps = TimelineItemEventProps &
