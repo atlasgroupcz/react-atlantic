@@ -22,7 +22,7 @@ export const Timeline: TimelineType = forwardRef(
                               ) => c.props.onClick!(e, i)
                             : undefined;
                     const childAlign: TimelineItemProps['align'] =
-                        c?.props.align ?? getAlign(align, i);
+                        c?.props?.align ?? getAlign(align, i);
                     return React.cloneElement(c, {
                         ...c.props,
                         onClick: childOnClick,
@@ -44,5 +44,5 @@ const getAlign: GetAlign = (align, i) => {
     if (align === 'alternate') {
         return i % 2 == 0 ? 'right' : 'left';
     }
-    return 'left';
+    return align;
 };

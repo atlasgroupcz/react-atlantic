@@ -8,6 +8,7 @@ import { defaultValues } from './constants';
 import { Timeline, TimelineItem } from '../src/components/Timeline/view';
 import { Icon } from '../src/components/Icon';
 import { Text } from '../src/components/Typography';
+import { TimelineProps } from '../src/components/Timeline/view/Timeline.types';
 
 const stories = storiesOf('Timeline', module);
 
@@ -41,16 +42,28 @@ stories.add(
 
         const dot = dotFactory(dotType);
 
-        const props: TimelineItemProps = {
+        const align: TimelineProps['align'] = select(
+            'align',
+            ['right', 'left', 'alternate'],
+            'right'
+        );
+
+        const timelineItemProps: TimelineItemProps = {
             type,
             oppositeContent,
             dot,
         };
 
+        const timelineProps: TimelineProps = {
+            align,
+        };
+
         const timeline = (
-            <Timeline>
+            <Timeline {...timelineProps}>
                 {[...Array(numberOfItems).keys()].map((_, i) => (
-                    <TimelineItem {...props}>{`item ${i}`}</TimelineItem>
+                    <TimelineItem
+                        {...timelineItemProps}
+                    >{`item ${i}`}</TimelineItem>
                 ))}
             </Timeline>
         );
