@@ -28,7 +28,10 @@ stories.add(
             defaultValues.type
         ) as Type;
 
-        const label: TimelineItemProps['label'] = text('label', ``);
+        const oppositeContent: TimelineItemProps['oppositeContent'] = text(
+            'oppositeContent',
+            ``
+        );
 
         const dotType = select(
             `dot:`,
@@ -40,7 +43,7 @@ stories.add(
 
         const props: TimelineItemProps = {
             type,
-            label,
+            oppositeContent,
             dot,
         };
 

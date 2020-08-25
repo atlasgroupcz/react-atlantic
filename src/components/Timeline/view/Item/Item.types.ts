@@ -17,7 +17,7 @@ export type TimelineItemCommonHTMLProps = CommonHTMLProps<HTMLLIElement>;
 
 export type TimelineItemExtraProps = {
     dot?: ReactNode;
-    label?: ReactNode;
+    oppositeContent?: ReactNode;
     type?: Type;
     unique?: string | number;
 };

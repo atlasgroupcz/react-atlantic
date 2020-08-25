@@ -37,7 +37,7 @@ export const FirstTimelineDemo = () => {
             <TimelineItem
                 ref={ref}
                 type={'error'}
-                label={'prdel 1 label'}
+                oppositeContent={'prdel 1 label'}
                 onClick={handleClick}
             >
                 <p>prdel 1</p>
@@ -45,7 +45,7 @@ export const FirstTimelineDemo = () => {
             <TimelineItem
                 onClick={handleClick2}
                 type={'primary'}
-                label={'prdel 2 label'}
+                oppositeContent={'prdel 2 label'}
                 unique={1}
             >
                 <p>prdel 2</p>
@@ -53,7 +53,7 @@ export const FirstTimelineDemo = () => {
             <TimelineItem
                 onClick={handleClick2}
                 type={'success'}
-                label={'prdel 3 label'}
+                oppositeContent={'prdel 3 label'}
             >
                 <p>prdel 3</p>
             </TimelineItem>

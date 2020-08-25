@@ -7,7 +7,7 @@ import { mountWithTheme } from './utils/mountWithTheme';
 
 const mockItemProps: TimelineItemProps = {
     dot: 'dot',
-    label: 'label',
+    oppositeContent: 'label',
     unique: 1,
     type: 'error',
 };
@@ -91,7 +91,7 @@ describe('Timeline - view', () => {
         ).toBe(true);
 
         /**
-         * Without label should be len of children equals to 2..
+         * Without oppositeContent should be len of children equals to 2..
          * */
         expect(wrapper.find(`.${itemClassName} li`).children().length).toBe(2);
         expect(
@@ -102,10 +102,10 @@ describe('Timeline - view', () => {
         ).toEqual(mockItemProps.dot);
     });
 
-    it('should has own label component', () => {
-        const labelClassName = 'own-label';
-        const label: TimelineItemProps['label'] = (
-            <div className={`${labelClassName}`}>label</div>
+    it('should has own oppositeContent component', () => {
+        const oppositeContentClassName = 'own-label';
+        const oppositeContent: TimelineItemProps['oppositeContent'] = (
+            <div className={`${oppositeContentClassName}`}>label</div>
         );
 
         const wrapper = mountWithTheme(
@@ -114,13 +114,15 @@ describe('Timeline - view', () => {
                     className: timelineClassName,
                 },
                 {
-                    label,
+                    oppositeContent: oppositeContent,
                     className: itemClassName,
                 }
             )
         );
         expect(
-            wrapper.find(`.${itemClassName} .${labelClassName}`).exists()
+            wrapper
+                .find(`.${itemClassName} .${oppositeContentClassName}`)
+                .exists()
         ).toBe(true);
     });
 });
