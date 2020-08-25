@@ -1,4 +1,4 @@
-import React, { useRef, useState, FC } from 'react';
+import React, { useRef } from 'react';
 import { Timeline } from '../view';
 import { Icon } from '../../Icon';
 import { TimelineItemProps, TimelineOnClick } from '../view/Item/Item.types';
@@ -58,12 +58,12 @@ export const FirstTimelineDemo = () => {
     );
 };
 
-type CustomTimelineItemType = FC;
-const CustomTimelineItem = () => {
-    const icon = <Icon name={'upload'} />;
-    return (
-        <Timeline.Item dot={icon} type={'warning'}>
-            <p>prdel 5</p>
-        </Timeline.Item>
-    );
-};
+// type CustomTimelineItemType = FC;
+// const CustomTimelineItem = () => {
+//     const icon = <Icon name={'upload'} />;
+//     return (
+//         <Timeline.Item dot={icon} type={'warning'}>
+//             <p>prdel 5</p>
+//         </Timeline.Item>
+//     );
+// };

@@ -1,5 +1,5 @@
 import React, { forwardRef, PropsWithChildren } from 'react';
-import { css, Type, PureButton } from '../../../../..';
+import { css, Type, PureButton, MouseEvents } from '../../../../..';
 import { Link } from '../../../../Typography/Link/Link';
 import { StyledTitle5 } from '../../../../Typography/Title/Title.style';
 import { StyledText } from '../../../../Typography/Text/Text.style';
@@ -24,15 +24,21 @@ export interface StyledTimelineContainerProps {
     isMain?: boolean;
 }
 
+type StyledTimelineProps = PropsWithChildren<
+    Omit<TimelineItemProps, 'onClick'> & {
+        onClick?: MouseEvents<HTMLLIElement>['onClick'];
+    }
+>;
+
 export const StyledTimelineItem = styled(
-    forwardRef<HTMLLIElement, PropsWithChildren<TimelineItemProps>>(
+    forwardRef<HTMLLIElement, StyledTimelineProps>(
         ({ type, children, ...props }, ref) => (
             <li {...props} ref={ref}>
                 {children}
             </li>
         )
     )
-)<TimelineItemProps>`
+)<StyledTimelineProps>`
     position: relative;
     display: flex;
     flex-direction: row;
