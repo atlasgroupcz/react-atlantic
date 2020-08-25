@@ -28,7 +28,7 @@ const renderer = (
 ) => {
     return (
         <Timeline {...timelineProps}>
-            <TimelineItem {...itemProps} />
+            <TimelineItem {...itemProps}>{`prdel`}</TimelineItem>
         </Timeline>
     );
 };

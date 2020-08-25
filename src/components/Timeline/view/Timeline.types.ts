@@ -3,10 +3,11 @@ import {
     ForwardRefExoticComponent,
     PropsWithChildren,
     PropsWithoutRef,
+    ReactNode,
     RefAttributes,
 } from 'react';
 import { TimelineItem } from '.';
-import { CommonHTMLProps } from '../../..';
+import { CommonHTMLProps, HorizontalPosition } from '../../..';
 
 //TODO!: types
 export type TimelineComponentComposition = {
@@ -15,7 +16,13 @@ export type TimelineComponentComposition = {
 
 export type TimelineCommonHTMLProps = CommonHTMLProps<HTMLUListElement>;
 
-export type TimelineProps = PropsWithChildren<TimelineCommonHTMLProps>;
+export type TimelineExtraProps = {
+    align?: HorizontalPosition | 'alternate';
+};
+
+export type TimelineProps = PropsWithChildren<
+    TimelineCommonHTMLProps & TimelineExtraProps
+>;
 
 export type TimelineType = ForwardRefExoticComponent<
     PropsWithoutRef<TimelineProps> & RefAttributes<HTMLUListElement>

@@ -1,4 +1,9 @@
-import { MouseEvents, CommonHTMLProps, Type } from '../../../..';
+import {
+    MouseEvents,
+    CommonHTMLProps,
+    Type,
+    HorizontalPosition,
+} from '../../../..';
 import { ReactNode, FC, PropsWithChildren } from 'react';
 
 export type TimelineItemEventProps = Omit<
@@ -20,6 +25,7 @@ export type TimelineItemExtraProps = {
     oppositeContent?: ReactNode;
     type?: Type;
     unique?: string | number;
+    align?: HorizontalPosition;
 };
 
 export type TimelineItemProps = TimelineItemEventProps &

@@ -12,7 +12,16 @@ export const TimelineItem: TimelineItemType = forwardRef<
     TimelineItemProps
 >(
     (
-        { dot, oppositeContent, children, type, unique, onClick, ...props },
+        {
+            dot,
+            oppositeContent,
+            children,
+            type,
+            unique,
+            onClick,
+            align = 'right',
+            ...props
+        },
         ref
     ) => {
         //TODO?: MT - styles for dot container..
@@ -24,6 +33,13 @@ export const TimelineItem: TimelineItemType = forwardRef<
             [onClick, unique]
         );
 
+        const OppositeContent = oppositeContent && (
+            <StyledTimelineContainer>{oppositeContent}</StyledTimelineContainer>
+        );
+        const ChildrenContent = children && (
+            <StyledTimelineContainer>{children}</StyledTimelineContainer>
+        );
+
         return (
             <StyledTimelineItem
                 {...props}
@@ -31,19 +47,11 @@ export const TimelineItem: TimelineItemType = forwardRef<
                 ref={ref}
                 onClick={handleClick}
             >
-                {oppositeContent && (
-                    <StyledTimelineContainer>
-                        {oppositeContent}
-                    </StyledTimelineContainer>
-                )}
+                {align === 'left' ? ChildrenContent : OppositeContent}
                 <StyledTimelineSide>
                     {dot ?? <StyledTimelineCircle />}
                 </StyledTimelineSide>
-                {children && (
-                    <StyledTimelineContainer>
-                        {children}
-                    </StyledTimelineContainer>
-                )}
+                {align === 'right' ? ChildrenContent : OppositeContent}
             </StyledTimelineItem>
         );
     }

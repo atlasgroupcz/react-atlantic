@@ -33,7 +33,7 @@ export const FirstTimelineDemo = () => {
     };
 
     return (
-        <Timeline ref={containerRef}>
+        <Timeline ref={containerRef} align={'alternate'}>
             <TimelineItem
                 ref={ref}
                 type={'error'}
