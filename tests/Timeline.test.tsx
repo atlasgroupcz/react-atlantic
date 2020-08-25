@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { Timeline, TimelineItem } from '../src/components/Timeline';
 import { toBeDefinedTest, mountTest } from './shared';
 import { TimelineItemProps } from '../src/components/Timeline/view/Item/Item.types';
@@ -7,10 +7,16 @@ import { mountWithTheme } from './utils/mountWithTheme';
 
 const mockItemProps: TimelineItemProps = {
     dot: 'dot',
-    oppositeContent: 'label',
+    oppositeContent: 'oppositeContent',
     unique: 1,
     type: 'error',
 };
+
+const mockTimelineProps: TimelineProps = {
+    align: 'right',
+};
+
+const mockItemContent = 'prdel';
 
 describe('shared Timeline', () => {
     toBeDefinedTest(Timeline);
@@ -28,7 +34,7 @@ const renderer = (
 ) => {
     return (
         <Timeline {...timelineProps}>
-            <TimelineItem {...itemProps}>{`prdel`}</TimelineItem>
+            <TimelineItem {...itemProps}>{mockItemContent}</TimelineItem>
         </Timeline>
     );
 };
@@ -67,6 +73,92 @@ describe('Timeline - view', () => {
         );
 
         expect(wrapper.find(`.${itemClassName} li`).children().length).toBe(3);
+    });
+
+    it('should has correct position as child of timeline depend on align', () => {
+        const wrapper = mountWithTheme(
+            renderer(
+                {
+                    ...mockTimelineProps,
+                    className: timelineClassName,
+                },
+                {
+                    ...mockItemProps,
+                    className: itemClassName,
+                }
+            )
+        );
+        expect(wrapper.props().align).toBe(mockTimelineProps.align);
+        expect(
+            wrapper.find(`.${itemClassName} li`).children().at(0).text()
+        ).toBe(mockItemProps.oppositeContent);
+        expect(
+            wrapper.find(`.${itemClassName} li`).children().at(2).text()
+        ).toBe(mockItemContent);
+
+        wrapper.setProps({ align: 'left' });
+        expect(
+            wrapper.find(`.${itemClassName} li`).children().at(2).text()
+        ).toBe(mockItemProps.oppositeContent);
+        expect(
+            wrapper.find(`.${itemClassName} li`).children().at(0).text()
+        ).toBe(mockItemContent);
+    });
+
+    it('should has correct position in align alternate', () => {
+        const wrapper = mountWithTheme<typeof Timeline>(
+            <Timeline {...mockTimelineProps}>
+                <TimelineItem {...mockItemProps}>
+                    {mockItemContent}
+                </TimelineItem>
+                <TimelineItem {...mockItemProps}>
+                    {mockItemContent}
+                </TimelineItem>
+            </Timeline>
+        );
+
+        wrapper.setProps({ align: 'alternate' });
+        expect(
+            wrapper
+                .find(`ul`)
+                .children()
+                .at(0)
+                .find(`li`)
+                .children()
+                .at(0)
+                .text()
+        ).toBe(mockItemProps.oppositeContent);
+        expect(
+            wrapper
+                .find(`ul`)
+                .children()
+                .at(0)
+                .find(`li`)
+                .children()
+                .at(2)
+                .text()
+        ).toBe(mockItemContent);
+
+        expect(
+            wrapper
+                .find(`ul`)
+                .children()
+                .at(1)
+                .find(`li`)
+                .children()
+                .at(0)
+                .text()
+        ).toBe(mockItemContent);
+        expect(
+            wrapper
+                .find(`ul`)
+                .children()
+                .at(1)
+                .find(`li`)
+                .children()
+                .at(2)
+                .text()
+        ).toBe(mockItemProps.oppositeContent);
     });
 
     it('should has own dot component', () => {
