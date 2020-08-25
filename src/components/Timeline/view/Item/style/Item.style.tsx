@@ -57,7 +57,8 @@ export const StyledTimelineItem = styled(
         props.type !== 'default' &&
         css`
             ${StyledTimelineCircle} {
-                border-color: ${(props.theme.color[props.type] as any).alpha!};
+                border-color: ${(props.theme.color?.[props.type] as any)
+                    .alpha!};
             }
         `}
 `;

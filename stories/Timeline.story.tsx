@@ -24,7 +24,7 @@ stories.add(
 
         const type: Type = select(
             `type:`,
-            ['default', 'primary', 'success', 'warning', 'error', 'dashed'],
+            ['default', 'primary', 'success', 'warning', 'error'],
             defaultValues.type
         ) as Type;
 

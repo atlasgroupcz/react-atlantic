@@ -31,11 +31,19 @@ export const TimelineItem: TimelineItemType = forwardRef<
                 ref={ref}
                 onClick={handleClick}
             >
-                {oppositeContent}
+                {oppositeContent && (
+                    <StyledTimelineContainer>
+                        {oppositeContent}
+                    </StyledTimelineContainer>
+                )}
                 <StyledTimelineSide>
                     {dot ?? <StyledTimelineCircle />}
                 </StyledTimelineSide>
-                <StyledTimelineContainer>{children}</StyledTimelineContainer>
+                {children && (
+                    <StyledTimelineContainer>
+                        {children}
+                    </StyledTimelineContainer>
+                )}
             </StyledTimelineItem>
         );
     }
