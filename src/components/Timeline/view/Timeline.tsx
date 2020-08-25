@@ -1,8 +1,9 @@
 import React, { forwardRef, ReactElement } from 'react';
-import { StyledTimelineContainer } from './style/Timeline.style';
-import { TimelineProps, TimelineType } from './Timeline.types';
-import { TimelineItemProps } from './Item/Item.types';
+import { StyledTimelineContainer } from './style';
+import { TimelineType } from './Timeline.types';
 import { MouseEvents } from '../../../types';
+import { TimelineItemProps } from './Item/Item.types';
+import { getAlign } from './utils/getAlign';
 
 export const Timeline: TimelineType = forwardRef(
     ({ children, align = 'right', ...props }, ref) => {
@@ -35,14 +36,3 @@ export const Timeline: TimelineType = forwardRef(
 );
 
 Timeline.displayName = 'Timeline';
-
-type GetAlign = (
-    align: TimelineProps['align'],
-    i: number
-) => TimelineItemProps['align'];
-const getAlign: GetAlign = (align, i) => {
-    if (align === 'alternate') {
-        return i % 2 == 0 ? 'right' : 'left';
-    }
-    return align;
-};
