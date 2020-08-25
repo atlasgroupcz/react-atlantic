@@ -4,7 +4,15 @@ import {
     Type,
     HorizontalPosition,
 } from '../../../..';
-import { ReactNode, FC, PropsWithChildren } from 'react';
+import {
+    ReactNode,
+    FC,
+    PropsWithChildren,
+    ForwardRefExoticComponent,
+    PropsWithoutRef,
+    RefAttributes,
+} from 'react';
+import { TimelineProps } from '../Timeline.types';
 
 export type TimelineItemEventProps = Omit<
     MouseEvents<HTMLLIElement>,
@@ -32,4 +40,6 @@ export type TimelineItemProps = TimelineItemEventProps &
     TimelineItemCommonHTMLProps &
     TimelineItemExtraProps;
 
-export type TimelineItemType = FC<PropsWithChildren<TimelineItemProps>>;
+export type TimelineItemType = ForwardRefExoticComponent<
+    PropsWithoutRef<TimelineItemProps> & RefAttributes<HTMLLIElement>
+>;

@@ -5,12 +5,9 @@ import {
     StyledTimelineCircle,
     StyledTimelineContainer,
 } from './style';
-import { TimelineItemProps, TimelineItemType } from './Item.types';
+import { TimelineItemType } from './Item.types';
 
-export const TimelineItem: TimelineItemType = forwardRef<
-    HTMLLIElement,
-    TimelineItemProps
->(
+export const TimelineItem: TimelineItemType = forwardRef(
     (
         {
             dot,

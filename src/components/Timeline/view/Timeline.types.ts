@@ -1,15 +1,13 @@
 import {
-    FC,
     ForwardRefExoticComponent,
     PropsWithChildren,
     PropsWithoutRef,
-    ReactNode,
     RefAttributes,
 } from 'react';
 import { TimelineItem } from '.';
 import { CommonHTMLProps, HorizontalPosition } from '../../..';
 
-//TODO!: types
+//TODO!: types ->  dot notation
 export type TimelineComponentComposition = {
     Item: typeof TimelineItem;
 };
