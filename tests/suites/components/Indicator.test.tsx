@@ -1,7 +1,6 @@
-import { shallow } from 'enzyme';
 import React from 'react';
-import { Indicator } from '../src/components/Indicator';
-import expect from 'expect';
+import { Indicator } from '../../../src/components/Indicator';
+import { shallow } from '../../utils';
 
 describe('Indicator', () => {
     it(`Should render`, () => {

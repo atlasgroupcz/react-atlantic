@@ -1,42 +1,28 @@
+import { FC, ComponentPropsWithoutRef } from 'react';
 import React from 'react';
-import { WrapCurried } from '.';
-
-//TODO!: make better types please :]
-
 /**
- * View - target component -> wrap with HoC
- * hook - value of hook | hook which will be called inside
- * viewChildren - children of View -> actually can be also HoC
+ * Creates an implementation of a *react-atlantic* component using a View and a Controller hook
+ * @param View A view component
+ * @param useController A controller hook, can be parametrized with a object parameter
+ *
+ * Any paramaters passed to controller will be passed as props to the resulting component
  */
-export const wrapCurried: WrapCurried = (View) => (hook, viewChildren) => {
-    if (typeof hook === 'function') {
-        return (props) => {
-            const hookProps = hook({});
-            return (
-                <View {...hookProps} {...props}>
-                    {viewChildren}
-                </View>
-            );
-        };
-    } else if (Array.isArray(hook)) {
-        return (props) => {
-            /**
-             * Here props will not affect state of hook
-             * For instance hook of Collapse has state of isAccordion setted as true and props will trigger false then * happens nothing :] [slash] Will affect -> is it ok? :]
-             * Take care of this pls :]
-             */
-            const [hookFn, hookDeProps] = hook;
-            const hookProps = hookFn({ ...hookDeProps, ...props });
-            return (
-                <View {...hookProps} {...props}>
-                    {viewChildren}
-                </View>
-            );
-        };
-    }
-    return (props) => (
-        <View {...hook} {...props}>
-            {viewChildren}
-        </View>
-    );
+export const wrap = <
+    V extends FC<any>,
+    C extends (argsObj: any) => ComponentPropsWithoutRef<V>
+>(
+    View: V,
+    useController: C
+): FC<Parameters<C>[0]> => ({ children, ...controllerArgs }) => {
+    const AnyView = View as any;
+    const controller = useController(controllerArgs);
+    return <AnyView {...controller}>{children}</AnyView>;
 };
+
+//! Usage:
+// const useInput = ({ myprop }: { myprop: number }): InputProps => {
+//     const { onChange, value } = useInputChange();
+//     return { size: 'medium', onChange, value };
+// };
+// const Input = wrap(InputView, useInput);
+// <Input myprop={7} />;

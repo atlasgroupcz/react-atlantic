@@ -1,6 +1,6 @@
 {
     "name": "@atlasgroup/react-atlantic",
-    "version": "0.1.15",
+    "version": "0.1.16",
     "homepage": "https://atlasgroupcz.github.io/react-atlantic",
     "private": false,
     "main": "lib/index.js",
@@ -31,7 +31,7 @@
         "predeploy": "yarn build:storybook",
         "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md",
         "changelog:all": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
-        "version": "yarn changelog:all"
+        "version": "yarn changelog:all && git stage CHANGELOG.md"
     },
     "browserslist": [
         ">0.2%",

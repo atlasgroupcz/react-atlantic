@@ -1,9 +1,9 @@
 import React from 'react';
-import { mockPropsCheckTest, mountTest, toBeDefinedTest } from './shared';
-import { SelectProps } from '../src/components/Select/types';
-import { Select } from '../src/components/Select/view';
-import { shallow } from './utils';
-import { useSelectChange } from '../src/components/Select/hooks';
+import { mockPropsCheckTest, mountTest, toBeDefinedTest } from '../../shared';
+import { SelectProps } from '../../../src/components/Select/types';
+import { Select } from '../../../src/components/Select/view';
+import { shallow } from '../../utils';
+import { useSelectChange } from '../../../src/components/Select/hooks';
 
 const mockSelectProps: SelectProps = {
     size: `small`,

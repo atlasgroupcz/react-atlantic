@@ -1,3 +1,43 @@
+## [0.1.16](https://github.com/atlasgroupcz/react-atlantic/compare/0.1.15...0.1.16) (2020-08-26)
+
+### Bug Fixes
+
+-   🐛 Changelog all ([cc709f7](https://github.com/atlasgroupcz/react-atlantic/commit/cc709f797fea54ba5dc7bfae02a48155b2139214))
+-   🐛 stage changelog before version commit ([5a34606](https://github.com/atlasgroupcz/react-atlantic/commit/5a34606042d11dd3e98ec606d1a9d47692da5ecd))
+-   **checkbox:** spring version ([105876d](https://github.com/atlasgroupcz/react-atlantic/commit/105876d21b819690925230016276afe4333a27bf))
+-   **checkbox:** types ([5c44a32](https://github.com/atlasgroupcz/react-atlantic/commit/5c44a3203cf1275294fefb5d5c8e5f85ff499d03))
+-   **checkbox:** types ([891c3b7](https://github.com/atlasgroupcz/react-atlantic/commit/891c3b7722d54128dd7bad200bd26ed3f59347c1))
+-   **input:** sizeWithDocs typeError ([f67107b](https://github.com/atlasgroupcz/react-atlantic/commit/f67107b88aa86bc01f55440be114dc0d2f76781a))
+-   **select:** fixed tests ([6f55eb0](https://github.com/atlasgroupcz/react-atlantic/commit/6f55eb0eb5a25fe0184afe3191ab4bd0d2207808))
+-   **select:** type fixes, defaultProps destructuring ([b405436](https://github.com/atlasgroupcz/react-atlantic/commit/b4054363b32ab473c8faca61787f7fb00b599430))
+-   **select:** type fixes, defaultProps destructuring - not working for isSearchable ([d543785](https://github.com/atlasgroupcz/react-atlantic/commit/d54378511461c4e7c22bf5cd60a550c6df1314e8))
+-   🐛 conventionalize npm version api ([00e2f3a](https://github.com/atlasgroupcz/react-atlantic/commit/00e2f3adf8e4338bba7f2517a21803605526573d))
+
+### Features
+
+-   ✨ Changelog generation ([f0bb2d9](https://github.com/atlasgroupcz/react-atlantic/commit/f0bb2d94e10f1a21d672329634363c00d8ba3d3b))
+-   ✨ wrap fn; refactor test structure ([ae1c7ad](https://github.com/atlasgroupcz/react-atlantic/commit/ae1c7adc5e8208dff8ed2e4db70427b89062c4ab))
+-   **collapse:** collapse component, wip ([89c0abc](https://github.com/atlasgroupcz/react-atlantic/commit/89c0abcb7eed3814de3c1a43f2a07482969372e9))
+-   **collapse:** collapse component, wip ([987a022](https://github.com/atlasgroupcz/react-atlantic/commit/987a02288a1d783f06f72cadd71cf41a9f5792b1))
+-   **collapse:** collapse component, wip ([b59b528](https://github.com/atlasgroupcz/react-atlantic/commit/b59b52840019f69e1b4f1bb81eb31463734b2850))
+-   **collapse:** collapse story ([a8d88f5](https://github.com/atlasgroupcz/react-atlantic/commit/a8d88f54682d1e8af0fb97d4d597b1881cc78f47))
+-   **collapse:** implemented dot notation ([0ede117](https://github.com/atlasgroupcz/react-atlantic/commit/0ede1170dc27771b7df2d11a05a36b363700dfb6))
+-   **collapse:** init of controller hook ([2f5ddfe](https://github.com/atlasgroupcz/react-atlantic/commit/2f5ddfefba082b926d0976cdb06a8b2a8eab3b7d))
+-   **collapse:** initialized structure for accordion/collapse ([8ca2be3](https://github.com/atlasgroupcz/react-atlantic/commit/8ca2be372e808bea3abd95b5e9acfb0ad2616f31))
+-   **collapse:** nested context state ([6c97a90](https://github.com/atlasgroupcz/react-atlantic/commit/6c97a9016494cc94c9491d22df13863909d0ecb1))
+-   **collapse:** prop describing position of icon ([140ae08](https://github.com/atlasgroupcz/react-atlantic/commit/140ae0890965178f4dacc370eb38bb5648aa02c1))
+-   **collapse:** wrap function init ([1d6ce4c](https://github.com/atlasgroupcz/react-atlantic/commit/1d6ce4cabfb8b3c1350d80b34b413d7bb8566725))
+-   **panel:** reaction to isDisabled ([a7d4990](https://github.com/atlasgroupcz/react-atlantic/commit/a7d4990dd53db26f797933f8a3fbc6b217da3541))
+-   **panel:** simple style with flex layout ([009d161](https://github.com/atlasgroupcz/react-atlantic/commit/009d1611c3fca174bddc872815892a49a5460a92))
+-   **select:** initialized select component ([723db93](https://github.com/atlasgroupcz/react-atlantic/commit/723db938fd76952ef65ecfec2208e5ed3654a3b5))
+-   **select:** select onChange tests, adjusted hook to not req props + onChange to not req action ([c071ec0](https://github.com/atlasgroupcz/react-atlantic/commit/c071ec023ccad3d4998f4374e220d83985b22f9a))
+-   ✨ Commit emojis ([ca00290](https://github.com/atlasgroupcz/react-atlantic/commit/ca0029018c93a38ee539b81737e7717343bbce66))
+-   **wrap:** wrap function acts as hoc ([e2cd9e7](https://github.com/atlasgroupcz/react-atlantic/commit/e2cd9e70ea13b3408c1fa423e04ebd7faaf9260b))
+
+### BREAKING CHANGES
+
+-   **collapse:** recursive context is not a problem, without conflicts!
+
 ## [0.1.12](https://github.com/atlasgroupcz/react-atlantic/compare/0.1.11...0.1.12) (2020-08-11)
 
 ### Bug Fixes
