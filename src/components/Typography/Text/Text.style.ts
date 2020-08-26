@@ -1,33 +1,9 @@
 import styled, { css } from 'styled-components';
-import { ThemeType } from '../../../theme';
 import { TextProps } from './types';
-
-export const getDefaultStyledText = (props: { theme: ThemeType }) => css`
-    color: ${props.theme.color.text.alpha};
-    font-size: ${props.theme.font.size.md};
-    font-family: ${props.theme.font.family};
-    line-height: 1.5;
-    margin: ${props.theme.margin.sm} 0;
-
-    button,
-    input[type='text'],
-    input[type='number'],
-    input[type='email'] {
-        margin: 0 ${props.theme.margin.sm};
-    }
-
-    i {
-        color: ${props.theme.color.primary.alpha};
-    }
-
-    ::selection,
-    ::-moz-selection {
-        background: ${props.theme.color.primary.delta};
-    }
-`;
+import { getDefaultTypographyStyles } from '../style';
 
 export const StyledText = styled.span<TextProps>`
-  ${getDefaultStyledText};
+  ${getDefaultTypographyStyles};
   
   ${(props) =>
       props.type === 'primary' &&
@@ -55,7 +31,7 @@ export const StyledText = styled.span<TextProps>`
 `;
 
 export const StyledStrongText = styled.strong<TextProps>`
-  ${getDefaultStyledText};
+  ${getDefaultTypographyStyles};
 
   font-weight: 600;
   
@@ -85,13 +61,13 @@ export const StyledStrongText = styled.strong<TextProps>`
 `;
 
 export const StyledMarkText = styled.mark<TextProps>`
-    ${getDefaultStyledText};
+    ${getDefaultTypographyStyles};
     padding: 0 ${(props) => props.theme.padding.xs};
     background-color: ${(props) => props.theme.color.warning.gamma};
 `;
 
 export const StyledCodeText = styled.code<TextProps>`
-    ${getDefaultStyledText};
+    ${getDefaultTypographyStyles};
     margin: 0 ${(props) => props.theme.margin.sm};
     font-size: ${(props) => props.theme.font.size.sm};
     background: ${(props) => props.theme.color.default};
@@ -102,7 +78,7 @@ export const StyledCodeText = styled.code<TextProps>`
 `;
 
 export const StyledDelText = styled.del<TextProps>`
-    ${getDefaultStyledText};
+    ${getDefaultTypographyStyles};
     padding: 0 ${(props) => props.theme.padding.xs};
     background-color: ${(props) => props.theme.color.error.gamma};
 `;
