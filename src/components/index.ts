@@ -1,5 +1,6 @@
 export * from './Badge';
 export * from './Checkbox';
+export * from './Collapse';
 export * from './Indicator';
 export * from './Button';
 export * from './Device';

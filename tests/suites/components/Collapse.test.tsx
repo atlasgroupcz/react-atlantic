@@ -1,12 +1,14 @@
 import React from 'react';
-import { mount } from 'enzyme';
-import { Collapse, useCollapseUnique } from '../src/components/Collapse';
+import { wrapCurried_DEPRECATED } from '../../../src/utils/wrapCurried_DEPRECATED';
+import { mockPropsCheckTest, toBeDefinedTest, mountTest } from '../../shared';
+
+import { mount } from '../../utils';
 import {
+    Collapse,
     CollapseProps,
     CollapseIconFactoryType,
-} from '../src/components/Collapse/types';
-import { wrapCurried } from '../src/utils/wrap/wrap';
-import { mockPropsCheckTest, toBeDefinedTest, mountTest } from './shared/';
+    useCollapseUnique,
+} from '../../../src/components/Collapse';
 
 const mockCollapseProps: CollapseProps = {
     activeUnique: [1, 2],
@@ -92,12 +94,12 @@ describe('Collapse - useCollapseUnique', () => {
         </>
     );
 
-    const HoCWithoutAccordion = wrapCurried(Collapse)(
+    const HoCWithoutAccordion = wrapCurried_DEPRECATED(Collapse)(
         useCollapseUnique,
         CollapseChildren
     );
 
-    const HoCWithAccordion = wrapCurried(Collapse)(
+    const HoCWithAccordion = wrapCurried_DEPRECATED(Collapse)(
         [useCollapseUnique, { isAccordion: true }],
         CollapseChildren
     );

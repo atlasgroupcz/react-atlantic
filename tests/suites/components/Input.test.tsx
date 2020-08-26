@@ -1,10 +1,10 @@
 import React from 'react';
-import { InputBase } from '../src/components/Input/view/base';
-import { InputWrapper } from '../src/components/Input/view/composed/withFix';
-import { InputFixProps } from '../src/components/Input/view/composed/withFix/types';
-import { InputProps } from '../src/components/Input/view/base/types';
-import { shallow } from './utils';
-import { mockPropsCheckTest } from './shared';
+import { InputBase } from '../../../src/components/Input/view/base';
+import { InputWrapper } from '../../../src/components/Input/view/composed/withFix';
+import { InputFixProps } from '../../../src/components/Input/view/composed/withFix/types';
+import { InputProps } from '../../../src/components/Input/view/base/types';
+import { shallow } from '../../utils';
+import { mockPropsCheckTest } from '../../shared';
 
 const mockBaseProps: InputProps = {
     value: 'value',

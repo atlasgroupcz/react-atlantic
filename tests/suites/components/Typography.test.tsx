@@ -1,7 +1,7 @@
 import { shallow } from 'enzyme';
 import 'jest-styled-components';
 import React from 'react';
-import { Typography } from '../src';
+import { Typography } from '../../../src/components/Typography';
 
 const children = `test children`;
 

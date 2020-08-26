@@ -1,6 +1,6 @@
 import React from 'react';
-import { Badge } from '../src/components/Badge';
-import { shallow } from './utils';
+import { Badge } from '../../../src/components/Badge';
+import { shallow } from '../../utils';
 
 describe('Badge', () => {
     it(`Should render`, () => {

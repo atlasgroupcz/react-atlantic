@@ -1,7 +1,7 @@
 import React from 'react';
-import { shallow } from './utils';
-import { Icon } from '../src';
-import { IconName } from '../src/components/Icon/view';
+import { shallow } from '../../utils';
+import { Icon } from '../../../src/components/Icon';
+import { IconName } from '../../../src/components/Icon/view';
 
 describe('Icon', () => {
     const iconName: IconName = 'arrowDoubleDown';

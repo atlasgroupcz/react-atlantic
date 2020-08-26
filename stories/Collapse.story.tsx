@@ -7,8 +7,7 @@ import {
     boolean,
 } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
-import { Collapse, useCollapseUnique } from '../src/components/Collapse';
-import { CollapseProps } from '../src/components/Collapse/types';
+import { Collapse, useCollapseUnique, CollapseProps } from '../src';
 import { wrapCurried_DEPRECATED } from '../src/utils';
 import { StoryFnReactReturnType } from '@storybook/react/dist/client/preview/types';
 
