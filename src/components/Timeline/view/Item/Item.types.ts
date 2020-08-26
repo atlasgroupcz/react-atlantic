@@ -6,13 +6,11 @@ import {
 } from '../../../..';
 import {
     ReactNode,
-    FC,
     PropsWithChildren,
     ForwardRefExoticComponent,
     PropsWithoutRef,
     RefAttributes,
 } from 'react';
-import { TimelineProps } from '../Timeline.types';
 
 export type TimelineItemEventProps = Omit<
     MouseEvents<HTMLLIElement>,
@@ -41,5 +39,6 @@ export type TimelineItemProps = TimelineItemEventProps &
     TimelineItemExtraProps;
 
 export type TimelineItemType = ForwardRefExoticComponent<
-    PropsWithoutRef<TimelineItemProps> & RefAttributes<HTMLLIElement>
+    PropsWithoutRef<PropsWithChildren<TimelineItemProps>> &
+        RefAttributes<HTMLLIElement>
 >;

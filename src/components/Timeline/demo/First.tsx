@@ -11,6 +11,7 @@ export const FirstTimelineDemo = () => {
     const handleClick: TimelineItemProps['onClick'] = (
         e: React.MouseEvent<HTMLLIElement, MouseEvent>
     ) => {
+        console.log(e);
         console.log(ref?.current);
     };
 

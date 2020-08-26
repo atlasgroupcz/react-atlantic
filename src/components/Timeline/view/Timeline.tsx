@@ -5,6 +5,7 @@ import { MouseEvents } from '../../../types';
 import { TimelineItemProps } from './Item/Item.types';
 import { getAlign } from './utils/getAlign';
 
+//TODO: change method onClick -> unique [VP]
 export const Timeline: TimelineType = forwardRef(
     ({ children, align = 'right', ...props }, ref) => {
         return (
