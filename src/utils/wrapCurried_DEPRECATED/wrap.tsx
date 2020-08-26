@@ -8,7 +8,10 @@ import { WrapCurried } from '.';
  * hook - value of hook | hook which will be called inside
  * viewChildren - children of View -> actually can be also HoC
  */
-export const wrapCurried: WrapCurried = (View) => (hook, viewChildren) => {
+export const wrapCurried_DEPRECATED: WrapCurried = (View) => (
+    hook,
+    viewChildren
+) => {
     if (typeof hook === 'function') {
         return (props) => {
             const hookProps = hook({});

@@ -1,2 +1,2 @@
-export * from './wrap';
+export * from './wrapCurried_DEPRECATED';
 export * from './handleParentRef';

@@ -9,7 +9,7 @@ import {
 import { storiesOf } from '@storybook/react';
 import { Collapse, useCollapseUnique } from '../src/components/Collapse';
 import { CollapseProps } from '../src/components/Collapse/types';
-import { wrapCurried } from '../src/utils';
+import { wrapCurried_DEPRECATED } from '../src/utils';
 import { StoryFnReactReturnType } from '@storybook/react/dist/client/preview/types';
 
 const stories = storiesOf('Collapse', module);
@@ -19,7 +19,7 @@ stories.addDecorator(withKnobs);
 stories.add(
     'Overview',
     () =>
-        wrapCurried(Collapse)(
+        wrapCurried_DEPRECATED(Collapse)(
             [
                 useCollapseUnique,
                 {
