@@ -1,19 +1,12 @@
 import React, { forwardRef, PropsWithChildren } from 'react';
-import { css, Type, MouseEvents } from '../../../../..';
-
+import { Type, MouseEvents } from '../../../../..';
 import { styled } from '../../../../../styled';
 import { TimelineItemProps } from '../Item.types';
 
-const circleSize = `15px`;
-
 export interface StyledTimelineCircleProps {
-    isActive?: boolean;
-    type?: Type;
+    isActive?: Readonly<boolean>;
+    type?: Readonly<Type>;
     isDisabled?: Readonly<boolean>;
-}
-
-export interface StyledTimelineContainerProps {
-    isMain?: boolean;
 }
 
 type StyledTimelineProps = PropsWithChildren<
@@ -21,6 +14,49 @@ type StyledTimelineProps = PropsWithChildren<
         onClick?: MouseEvents<HTMLLIElement>['onClick'];
     }
 >;
+
+const circleSize = `15px`;
+const itemVerticalGap = `5px`;
+
+export const StyledTimelineItemCircle = styled.div<StyledTimelineCircleProps>`
+    box-sizing: border-box;
+    height: ${circleSize};
+    width: 100%;
+    z-index: 1;
+    cursor: pointer;
+    border-radius: 50%;
+    border: 2px solid ${(props) => props.theme.color.text.beta};
+    background-color: ${(props) => props.theme.color.background.alpha};
+`;
+
+export const StyledTimelineItemCircleContainer = styled.div`
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: ${circleSize};
+    padding: ${itemVerticalGap} 0;
+    margin: 0 ${(props) => props.theme.margin.sm};
+
+    &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-1px);
+        border-left: 1px solid ${(props) => props.theme.color.border};
+    }
+`;
+
+export const StyledTimelineItemContent = styled.div`
+    box-sizing: border-box;
+    flex: 1 1 0%;
+    padding: ${(props) => props.theme.padding.sm};
+    margin: ${itemVerticalGap} 0;
+    border-radius: ${(props) => props.theme.radius};
+    background-color: ${(props) => props.theme.color.background.beta};
+`;
 
 export const StyledTimelineItem = styled(
     forwardRef<HTMLLIElement, StyledTimelineProps>(
@@ -31,70 +67,19 @@ export const StyledTimelineItem = styled(
         )
     )
 )<StyledTimelineProps>`
+    box-sizing: border-box;
     position: relative;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    margin-left: ${(props) =>
-        parseFloat(props.theme.margin.sm) + parseFloat(circleSize)}px;
-    padding: ${(props) => props.theme.padding.sm};
-    margin-bottom: ${(props) => props.theme.margin.md};
-    background-color: ${(props) => props.theme.color.background.alpha};
-    border-radius: ${(props) => props.theme.radius};
 
-    ${(props) =>
-        props.type &&
-        props.type !== 'default' &&
-        css`
-            ${StyledTimelineCircle} {
-                border-color: ${(props.theme.color?.[props.type] as any)
-                    .alpha!};
-            }
-        `}
-`;
+    &:first-child {
+        ${StyledTimelineItemCircleContainer}:after {
+            top: ${itemVerticalGap};
+        }
+    }
 
-export const StyledTimelineSide = styled.div`
-    position: absolute;
-    height: 100%;
-    right: calc(100% + ${(props) => props.theme.margin.sm});
-    width: ${circleSize};
-`;
-
-export const StyledTimelineCircle = styled.div<StyledTimelineCircleProps>`
-  position: relative;
-  box-sizing: border-box;
-  width: ${circleSize};
-  height: ${circleSize};
-  cursor: pointer;
-  margin-top: ${(props) => props.theme.margin.md};
-  border-radius: 50%;
-  border: 2px solid ${(props) => props.theme.color.text.beta};
-  background-color: ${(props) => props.theme.color.background.alpha};
-
-  ${(props) =>
-      props.type &&
-      css`
-          border-color: ${(props.theme.color[props.type] as any).alpha!};
-      `}
-
-  ${(props) =>
-      props.isActive &&
-      css`
-          border-color: ${(props) => props.theme.color.primary.alpha};
-      `}
-  
- 
-    ${(props) =>
-        props.isDisabled &&
-        css`
-            border-color: ${(props) => props.theme.color.text.beta};
-            cursor: not-allowed;
-        `}
-  
-`;
-
-export const StyledTimelineContainer = styled.div<StyledTimelineContainerProps>`
-    flex: 1 1 0;
+    &:last-child {
+        ${StyledTimelineItemCircleContainer}:after {
+            bottom: ${itemVerticalGap};
+        }
+    }
 `;

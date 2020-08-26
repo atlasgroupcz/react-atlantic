@@ -1,11 +1,12 @@
 import React, { forwardRef, useCallback } from 'react';
 import {
     StyledTimelineItem,
-    StyledTimelineSide,
-    StyledTimelineCircle,
-    StyledTimelineContainer,
+    StyledTimelineItemCircle,
+    StyledTimelineItemCircleContainer,
+    StyledTimelineItemContent,
 } from './style';
 import { TimelineItemType } from './Item.types';
+import { Text } from '../../../Typography/Text';
 
 export const TimelineItem: TimelineItemType = forwardRef(
     (
@@ -21,8 +22,6 @@ export const TimelineItem: TimelineItemType = forwardRef(
         },
         ref
     ) => {
-        //TODO?: MT - styles for dot container..
-
         const handleClick = useCallback(
             (e: React.MouseEvent<HTMLLIElement, MouseEvent>) => {
                 onClick?.(e, unique);
@@ -31,10 +30,16 @@ export const TimelineItem: TimelineItemType = forwardRef(
         );
 
         const OppositeContent = oppositeContent && (
-            <StyledTimelineContainer>{oppositeContent}</StyledTimelineContainer>
+            <StyledTimelineItemContent>
+                {typeof oppositeContent === 'string' ? (
+                    <Text>{oppositeContent}</Text>
+                ) : (
+                    oppositeContent
+                )}
+            </StyledTimelineItemContent>
         );
         const ChildrenContent = children && (
-            <StyledTimelineContainer>{children}</StyledTimelineContainer>
+            <StyledTimelineItemContent>{children}</StyledTimelineItemContent>
         );
 
         return (
@@ -45,9 +50,9 @@ export const TimelineItem: TimelineItemType = forwardRef(
                 onClick={handleClick}
             >
                 {align === 'left' ? ChildrenContent : OppositeContent}
-                <StyledTimelineSide>
-                    {dot ?? <StyledTimelineCircle />}
-                </StyledTimelineSide>
+                <StyledTimelineItemCircleContainer>
+                    {dot ?? <StyledTimelineItemCircle />}
+                </StyledTimelineItemCircleContainer>
                 {align === 'right' ? ChildrenContent : OppositeContent}
             </StyledTimelineItem>
         );
