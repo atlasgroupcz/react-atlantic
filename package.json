@@ -32,7 +32,7 @@
         "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md",
         "changelog:all": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
         "version": "yarn changelog:all && git stage CHANGELOG.md",
-        "depsTree": "dpdm src"
+        "depsTree": "dpdm src --ext \".ts,.tsx,.json\""
     },
     "browserslist": [
         ">0.2%",
@@ -44,7 +44,8 @@
         "hooks": {
             "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
             "pre-commit": "pretty-quick --staged",
-            "prepare-commit-msg": "devmoji -e --lint"
+            "prepare-commit-msg": "devmoji -e --lint",
+            "post-commit": "yarn depsTree"
         }
     },
     "devDependencies": {
@@ -80,6 +81,7 @@
         "babel-jest": "^26.2.2",
         "babel-loader": "^8.1.0",
         "babel-preset-react-app": "^9.1.2",
+        "circular-dependency-plugin": "^5.2.0",
         "conventional-changelog-cli": "^2.1.0",
         "cross-env": "^7.0.2",
         "devmoji": "^2.1.9",
