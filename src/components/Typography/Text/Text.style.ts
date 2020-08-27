@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 import { ThemeType } from '../../../theme';
-import { TextProps } from './Text';
+import { TextProps } from './types';
 
 export const getDefaultStyledText = (props: { theme: ThemeType }) => css`
     color: ${props.theme.color.text.alpha};

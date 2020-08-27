@@ -1,7 +1,7 @@
 import { SetStateAction, Dispatch } from 'react';
 import { isActiveKey, checkKeyFunc } from '../../Panel/utils';
 import { CollapseProviderProps } from '../../context';
-import { UseCollapseUniqueProps } from '.';
+import { UseCollapseUniqueProps } from './useCollapseUnique.types';
 
 type HandleAccordionSet = (args: HandleWithoutAccordionArgs) => void;
 type HandleNotAccordionSet = (args: HandleWithoutAccordionArgs) => void;

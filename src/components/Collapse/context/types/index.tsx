@@ -1,5 +1,5 @@
 import React, { PropsWithChildren, ReactText } from 'react';
-import { CollapseIconFactoryType } from '../../types';
+import { CollapseIconFactoryType } from '../../types/CollapseIconFactoryType';
 import { Icon } from '../../../Icon';
 import { HorizontalPosition } from '../../../../types';
 

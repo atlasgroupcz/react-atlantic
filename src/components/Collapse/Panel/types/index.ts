@@ -1,4 +1,4 @@
-import { CommonHTMLProps } from '../../../..';
+import { CommonHTMLProps } from '../../../../types';
 import { StyledCollapseProps } from '../../types';
 import { PropsWithChildren, ReactNode, ReactText } from 'react';
 

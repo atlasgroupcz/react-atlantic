@@ -6,14 +6,7 @@ import {
     StyledStrongText,
     StyledText,
 } from './Text.style';
-import { CommonHTMLProps, TypeWithDocs } from '../../../types';
-
-export type TextElement = 'span' | 'strong' | 'code' | 'del' | 'mark';
-
-export type TextProps = {
-    element?: TextElement;
-} & CommonHTMLProps &
-    TypeWithDocs;
+import { TextProps } from './types';
 
 const elements = {
     span: (props: TextProps) => <StyledText {...props} />,
