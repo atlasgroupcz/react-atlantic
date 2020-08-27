@@ -31,7 +31,8 @@
         "predeploy": "yarn build:storybook",
         "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md",
         "changelog:all": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
-        "version": "yarn changelog:all && git stage CHANGELOG.md"
+        "version": "yarn changelog:all && git stage CHANGELOG.md",
+        "depsTree": "dpdm src"
     },
     "browserslist": [
         ">0.2%",
@@ -82,6 +83,7 @@
         "conventional-changelog-cli": "^2.1.0",
         "cross-env": "^7.0.2",
         "devmoji": "^2.1.9",
+        "dpdm": "^3.4.3",
         "enzyme": "^3.11.0",
         "enzyme-adapter-react-16": "^1.15.2",
         "eslint": "^7.6.0",
