@@ -2,7 +2,7 @@ import React, { forwardRef } from 'react';
 import { FC } from 'react';
 import { InputBase } from './base';
 import { InputProps } from './base/types';
-import { PropsWithoutChildren } from '../../..';
+import { PropsWithoutChildren } from '../../../types';
 import { InputFixProps } from './composed/withFix/types';
 import { InputWrapper as InputWrapperWithFix } from './composed';
 

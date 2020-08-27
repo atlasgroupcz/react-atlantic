@@ -1,4 +1,4 @@
-import { UseCollapseUnique } from '..';
+import { UseCollapseUnique } from '../useCollapseUnique/useCollapseUnique.types';
 import { useState, useCallback } from 'react';
 import { CollapseProviderProps } from '../../context';
 import { CollapseContextState } from '../../context/types';

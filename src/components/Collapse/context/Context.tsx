@@ -1,7 +1,6 @@
-import React from 'react';
-import { createContext, useContext, FC } from 'react';
+import React, { createContext, useContext, FC } from 'react';
 import { CollapseContextState, defaultCollapseContextState } from './types';
-import { CollapseProviderPropsWithChildren } from '.';
+import { CollapseProviderPropsWithChildren } from './types';
 
 type CollapseProviderType = FC<CollapseProviderPropsWithChildren>;
 export const CollapseProvider: CollapseProviderType = ({

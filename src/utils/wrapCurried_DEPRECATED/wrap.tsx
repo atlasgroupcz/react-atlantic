@@ -1,5 +1,5 @@
 import React from 'react';
-import { WrapCurried } from '.';
+import { WrapCurried } from './wrap.types';
 
 //TODO!: make better types please :]
 

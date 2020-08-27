@@ -1,4 +1,4 @@
-import { IconName } from '../view';
+import { IconName } from '../view/IconsMap';
 import { CommonHTMLProps, MouseEvents } from '../../../types';
 
 export type IconProps = {
