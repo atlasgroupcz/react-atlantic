@@ -1,5 +1,4 @@
-import { styled } from '../../../..';
-import {} from '../../../Typography/Text';
+import { styled } from '../../../../styled';
 
 export const StyledPanel = styled.div``;
 export const StyledPanelContent = styled.div``;

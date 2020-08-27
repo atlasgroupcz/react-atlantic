@@ -1,6 +1,6 @@
 import { PropsWithChildren, ReactNode } from 'react';
-import { CollapseProviderProps } from '../context';
-import { CommonHTMLProps } from '../../..';
+import { CollapseProviderProps } from '../context/types';
+import { CommonHTMLProps } from '../../../types';
 
 export type StyledCollapseProps = {};
 

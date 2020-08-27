@@ -1,8 +1,19 @@
-import React from 'react';
-import { CollapseProviderProps } from '..';
+import React, { PropsWithChildren, ReactText } from 'react';
 import { CollapseIconFactoryType } from '../../types';
-import { Icon } from '../../..';
+import { Icon } from '../../../Icon';
 import { HorizontalPosition } from '../../../../types';
+
+export type CollapseProviderProps = {
+    activeUnique: string[] | number[] | ReactText;
+    isAccordion?: boolean;
+    onClick?: SetUniqueKey;
+    expandIconPosition?: HorizontalPosition;
+};
+export type CollapseProviderPropsWithChildren = PropsWithChildren<
+    CollapseProviderProps & {
+        expandIcon: CollapseIconFactoryType;
+    }
+>;
 
 export type CollapseContextState = Pick<
     CollapseProviderProps,
