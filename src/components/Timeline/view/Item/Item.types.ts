@@ -1,16 +1,16 @@
 import {
-    MouseEvents,
-    CommonHTMLProps,
-    Type,
-    HorizontalPosition,
-} from '../../../..';
-import {
     ReactNode,
     PropsWithChildren,
     ForwardRefExoticComponent,
     PropsWithoutRef,
     RefAttributes,
 } from 'react';
+import {
+    CommonHTMLProps,
+    HorizontalPosition,
+    MouseEvents,
+    Type,
+} from '../../../../types';
 
 export type TimelineItemEventProps = Omit<
     MouseEvents<HTMLLIElement>,

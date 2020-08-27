@@ -4,6 +4,7 @@ import { TimelineType } from './Timeline.types';
 import { MouseEvents } from '../../../types';
 import { TimelineItemProps } from './Item/Item.types';
 import { getAlign } from './utils/getAlign';
+import { TimelineItem } from '.';
 
 //TODO: change method onClick -> unique [VP]
 export const Timeline: TimelineType = forwardRef(
@@ -37,3 +38,4 @@ export const Timeline: TimelineType = forwardRef(
 );
 
 Timeline.displayName = 'Timeline';
+Timeline.Item = TimelineItem;

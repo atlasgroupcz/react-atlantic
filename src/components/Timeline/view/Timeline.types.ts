@@ -5,11 +5,10 @@ import {
     RefAttributes,
 } from 'react';
 import { TimelineItem } from '.';
-import { CommonHTMLProps, HorizontalPosition } from '../../..';
+import { CommonHTMLProps, HorizontalPosition } from '../../../types';
 
-//TODO!: types ->  dot notation
 export type TimelineComponentComposition = {
-    Item: typeof TimelineItem;
+    Item?: typeof TimelineItem;
 };
 
 export type TimelineCommonHTMLProps = CommonHTMLProps<HTMLUListElement>;
@@ -24,4 +23,5 @@ export type TimelineProps = PropsWithChildren<
 
 export type TimelineType = ForwardRefExoticComponent<
     PropsWithoutRef<TimelineProps> & RefAttributes<HTMLUListElement>
->;
+> &
+    TimelineComponentComposition;
