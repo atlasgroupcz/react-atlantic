@@ -1,19 +1,12 @@
 import React, { forwardRef } from 'react';
 import styled, { css } from 'styled-components';
 import { InputProps } from '../types';
-import { ThemeConfig } from 'react-select/src/theme';
-import { ThemeType } from '../../../../../theme';
-
-type IsFullWidthMixin = (
-    value: InputProps['isFullWidth']
-) => ReturnType<typeof css> | null;
-export const isFullWidthMixin: IsFullWidthMixin = (value) => {
-    return value
-        ? css`
-              width: 100%;
-          `
-        : null;
-};
+import { sizeInput } from './size';
+import { isFullWidthMixin } from './fullWidth';
+import { fixPadding } from './fixPadding';
+import { isDisabledInput } from './isDisabled';
+import { isRoundInput } from './isRound';
+import { sizeDiffInput } from './sizeDiff';
 
 export const StyledInput = styled(
     forwardRef<HTMLInputElement, InputProps>(
@@ -64,65 +57,11 @@ export const StyledInput = styled(
     display: none;
   }
 
-  ${(props) =>
-      props.isDisabled &&
-      css`
-          color: ${props.theme.color.text.beta};
-          ::placeholder {
-              color: ${props.theme.color.text.beta};
-          }
 
-          background-color: ${props.theme.color.default};
-          cursor: not-allowed;
-          outline: 0;
-
-          &:hover,
-          &:focus {
-              outline: 0;
-              box-shadow: none;
-              border: 1px solid ${props.theme.color.border};
-          }
-      `}
-
-  ${(props) =>
-      props.isRound &&
-      css`
-          border-radius: ${props.theme.rounded};
-
-          &:not(.disabled):not(.transparent) {
-              &:focus {
-                  &:after {
-                      border-radius: ${props.theme.rounded};
-                  }
-              }
-          }
-      `} 
-
-  ${(props) =>
-      props.size === 'small' &&
-      css`
-          height: ${props.theme.height.sm};
-          font-size: 12px;
-
-          i + span,
-          span + i {
-              margin-left: ${props.theme.margin.sm};
-          }
-      `} 
-  
-    ${(props) =>
-        props.size === 'large' &&
-        css`
-            height: ${props.theme.height.lg};
-            font-size: ${props.theme.font.size.lg};
-
-            i + span,
-            span + i {
-                margin-left: ${props.theme.margin.lg};
-            }
-        `} 
-    
-    ${isFullWidthMixin(true)}
+${(props) => isDisabledInput(props.isDisabled, props.theme)}
+${(props) => isRoundInput(props.isRound, props.theme)}
+${(props) => sizeDiffInput(props.size, props.theme)}
+${isFullWidthMixin(true)}
 `;
 
 type StyledInputSpanProps = {
@@ -133,47 +72,8 @@ type StyledInputSpanProps = {
 export const StyledInputSpan = styled.span<StyledInputSpanProps>`
     display: inline-block;
     position: relative;
-    ${(props) => sizeInput(props.size, props.theme)}
+    ${(props) => sizeInput(props.size)}
     ${(props) => isFullWidthMixin(props.isFullWidth)}
-    
-    ${StyledInput} {
-        ${(props) =>
-            props.isPrefix &&
-            css`
-                padding-left: 30px;
-            `}
+    ${(props) => fixPadding(props.isPrefix, props.isSuffix)}
 
-        ${(props) =>
-            props.isSuffix &&
-            css`
-                padding-right: 30px;
-            `}
-    }
-`;
-
-type SizeInput = (
-    size: InputProps['size'],
-    theme: ThemeType
-) => ReturnType<typeof css>;
-
-export const sizeInput: SizeInput = (size, theme) => {
-    switch (size) {
-        case 'large':
-            return sizeLarge(theme);
-        case 'small':
-            return sizeMedium(theme);
-        default:
-            return sizeSmall(theme);
-    }
-};
-
-type SpecificSizeInput = (theme: ThemeType) => ReturnType<typeof css>;
-const sizeLarge: SpecificSizeInput = (theme) => css`
-    width: 220px;
-`;
-const sizeSmall: SpecificSizeInput = (theme) => css`
-    width: 180px;
-`;
-const sizeMedium: SpecificSizeInput = (theme) => css`
-    width: 200px;
 `;
