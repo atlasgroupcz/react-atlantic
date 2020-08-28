@@ -12,14 +12,11 @@ export const FirstTimelineDemo = () => {
     const handleClick: TimelineItemProps['onClick'] = (
         e: React.MouseEvent<HTMLLIElement, MouseEvent>
     ) => {
-        console.log(e);
-        console.log(ref?.current);
+        console.log(`click`);
     };
 
     const handleClick2: TimelineOnClick = (e, i) => {
-        console.log(containerRef?.current);
-        console.log(ref?.current);
-        console.log(e, i);
+        console.log(i);
     };
 
     const handleIconClick: IconProps['onClick'] = (e) => {
@@ -39,13 +36,17 @@ export const FirstTimelineDemo = () => {
             <TimelineItem ref={ref} onClick={handleClick}>
                 <Text>prdel 1</Text>
             </TimelineItem>
-            <TimelineItem onClick={handleClick2} unique={1}>
+            <TimelineItem
+                oppositeContent={<div>pepa</div>}
+                onClick={handleClick2}
+                unique={'pes'}
+            >
                 <Text>prdel 2</Text>
             </TimelineItem>
-            <TimelineItem onClick={handleClick2}>
+            <TimelineItem onClick={handleClick2} unique={1}>
                 <Text>prdel 3</Text>
             </TimelineItem>
-            <TimelineItem type={'warning'}>
+            <TimelineItem onClick={handleClick2} type={'warning'}>
                 <Text>prdel 4</Text>
             </TimelineItem>
             <TimelineItem

@@ -7,6 +7,8 @@ import {
 } from './style';
 import { TimelineItemType } from './Item.types';
 import { Text } from '../../../Typography/Text';
+import { useTimelineContext } from '../../context';
+import { StyledTimelineContainer } from '../style';
 
 export const TimelineItem: TimelineItemType = forwardRef(
     (
@@ -22,6 +24,8 @@ export const TimelineItem: TimelineItemType = forwardRef(
         },
         ref
     ) => {
+        const { isOppositeContent } = useTimelineContext();
+
         const handleClick = useCallback(
             (e: React.MouseEvent<HTMLLIElement, MouseEvent>) => {
                 onClick?.(e, unique);
