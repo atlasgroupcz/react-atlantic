@@ -1,6 +1,19 @@
 import React, { forwardRef } from 'react';
 import styled, { css } from 'styled-components';
 import { InputProps } from '../types';
+import { ThemeConfig } from 'react-select/src/theme';
+import { ThemeType } from '../../../../../theme';
+
+type IsFullWidthMixin = (
+    value: InputProps['isFullWidth']
+) => ReturnType<typeof css> | null;
+export const isFullWidthMixin: IsFullWidthMixin = (value) => {
+    return value
+        ? css`
+              width: 100%;
+          `
+        : null;
+};
 
 export const StyledInput = styled(
     forwardRef<HTMLInputElement, InputProps>(
@@ -14,7 +27,6 @@ export const StyledInput = styled(
     props.theme.padding.md};
   height: ${(props) => props.theme.height.md};
   margin: 0;
-  width: 200px;
   position: relative;
   display: inline-block;
 
@@ -89,7 +101,6 @@ export const StyledInput = styled(
   ${(props) =>
       props.size === 'small' &&
       css`
-          width: 180px;
           height: ${props.theme.height.sm};
           font-size: 12px;
 
@@ -102,7 +113,6 @@ export const StyledInput = styled(
     ${(props) =>
         props.size === 'large' &&
         css`
-            width: 220px;
             height: ${props.theme.height.lg};
             font-size: ${props.theme.font.size.lg};
 
@@ -111,11 +121,59 @@ export const StyledInput = styled(
                 margin-left: ${props.theme.margin.lg};
             }
         `} 
+    
+    ${isFullWidthMixin(true)}
+`;
 
+type StyledInputSpanProps = {
+    isPrefix?: boolean;
+    isSuffix?: boolean;
+} & Pick<InputProps, 'isFullWidth' | 'size'>;
 
-    ${(props) =>
-        props.isFullWidth &&
-        css`
-            width: 100%;
-        `} 
+export const StyledInputSpan = styled.span<StyledInputSpanProps>`
+    display: inline-block;
+    position: relative;
+    ${(props) => sizeInput(props.size, props.theme)}
+    ${(props) => isFullWidthMixin(props.isFullWidth)}
+    
+    ${StyledInput} {
+        ${(props) =>
+            props.isPrefix &&
+            css`
+                padding-left: 30px;
+            `}
+
+        ${(props) =>
+            props.isSuffix &&
+            css`
+                padding-right: 30px;
+            `}
+    }
+`;
+
+type SizeInput = (
+    size: InputProps['size'],
+    theme: ThemeType
+) => ReturnType<typeof css>;
+
+export const sizeInput: SizeInput = (size, theme) => {
+    switch (size) {
+        case 'large':
+            return sizeLarge(theme);
+        case 'small':
+            return sizeMedium(theme);
+        default:
+            return sizeSmall(theme);
+    }
+};
+
+type SpecificSizeInput = (theme: ThemeType) => ReturnType<typeof css>;
+const sizeLarge: SpecificSizeInput = (theme) => css`
+    width: 220px;
+`;
+const sizeSmall: SpecificSizeInput = (theme) => css`
+    width: 180px;
+`;
+const sizeMedium: SpecificSizeInput = (theme) => css`
+    width: 200px;
 `;
