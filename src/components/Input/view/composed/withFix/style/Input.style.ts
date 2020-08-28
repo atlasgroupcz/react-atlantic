@@ -1,10 +1,8 @@
-import { css, styled } from '../../../../../../styled';
-import { isFullWidthMixin, StyledInput } from '../../../base/style';
-import { StyledComposedInputProps } from './types';
+import { styled } from '../../../../../../styled';
 
-export const StyledAbstractFix = styled.span``;
+export const StyledInputAbstractFix = styled.span``;
 
-export const StyledPrefix = styled(StyledAbstractFix)`
+export const StyledInputPrefix = styled(StyledInputAbstractFix)`
     position: absolute;
     font-size: 0;
     z-index: 8;
@@ -13,7 +11,7 @@ export const StyledPrefix = styled(StyledAbstractFix)`
     transform: translateY(-50%);
     padding-left: ${(props) => props.theme.padding.md};
 `;
-export const StyledSuffix = styled(StyledAbstractFix)`
+export const StyledInputSuffix = styled(StyledInputAbstractFix)`
     position: absolute;
     font-size: 0;
     z-index: 8;
