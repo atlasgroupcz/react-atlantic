@@ -19,8 +19,13 @@ jobs:
             - name: Use Node.js ${{ matrix.node-version }}
               uses: actions/setup-node@v1
             - run: yarn install
-            - run: yarn typecheck
-            - run: yarn lint
-            - run: yarn test
+            - name: Typecheck
+              run: yarn typecheck
+            - name: Lint
+              run: yarn lint
+            - name: Validate dependency tree
+              run: yarn validateDepsTree
+            - name: Test
+              run: yarn test
               env:
                   CI: true
