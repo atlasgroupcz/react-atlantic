@@ -1,5 +1,5 @@
 import { css } from 'styled-components';
-import { InputProps } from '../types';
+import { InputProps } from '../../../types';
 
 type SizeInput = (size: InputProps['size']) => ReturnType<typeof css>;
 

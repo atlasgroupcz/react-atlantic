@@ -1,12 +1,12 @@
 import React, { forwardRef } from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { InputProps } from '../types';
-import { sizeInput } from './size';
-import { isFullWidthMixin } from './fullWidth';
-import { fixPadding } from './fixPadding';
-import { isDisabledInput } from './isDisabled';
-import { isRoundInput } from './isRound';
-import { sizeDiffInput } from './sizeDiff';
+import {
+    isDisabledInput,
+    isRoundInput,
+    sizeDiffInput,
+    isFullWidthMixin,
+} from './parts';
 
 export const StyledInput = styled(
     forwardRef<HTMLInputElement, InputProps>(
@@ -58,10 +58,10 @@ export const StyledInput = styled(
   }
 
 
-${(props) => isDisabledInput(props.isDisabled, props.theme)}
-${(props) => isRoundInput(props.isRound, props.theme)}
-${(props) => sizeDiffInput(props.size, props.theme)}
-${isFullWidthMixin(true)}
+    ${(props) => isDisabledInput(props.isDisabled, props.theme)}
+    ${(props) => isRoundInput(props.isRound, props.theme)}
+    ${(props) => sizeDiffInput(props.size, props.theme)}
+    ${isFullWidthMixin(true)}
 `;
 
 type StyledInputSpanProps = {
@@ -69,11 +69,11 @@ type StyledInputSpanProps = {
     isSuffix?: boolean;
 } & Pick<InputProps, 'isFullWidth' | 'size'>;
 
-export const StyledInputSpan = styled.span<StyledInputSpanProps>`
-    display: inline-block;
-    position: relative;
-    ${(props) => sizeInput(props.size)}
-    ${(props) => isFullWidthMixin(props.isFullWidth)}
-    ${(props) => fixPadding(props.isPrefix, props.isSuffix)}
+// export const StyledInputSpan = styled.span<StyledInputSpanProps>`
+//     display: inline-block;
+//     position: relative;
+//     ${(props) => sizeInput(props.size)}
+//     ${(props) => isFullWidthMixin(props.isFullWidth)}
+//     ${(props) => fixPadding(props.isPrefix, props.isSuffix)}
 
-`;
+// `;

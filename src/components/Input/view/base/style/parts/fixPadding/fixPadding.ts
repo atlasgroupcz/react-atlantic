@@ -1,5 +1,5 @@
 import { css } from 'styled-components';
-import { StyledInput } from './Input.style';
+import { StyledInput } from '../../Input.style';
 
 type FixPaddingArgs = [boolean?, boolean?];
 type FixPadding = (...args: FixPaddingArgs) => ReturnType<typeof css>;

@@ -1,4 +1,7 @@
 import { styled } from '../../../../../../styled';
+import { sizeInput, isFullWidthMixin } from '../../../base/style/parts';
+import { InputProps } from '../../../base/types';
+import { fixPadding } from '../../../base/style/parts/fixPadding/fixPadding';
 
 export const StyledInputAbstractFix = styled.span``;
 
@@ -19,4 +22,17 @@ export const StyledInputSuffix = styled(StyledInputAbstractFix)`
     top: 50%;
     transform: translateY(-50%);
     padding-right: ${(props) => props.theme.padding.md};
+`;
+
+type StyledInputSpanProps = {
+    isPrefix?: boolean;
+    isSuffix?: boolean;
+} & Pick<InputProps, 'isFullWidth' | 'size'>;
+
+export const StyledInputSpan = styled.span<StyledInputSpanProps>`
+    display: inline-block;
+    position: relative;
+    ${(props) => sizeInput(props.size)}
+    ${(props) => isFullWidthMixin(props.isFullWidth)}
+    ${(props) => fixPadding(props.isPrefix, props.isSuffix)}
 `;

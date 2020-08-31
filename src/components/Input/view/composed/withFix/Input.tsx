@@ -1,10 +1,9 @@
 import React, { FC, useRef, useCallback, forwardRef } from 'react';
 import { InputFixProps } from './types';
-import { StyledInputPrefix, StyledInputSuffix } from './style';
+import { StyledInputPrefix, StyledInputSuffix, StyledInputSpan } from './style';
 import { InputBase } from '../../base';
 import { PropsWithoutChildren } from '../../../../../types';
 import { handleParentRef } from '../../../../../utils';
-import { StyledInputSpan } from '../../base/style';
 
 export type InputFixType = FC<PropsWithoutChildren<InputFixProps>>;
 

@@ -1,4 +1,4 @@
-import { InputProps } from '../types';
+import { InputProps } from '../../../types';
 import { css } from 'styled-components';
 
 type IsFullWidthMixin = (
