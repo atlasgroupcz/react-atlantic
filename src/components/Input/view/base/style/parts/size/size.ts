@@ -1,26 +1,18 @@
 import { css } from 'styled-components';
 import { InputProps } from '../../../types';
+import { Size } from '../../../../../../../types';
 
 type SizeInput = (size: InputProps['size']) => ReturnType<typeof css>;
 
-export const sizeInput: SizeInput = (size) => {
-    switch (size) {
-        case 'large':
-            return sizeLarge();
-        case 'small':
-            return sizeSmall();
-        default:
-            return sizeMedium();
-    }
+const sizeObj: Record<Size, number> = {
+    large: 220,
+    medium: 200,
+    small: 180,
 };
 
-type SpecificSizeInput = () => ReturnType<typeof css>;
-const sizeLarge: SpecificSizeInput = () => css`
-    width: 220px;
-`;
-const sizeSmall: SpecificSizeInput = () => css`
-    width: 180px;
-`;
-const sizeMedium: SpecificSizeInput = () => css`
-    width: 200px;
-`;
+export const sizeInput: SizeInput = (size) => {
+    const tranformedSize = size || 'medium';
+    return css`
+        width: ${sizeObj[tranformedSize]}px;
+    `;
+};
