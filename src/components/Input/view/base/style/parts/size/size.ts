@@ -8,9 +8,9 @@ export const sizeInput: SizeInput = (size) => {
         case 'large':
             return sizeLarge();
         case 'small':
-            return sizeMedium();
-        default:
             return sizeSmall();
+        default:
+            return sizeMedium();
     }
 };
 
