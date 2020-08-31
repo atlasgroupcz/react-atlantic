@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 import { InputProps } from '../../../types';
-import { ThemeType } from '../../../../../../..';
+import { ThemeType } from '../../../../../../../theme';
 
 type SizeDiffInput = (
     size: InputProps['size'],
