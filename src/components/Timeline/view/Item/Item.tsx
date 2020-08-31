@@ -24,7 +24,7 @@ export const TimelineItem: TimelineItemType = forwardRef(
         },
         ref
     ) => {
-        const { isOppositeContent } = useTimelineContext();
+        const isOppositeContent = useTimelineContext();
 
         const handleClick = useCallback(
             (e: React.MouseEvent<HTMLLIElement, MouseEvent>) => {

@@ -1,21 +1,17 @@
 import React from 'react';
 import { createContext, useContext } from 'react';
 import {
-    CollapseProviderType,
+    TimelineProviderType,
     defaultTimelineContextValue,
     TimelineContextState,
 } from './types';
 
-export const TimelineProvider: CollapseProviderType = ({
+export const TimelineProvider: TimelineProviderType = ({
     children,
     isOppositeContent,
 }) => {
     return (
-        <TimelineContext.Provider
-            value={{
-                isOppositeContent,
-            }}
-        >
+        <TimelineContext.Provider value={isOppositeContent}>
             {children}
         </TimelineContext.Provider>
     );

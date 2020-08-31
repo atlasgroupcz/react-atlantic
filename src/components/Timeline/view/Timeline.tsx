@@ -11,9 +11,9 @@ import { mapChild } from './utils/mapChild';
 
 export const Timeline: TimelineType = forwardRef(
     ({ children, align = 'right', ...props }, ref) => {
-        const isOppositeContent = useRef<
-            TimelineContextState['isOppositeContent']
-        >(defaultTimelineContextValue.isOppositeContent);
+        const isOppositeContent = useRef<TimelineContextState>(
+            defaultTimelineContextValue
+        );
 
         const modifiedChildren = useMemo(
             () =>

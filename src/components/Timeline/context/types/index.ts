@@ -1,11 +1,10 @@
-import { FC } from 'react';
+import { FC, PropsWithChildren } from 'react';
 
-export type TimelineContextState = {
+export type TimelineContextState = boolean;
+
+export const defaultTimelineContextValue: TimelineContextState = false;
+
+export type TimelineProviderProps = PropsWithChildren<{
     isOppositeContent: boolean;
-};
-
-export const defaultTimelineContextValue: TimelineContextState = {
-    isOppositeContent: false,
-};
-
-export type CollapseProviderType = FC<TimelineContextState>;
+}>;
+export type TimelineProviderType = FC<TimelineProviderProps>;
