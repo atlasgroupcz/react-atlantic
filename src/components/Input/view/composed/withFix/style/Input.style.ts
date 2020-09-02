@@ -14,6 +14,7 @@ export const StyledInputPrefix = styled(StyledInputAbstractFix)`
     transform: translateY(-50%);
     padding-left: ${(props) => props.theme.padding.md};
 `;
+
 export const StyledInputSuffix = styled(StyledInputAbstractFix)`
     position: absolute;
     font-size: 0;
@@ -24,12 +25,12 @@ export const StyledInputSuffix = styled(StyledInputAbstractFix)`
     padding-right: ${(props) => props.theme.padding.md};
 `;
 
-type StyledInputSpanProps = {
+type StyledInputContainerProps = {
     isPrefix?: boolean;
     isSuffix?: boolean;
 } & Pick<InputProps, 'isFullWidth' | 'size'>;
 
-export const StyledInputSpan = styled.span<StyledInputSpanProps>`
+export const StyledInputContainer = styled.span<StyledInputContainerProps>`
     display: inline-block;
     position: relative;
     ${(props) => sizeInput(props.size)}

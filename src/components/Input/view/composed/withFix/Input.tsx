@@ -1,6 +1,10 @@
 import React, { FC, useRef, useCallback, forwardRef } from 'react';
 import { InputFixProps } from './types';
-import { StyledInputPrefix, StyledInputSuffix, StyledInputSpan } from './style';
+import {
+    StyledInputPrefix,
+    StyledInputSuffix,
+    StyledInputContainer,
+} from './style';
 import { InputBase } from '../../base';
 import { PropsWithoutChildren } from '../../../../../types';
 import { handleParentRef } from '../../../../../utils';
@@ -29,7 +33,7 @@ export const InputWrapper: InputFixType = forwardRef<
     );
 
     return (
-        <StyledInputSpan
+        <StyledInputContainer
             onClick={handleFocus}
             isPrefix={!!prefix}
             isSuffix={!!suffix}
@@ -39,6 +43,6 @@ export const InputWrapper: InputFixType = forwardRef<
             {prefix && <StyledInputPrefix>{prefix}</StyledInputPrefix>}
             <InputBase {...props} ref={handleSetRef} size={size} />
             {suffix && <StyledInputSuffix>{suffix}</StyledInputSuffix>}
-        </StyledInputSpan>
+        </StyledInputContainer>
     );
 });

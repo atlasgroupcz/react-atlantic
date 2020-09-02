@@ -5,7 +5,7 @@ import { InputProps } from './base/types';
 import { PropsWithoutChildren } from '../../../types';
 import { InputFixProps } from './composed/withFix/types';
 import { InputWrapper as InputWrapperWithFix } from './composed';
-import { StyledInputSpan } from './composed/withFix/style/Input.style';
+import { StyledInputContainer } from './composed/withFix/style/Input.style';
 
 export type InputType = FC<PropsWithoutChildren<InputFixProps & InputProps>>;
 
@@ -22,9 +22,12 @@ export const Input: InputType = forwardRef(
             );
         }
         return (
-            <StyledInputSpan size={props.size} isFullWidth={props.isFullWidth}>
+            <StyledInputContainer
+                size={props.size}
+                isFullWidth={props.isFullWidth}
+            >
                 <InputBase {...props} ref={ref} />
-            </StyledInputSpan>
+            </StyledInputContainer>
         );
     }
 );
