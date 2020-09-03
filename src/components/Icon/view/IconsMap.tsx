@@ -149,6 +149,9 @@ export const IconsMap = {
     testConnection: <Icons.TestConnection />,
     uploadSolid: <Icons.UploadSolid />,
     bulkDownload: <Icons.BulkDownload />,
+    minus: <Icons.Minus />,
+    plusCircle: <Icons.PlusCircle />,
+    fileImport: <Icons.FileImport />,
 };
 
 export type IconName = keyof typeof IconsMap;
