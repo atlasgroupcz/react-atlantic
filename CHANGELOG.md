@@ -1,4 +1,10 @@
-## [0.1.18](https://github.com/atlasgroupcz/react-atlantic/compare/0.1.17...0.1.18) (2020-09-03)
+## [0.1.19](https://github.com/atlasgroupcz/react-atlantic/compare/0.1.18...0.1.19) (2020-09-04)
+
+### Bug Fixes
+
+-   🐛 createStyled generic added ([c8143b9](https://github.com/atlasgroupcz/react-atlantic/commit/c8143b9ea3f7202ea806eebfaca7f67f28006441))
+
+## [0.1.18](https://github.com/atlasgroupcz/react-atlantic/compare/0.1.17...v0.1.18) (2020-09-03)
 
 ### Bug Fixes
 
