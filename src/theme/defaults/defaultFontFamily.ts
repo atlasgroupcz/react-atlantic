@@ -1,1 +1,1 @@
-export const defaultFontFamily = `-apple-system,BlinkMacSystemFont,'Segoe UI'`;
+export const defaultFontFamily: string = `-apple-system,BlinkMacSystemFont,'Segoe UI'`;

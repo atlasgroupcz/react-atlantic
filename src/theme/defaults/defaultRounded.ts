@@ -1,1 +1,1 @@
-export const defaultRounded = `20px`;
+export const defaultRounded: string = `20px`;
