@@ -14,7 +14,7 @@ export type InputFixType = FC<PropsWithoutChildren<InputFixProps>>;
 export const InputWrapper: InputFixType = forwardRef<
     HTMLInputElement,
     InputFixProps
->(({ prefix, suffix, isFullWidth, size, ...props }, ref) => {
+>(({ prefix, suffix, size = 'medium', ...props }, ref) => {
     let inputRef = useRef<HTMLInputElement | null>(null);
 
     const handleFocus = useCallback(
@@ -37,8 +37,10 @@ export const InputWrapper: InputFixType = forwardRef<
             onClick={handleFocus}
             isPrefix={!!prefix}
             isSuffix={!!suffix}
-            isFullWidth={isFullWidth}
             size={size}
+            isFullWidth={props.isFullWidth}
+            isDisabled={props.isDisabled}
+            isRound={props.isRound}
         >
             {prefix && <StyledInputPrefix>{prefix}</StyledInputPrefix>}
             <InputBase {...props} ref={handleSetRef} size={size} />

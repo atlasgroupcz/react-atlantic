@@ -7,6 +7,6 @@ export type InputBaseType = FC<InputProps>;
 export const InputBase: InputBaseType = forwardRef<
     HTMLInputElement,
     InputProps
->(({ size = 'medium', ...props }, ref) => {
-    return <StyledInput {...props} ref={ref} size={size} />;
+>(({ ...props }, ref) => {
+    return <StyledInput {...props} ref={ref} />;
 });
