@@ -43,4 +43,4 @@ export const theme: DefaultThemeType = {
     boxShadow: defaultBoxShadow,
 };
 
-export type ThemeType<T> = DefaultThemeType & { custom?: T };
+export type ThemeType<T = undefined> = DefaultThemeType & { custom?: T };
