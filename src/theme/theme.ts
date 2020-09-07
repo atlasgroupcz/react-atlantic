@@ -7,9 +7,28 @@ import {
     defaultFontFamily,
     defaultDimensions,
     defaultBoxShadow,
+    ColorType,
+    BoxShadowType,
+    DimensionsType,
+    SpacingType,
+    FontSizeType,
 } from './defaults';
 
-export const theme = {
+export type DefaultThemeType = {
+    readonly color: ColorType;
+    readonly padding: SpacingType;
+    readonly margin: SpacingType;
+    readonly radius: string;
+    readonly rounded: string;
+    readonly font: {
+        readonly size: FontSizeType;
+        readonly family: string;
+    };
+    readonly height: DimensionsType;
+    readonly width: DimensionsType;
+    readonly boxShadow: BoxShadowType;
+};
+export const theme: DefaultThemeType = {
     color: defaultColor,
     padding: defaultSpacing,
     margin: defaultSpacing,
@@ -23,5 +42,5 @@ export const theme = {
     width: defaultDimensions,
     boxShadow: defaultBoxShadow,
 };
-export type DefaultThemeType = typeof theme;
-export type ThemeType<T extends DefaultThemeType = DefaultThemeType> = T;
+
+export type ThemeType<T> = DefaultThemeType & { custom?: T };

@@ -1,1 +1,1 @@
-export const defaultRadius = `4px`;
+export const defaultRadius: string = `4px`;
