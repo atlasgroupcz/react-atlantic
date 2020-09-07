@@ -1,4 +1,51 @@
-export const defaultColor = {
+export type ColorType = {
+    default: string;
+    border: string;
+    primary: {
+        alpha: string;
+        beta: string;
+        gamma: string;
+        delta: string;
+        epsilon: string;
+    };
+    success: {
+        alpha: string;
+        beta: string;
+        gamma: string;
+        delta: string;
+        epsilon: string;
+    };
+    warning: {
+        alpha: string;
+        beta: string;
+        gamma: string;
+        delta: string;
+        epsilon: string;
+    };
+    error: {
+        alpha: string;
+        beta: string;
+        gamma: string;
+        delta: string;
+        epsilon: string;
+    };
+    text: {
+        alpha: string;
+        beta: string;
+        gamma: string;
+        delta: string;
+        epsilon: string;
+    };
+    background: {
+        alpha: string;
+        beta: string;
+        gamma: string;
+        delta: string;
+        epsilon: string;
+    };
+};
+
+export const defaultColor: ColorType = {
     default: `#f2f2f2`,
     border: `#d9d9d9`,
     primary: {
