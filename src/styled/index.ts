@@ -10,5 +10,5 @@ export const css = styledCss;
 export const createGlobalStyle = styledCreateGlobalStyle;
 export const keyframes = styledKeyframes;
 export const styled = styledStyled as ThemedStyledInterface<ThemeType>;
-export const createStyled = <T extends ThemeType>() =>
+export const createStyled = <T extends {}>() =>
     styledStyled as ThemedStyledInterface<T>;

@@ -1,4 +1,10 @@
-# [0.2.0](https://github.com/atlasgroupcz/react-atlantic/compare/0.1.19...0.2.0) (2020-09-07)
+## [0.2.1](https://github.com/atlasgroupcz/react-atlantic/compare/0.2.0...0.2.1) (2020-09-07)
+
+### Bug Fixes
+
+-   🐛 types ([43f2a40](https://github.com/atlasgroupcz/react-atlantic/commit/43f2a40ff3b890fc1043f34af0f65f7d27be580f))
+
+# [0.2.0](https://github.com/atlasgroupcz/react-atlantic/compare/0.1.19...v0.2.0) (2020-09-07)
 
 ### Bug Fixes
 
