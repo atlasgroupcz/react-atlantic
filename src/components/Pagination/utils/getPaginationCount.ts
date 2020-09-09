@@ -1,8 +1,8 @@
-import { PaginationProps } from '../view';
+import { PaginationBaseProps } from '../view';
 
 type GetPaginationCount = (args: GetPaginationCountArgs) => number;
 type GetPaginationCountArgs = Required<
-    Pick<PaginationProps, 'pageSize' | 'total'>
+    Pick<PaginationBaseProps, 'pageSize' | 'total'>
 >;
 
 export const getPaginationCount: GetPaginationCount = ({ pageSize, total }) => {

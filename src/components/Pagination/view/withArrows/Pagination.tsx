@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Pagination as PaginationBase } from '../base/Pagination';
+import { PaginationBase } from '../base/Pagination';
 
 export interface PaginationWithArrowsProps {}
 export type PaginationWithArrowsType = FC<PaginationWithArrowsProps>;
@@ -7,9 +7,9 @@ export type PaginationWithArrowsType = FC<PaginationWithArrowsProps>;
 export const PaginationWithArrows: PaginationWithArrowsType = () => {
     return (
         <>
-            <div>FUCK ONE</div>
+            <li>FUCK ONE</li>
             <PaginationBase />
-            <div>FUCK OTHER SITE</div>
+            <li>FUCK OTHER SITE</li>
         </>
     );
 };

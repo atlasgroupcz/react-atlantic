@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Pagination as PaginationBase, PaginationProps } from '../view';
+import { PaginationBase, PaginationBaseProps } from '../view';
 import { PaginationWithArrows } from '../view/withArrows';
 
 const TOTAL = 300;
@@ -7,7 +7,7 @@ const TOTAL = 300;
 export const First = () => {
     const [page, setPage] = useState<number>(1);
 
-    const handleClick: PaginationProps['onClick'] = (e, page) => {
+    const handleClick: PaginationBaseProps['onClick'] = (e, page) => {
         setPage(page);
     };
 

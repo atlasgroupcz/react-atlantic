@@ -1,11 +1,10 @@
 import React, { FC, useMemo, ReactText, ReactNode } from 'react';
-import { StyledPagination } from './style';
 import { structureArray } from '../../utils/structureArray';
 import { PaginationButton } from '../Button';
 import { PaginationSeparator } from '../../Separator';
 import { getPaginationCount } from '../../utils';
 
-export type PaginationProps<
+export type PaginationBaseProps<
     S extends Element = Element,
     T extends PaginationComponentProps<S> = PaginationComponentProps
 > = {
@@ -22,9 +21,9 @@ export type PaginationComponentProps<T extends Element = Element> = {
     children?: ReactText;
     isActive?: boolean;
 };
-export type PaginationType = FC<PaginationProps>;
+export type PaginationBaseType = FC<PaginationBaseProps>;
 
-export const Pagination: PaginationType = ({
+export const PaginationBase: PaginationBaseType = ({
     page = 0,
     total = 0,
     pageSize = 30,
@@ -43,7 +42,7 @@ export const Pagination: PaginationType = ({
     ]);
 
     return (
-        <StyledPagination>
+        <>
             {strucArr.map((key, index) => {
                 if (key === -1) {
                     return <li key={key - index}>{separator}</li>;
@@ -65,6 +64,6 @@ export const Pagination: PaginationType = ({
                     );
                 }
             })}
-        </StyledPagination>
+        </>
     );
 };
