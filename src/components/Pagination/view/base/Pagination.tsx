@@ -1,27 +1,9 @@
-import React, { FC, useMemo, ReactText, ReactNode } from 'react';
+import React, { useMemo } from 'react';
 import { structureArray } from '../../utils/structureArray';
-import { PaginationButton } from '../Button';
+import { PaginationButton } from '../../Button/Button';
 import { PaginationSeparator } from '../../Separator';
 import { getPaginationCount } from '../../utils';
-
-export type PaginationBaseProps<
-    S extends Element = Element,
-    T extends PaginationComponentProps<S> = PaginationComponentProps
-> = {
-    total?: number;
-    page?: number;
-    pageSize?: number;
-    as?: FC<T>;
-    separator?: ReactNode;
-    onClick?: (e: React.MouseEvent<S, MouseEvent>, page: number) => void;
-};
-
-export type PaginationComponentProps<T extends Element = Element> = {
-    onClick?: (e: React.MouseEvent<T, MouseEvent>) => void;
-    children?: ReactText;
-    isActive?: boolean;
-};
-export type PaginationBaseType = FC<PaginationBaseProps>;
+import { PaginationBaseType } from './types';
 
 export const PaginationBase: PaginationBaseType = ({
     page = 0,

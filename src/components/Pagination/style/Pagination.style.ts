@@ -1,6 +1,6 @@
-import { styled } from '../../../../../styled';
+import { styled } from '../../../styled';
 
-export const StyledPagination = styled.ul`
+export const StyledPaginationContainer = styled.ul`
     user-select: none;
 
     display: inline-block;

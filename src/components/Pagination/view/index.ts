@@ -1,3 +1,3 @@
 export * from './base';
 export * from './withArrows';
-export * from './Button';
+export * from '../Button/Button';

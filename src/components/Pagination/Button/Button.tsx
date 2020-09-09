@@ -1,5 +1,5 @@
 import React from 'react';
-import { PaginationComponentProps } from './base/Pagination';
+import { PaginationComponentProps } from '../view/base/Pagination';
 import { FC } from 'react';
 import { Button } from '../../Button';
 
