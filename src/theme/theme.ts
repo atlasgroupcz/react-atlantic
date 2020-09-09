@@ -28,7 +28,9 @@ export type DefaultThemeType = {
     readonly width: DimensionsType;
     readonly boxShadow: BoxShadowType;
 };
-export const theme: DefaultThemeType = {
+export type ThemeType<T = undefined> = DefaultThemeType & { custom: T };
+
+export const theme: ThemeType = {
     color: defaultColor,
     padding: defaultSpacing,
     margin: defaultSpacing,
@@ -41,6 +43,5 @@ export const theme: DefaultThemeType = {
     height: defaultDimensions,
     width: defaultDimensions,
     boxShadow: defaultBoxShadow,
+    custom: undefined,
 };
-
-export type ThemeType<T = undefined> = DefaultThemeType & { custom: T };
