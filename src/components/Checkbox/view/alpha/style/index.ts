@@ -1,5 +1,9 @@
 import { animated } from 'react-spring';
 import styled, { css } from 'styled-components';
+import {
+    excludeComponentProps,
+    excludeIntrinsicElementProps,
+} from '../../../../../utils/excludeProps';
 
 type StyledCheckboxProps = {
     isChecked?: boolean;
@@ -9,6 +13,19 @@ type StyledCheckboxProps = {
     name?: string;
     position?: 'right' | 'left';
 };
+const styledCheckboxPropKeys: (keyof StyledCheckboxProps)[] = [
+    'isPartiallyChecked',
+    'isDisabled',
+    'isTextDotted',
+    'isChecked',
+    'position',
+    'name',
+];
+
+const checkboxExclude = excludeComponentProps<StyledCheckboxProps>();
+const checkboxIntrinsicExclude = excludeIntrinsicElementProps<
+    StyledCheckboxProps
+>();
 
 export const HiddenCheckbox = styled.input.attrs({
     type: 'checkbox',
@@ -21,9 +38,11 @@ export const HiddenCheckbox = styled.input.attrs({
     z-index: -1;
 `;
 
-export const StyledCheckboxInputShown = styled(animated.div).attrs({
-    className: `atlantic--checkbox`,
-})<StyledCheckboxProps>`
+export const StyledCheckboxInputShown = styled(
+    checkboxExclude(animated.div, styledCheckboxPropKeys)
+).attrs({
+    className: `atlantic--checkbox`, // To je BEM? 😮😮😮
+})`
     display: flex;
     align-items: center;
     justify-content: center;
@@ -40,7 +59,9 @@ export const StyledCheckboxInputShown = styled(animated.div).attrs({
         `}
 `;
 
-export const StyledCheckboxLabel = styled.label<StyledCheckboxProps>`
+export const StyledCheckboxLabel = styled(
+    checkboxIntrinsicExclude('label', styledCheckboxPropKeys)
+)`
     height: ${(props) => props.theme.height.sm};
     font-size: 14px;
     font-family: ${(props) => props.theme.font.family};
@@ -66,30 +87,32 @@ export const StyledCheckboxLabel = styled.label<StyledCheckboxProps>`
         `};
 `;
 
-export const StyledCheckboxMark = styled(animated.div)<StyledCheckboxProps>`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: ${(props) => props.theme.width.xs};
-  min-width: ${(props) => props.theme.width.xs};
-  height: ${(props) => props.theme.width.xs};
-  min-height: ${(props) => props.theme.width.xs};
-  border-radius: ${(props) => parseInt(props.theme.radius, 0) - 2}px;
-  background-color: ${(props) => props.theme.color.primary.alpha};
-  opacity: 0;
+export const StyledCheckboxMark = styled(
+    checkboxExclude(animated.div, styledCheckboxPropKeys)
+)`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: ${(props) => props.theme.width.xs};
+    min-width: ${(props) => props.theme.width.xs};
+    height: ${(props) => props.theme.width.xs};
+    min-height: ${(props) => props.theme.width.xs};
+    border-radius: ${(props) => parseInt(props.theme.radius, 0) - 2}px;
+    background-color: ${(props) => props.theme.color.primary.alpha};
+    opacity: 0;
 
-  ${(props) =>
-      (props.isChecked || props.isPartiallyChecked) &&
-      css`
-          background-color: ${props.theme.color.primary.alpha};
-      `}
+    ${(props) =>
+        (props.isChecked || props.isPartiallyChecked) &&
+        css`
+            background-color: ${props.theme.color.primary.alpha};
+        `}
 
-  ${(props) =>
-      props.isDisabled &&
-      (props.isChecked || props.isPartiallyChecked) &&
-      css`
-          background-color: ${props.theme.color.background.beta};
-      `}
+    ${(props) =>
+        props.isDisabled &&
+        (props.isChecked || props.isPartiallyChecked) &&
+        css`
+            background-color: ${props.theme.color.background.beta};
+        `}
 
     ${(props) =>
         props.isDisabled &&
@@ -99,7 +122,9 @@ export const StyledCheckboxMark = styled(animated.div)<StyledCheckboxProps>`
         `}
 `;
 
-export const StyledCheckboxSpan = styled.span<StyledCheckboxProps>`
+export const StyledCheckboxSpan = styled(
+    checkboxIntrinsicExclude('span', styledCheckboxPropKeys)
+)`
     padding: 0 ${(props) => props.theme.padding.md};
     user-select: none;
     line-height: 1;
@@ -111,7 +136,9 @@ export const StyledCheckboxSpan = styled.span<StyledCheckboxProps>`
         `}
 `;
 
-export const StyledCheckboxIcon = styled.i<StyledCheckboxProps>`
+export const StyledCheckboxIcon = styled(
+    checkboxIntrinsicExclude('i', styledCheckboxPropKeys)
+)`
     line-height: 0;
     color: ${(props) => props.theme.color.text.gamma};
 
