@@ -5,18 +5,19 @@ import { PaginationButton } from '../Button';
 import { PaginationSeparator } from '../../Separator';
 
 export type PaginationProps<
-    T extends PaginationComponentProps = PaginationComponentProps
+    S extends Element = Element,
+    T extends PaginationComponentProps<S> = PaginationComponentProps
 > = {
     total?: number;
     page?: number;
     pageSize?: number;
     as?: FC<T>;
     separator?: ReactNode;
-    onClick?: (e: React.MouseEvent<any, MouseEvent>, page: number) => void;
+    onClick?: (e: React.MouseEvent<S, MouseEvent>, page: number) => void;
 };
 
-export type PaginationComponentProps = {
-    onClick?: (e: React.MouseEvent<any, MouseEvent>) => void;
+export type PaginationComponentProps<T extends Element = Element> = {
+    onClick?: (e: React.MouseEvent<T, MouseEvent>) => void;
     children?: ReactText;
     isActive?: boolean;
 };
@@ -48,7 +49,7 @@ export const Pagination: PaginationType = ({
                 } else {
                     const pageNumber = key;
                     const onClickForChild = (
-                        e: React.MouseEvent<HTMLElement, MouseEvent>
+                        e: React.MouseEvent<Element, MouseEvent>
                     ) => onClick?.(e, pageNumber);
                     const Component = as;
                     return (
