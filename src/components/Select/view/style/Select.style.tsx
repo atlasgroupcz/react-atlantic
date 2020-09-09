@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components';
 import { StyledSelectProps } from '../../types';
 import { theme } from '../../../../theme';
 import { excludeIntrinsicElementProps } from '../../../../utils/excludeProps';
+import React, { forwardRef } from 'react';
 
 const selectIntrinsicExclude = excludeIntrinsicElementProps<
     StyledSelectProps
@@ -519,7 +520,10 @@ export const MenuList = styled.div`
 `;
 
 export const StyledOption = styled(
-    selectIntrinsicExclude('div', selectPropKeys)
+    forwardRef<
+        HTMLDivElement,
+        StyledSelectProps & JSX.IntrinsicElements['div']
+    >(({ size, ...props }, ref) => <div {...props} ref={ref} />)
 )`
     display: block;
     padding: 0 ${(props) => props.theme.padding.md};
