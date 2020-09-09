@@ -45,15 +45,15 @@ export const Pagination: PaginationType = ({
                 if (key === -1) {
                     return <li key={key - index}>{separator}</li>;
                 } else {
-                    const pageNumber = index + 1;
-                    const onClickForChild = (page: number) => (
+                    const pageNumber = key;
+                    const onClickForChild = (
                         e: React.MouseEvent<HTMLElement, MouseEvent>
                     ) => onClick?.(e, pageNumber);
                     const Component = as;
                     return (
                         <li key={key}>
                             <Component
-                                onClick={onClickForChild(pageNumber)}
+                                onClick={onClickForChild}
                                 isActive={page === pageNumber}
                             >
                                 {pageNumber}

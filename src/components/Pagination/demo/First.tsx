@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { Pagination, PaginationProps } from '../view';
-import { Button } from '../../Button';
 
 const TOTAL = 300;
 
 export const First = () => {
-    const [page, setPage] = useState<number>(0);
+    const [page, setPage] = useState<number>(1);
 
     const handleClick: PaginationProps['onClick'] = (e, page) => {
         setPage(page);
