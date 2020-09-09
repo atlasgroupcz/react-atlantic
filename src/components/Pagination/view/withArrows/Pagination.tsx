@@ -3,14 +3,15 @@ import { PaginationBase } from '../base/Pagination';
 import { PaginationWithArrowsType } from './types';
 import { clamp } from '../../utils';
 import { Button } from '../../../Button';
+import { PaginationLeftButton, PaginationRightButton } from '../../Button';
 
 export const PaginationWithArrows: PaginationWithArrowsType = ({
     showArrows,
     onClick,
     page = 1,
     count = 0,
-    left: LeftComponent = Button,
-    right: RightComponent = Button,
+    left: LeftComponent = PaginationLeftButton,
+    right: RightComponent = PaginationRightButton,
     ...props
 }) => {
     const handleNext = useCallback(
