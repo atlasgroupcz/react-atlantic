@@ -1,20 +1,19 @@
-import React from 'react';
 import { withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
-import { Pagination } from '../src';
+import { First } from '../src/components/Pagination/demo';
 
 const stories = storiesOf('Pagination', module);
 
 stories.addDecorator(withKnobs);
 
-stories.add('Overview', () => <Pagination />, {
+stories.add('Overview', () => First() as any, {
     info: { inline: true },
 });
 
 stories.add(
     'Playground',
     () => {
-        return <Pagination />;
+        return First();
     },
     {
         info: { inline: true },
