@@ -3,6 +3,7 @@ import { StyledPagination } from './style';
 import { structureArray } from '../../utils/structureArray';
 import { PaginationButton } from '../Button';
 import { PaginationSeparator } from '../../Separator';
+import { getPaginationCount } from '../../utils';
 
 export type PaginationProps<
     S extends Element = Element,
@@ -31,7 +32,7 @@ export const Pagination: PaginationType = ({
     as = PaginationButton,
     separator = <PaginationSeparator />,
 }) => {
-    const count = useMemo(() => (total ? Math.ceil(total / pageSize) : 0), [
+    const count = useMemo(() => getPaginationCount({ pageSize, total }), [
         total,
         pageSize,
     ]);
