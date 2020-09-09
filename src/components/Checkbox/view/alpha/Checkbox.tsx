@@ -1,4 +1,4 @@
-import React, { CSSProperties, useRef } from 'react';
+import React, { useRef } from 'react';
 import { CheckSimple } from '../../../../Icons';
 import {
     HiddenCheckbox,
@@ -59,7 +59,8 @@ export const Checkbox: CheckboxType = ({
 
             <HiddenCheckbox
                 id={id}
-                checked={isChecked}
+                readOnly
+                defaultChecked={isChecked}
                 disabled={isDisabled}
                 {...props}
             />
