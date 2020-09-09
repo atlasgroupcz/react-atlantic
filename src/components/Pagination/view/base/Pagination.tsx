@@ -2,22 +2,15 @@ import React, { useMemo } from 'react';
 import { structureArray } from '../../utils/structureArray';
 import { PaginationButton } from '../../Button/Button';
 import { PaginationSeparator } from '../../Separator';
-import { getPaginationCount } from '../../utils';
 import { PaginationBaseType } from './types';
 
 export const PaginationBase: PaginationBaseType = ({
-    page = 0,
-    total = 0,
-    pageSize = 30,
+    page = 1,
+    count = 0,
     onClick,
     as = PaginationButton,
     separator = <PaginationSeparator />,
 }) => {
-    const count = useMemo(() => getPaginationCount({ pageSize, total }), [
-        total,
-        pageSize,
-    ]);
-
     const strucArr = useMemo(() => structureArray({ count, page }), [
         count,
         page,

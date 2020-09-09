@@ -8,6 +8,9 @@ export type PaginationComponentProps<T extends Element = Element> = {
     isActive?: boolean;
 };
 
-export type PaginationProps = {} & PaginationBaseProps &
-    PaginationWithArrowsProps;
+export type PaginationProps = {
+    total?: number;
+    pageSize?: number;
+} & Omit<PaginationBaseProps, 'count'> &
+    Omit<PaginationWithArrowsProps, 'count'>;
 export type PaginationType = FC<PaginationProps>;

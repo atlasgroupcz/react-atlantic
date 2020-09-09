@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { PaginationBase } from '../view';
-import { PaginationWithArrows } from '../view/withArrows';
 import { PaginationProps } from '../types';
+import { Pagination } from '../Pagination';
 
 const TOTAL = 300;
 
@@ -14,9 +13,7 @@ export const First = () => {
 
     return (
         <>
-            <PaginationWithArrows />
-            <br />
-            <PaginationBase
+            <Pagination
                 total={TOTAL}
                 page={page}
                 pageSize={30}
