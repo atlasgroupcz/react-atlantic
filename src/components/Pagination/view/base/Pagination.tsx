@@ -2,6 +2,7 @@ import React, { FC, useMemo, ReactText, ReactNode } from 'react';
 import { StyledPagination } from './style';
 import { structureArray } from '../../utils/structureArray';
 import { PaginationButton } from '../Button';
+import { PaginationSeparator } from '../../Separator';
 
 export type PaginationProps<
     T extends PaginationComponentProps = PaginationComponentProps
@@ -27,7 +28,7 @@ export const Pagination: PaginationType = ({
     pageSize = 30,
     onClick,
     as = PaginationButton,
-    separator = <>FUCK</>,
+    separator = <PaginationSeparator />,
 }) => {
     const count = useMemo(() => (total ? Math.ceil(total / pageSize) : 0), [
         total,
