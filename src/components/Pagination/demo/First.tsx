@@ -17,7 +17,6 @@ export const First = () => {
             page={page}
             pageSize={30}
             onClick={handleClick}
-            as={Button}
         />
     );
 };

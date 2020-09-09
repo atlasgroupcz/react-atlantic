@@ -1,7 +1,7 @@
 import React, { FC, useMemo, ReactText, ReactNode } from 'react';
 import { StyledPagination } from './style';
-import { Button } from '../../../Button';
 import { structureArray } from '../../utils/structureArray';
+import { PaginationButton } from '../Button';
 
 export type PaginationProps<
     T extends PaginationComponentProps = PaginationComponentProps
@@ -14,10 +14,10 @@ export type PaginationProps<
     onClick?: (e: React.MouseEvent<any, MouseEvent>, page: number) => void;
 };
 
-//t
-type PaginationComponentProps = {
+export type PaginationComponentProps = {
     onClick?: (e: React.MouseEvent<any, MouseEvent>) => void;
     children?: ReactText;
+    isActive?: boolean;
 };
 export type PaginationType = FC<PaginationProps>;
 
@@ -26,7 +26,7 @@ export const Pagination: PaginationType = ({
     total = 0,
     pageSize = 30,
     onClick,
-    as = Button,
+    as = PaginationButton,
     separator = <>FUCK</>,
 }) => {
     const count = useMemo(() => (total ? Math.ceil(total / pageSize) : 0), [
@@ -52,7 +52,10 @@ export const Pagination: PaginationType = ({
                     const Component = as;
                     return (
                         <li key={key}>
-                            <Component onClick={onClickForChild(pageNumber)}>
+                            <Component
+                                onClick={onClickForChild(pageNumber)}
+                                isActive={page === pageNumber}
+                            >
                                 {pageNumber}
                             </Component>
                         </li>
