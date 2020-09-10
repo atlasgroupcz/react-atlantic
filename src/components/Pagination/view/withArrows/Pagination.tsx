@@ -1,10 +1,10 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, FC } from 'react';
 import { PaginationBase } from '../base/Pagination';
-import { PaginationWithArrowsType } from './types';
 import { clamp } from '../../utils';
 import { PaginationLeftButton, PaginationRightButton } from '../../Button';
+import { PaginationWithArrowsProps } from '../../types';
 
-export const PaginationWithArrows: PaginationWithArrowsType = ({
+export const PaginationWithArrows: FC<PaginationWithArrowsProps> = ({
     showArrows,
     onClick,
     page = 1,

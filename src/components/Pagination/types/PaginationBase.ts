@@ -1,4 +1,4 @@
-import { PaginationComponentProps } from '../../../types';
+import { PaginationComponentProps } from './PaginationComponent';
 import { FC, ReactNode } from 'react';
 
 export type PaginationBaseProps<
@@ -11,5 +11,3 @@ export type PaginationBaseProps<
     separator?: ReactNode;
     onClick?: (e: React.MouseEvent<S, MouseEvent>, page: number) => void;
 };
-
-export type PaginationBaseType = FC<PaginationBaseProps>;

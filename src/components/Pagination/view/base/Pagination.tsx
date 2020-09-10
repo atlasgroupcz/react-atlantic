@@ -1,10 +1,10 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, FC } from 'react';
 import { structureArray } from '../../utils/structureArray';
 import { PaginationButton } from '../../Button/Button';
 import { PaginationSeparator } from '../../Separator';
-import { PaginationBaseType } from './types';
+import { PaginationBaseProps } from '../../types';
 
-export const PaginationBase: PaginationBaseType = ({
+export const PaginationBase: FC<PaginationBaseProps> = ({
     page = 1,
     count = 0,
     onClick,
