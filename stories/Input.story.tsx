@@ -21,6 +21,10 @@ stories.add(
         <>
             <Input size={'large'} />
             <br />
+            <Input size={'medium'} />
+            <br />
+            <Input size={'small'} />
+            <br />
             <Input size={'large'} prefix={<Icon name={'user'} />} />
         </>
     ),
@@ -72,9 +76,31 @@ stories.add(
             value,
         };
 
-        const button = <Input {...styledProps} {...controlProps} />;
+        const input = <Input {...styledProps} {...controlProps} />;
+        const inputWithFixes = (
+            <Input
+                {...styledProps}
+                {...controlProps}
+                prefix={<Icon name={'key'} />}
+                suffix={<Icon name={'user'} />}
+            />
+        );
 
-        return button;
+        return (
+            <div
+                style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    width: '500px',
+                }}
+            >
+                <div style={{ width: '100%' }}>{input}</div>
+                <div style={{ marginTop: '20px', width: '100%' }}>
+                    {inputWithFixes}
+                </div>
+            </div>
+        );
     },
     {
         info: { inline: true },

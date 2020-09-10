@@ -1,6 +1,10 @@
 import React, { FC, useRef, useCallback, forwardRef } from 'react';
 import { InputFixProps } from './types';
-import { StyledComposedInput, StyledPrefix, StyledSuffix } from './style';
+import {
+    StyledInputPrefix,
+    StyledInputSuffix,
+    StyledInputContainer,
+} from './style';
 import { InputBase } from '../../base';
 import { PropsWithoutChildren } from '../../../../../types';
 import { handleParentRef } from '../../../../../utils';
@@ -10,7 +14,7 @@ export type InputFixType = FC<PropsWithoutChildren<InputFixProps>>;
 export const InputWrapper: InputFixType = forwardRef<
     HTMLInputElement,
     InputFixProps
->(({ prefix, suffix, ...props }, ref) => {
+>(({ prefix, suffix, size = 'medium', ...props }, ref) => {
     let inputRef = useRef<HTMLInputElement | null>(null);
 
     const handleFocus = useCallback(
@@ -29,14 +33,18 @@ export const InputWrapper: InputFixType = forwardRef<
     );
 
     return (
-        <StyledComposedInput
+        <StyledInputContainer
             onClick={handleFocus}
             isPrefix={!!prefix}
             isSuffix={!!suffix}
+            size={size}
+            isFullWidth={props.isFullWidth}
+            isDisabled={props.isDisabled}
+            isRound={props.isRound}
         >
-            {prefix && <StyledPrefix>{prefix}</StyledPrefix>}
-            <InputBase {...props} ref={handleSetRef} />
-            {suffix && <StyledSuffix>{suffix}</StyledSuffix>}
-        </StyledComposedInput>
+            {prefix && <StyledInputPrefix>{prefix}</StyledInputPrefix>}
+            <InputBase {...props} ref={handleSetRef} size={size} />
+            {suffix && <StyledInputSuffix>{suffix}</StyledInputSuffix>}
+        </StyledInputContainer>
     );
 });
