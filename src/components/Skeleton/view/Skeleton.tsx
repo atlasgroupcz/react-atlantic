@@ -1,7 +1,8 @@
 import React, { FC } from 'react';
 import { Size, Shape } from '../../../types';
+import { StyledSkeleton } from './style';
 
-export interface SkeletonProps {
+export type StyledSkeletonProps = {
     /** small | medium | large */
     size?: Size;
     /** circle |  rectangle */
@@ -20,30 +21,12 @@ export interface SkeletonProps {
         beta: string;
         gamma: string;
     };
-}
+};
 
-export const Skeleton: FC<SkeletonProps> = (props) => {
-    const {
-        className,
-        size,
-        shape,
-        height,
-        width,
-        animationColors,
-        bgColor,
-    } = props;
+export interface SkeletonProps extends StyledSkeletonProps {}
 
-    return (
-        <StyledSkeleton
-            className={className}
-            shape={shape}
-            size={size}
-            width={width}
-            height={height}
-            animationColors={animationColors}
-            bgColor={bgColor}
-        />
-    );
+export const Skeleton: FC<SkeletonProps> = ({ ...props }) => {
+    return <StyledSkeleton {...props} />;
 };
 
 Skeleton.defaultProps = {
