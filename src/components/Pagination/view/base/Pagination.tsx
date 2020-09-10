@@ -20,7 +20,7 @@ export const PaginationBase: FC<PaginationBaseProps> = ({
         <>
             {strucArr.map((key, index) => {
                 if (key === -1) {
-                    return <li key={key - index}>{separator}</li>;
+                    return separator && <li key={key - index}>{separator}</li>;
                 } else {
                     const pageNumber = key;
                     const onClickForChild = (
@@ -42,3 +42,5 @@ export const PaginationBase: FC<PaginationBaseProps> = ({
         </>
     );
 };
+
+PaginationBase.displayName = 'PaginationBase';

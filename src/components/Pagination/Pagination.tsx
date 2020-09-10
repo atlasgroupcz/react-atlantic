@@ -32,3 +32,5 @@ export const Pagination: PaginationType = ({
         </StyledPaginationContainer>
     );
 };
+
+Pagination.displayName = 'Pagination';

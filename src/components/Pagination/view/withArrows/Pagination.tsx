@@ -62,3 +62,5 @@ export const PaginationWithArrows: FC<PaginationWithArrowsProps> = ({
         </>
     );
 };
+
+PaginationWithArrows.displayName = 'PaginationWithArrows';
