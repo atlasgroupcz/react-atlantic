@@ -2,7 +2,6 @@ import React, { useCallback } from 'react';
 import { PaginationBase } from '../base/Pagination';
 import { PaginationWithArrowsType } from './types';
 import { clamp } from '../../utils';
-import { Button } from '../../../Button';
 import { PaginationLeftButton, PaginationRightButton } from '../../Button';
 
 export const PaginationWithArrows: PaginationWithArrowsType = ({
