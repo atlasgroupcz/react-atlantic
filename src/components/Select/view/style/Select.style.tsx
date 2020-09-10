@@ -512,12 +512,12 @@ export const Menu = styled.div`
 export const MenuList = styled.div`
     overflow-y: scroll;
     max-height: 175px;
-    border: 1px solid ${(props) => props.theme.color.primary.alpha};
     border-top: 0;
+    outline-offset: -2px;
     border-radius: 0 0 ${(props) => props.theme.radius}
         ${(props) => props.theme.radius};
     background: ${(props) => props.theme.color.background.alpha};
-    outline-offset: -2px;
+    border: 1px solid ${(props) => props.theme.color.primary.alpha};
 `;
 
 export const StyledOption = styled(
