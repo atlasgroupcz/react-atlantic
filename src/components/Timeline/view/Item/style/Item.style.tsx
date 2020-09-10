@@ -1,5 +1,5 @@
 import React, { forwardRef, PropsWithChildren } from 'react';
-import { Type, MouseEvents } from '../../../../..';
+import { Type, MouseEvents } from '../../../../../types';
 import { styled } from '../../../../../styled';
 import { TimelineItemProps } from '../Item.types';
 

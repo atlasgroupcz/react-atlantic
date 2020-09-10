@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 import { styled } from '../../../../styled';
-import { TimelineProps } from '../Timeline.types';
+import { TimelineProps } from '../../types';
 
 export const StyledTimelineContainer = styled(
     forwardRef<HTMLUListElement, TimelineProps>(

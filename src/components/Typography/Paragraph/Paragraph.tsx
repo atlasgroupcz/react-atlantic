@@ -1,10 +1,6 @@
 import React, { FC, PropsWithChildren } from 'react';
-import { CommonHTMLProps } from '../../../types/HTMLProps';
-import { StyledParagraph } from './style';
-import { MouseEvents } from '../../../types';
-
-export type ParagraphProps = {} & CommonHTMLProps<HTMLParagraphElement> &
-    MouseEvents<HTMLParagraphElement>;
+import { StyledParagraph } from './style/Paragraph.style';
+import { ParagraphProps } from './types';
 
 export const Paragraph: FC<PropsWithChildren<ParagraphProps>> = ({
     children,

@@ -1,11 +1,11 @@
+import { TimelineItem } from '../view/Item';
+import { CommonHTMLProps, HorizontalPosition } from '../../../types';
 import {
-    ForwardRefExoticComponent,
     PropsWithChildren,
+    ForwardRefExoticComponent,
     PropsWithoutRef,
     RefAttributes,
 } from 'react';
-import { TimelineItem } from '.';
-import { CommonHTMLProps, HorizontalPosition } from '../../../types';
 
 export type TimelineComponentComposition = {
     Item?: typeof TimelineItem;
