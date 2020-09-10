@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { mountWithTheme } from '../utils/mountWithTheme';
+import { mountWithTheme } from '../utils';
 
 export const mountTest = (Component: FC<any>) => {
     describe(`mount and unmount ${Component?.displayName}`, () => {
