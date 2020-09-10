@@ -7,8 +7,8 @@ import { defaultValues } from './constants';
 import { Timeline, TimelineItem } from '../src/components/Timeline/view';
 import { Icon } from '../src/components/Icon';
 import { Text } from '../src/components/Typography';
-import { TimelineProps } from '../src/components/Timeline/view/Timeline.types';
 import { TimelineItemProps } from '../src/components/Timeline/view/Item/Item.types';
+import { TimelineProps } from '../src/components/Timeline/types';
 
 const stories = storiesOf('Timeline', module);
 
