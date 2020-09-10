@@ -20,7 +20,12 @@ export const Pagination: PaginationType = ({
     return (
         <StyledPaginationContainer>
             {showArrows || left || right ? (
-                <PaginationWithArrows {...props} count={count} />
+                <PaginationWithArrows
+                    {...props}
+                    count={count}
+                    left={left}
+                    right={right}
+                />
             ) : (
                 <PaginationBase {...props} count={count} />
             )}

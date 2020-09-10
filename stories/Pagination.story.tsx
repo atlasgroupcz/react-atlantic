@@ -31,11 +31,11 @@ stories.add('Overview', () => First() as any, {
 stories.add(
     'Playground',
     () => {
-        const page: PaginationProps['page'] = number('page', 1, { min: 1 });
+        const page: PaginationProps['page'] = number('page', 10, { min: 1 });
         const pageSize: PaginationProps['pageSize'] = number('pageSize', 20, {
             min: 1,
         });
-        const total: PaginationProps['total'] = number('total', 100, {
+        const total: PaginationProps['total'] = number('total', 500, {
             min: 1,
         });
         const showArrows: PaginationProps['showArrows'] = boolean(
@@ -49,6 +49,18 @@ stories.add(
 
         const separatorType: SeparatorKeysType = select(
             'separatorType',
+            optionsSeparator,
+            'default'
+        );
+
+        const leftType: SeparatorKeysType = select(
+            'leftType',
+            optionsSeparator,
+            'default'
+        );
+
+        const rightType: SeparatorKeysType = select(
+            'rightType',
             optionsSeparator,
             'default'
         );
@@ -73,6 +85,16 @@ stories.add(
 
         const as: PaginationProps['as'] = asObj[asType];
 
+        const left: PaginationProps['left'] =
+            leftType === 'default'
+                ? undefined
+                : () => <>{optionsObj[leftType]}</>;
+
+        const right: PaginationProps['left'] =
+            leftType === 'default'
+                ? undefined
+                : () => <>{optionsObj[rightType]}</>;
+
         const props: PaginationProps = {
             page,
             pageSize,
@@ -80,6 +102,8 @@ stories.add(
             showArrows,
             separator,
             as,
+            left,
+            right,
         };
 
         return <Pagination {...props} />;

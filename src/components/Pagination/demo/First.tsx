@@ -1,5 +1,5 @@
-import React, { useState, FC } from 'react';
-import { PaginationProps, PaginationComponentProps } from '../types';
+import React, { useState } from 'react';
+import { PaginationProps } from '../types';
 import { Pagination } from '../Pagination';
 
 const TOTAL = 300;
@@ -11,11 +11,6 @@ export const First = () => {
         setPage(page);
     };
 
-    interface xI extends PaginationComponentProps {}
-    const x: FC<xI> = (props) => {
-        console.log(props);
-    };
-
     return (
         <>
             <Pagination
@@ -23,8 +18,10 @@ export const First = () => {
                 page={page}
                 pageSize={30}
                 onClick={handleClick}
-                showArrows={false}
+                showArrows={true}
                 separator={<div>FUCK</div>}
+                left={() => <>left</>}
+                right={() => <>right</>}
             />
         </>
     );
