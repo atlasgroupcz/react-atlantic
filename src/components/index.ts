@@ -9,3 +9,4 @@ export * from './Icon';
 export * from './PureButton';
 export * from './Typography';
 export * from './Timeline';
+export * from './Pagination';
