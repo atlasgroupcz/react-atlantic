@@ -2,7 +2,7 @@ import styled, { css, FlattenSimpleInterpolation } from 'styled-components';
 import { Size } from '../../../../types';
 import { theme, ThemeType } from '../../../../theme';
 import { excludeIntrinsicElementProps } from '../../../../utils/excludeProps';
-import { StyledSkeletonProps } from '../Skeleton';
+import { StyledSkeletonProps } from '../../types';
 
 const skeletonIntrinsicExclude = excludeIntrinsicElementProps<
     StyledSkeletonProps
