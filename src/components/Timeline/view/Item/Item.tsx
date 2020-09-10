@@ -4,11 +4,11 @@ import {
     StyledTimelineItemCircle,
     StyledTimelineItemCircleContainer,
     StyledTimelineItemContent,
+    StyledTimelineItemContentContainer,
 } from './style';
 import { TimelineItemType } from './Item.types';
 import { Text } from '../../../Typography/Text';
 import { useTimelineContext } from '../../context';
-import { StyledTimelineContainer } from '../style';
 
 export const TimelineItem: TimelineItemType = forwardRef(
     (
@@ -33,17 +33,25 @@ export const TimelineItem: TimelineItemType = forwardRef(
             [onClick, unique]
         );
 
-        const OppositeContent = oppositeContent && (
-            <StyledTimelineItemContent>
-                {typeof oppositeContent === 'string' ? (
-                    <Text>{oppositeContent}</Text>
-                ) : (
-                    oppositeContent
+        const OppositeContent = isOppositeContent && (
+            <StyledTimelineItemContentContainer>
+                {oppositeContent && (
+                    <StyledTimelineItemContent>
+                        {typeof oppositeContent === 'string' ? (
+                            <Text>{oppositeContent}</Text>
+                        ) : (
+                            oppositeContent
+                        )}
+                    </StyledTimelineItemContent>
                 )}
-            </StyledTimelineItemContent>
+            </StyledTimelineItemContentContainer>
         );
         const ChildrenContent = children && (
-            <StyledTimelineItemContent>{children}</StyledTimelineItemContent>
+            <StyledTimelineItemContentContainer>
+                <StyledTimelineItemContent>
+                    {children}
+                </StyledTimelineItemContent>
+            </StyledTimelineItemContentContainer>
         );
 
         return (

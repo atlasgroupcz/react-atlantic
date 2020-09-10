@@ -51,11 +51,14 @@ export const StyledTimelineItemCircleContainer = styled.div`
 
 export const StyledTimelineItemContent = styled.div`
     box-sizing: border-box;
-    flex: 1 1 0%;
     padding: ${(props) => props.theme.padding.sm};
-    margin: ${itemVerticalGap} 0;
     border-radius: ${(props) => props.theme.radius};
     background-color: ${(props) => props.theme.color.background.beta};
+`;
+
+export const StyledTimelineItemContentContainer = styled.div`
+    flex: 1 1 0%;
+    margin: ${itemVerticalGap} 0;
 `;
 
 export const StyledTimelineItem = styled(
