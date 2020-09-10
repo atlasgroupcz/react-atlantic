@@ -10,7 +10,7 @@ import {
 import { getDefaultTypographyStyles } from '../style';
 
 export const StyledLink = styled.a`
-  ${getDefaultTypographyStyles};
+  ${(props) => getDefaultTypographyStyles(props)};
   text-decoration: none;
   cursor: pointer;
   padding: 0;

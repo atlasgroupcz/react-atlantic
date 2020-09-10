@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { ParagraphProps } from '../Paragraph';
 import { getDefaultTypographyStyles } from '../../style';
+import { ParagraphProps } from '../Paragraph';
 
 export const StyledParagraph = styled.p<ParagraphProps>`
-    ${getDefaultTypographyStyles};
+    ${(props) => getDefaultTypographyStyles(props)};
 `;

@@ -3,7 +3,7 @@ import { TextProps } from './types';
 import { getDefaultTypographyStyles } from '../style';
 
 export const StyledText = styled.span<TextProps>`
-  ${getDefaultTypographyStyles};
+  ${(props) => getDefaultTypographyStyles(props)};
   
   ${(props) =>
       props.type === 'primary' &&
@@ -31,7 +31,7 @@ export const StyledText = styled.span<TextProps>`
 `;
 
 export const StyledStrongText = styled.strong<TextProps>`
-  ${getDefaultTypographyStyles};
+  ${(props) => getDefaultTypographyStyles(props)};
 
   font-weight: 600;
   
@@ -61,13 +61,13 @@ export const StyledStrongText = styled.strong<TextProps>`
 `;
 
 export const StyledMarkText = styled.mark<TextProps>`
-    ${getDefaultTypographyStyles};
+    ${(props) => getDefaultTypographyStyles(props)};
     padding: 0 ${(props) => props.theme.padding.xs};
     background-color: ${(props) => props.theme.color.warning.gamma};
 `;
 
 export const StyledCodeText = styled.code<TextProps>`
-    ${getDefaultTypographyStyles};
+    ${(props) => getDefaultTypographyStyles(props)};
     margin: 0 ${(props) => props.theme.margin.sm};
     font-size: ${(props) => props.theme.font.size.sm};
     background: ${(props) => props.theme.color.default};
@@ -78,7 +78,7 @@ export const StyledCodeText = styled.code<TextProps>`
 `;
 
 export const StyledDelText = styled.del<TextProps>`
-    ${getDefaultTypographyStyles};
+    ${(props) => getDefaultTypographyStyles(props)};
     padding: 0 ${(props) => props.theme.padding.xs};
     background-color: ${(props) => props.theme.color.error.gamma};
 `;
