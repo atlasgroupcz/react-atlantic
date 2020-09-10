@@ -1,4 +1,51 @@
-## [0.2.1](https://github.com/atlasgroupcz/react-atlantic/compare/0.2.0...0.2.1) (2020-09-07)
+# [1.0.0](https://github.com/atlasgroupcz/react-atlantic/compare/0.2.1...1.0.0) (2020-09-10)
+
+### Bug Fixes
+
+-   🐛 deps 💩 tree 💩 ([32968c0](https://github.com/atlasgroupcz/react-atlantic/commit/32968c070d351588d0fb36b33279a0553097c1da))
+-   🐛 depsTree ([e58d017](https://github.com/atlasgroupcz/react-atlantic/commit/e58d017136ea92008917fa1f183a7c76c95ec322))
+-   🐛 dom pollution ([b8564cb](https://github.com/atlasgroupcz/react-atlantic/commit/b8564cb0ab0f9d783cbf20a7fe291391f35b35b7))
+-   🐛 func call ([16ee949](https://github.com/atlasgroupcz/react-atlantic/commit/16ee949a8d45dcf0eb6b5038f7a50a454b66fb01))
+-   🐛 lint ([8b1a237](https://github.com/atlasgroupcz/react-atlantic/commit/8b1a237ea56bd135d11880484463abeea9897682))
+-   🐛 pagination pagenumber 💚 ([ebb163f](https://github.com/atlasgroupcz/react-atlantic/commit/ebb163fcfa2a1f6c0808c5fef123de6de154c77b))
+-   🐛 select ref ([de37cc6](https://github.com/atlasgroupcz/react-atlantic/commit/de37cc60d5d11d74e124403f0f68bed8d502b99b))
+-   🐛 theme internal compatibility ([638be6a](https://github.com/atlasgroupcz/react-atlantic/commit/638be6ab79e1964ff82f4d5ffd14102561979321))
+-   🐛 typecheck ([5dcf6c3](https://github.com/atlasgroupcz/react-atlantic/commit/5dcf6c32580bb22fa824b1e605d57367eb7e25a8))
+-   🐛 types ([b2e6f74](https://github.com/atlasgroupcz/react-atlantic/commit/b2e6f742dec94cbabba7c82f4085d96a5cfcf42c))
+-   🐛 types and test ([3e89923](https://github.com/atlasgroupcz/react-atlantic/commit/3e8992394eb86995db470e152840bc5e7d1c3602))
+-   **input:** 🐛 dp import ([1956f2c](https://github.com/atlasgroupcz/react-atlantic/commit/1956f2c0bfa09e7e602464f2e1f59fc0f5c5d1d5))
+-   **input:** 🐛 size switch ([26bf45c](https://github.com/atlasgroupcz/react-atlantic/commit/26bf45c7931ba1f2b033098ef5bb53cec55e6492))
+-   **timeline:** 🐛 errors and imports ([d7b11c8](https://github.com/atlasgroupcz/react-atlantic/commit/d7b11c8e35bf6b3dff7358ffdb59436b4187d454))
+-   **timeline:** 🐛 prop fix ([484635c](https://github.com/atlasgroupcz/react-atlantic/commit/484635cb50b5a9f341933be77cc4e4a71d773052))
+-   **timeline:** 🐛 types ([ce1e259](https://github.com/atlasgroupcz/react-atlantic/commit/ce1e2593687221a5ee0a70aee7e2b46039296212))
+-   **timeline:** selection of type in playground ([8eb4827](https://github.com/atlasgroupcz/react-atlantic/commit/8eb4827fa6ab65b8431739ae09146ad0b21e24af))
+-   **timeline:** types ([216b368](https://github.com/atlasgroupcz/react-atlantic/commit/216b3688c74e82ed54f9de36e020cbd6114fad87))
+
+### Features
+
+-   ✨ getPaginationCount ([670fe5d](https://github.com/atlasgroupcz/react-atlantic/commit/670fe5daa45648427deca134d6a09790d22fcbc7))
+-   ✨ initialized pagination ([caf6a5e](https://github.com/atlasgroupcz/react-atlantic/commit/caf6a5e37e0c0dbbf4681df8ba03f1e18ac5212c))
+-   ✨ pagination 💩 separator ([20e8894](https://github.com/atlasgroupcz/react-atlantic/commit/20e88941236af5b21f473aa5840d27aa19dc1290))
+-   ✨ pagination story 💩 ([1fa7f71](https://github.com/atlasgroupcz/react-atlantic/commit/1fa7f71897e31268d155bfec8b7e4a7ff8d7b35e))
+-   ✨ pagination wip 💩 ([997d638](https://github.com/atlasgroupcz/react-atlantic/commit/997d6385b79c397ef86523af5478a6f2426fac71))
+-   ✨ pagination with arrows props ([b375da9](https://github.com/atlasgroupcz/react-atlantic/commit/b375da93178b9471c5df5af1a95876a22d03f2d3))
+-   ✨ paginationButton 💩 ([66bd3a1](https://github.com/atlasgroupcz/react-atlantic/commit/66bd3a115162b3b3fd56315b1520af8aacf03ece))
+-   ✨ paginations story ([7426b2f](https://github.com/atlasgroupcz/react-atlantic/commit/7426b2f4c35666b7a9611886011fbe2d001baf5e))
+-   ✨ prop exclusion api ([e63bbe9](https://github.com/atlasgroupcz/react-atlantic/commit/e63bbe9dcaa09ab1829e74c8939acc69e63ec11a))
+-   ✨ side buttons ([7cebdb8](https://github.com/atlasgroupcz/react-atlantic/commit/7cebdb8a25fecf75000ec3a17f375482da5f8bb4))
+-   ✨ skeleton component ([510cf39](https://github.com/atlasgroupcz/react-atlantic/commit/510cf39c95151c6b1b78c7c7d7eea6f8be3bfc82))
+-   ✨ skeleton component style ([aa8b3cf](https://github.com/atlasgroupcz/react-atlantic/commit/aa8b3cff7ce6587244cfa344f186b1cd27155d9f))
+-   **timeline:** ✨ information about opposite content ([eee037b](https://github.com/atlasgroupcz/react-atlantic/commit/eee037b78abdc3c68d1622f9cd1e228e601ed9ca))
+-   **timeline:** align prop ([4d3cf52](https://github.com/atlasgroupcz/react-atlantic/commit/4d3cf523f0d2041cf9f7d72f3c4b419769cc5c36))
+-   **timeline:** dynamic index with Children.map ([31c8f23](https://github.com/atlasgroupcz/react-atlantic/commit/31c8f235e8b8ae3e3b8796ee4bac68df71cfddb3))
+-   **timeline:** implemented dot notation and dn ([7525649](https://github.com/atlasgroupcz/react-atlantic/commit/752564957594ead48485724f743e47d2f89709cd))
+-   **timeline:** initialized structure of timeline ([815faa6](https://github.com/atlasgroupcz/react-atlantic/commit/815faa67d42d882251c000380c5aafa34837b169))
+-   **timeline:** playground, tests ([0b81838](https://github.com/atlasgroupcz/react-atlantic/commit/0b818383b843e820d720f19d0a40585f579c6f28))
+-   **timeline:** timeline component wip ([9d00779](https://github.com/atlasgroupcz/react-atlantic/commit/9d00779b38af6b4d21d9e1da249cc0ec8dc653bd))
+-   **timeline:** unique as prop with click info ([016f979](https://github.com/atlasgroupcz/react-atlantic/commit/016f979598a776a45abef64898a6f22d2dd9d752))
+-   **typography:** ✨ added Paragraph component ([48a32b5](https://github.com/atlasgroupcz/react-atlantic/commit/48a32b53c11aba1f57c17f280fa27f9ab9ef306e))
+
+## [0.2.1](https://github.com/atlasgroupcz/react-atlantic/compare/0.2.0...v0.2.1) (2020-09-07)
 
 ### Bug Fixes
 
