@@ -1,32 +1,50 @@
 import styled, { css } from 'styled-components';
 import { StyledSelectProps } from '../../types';
 import { theme } from '../../../../theme';
+import { excludeIntrinsicElementProps } from '../../../../utils/excludeProps';
+import React, { forwardRef } from 'react';
 
-export const SelectContainer = styled.div<StyledSelectProps>`
-  position: relative;
-  width: 220px;
-  line-height: 1;
+const selectIntrinsicExclude = excludeIntrinsicElementProps<
+    StyledSelectProps
+>();
+const selectPropKeys: (keyof StyledSelectProps)[] = [
+    'size',
+    'isDisabled',
+    'isFocused',
+    'isFullWidth',
+    'isMenuOpened',
+    'isMulti',
+    'size',
+    'hasValue',
+];
 
-  font-size: ${(props) => props.theme.font.size.md};
-  font-family: ${(props) => props.theme.font.family};
+export const SelectContainer = styled(
+    selectIntrinsicExclude('div', selectPropKeys)
+)`
+    position: relative;
+    width: 220px;
+    line-height: 1;
 
-  * {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-  }
- 
-  ${(props) =>
-      props.isFullWidth &&
-      css`
-          width: 100%;
-      `}
-  
-  ${(props) =>
-      props.size === 'small' &&
-      css`
-          font-size: ${(props) => props.theme.font.size.sm};
-      `}
+    font-size: ${(props) => props.theme.font.size.md};
+    font-family: ${(props) => props.theme.font.family};
+
+    * {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    ${(props) =>
+        props.isFullWidth &&
+        css`
+            width: 100%;
+        `}
+
+    ${(props) =>
+        props.size === 'small' &&
+        css`
+            font-size: ${(props) => props.theme.font.size.sm};
+        `}
   
   ${(props) =>
       props.size === 'large' &&
@@ -35,32 +53,32 @@ export const SelectContainer = styled.div<StyledSelectProps>`
       `}
 `;
 
-export const Control = styled.div<StyledSelectProps>`
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  cursor: pointer;
-  padding-left: ${(props) => props.theme.padding.md};
-  border: 1px solid ${(props) => props.theme.color.border};
-  border-radius: ${(props) => props.theme.radius};
-  background-color: ${(props) => props.theme.color.background.alpha};
-  
-  :hover{
-    border: 1px solid ${(props) => props.theme.color.primary.alpha};
-  }
-  
-  ${(props) =>
-      props.isFocused &&
-      css`
-          border-color: ${(props) => props.theme.color.primary.alpha};
-      `}
-  
-  ${(props) =>
-      !props.isFocused &&
-      css`
-          border-color: ${(props) => props.theme.color.border};
-      `}
+export const Control = styled(selectIntrinsicExclude('div', selectPropKeys))`
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    padding-left: ${(props) => props.theme.padding.md};
+    border: 1px solid ${(props) => props.theme.color.border};
+    border-radius: ${(props) => props.theme.radius};
+    background-color: ${(props) => props.theme.color.background.alpha};
+
+    :hover {
+        border: 1px solid ${(props) => props.theme.color.primary.alpha};
+    }
+
+    ${(props) =>
+        props.isFocused &&
+        css`
+            border-color: ${(props) => props.theme.color.primary.alpha};
+        `}
+
+    ${(props) =>
+        !props.isFocused &&
+        css`
+            border-color: ${(props) => props.theme.color.border};
+        `}
   
   ${(props) =>
       props.isDisabled &&
@@ -105,71 +123,74 @@ export const Control = styled.div<StyledSelectProps>`
       `}
 `;
 
-export const SelectContainerWrapper = styled.span<any>`
-   font-family: ${(props) => props.theme.font.family};
-  display: inline-block;
-  position: relative;
-  margin-top: -${(props) => (props.isMulti ? '18px' : props.theme.margin.md)};
-  padding-top: ${(props) => (props.isMulti ? '18px' : props.theme.padding.md)};
+export const SelectContainerWrapper = styled(
+    selectIntrinsicExclude('span', selectPropKeys)
+)`
+    font-family: ${(props) => props.theme.font.family};
+    display: inline-block;
+    position: relative;
+    margin-top: -${(props) => (props.isMulti ? '18px' : props.theme.margin.md)};
+    padding-top: ${(props) =>
+        props.isMulti ? '18px' : props.theme.padding.md};
+
+    ${(props) =>
+        props.isFocused &&
+        css`
+            ${Control} {
+                border: 1px solid ${(props) => props.theme.color.primary.alpha};
+            }
+        `}
+
+    ${(props) =>
+        !props.isFocused &&
+        css`
+            ${Control} {
+                border: 1px solid ${(props) => props.theme.color.border};
+            }
+        `}
   
-   ${(props) =>
-       props.isFocused &&
-       css`
-           ${Control} {
-               border: 1px solid ${(props) => props.theme.color.primary.alpha};
-           }
-       `}
-   
-   ${(props) =>
-       !props.isFocused &&
-       css`
-           ${Control} {
-               border: 1px solid ${(props) => props.theme.color.border};
-           }
-       `}
-  
-  :hover{
-    ${Control}{
-      border: 1px solid ${(props) => props.theme.color.primary.alpha};
+  :hover {
+        ${Control} {
+            border: 1px solid ${(props) => props.theme.color.primary.alpha};
+        }
     }
-  }
-  
-    label {   
-    z-index: 1;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    padding: 0 ${(props) => props.theme.padding.md};
-    border-radius: ${(props) => props.theme.radius};
 
-    color: ${(props) => props.theme.color.text.beta};
-    cursor: pointer;
-    border: ${(props) => props.theme.radius};
+    label {
+        z-index: 1;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        padding: 0 ${(props) => props.theme.padding.md};
+        border-radius: ${(props) => props.theme.radius};
 
-    -webkit-transition: color 10s ease-in-out, transform 10s ease-in-out;
-    transition: color 10s ease-in-out, transform 10s ease-in-out;
-    -webkit-transform-origin: 0 100%;
-    transform-origin: 0 100%;
-    -webkit-transform:  ${(props) =>
-        props.isMulti ? 'translateY(18px)' : 'translateY(12px)'};
-    transform: ${(props) =>
-        props.isMulti ? 'translateY(18px)' : 'translateY(12px)'};
-    
-    ${(props) =>
-        props.size === 'small' &&
-        css`
-            font-size: ${props.theme.font.size.sm};
-            height: ${parseInt(props.theme.height.sm, 0) - 2}px;
-            line-height: ${parseInt(props.theme.height.sm, 0) - 2}px;
-        `}
-    ${(props) =>
-        props.size === 'medium' &&
-        css`
-            font-size: ${props.theme.font.size.md};
-            height: ${parseInt(props.theme.height.md, 0) - 2}px;
-            line-height: ${parseInt(props.theme.height.md, 0) - 2}px;
-        `}
+        color: ${(props) => props.theme.color.text.beta};
+        cursor: pointer;
+        border: ${(props) => props.theme.radius};
+
+        -webkit-transition: color 10s ease-in-out, transform 10s ease-in-out;
+        transition: color 10s ease-in-out, transform 10s ease-in-out;
+        -webkit-transform-origin: 0 100%;
+        transform-origin: 0 100%;
+        -webkit-transform: ${(props) =>
+            props.isMulti ? 'translateY(18px)' : 'translateY(12px)'};
+        transform: ${(props) =>
+            props.isMulti ? 'translateY(18px)' : 'translateY(12px)'};
+
+        ${(props) =>
+            props.size === 'small' &&
+            css`
+                font-size: ${props.theme.font.size.sm};
+                height: ${parseInt(props.theme.height.sm, 0) - 2}px;
+                line-height: ${parseInt(props.theme.height.sm, 0) - 2}px;
+            `}
+        ${(props) =>
+            props.size === 'medium' &&
+            css`
+                font-size: ${props.theme.font.size.md};
+                height: ${parseInt(props.theme.height.md, 0) - 2}px;
+                line-height: ${parseInt(props.theme.height.md, 0) - 2}px;
+            `}
     ${(props) =>
         props.size === 'large' &&
         css`
@@ -200,8 +221,8 @@ export const SelectContainerWrapper = styled.span<any>`
                 line-height: 16px;
             `}
         `}
-  }
-    
+    }
+
     ${(props) =>
         props.isFullWidth &&
         css`
@@ -209,7 +230,9 @@ export const SelectContainerWrapper = styled.span<any>`
         `}
 `;
 
-export const ValueContainer = styled.div<StyledSelectProps>`
+export const ValueContainer = styled(
+    selectIntrinsicExclude('div', selectPropKeys)
+)`
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -229,38 +252,41 @@ export const ValueContainer = styled.div<StyledSelectProps>`
         `}
 `;
 
-export const SingleValue = styled.div<StyledSelectProps>`
-  display: block;
-  max-width: 165px;
-  height: 32px;
-  padding: ${(props) => props.theme.padding.sm} ${(props) =>
-    props.theme.padding.sm} ${(props) => props.theme.padding.sm} 0;
-  
-  border-radius: ${(props) => props.theme.radius};
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  
-  span{
-    color: ${(props) => props.theme.color.text.alpha};
-  }
-  
-  ${(props) =>
-      props.isFullWidth &&
-      css`
-          max-width: calc(100% - 2px);
-      `}
-  
-  ${(props) =>
-      props.size === 'small' &&
-      css`
-          height: 24px;
-          padding: 3px 3px 3px 0;
+export const SingleValue = styled(
+    selectIntrinsicExclude('div', selectPropKeys)
+)`
+    display: block;
+    max-width: 165px;
+    height: 32px;
+    padding: ${(props) => props.theme.padding.sm}
+        ${(props) => props.theme.padding.sm}
+        ${(props) => props.theme.padding.sm} 0;
 
-          span {
-              font-size: ${(props) => props.theme.font.size.sm};
-          }
-      `}
+    border-radius: ${(props) => props.theme.radius};
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+
+    span {
+        color: ${(props) => props.theme.color.text.alpha};
+    }
+
+    ${(props) =>
+        props.isFullWidth &&
+        css`
+            max-width: calc(100% - 2px);
+        `}
+
+    ${(props) =>
+        props.size === 'small' &&
+        css`
+            height: 24px;
+            padding: 3px 3px 3px 0;
+
+            span {
+                font-size: ${(props) => props.theme.font.size.sm};
+            }
+        `}
   
   ${(props) =>
       props.size === 'large' &&
@@ -274,7 +300,7 @@ export const SingleValue = styled.div<StyledSelectProps>`
       `}
 `;
 
-export const MultiValue = styled.div<StyledSelectProps>`
+export const MultiValue = styled(selectIntrinsicExclude('div', selectPropKeys))`
     display: flex;
     max-width: calc(100% - 6px);
     height: 28px;
@@ -326,7 +352,9 @@ export const MultiValue = styled.div<StyledSelectProps>`
         `}
 `;
 
-export const ClearIndicator = styled.div<StyledSelectProps>`
+export const ClearIndicator = styled(
+    selectIntrinsicExclude('div', selectPropKeys)
+)`
     display: flex;
     align-items: center;
     justify-content: center;
@@ -355,7 +383,9 @@ export const MultiValueLabel = styled.div`
     padding: 0 ${(props) => props.theme.padding.sm};
 `;
 
-export const MultiValueRemove = styled.div<StyledSelectProps>`
+export const MultiValueRemove = styled(
+    selectIntrinsicExclude('div', selectPropKeys)
+)`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -396,15 +426,15 @@ export const NoOptionsMessage = styled.div`
     cursor: pointer;
 `;
 
-export const CrossIcon = styled.button`
-    //
-`;
+export const CrossIcon = styled.button``;
 
 export const Placeholder = styled.div`
     color: ${(props) => props.theme.color.text.beta};
 `;
 
-export const IndicatorsContainer = styled.div<StyledSelectProps>`
+export const IndicatorsContainer = styled(
+    selectIntrinsicExclude('div', selectPropKeys)
+)`
     display: flex;
     -webkit-box-align: center;
     align-items: center;
@@ -437,7 +467,9 @@ export const IndicatorsContainer = styled.div<StyledSelectProps>`
         `}
 `;
 
-export const DropdownIndicator = styled.div<StyledSelectProps>`
+export const DropdownIndicator = styled(
+    selectIntrinsicExclude('div', selectPropKeys)
+)`
     display: flex;
     align-items: center;
     justify-content: center;
@@ -480,15 +512,20 @@ export const Menu = styled.div`
 export const MenuList = styled.div`
     overflow-y: scroll;
     max-height: 175px;
-    border: 1px solid ${(props) => props.theme.color.primary.alpha};
     border-top: 0;
+    outline-offset: -2px;
     border-radius: 0 0 ${(props) => props.theme.radius}
         ${(props) => props.theme.radius};
     background: ${(props) => props.theme.color.background.alpha};
-    outline-offset: -2px;
+    border: 1px solid ${(props) => props.theme.color.primary.alpha};
 `;
 
-export const StyledOption = styled.div<StyledSelectProps>`
+export const StyledOption = styled(
+    forwardRef<
+        HTMLDivElement,
+        StyledSelectProps & JSX.IntrinsicElements['div']
+    >(({ size, ...props }, ref) => <div {...props} ref={ref} />)
+)`
     display: block;
     padding: 0 ${(props) => props.theme.padding.md};
     height: ${(props) => props.theme.height.md};

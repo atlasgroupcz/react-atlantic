@@ -2,6 +2,11 @@ import styled, { css, keyframes } from 'styled-components';
 import { theme } from '../../../../theme';
 import { IconProps } from '../../types';
 
+import { excludeIntrinsicElementProps } from '../../../../utils/excludeProps';
+
+const iconPropKeys: (keyof IconProps)[] = ['isRotating'];
+const iconIntrinsicExclude = excludeIntrinsicElementProps<IconProps>();
+
 export const spin = () => {
     return keyframes`
   100% {
@@ -10,7 +15,7 @@ export const spin = () => {
   }`;
 };
 
-export const StyledIcon = styled.i<IconProps>`
+export const StyledIcon = styled(iconIntrinsicExclude('i', iconPropKeys))`
     display: inline-block;
     cursor: ${(props) => (props.onClick ? 'pointer' : 'inherit')};
     line-height: 0;
