@@ -15,6 +15,7 @@ const selectPropKeys: (keyof StyledSelectProps)[] = [
     'isMenuOpened',
     'isMulti',
     'size',
+    'hasValue',
 ];
 
 export const SelectContainer = styled(
@@ -46,10 +47,10 @@ export const SelectContainer = styled(
         `}
   
   ${(props) =>
-        props.size === 'large' &&
-        css`
-            font-size: ${(props) => props.theme.font.size.lg};
-        `}
+      props.size === 'large' &&
+      css`
+          font-size: ${(props) => props.theme.font.size.lg};
+      `}
 `;
 
 export const Control = styled(selectIntrinsicExclude('div', selectPropKeys))`
@@ -80,46 +81,46 @@ export const Control = styled(selectIntrinsicExclude('div', selectPropKeys))`
         `}
   
   ${(props) =>
-        props.isDisabled &&
-        css`
-            color: ${props.theme.color.text.beta};
+      props.isDisabled &&
+      css`
+          color: ${props.theme.color.text.beta};
 
-            ::placeholder {
-                color: ${props.theme.color.text.beta};
-            }
+          ::placeholder {
+              color: ${props.theme.color.text.beta};
+          }
 
-            background-color: ${props.theme.color.default};
-            cursor: not-allowed;
-            outline: 0;
+          background-color: ${props.theme.color.default};
+          cursor: not-allowed;
+          outline: 0;
 
-            &:hover,
-            &:focus {
-                outline: 0;
-                box-shadow: none;
-                border: 1px solid ${props.theme.color.border};
-            }
-        `}
+          &:hover,
+          &:focus {
+              outline: 0;
+              box-shadow: none;
+              border: 1px solid ${props.theme.color.border};
+          }
+      `}
   
   ${(props) =>
-        props.isMenuOpened &&
-        css`
-            border-bottom: 1px solid ${(props) => props.theme.color.border};
-            border-bottom-left-radius: 0;
-            border-bottom-right-radius: 0;
-        `}
+      props.isMenuOpened &&
+      css`
+          border-bottom: 1px solid ${(props) => props.theme.color.border};
+          border-bottom-left-radius: 0;
+          border-bottom-right-radius: 0;
+      `}
   
   ${(props) =>
-        props.isMulti &&
-        props.hasValue &&
-        css`
-            padding-left: 0;
-        `}
+      props.isMulti &&
+      props.hasValue &&
+      css`
+          padding-left: 0;
+      `}
   
   ${(props) =>
-        props.isFullWidth &&
-        css`
-            width: 100%;
-        `}
+      props.isFullWidth &&
+      css`
+          width: 100%;
+      `}
 `;
 
 export const SelectContainerWrapper = styled(
@@ -191,35 +192,35 @@ export const SelectContainerWrapper = styled(
                 line-height: ${parseInt(props.theme.height.md, 0) - 2}px;
             `}
     ${(props) =>
-            props.size === 'large' &&
-            css`
-                font-size: ${props.theme.font.size.lg};
-                height: ${parseInt(props.theme.height.lg, 0) - 2}px;
-                line-height: ${parseInt(props.theme.height.lg, 0) - 2}px;
-            `}
+        props.size === 'large' &&
+        css`
+            font-size: ${props.theme.font.size.lg};
+            height: ${parseInt(props.theme.height.lg, 0) - 2}px;
+            line-height: ${parseInt(props.theme.height.lg, 0) - 2}px;
+        `}
 
     ${(props) =>
-            (props.isFocused || props.hasValue) &&
+        (props.isFocused || props.hasValue) &&
+        css`
+            height: ${props.theme.height.sm};
+            line-height: ${props.theme.height.sm};
+            left: 5px;
+            right: auto;
+
+            background: ${props.theme.color.background.alpha};
+            color: ${props.theme.color.primary.alpha};
+
+            -webkit-transform: translateY(-14px) scale(0.8);
+            transform: translateY(0px) scale(0.8);
+            -webkit-transform-origin: 0 0;
+            transform-origin: 0 0;
+
+            ${props.size === 'small' &&
             css`
-                height: ${props.theme.height.sm};
-                line-height: ${props.theme.height.sm};
-                left: 5px;
-                right: auto;
-
-                background: ${props.theme.color.background.alpha};
-                color: ${props.theme.color.primary.alpha};
-
-                -webkit-transform: translateY(-14px) scale(0.8);
-                transform: translateY(0px) scale(0.8);
-                -webkit-transform-origin: 0 0;
-                transform-origin: 0 0;
-
-                ${props.size === 'small' &&
-                css`
-                    height: 16px;
-                    line-height: 16px;
-                `}
+                height: 16px;
+                line-height: 16px;
             `}
+        `}
     }
 
     ${(props) =>
@@ -288,15 +289,15 @@ export const SingleValue = styled(
         `}
   
   ${(props) =>
-        props.size === 'large' &&
-        css`
-            height: 38px;
-            padding: 7px 7px 7px 0;
+      props.size === 'large' &&
+      css`
+          height: 38px;
+          padding: 7px 7px 7px 0;
 
-            span {
-                font-size: ${(props) => props.theme.font.size.lg};
-            }
-        `}
+          span {
+              font-size: ${(props) => props.theme.font.size.lg};
+          }
+      `}
 `;
 
 export const MultiValue = styled(selectIntrinsicExclude('div', selectPropKeys))`

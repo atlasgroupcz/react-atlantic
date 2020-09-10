@@ -1,13 +1,13 @@
 import React, { forwardRef, useMemo, useRef } from 'react';
 import { StyledTimelineContainer } from './style';
 import { TimelineType } from './Timeline.types';
-import { TimelineItem } from '.';
+import { TimelineItem } from './Item';
 import {
     defaultTimelineContextValue,
-    TimelineContextState,
     TimelineProvider,
+    TimelineContextState,
 } from '../context';
-import { mapChild } from './utils/mapChild';
+import { mapChild } from './utils';
 
 export const Timeline: TimelineType = forwardRef(
     ({ children, align = 'right', ...props }, ref) => {

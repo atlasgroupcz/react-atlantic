@@ -4,9 +4,7 @@ import { TimelineContextState } from '../../../context/types';
 
 export type MapChild = (
     parentAlign: TimelineProps['align'],
-    isOppositeContentRef: MutableRefObject<
-        TimelineContextState['isOppositeContent']
-    >
+    isOppositeContentRef: MutableRefObject<TimelineContextState>
 ) => (
     value: ReturnType<typeof React.Children.toArray>[number],
     index: number

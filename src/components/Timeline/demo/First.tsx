@@ -24,13 +24,6 @@ export const FirstTimelineDemo = () => {
         console.log(e, 'iconClick');
     };
 
-    const handleChildrenClick = (
-        e: React.MouseEvent<HTMLParagraphElement, MouseEvent>
-    ) => {
-        e.stopPropagation();
-        console.log(`handle Children click`);
-    };
-
     return (
         <Timeline ref={containerRef}>
             <TimelineItem ref={ref} onClick={handleClick}>
@@ -53,7 +46,7 @@ export const FirstTimelineDemo = () => {
                 onClick={handleClick2}
                 dot={<Icon name={'upload'} onClick={handleIconClick} />}
             >
-                <Text onClick={handleChildrenClick}>prdel 5</Text>
+                <Text>prdel 5</Text>
             </TimelineItem>
         </Timeline>
     );
