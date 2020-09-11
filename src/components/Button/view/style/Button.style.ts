@@ -7,6 +7,8 @@ import {
     excludeComponentProps,
     excludeIntrinsicElementProps,
 } from '../../../../utils/excludeProps';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import * as _ from 'styled-components/node_modules/@types/react';
 
 const buttonTypePropKeys: (keyof ButtonProps)[] = [
     'isRound',
