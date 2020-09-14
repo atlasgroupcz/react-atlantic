@@ -10,11 +10,12 @@ import { StyledInputContainer } from './composed/withFix/style/InputContainer.st
 export type InputType = FC<PropsWithoutChildren<InputFixProps & InputProps>>;
 
 export const Input: InputType = forwardRef(
-    ({ prefix, suffix, size = 'medium', ...props }, ref) => {
+    ({ prefix, suffix, size = 'medium', className, ...props }, ref) => {
         if (prefix || suffix) {
             return (
                 <InputWrapperWithFix
                     {...props}
+                    className={className}
                     size={size}
                     prefix={prefix}
                     suffix={suffix}
@@ -24,6 +25,7 @@ export const Input: InputType = forwardRef(
         }
         return (
             <StyledInputContainer
+                className={className}
                 size={size}
                 isFullWidth={props.isFullWidth}
                 isDisabled={props.isDisabled}
