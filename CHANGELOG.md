@@ -1,4 +1,10 @@
-# [1.0.0](https://github.com/atlasgroupcz/react-atlantic/compare/0.2.1...1.0.0) (2020-09-10)
+## [1.0.1](https://github.com/atlasgroupcz/react-atlantic/compare/1.0.0...1.0.1) (2020-09-15)
+
+### Bug Fixes
+
+-   🐛 resolve potentially transitive dependency ([0b935fe](https://github.com/atlasgroupcz/react-atlantic/commit/0b935fed4e68e4f14a4a450fc6547b8d0645594e))
+
+# [1.0.0](https://github.com/atlasgroupcz/react-atlantic/compare/0.2.1...v1.0.0) (2020-09-10)
 
 ### Bug Fixes
 
