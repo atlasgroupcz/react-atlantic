@@ -18,7 +18,7 @@ import {
     Icon,
 } from '../src';
 import { SelectTypeOptionsProp } from '@storybook/addon-knobs/dist/components/types';
-import { PaginationFirstDemo } from '../demos/Pagination';
+import { PaginationFirstDemo } from './demos/Pagination';
 
 const stories = storiesOf('Pagination', module);
 

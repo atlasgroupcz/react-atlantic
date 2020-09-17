@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { number, withKnobs } from '@storybook/addon-knobs';
 import { Button, Tabs, TabsProps } from '../src';
-import { TabsFirstDemo } from '../demos/Tabs';
+import { TabsFirstDemo } from './demos/Tabs';
 
 const stories = storiesOf('Tabs', module);
 
@@ -16,7 +16,7 @@ stories.add(
     'Playground',
     () => {
         const numberOfTabs = number('NumberOfTabs', 1);
-        const activeKey = number('ActiveKey', 1);
+        const activeKey = number('ActiveKey', 0);
         const tabsProps: TabsProps = {
             List: ({ activeKey }) => {
                 return (
@@ -40,7 +40,7 @@ stories.add(
         const tabs = (
             <Tabs {...tabsProps}>
                 {[...Array(numberOfTabs)].map((_, index) => (
-                    <div key={index}>{`Tab-${index} `}</div>
+                    <div key={index}>{`Tab-${index}`}</div>
                 ))}
             </Tabs>
         );
