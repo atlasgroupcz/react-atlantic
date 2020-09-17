@@ -7,7 +7,9 @@ export const Tabs = <T extends TabListProps>({
     activeKey,
     onClick,
     children,
-}: PropsWithChildren<TabsProps<T>>) => {
+}: PropsWithChildren<TabsProps<T>>): ReturnType<
+    FC<PropsWithChildren<TabsProps<T>>>
+> => {
     const child = useFilteredChildrenByKey(activeKey, children);
     //TODO: type error :{}
     const Component = ListComponent as FC<TabListProps>;
