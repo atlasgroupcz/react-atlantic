@@ -1,9 +1,9 @@
-import React, { FC } from 'react';
-import { Timeline, TimelineItem } from '../src/components/Timeline';
-import { toBeDefinedTest, mountTest } from './shared';
-import { TimelineItemProps } from '../src/components/Timeline/view/Item/Item.types';
-import { TimelineProps } from '../src/components/Timeline/view/Timeline.types';
-import { mountWithTheme } from './utils/mountWithTheme';
+import React from 'react';
+import { Timeline, TimelineItem } from '../../../src/components/Timeline';
+import { toBeDefinedTest, mountTest } from '../../shared';
+import { TimelineItemProps } from '../../../src/components/Timeline/view/Item/Item.types';
+import { mountWithTheme } from '../../utils/mountWithTheme';
+import { TimelineProps } from '../../../src/components/Timeline/types';
 
 const mockItemProps: TimelineItemProps = {
     dot: 'dot',
