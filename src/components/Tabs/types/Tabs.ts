@@ -1,9 +1,16 @@
 import { FC } from 'react';
-import { TabListType } from './TabList';
+/**
+ * Children should have key prop which will be taken as constraint.
+ * If value === key of children then it will be seen.
+ */
 
-export type TabsProps = {
-    List: TabListType;
+type TabsSharedProps = {
     activeKey: string;
     onClick: (e: React.MouseEvent<Element, MouseEvent>, key: string) => void;
 };
-export type TabsType = FC<TabsProps>;
+
+export type TabsProps<T extends TabListProps> = {
+    List: FC<T>;
+} & TabsSharedProps;
+
+export type TabListProps = {} & TabsSharedProps;
