@@ -26,7 +26,6 @@ const useTestLogicHook: TestLogicHookType = ({ ...props }) => {
     return { page: page, onClick: handleClick, ...props };
 };
 
-//TODO!: after merge timeline please finish tests
 describe('Pagination', () => {
     toBeDefinedTest(Pagination, mockPaginationProps);
     mountTest(Pagination);
