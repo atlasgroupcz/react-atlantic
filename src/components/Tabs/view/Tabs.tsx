@@ -3,7 +3,7 @@ import { TabListProps, TabsProps, HandleTabsClick } from '../types';
 import { useFilteredChildrenByKey } from '../hooks/useFilteredChildrenByKey';
 
 export const Tabs = <T extends TabListProps>({
-    List: ListComponent,
+    List,
     activeKey,
     onClick,
     children,
@@ -12,7 +12,7 @@ export const Tabs = <T extends TabListProps>({
 > => {
     const child = useFilteredChildrenByKey(activeKey, children);
     //TODO: type error :{}
-    const Component = ListComponent as FC<TabListProps>;
+    const Component = List as FC<TabListProps>;
 
     const handleClick: HandleTabsClick = useCallback(
         (e, k) => {

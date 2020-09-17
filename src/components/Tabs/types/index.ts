@@ -1,2 +1,2 @@
 export * from './Tabs';
-export * from './TabSharedProp';
+export * from './TabsShared';
