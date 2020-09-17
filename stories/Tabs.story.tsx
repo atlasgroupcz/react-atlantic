@@ -23,6 +23,7 @@ stories.add(
                     <>
                         {[...Array(numberOfTabs)].map((_, index) => (
                             <Button
+                                key={index}
                                 type={
                                     `${index}` === activeKey
                                         ? 'success'
@@ -39,7 +40,7 @@ stories.add(
         const tabs = (
             <Tabs {...tabsProps}>
                 {[...Array(numberOfTabs)].map((_, index) => (
-                    <div>{`Tab-${index} `}</div>
+                    <div key={index}>{`Tab-${index} `}</div>
                 ))}
             </Tabs>
         );

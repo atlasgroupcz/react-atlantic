@@ -17,6 +17,12 @@ export const TabsFirstDemo = () => {
     return (
         <>
             <Tabs List={TabListDemo} activeKey={key} onClick={handleClick}>
+                asdfasdf
+            </Tabs>
+
+            <br />
+
+            <Tabs List={TabListDemo} activeKey={key} onClick={handleClick}>
                 {[...Array(NUMBER_OF_TABS)].map((_, index) => (
                     <div key={index}>prdel {index}</div>
                 ))}
