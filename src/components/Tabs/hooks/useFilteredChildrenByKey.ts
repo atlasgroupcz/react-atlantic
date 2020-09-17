@@ -7,14 +7,13 @@ import React, {
 import { cleanReactKey } from '../utils/cleanReactKey';
 
 export const useFilteredChildrenByKey: UseReactChildrenKeyFilter = (
-    key,
-    children
+    children,
+    key
 ) => {
     const filteredChild = useMemo(() => {
         const childrenArray = React.Children.toArray(children);
         for (let i = 0; i < childrenArray.length; i++) {
             const child = childrenArray[i];
-            console.log(child);
             if (React.isValidElement(child)) {
                 const cleanedKey = cleanReactKey(child.key ?? i);
                 const isActive = cleanedKey === key;
@@ -31,6 +30,6 @@ export const useFilteredChildrenByKey: UseReactChildrenKeyFilter = (
 };
 
 export type UseReactChildrenKeyFilter = (
-    activeKey: ReactText,
-    children: PropsWithChildren<any>['children']
+    children: PropsWithChildren<any>['children'],
+    activeKey?: ReactText
 ) => ReactElement | null;

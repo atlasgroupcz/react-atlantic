@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, PropsWithChildren, ReactText } from 'react';
 /**
  * Children should have key prop which will be taken as constraint.
  * If value === key of children then it will be seen.
@@ -6,16 +6,21 @@ import { FC } from 'react';
 
 export type HandleTabsClick = (
     e: React.MouseEvent<Element, MouseEvent>,
-    key: string
+    key: ReactText
 ) => void;
 
 type TabsSharedProps = {
-    activeKey: string;
+    activeKey?: ReactText;
     onClick?: HandleTabsClick;
 };
 
-export type TabsProps<T extends TabListProps = TabListProps> = {
+export type TabsPropsWithoutChildren<T extends TabListProps = TabListProps> = {
     List: FC<T>;
 } & TabsSharedProps;
 
-export type TabListProps = {} & Required<TabsSharedProps>;
+export type TabsProps<
+    T extends TabListProps = TabListProps
+> = PropsWithChildren<TabsPropsWithoutChildren<T>>;
+
+export type TabListProps = {} & Required<Pick<TabsSharedProps, 'onClick'>> &
+    Pick<TabsSharedProps, 'activeKey'>;
