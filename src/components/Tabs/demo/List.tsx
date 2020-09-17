@@ -23,22 +23,24 @@ export const TabListDemo: FC<TabListProps> = ({ activeKey, onClick }) => {
 
 type TabListDemoTwoProps = {
     newProp: string;
+    n?: number;
 } & TabListProps;
 export const TabListDemoTwo: FC<TabListDemoTwoProps> = ({
     activeKey,
     onClick,
     newProp = 'thisIsMyNewProp',
+    n = NUMBER_OF_TABS,
 }) => {
     return (
         <>
-            {[...Array(NUMBER_OF_TABS)].map((_, index) => (
+            {[...Array(n)].map((_, index) => (
                 <span onClick={(e) => onClick(e, `${index}`)}>
                     <Badge
                         size={'small'}
                         key={index}
                         type={activeKey === `${index}` ? 'error' : 'primary'}
                     >
-                        {`${newProp} ${index}`}
+                        {`TabHeader-${index}`}
                     </Badge>
                 </span>
             ))}

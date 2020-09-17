@@ -4,13 +4,18 @@ import { FC } from 'react';
  * If value === key of children then it will be seen.
  */
 
+export type HandleTabsClick = (
+    e: React.MouseEvent<Element, MouseEvent>,
+    key: string
+) => void;
+
 type TabsSharedProps = {
     activeKey: string;
-    onClick: (e: React.MouseEvent<Element, MouseEvent>, key: string) => void;
+    onClick?: HandleTabsClick;
 };
 
-export type TabsProps<T extends TabListProps> = {
+export type TabsProps<T extends TabListProps = TabListProps> = {
     List: FC<T>;
 } & TabsSharedProps;
 
-export type TabListProps = {} & TabsSharedProps;
+export type TabListProps = {} & Required<TabsSharedProps>;
