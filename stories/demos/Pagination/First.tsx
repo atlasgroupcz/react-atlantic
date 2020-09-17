@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import { PaginationProps } from '../types';
-import { Pagination } from '../Pagination';
+import { Pagination, PaginationProps } from '../../../src';
 
 const TOTAL = 300;
 
-export const First = () => {
+export const PaginationFirstDemo = () => {
     const [page, setPage] = useState<number>(1);
 
     const handleClick: PaginationProps['onClick'] = (e, page) => {

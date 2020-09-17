@@ -11,3 +11,4 @@ export * from './Typography';
 export * from './Timeline';
 export * from './Pagination';
 export * from './Skeleton';
+export * from './Tabs';
