@@ -22,5 +22,5 @@ export type TabsProps<
     T extends TabListProps = TabListProps
 > = PropsWithChildren<TabsPropsWithoutChildren<T>>;
 
-export type TabListProps = {} & Required<Pick<TabsSharedProps, 'onClick'>> &
+export type TabListProps = Required<Pick<TabsSharedProps, 'onClick'>> &
     Pick<TabsSharedProps, 'activeKey'>;
