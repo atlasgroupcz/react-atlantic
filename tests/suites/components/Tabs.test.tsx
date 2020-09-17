@@ -14,4 +14,7 @@ const mockTabsProps: TabsProps = {
 describe('Tabs', () => {
     toBeDefinedTest(Tabs, mockTabsProps);
     mountTest(Tabs);
+
+    it('should has own list', () => {});
+    it('should be visible correct content', () => {});
 });
