@@ -7,7 +7,7 @@ import React, {
 import { cleanReactKey } from '../utils/cleanReactKey';
 
 export const useFilteredChildrenByKey: UseReactChildrenKeyFilter = (
-    activeKey,
+    key,
     children
 ) => {
     const filteredChild = useMemo(() => {
@@ -17,7 +17,7 @@ export const useFilteredChildrenByKey: UseReactChildrenKeyFilter = (
             console.log(child);
             if (React.isValidElement(child)) {
                 const cleanedKey = cleanReactKey(child.key ?? i);
-                const isActive = cleanedKey === activeKey;
+                const isActive = cleanedKey === key;
 
                 if (isActive) {
                     return child;
@@ -25,7 +25,7 @@ export const useFilteredChildrenByKey: UseReactChildrenKeyFilter = (
             }
         }
         return null;
-    }, [children, activeKey]);
+    }, [children, key]);
 
     return filteredChild;
 };
