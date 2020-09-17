@@ -34,10 +34,9 @@ export const TabListDemoTwo: FC<TabListDemoTwoProps> = ({
     return (
         <>
             {[...Array(n)].map((_, index) => (
-                <span onClick={(e) => onClick(e, `${index}`)}>
+                <span onClick={(e) => onClick(e, `${index}`)} key={index}>
                     <Badge
                         size={'small'}
-                        key={index}
                         type={activeKey === `${index}` ? 'error' : 'primary'}
                     >
                         {`TabHeader-${index}`}
