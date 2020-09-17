@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
-import { Button } from '../../Button';
-import { TabListProps } from '../types';
-import { Badge } from '../../Badge';
+import { Button } from '../../src/components/Button';
+import { TabListProps } from '../../src/components/Tabs/types';
+import { Badge } from '../../src/components/Badge';
 
 const NUMBER_OF_TABS = 5;
 export const TabListDemo: FC<TabListProps> = ({ activeKey, onClick }) => {

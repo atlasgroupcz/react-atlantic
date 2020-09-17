@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import { Button } from '../../Button';
-import { Tabs } from '../view';
 import { TabListDemo, TabListDemoTwo } from './List';
+import { Button, Tabs } from '../../src/components';
 
 const NUMBER_OF_TABS = 5;
 
-export const TabsFirst = () => {
+export const TabsFirstDemo = () => {
     const [key, setKey] = useState<string>('1');
 
     const handleClick = (

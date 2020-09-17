@@ -1,15 +1,14 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { number, withKnobs } from '@storybook/addon-knobs';
-import { TabsFirst } from '../src/components/Tabs/demo/TabsFirst';
 import { Button, Tabs, TabsProps } from '../src';
-import { TabListDemo } from '../src/components/Tabs/demo/List';
+import { TabsFirstDemo } from '../demos/Tabs';
 
 const stories = storiesOf('Tabs', module);
 
 stories.addDecorator(withKnobs);
 
-stories.add('Overview', () => <>{TabsFirst()}</>, {
+stories.add('Overview', () => <>{TabsFirstDemo()}</>, {
     info: { inline: true },
 });
 

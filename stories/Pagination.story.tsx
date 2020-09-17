@@ -7,7 +7,6 @@ import {
     text,
 } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
-import { First } from '../src/components/Pagination/demo';
 import {
     Pagination,
     PaginationProps,
@@ -19,12 +18,13 @@ import {
     Icon,
 } from '../src';
 import { SelectTypeOptionsProp } from '@storybook/addon-knobs/dist/components/types';
+import { PaginationFirstDemo } from '../demos/Pagination';
 
 const stories = storiesOf('Pagination', module);
 
 stories.addDecorator(withKnobs);
 
-stories.add('Overview', () => First() as any, {
+stories.add('Overview', () => <>{PaginationFirstDemo()}</>, {
     info: { inline: true },
 });
 
