@@ -1,4 +1,4 @@
-import React, { PropsWithChildren, FC, useCallback } from 'react';
+import React, { FC, useCallback } from 'react';
 import { TabListProps, TabsProps, HandleTabsClick } from '../types';
 import { useFilteredChildrenByKey } from '../hooks/useFilteredChildrenByKey';
 
@@ -7,10 +7,8 @@ export const Tabs = <T extends TabListProps>({
     activeKey,
     onClick,
     children,
-}: PropsWithChildren<TabsProps<T>>): ReturnType<
-    FC<PropsWithChildren<TabsProps<T>>>
-> => {
-    const child = useFilteredChildrenByKey(activeKey, children);
+}: TabsProps<T>): ReturnType<FC<TabsProps<T>>> => {
+    const child = useFilteredChildrenByKey(children, activeKey);
     //TODO: type error :{}
     const Component = List as FC<TabListProps>;
 
