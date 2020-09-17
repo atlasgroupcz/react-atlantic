@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
+import React, { ReactText, useState } from 'react';
 import { TabListDemo, TabListDemoTwo } from './List';
 import { Button, Tabs } from '../../src/components';
 
 const NUMBER_OF_TABS = 5;
 
 export const TabsFirstDemo = () => {
-    const [key, setKey] = useState<string>('1');
+    const [key, setKey] = useState<ReactText>('1');
 
     const handleClick = (
         _: React.MouseEvent<Element, MouseEvent>,
-        key: string
+        key: ReactText
     ) => {
         setKey(key);
     };
