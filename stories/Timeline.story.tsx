@@ -8,7 +8,7 @@ import { Icon } from '../src/components/Icon';
 import { Text } from '../src/components/Typography';
 import { TimelineItemProps } from '../src/components/Timeline/view/Item/Item.types';
 import { TimelineProps } from '../src/components/Timeline/types';
-import { FirstTimelineDemo } from '../demos/Timeline/First';
+import { FirstTimelineDemo } from './demos/Timeline';
 
 const stories = storiesOf('Timeline', module);
 

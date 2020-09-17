@@ -1,6 +1,6 @@
 import React, { ReactText, useState } from 'react';
+import { Tabs, Button } from '../../../src';
 import { TabListDemo, TabListDemoTwo } from './List';
-import { Button, Tabs } from '../../src/components';
 
 const NUMBER_OF_TABS = 5;
 

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { PaginationProps } from '../../src/components/Pagination/types';
-import { Pagination } from '../../src/components/Pagination/Pagination';
+import { Pagination, PaginationProps } from '../../../src';
 
 const TOTAL = 300;
 
