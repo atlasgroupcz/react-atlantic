@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { DatePicker, DatePickerProps } from '../../../src';
+import cs from 'date-fns/locale/cs';
 
 export const DatePickerFirstDemo = () => {
     const [date, setDate] = useState<DatePickerProps['selected']>(new Date());
@@ -10,7 +11,7 @@ export const DatePickerFirstDemo = () => {
 
     return (
         <>
-            <DatePicker selected={date} onChange={onChange} />
+            <DatePicker selected={date} onChange={onChange} locale={cs} />
         </>
     );
 };
