@@ -16,14 +16,3 @@ stories.add(
         info: { inline: true },
     }
 );
-
-stories.add(
-    'Playground',
-    () => {
-        const datePicker = <DatePicker onChange={() => console.log('here')} />;
-        return datePicker;
-    },
-    {
-        info: { inline: true },
-    }
-);
