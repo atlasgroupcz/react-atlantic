@@ -12,4 +12,4 @@ export * from './Timeline';
 export * from './Pagination';
 export * from './Skeleton';
 export * from './Tabs';
-export * from './DatePicker';
+export * from './X';
