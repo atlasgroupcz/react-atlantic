@@ -4,8 +4,8 @@ import { DatePicker, DatePickerProps } from '../../../src';
 export const DatePickerFirstDemo = () => {
     const [date, setDate] = useState<DatePickerProps['selected']>(new Date());
 
-    const onChange: DatePickerProps['onChange'] = (date) => {
-        setDate(date as any);
+    const onChange: DatePickerProps['onChange'] = (date: Date) => {
+        setDate(date);
     };
 
     return (
