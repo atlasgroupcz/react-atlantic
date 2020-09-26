@@ -1,14 +1,10 @@
-import { css, keyframes } from 'styled-components';
+import { css, keyframes, StyledComponent } from 'styled-components';
 import { StyledIcon } from '../../../Icon/view/style/Icon.style';
 import { ButtonProps } from '../../types';
 import { StyledText } from '../../../Typography/Text/Text.style';
 import { styled } from '../../../../styled';
-import {
-    excludeComponentProps,
-    excludeIntrinsicElementProps,
-} from '../../../../utils/excludeProps';
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import * as _ from 'styled-components/node_modules/@types/react';
+import { excludeComponentProps } from '../../../../utils/excludeProps';
+import { FC } from 'react';
 
 const buttonTypePropKeys: (keyof ButtonProps)[] = [
     'isRound',
@@ -18,7 +14,6 @@ const buttonTypePropKeys: (keyof ButtonProps)[] = [
     'size',
     'type',
 ];
-const buttonIntrinsicExclude = excludeIntrinsicElementProps<ButtonProps>();
 const buttonComponentExclude = excludeComponentProps<ButtonProps>();
 
 const focusAnimation = keyframes`
@@ -39,9 +34,7 @@ const focusAnimation = keyframes`
     }
 `;
 
-const DefaultButton = styled(
-    buttonIntrinsicExclude('button', buttonTypePropKeys)
-)`
+const DefaultButton = styled.button`
     position: relative;
     display: inline-block;
     padding: 0 ${(props) => props.theme.padding.md};
@@ -255,4 +248,7 @@ export const StyledButton = styled(
         css`
             width: 100%;
         `}
-`;
+` as StyledComponent<
+    FC<Omit<JSX.IntrinsicElements['button'], 'type'> & ButtonProps>,
+    {}
+>;
