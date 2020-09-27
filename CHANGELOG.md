@@ -1,4 +1,10 @@
-## [1.2.1](https://github.com/atlasgroupcz/react-atlantic/compare/1.2.0...1.2.1) (2020-09-27)
+## [1.2.2](https://github.com/atlasgroupcz/react-atlantic/compare/1.2.1...1.2.2) (2020-09-27)
+
+### Bug Fixes
+
+-   🐛 select hook state ([95b8077](https://github.com/atlasgroupcz/react-atlantic/commit/95b8077d7ff8b566d2b2824ced5b54ecaf69e6ce))
+
+## [1.2.1](https://github.com/atlasgroupcz/react-atlantic/compare/1.2.0...v1.2.1) (2020-09-27)
 
 ### Bug Fixes
 
