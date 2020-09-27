@@ -9,7 +9,7 @@ export const mountWithTheme = <F extends FC<any>>(
     return mount(node, {
         wrappingComponent: ThemeProvider,
         wrappingComponentProps: {
-            theme: theme,
+            theme,
         },
     });
 };
