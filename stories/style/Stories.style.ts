@@ -5,6 +5,7 @@ export const StyledStory = styled.div`
     align-items: center;
     flex-direction: column;
     justify-content: center;
+    min-height: 500px;
 `;
 
 export const StyledStoryItem = styled.div``;
