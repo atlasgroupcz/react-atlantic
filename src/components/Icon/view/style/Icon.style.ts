@@ -1,5 +1,4 @@
 import styled, { css, keyframes } from 'styled-components';
-import { theme } from '../../../../theme';
 import { IconProps } from '../../types';
 
 import { excludeIntrinsicElementProps } from '../../../../utils/excludeProps';
@@ -41,9 +40,5 @@ export const StyledIcon = styled(iconIntrinsicExclude('i', iconPropKeys))`
             animation: ${spin} 4s linear infinite;
         `}
 `;
-
-StyledIcon.defaultProps = {
-    theme,
-};
 
 StyledIcon.displayName = 'StyledIcon';

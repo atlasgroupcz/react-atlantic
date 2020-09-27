@@ -1,6 +1,6 @@
 import styled, { css, FlattenSimpleInterpolation } from 'styled-components';
 import { Size } from '../../../../types';
-import { theme, ThemeType } from '../../../../theme';
+import { ThemeType } from '../../../../theme';
 import { excludeIntrinsicElementProps } from '../../../../utils/excludeProps';
 import { StyledSkeletonProps } from '../../types';
 
@@ -17,9 +17,9 @@ const skeletonPropKeys: (keyof StyledSkeletonProps)[] = [
     'animationColors',
 ];
 
-const sizeFactory = (
+const sizeFactory = <T extends ThemeType<any>>(
     size: Size,
-    theme: ThemeType
+    theme: T
 ): FlattenSimpleInterpolation => {
     switch (size) {
         case 'small':
@@ -130,7 +130,3 @@ ${(props) =>
             border-radius: 100%;
         `}
 `;
-
-StyledSkeleton.defaultProps = {
-    theme,
-};
