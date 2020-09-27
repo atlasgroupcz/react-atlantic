@@ -16,8 +16,10 @@ export interface OptionType<T = string> {
     label: string;
 }
 
-export type ControllerSelectProps = ReactSelectProps;
+export type ControllerSelectProps<
+    T extends OptionType = OptionType
+> = ReactSelectProps<T>;
 
-export type SelectProps = PropsWithoutChildren<
-    StyledSelectProps & ControllerSelectProps
->;
+export type SelectProps<
+    T extends OptionType = OptionType
+> = PropsWithoutChildren<StyledSelectProps & ControllerSelectProps<T>>;

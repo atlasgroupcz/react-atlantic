@@ -13,7 +13,6 @@ const selectPropKeys: (keyof StyledSelectProps)[] = [
     'isFullWidth',
     'isMenuOpened',
     'isMulti',
-    'size',
     'hasValue',
 ];
 
