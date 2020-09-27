@@ -77,7 +77,6 @@ describe('Tabs specific', () => {
 
     it('should be visible correct content', () => {
         const list = wrapper.find(MockList);
-        console.log(wrapper.find(Tabs).debug());
         expect(wrapper.find(Tabs).childAt(1).text()).toContain('key1');
         list.childAt(2).simulate('click');
         expect((wrapper.find(Tabs).props() as any)?.activeKey).toBe('2');
