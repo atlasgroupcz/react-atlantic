@@ -2,8 +2,10 @@ import React from 'react';
 import { mockPropsCheckTest, mountTest, toBeDefinedTest } from '../../shared';
 import { SelectProps } from '../../../src/components/Select/types';
 import { Select } from '../../../src/components/Select/view';
-import { shallow } from '../../utils';
+import { mountWithTheme } from '../../utils';
+import { wrap } from '../../../src';
 import { useSelectChange } from '../../../src/components/Select/hooks';
+import { default as ReactSelect } from 'react-select';
 
 const mockSelectProps: SelectProps = {
     size: `small`,
@@ -16,50 +18,64 @@ describe('Select', () => {
     toBeDefinedTest(Select, mockSelectProps);
     mockPropsCheckTest(mockSelectProps, Select);
 
-    it(`Should return selected value when isDisabled is false`, () => {
-        const onChangePassedValue = {
-            value: 'Value',
-            label: 'Label',
+    it(`should view defaultValue`, async () => {
+        const oldValue = {
+            value: 'Value1',
+            label: 'Label1',
         };
 
-        const SelectWithHook = () => {
-            const { onChange, value } = useSelectChange();
+        const SelectWithHook = wrap(Select, useSelectChange);
 
-            return (
-                <Select
-                    onChange={() => onChange?.(onChangePassedValue)}
-                    value={value}
-                />
-            );
-        };
+        const select = mountWithTheme(
+            <SelectWithHook defaultValue={oldValue} />
+        );
 
-        const select = shallow(<SelectWithHook />);
-
-        select.find(Select).simulate('change', onChangePassedValue);
-        expect(select.getElement().props.value).toEqual(onChangePassedValue);
+        expect(select.text()).toBe(oldValue.label);
     });
 
-    it(`Should return undefined value when isDisabled is true`, () => {
-        const onChangePassedValue = {
-            value: 'Value',
-            label: 'Label',
+    it(`should apply changes when isDisabled is false`, async () => {
+        const oldValue = {
+            value: 'old',
+            label: 'old',
+        };
+        const newValue = {
+            value: 'new',
+            label: 'new',
+        };
+
+        const SelectWithHook = wrap(Select, useSelectChange);
+
+        const select = mountWithTheme(
+            <SelectWithHook defaultValue={oldValue} />
+        );
+
+        (select.find(ReactSelect).instance() as any).select.selectOption(
+            newValue
+        );
+
+        expect(select.text()).toBe(newValue.label);
+    });
+
+    it(`should ignore changes when isDisabled is true`, async () => {
+        const oldValue = {
+            value: 'old',
+            label: 'old',
+        };
+        const newValue = {
+            value: 'new',
+            label: 'new',
         };
         const isDisabled = true;
 
-        const SelectWithHook = () => {
-            const { onChange, value } = useSelectChange({ isDisabled });
+        const SelectWithHook = wrap(Select, useSelectChange);
 
-            return (
-                <Select
-                    onChange={() => onChange?.(onChangePassedValue)}
-                    value={value}
-                />
-            );
-        };
+        const select = mountWithTheme(
+            <SelectWithHook value={oldValue} isDisabled={isDisabled} />
+        );
+        (select.find(ReactSelect).instance() as any).select.selectOption(
+            newValue
+        );
 
-        const select = shallow(<SelectWithHook />);
-
-        select.find(Select).simulate('change', onChangePassedValue);
-        expect(select.getElement().props.value).toEqual(undefined);
+        expect(select.text()).toBe(oldValue.label);
     });
 });
