@@ -1,11 +1,11 @@
-import React, { FC, forwardRef } from 'react';
-import { SelectProps } from '../types';
+import React, { FC, forwardRef, useMemo } from 'react';
+import { OptionType, SelectProps } from '../types';
 import { default as ReactSelect } from 'react-select';
-import { defaultComponents } from './DefaultComponents';
+import { defaultSelectComponents } from './defaultSelectComponents';
+import { RefType } from '../../../types/Ref';
+import { ReactElement } from 'react';
 
-export type SelectType = FC<SelectProps>;
-
-export const Select: SelectType = forwardRef<ReactSelect, SelectProps>(
+export const Select = forwardRef<ReactSelect, SelectProps>(
     (
         {
             isSearchable = false,
@@ -13,27 +13,33 @@ export const Select: SelectType = forwardRef<ReactSelect, SelectProps>(
             isMulti = false,
             isFullWidth = false,
             size = 'medium',
+            components,
+            value,
             ...props
         },
         ref
     ) => {
+        const memoizedComponents = useMemo(
+            () => defaultSelectComponents(size, isFullWidth),
+            [size, isFullWidth]
+        );
+
         return (
             <ReactSelect
+                value={value}
                 isSearchable={isSearchable}
                 blurInputOnSelect={blurInputOnSelect}
                 size={size}
                 isMulti={isMulti}
-                components={defaultComponents({
-                    isFullWidth,
-                    size,
-                    isMulti,
-                    ...props,
-                })}
+                components={memoizedComponents}
                 ref={ref}
                 {...props}
             />
         );
     }
-);
+) as Omit<FC, '()'> &
+    (<T extends OptionType>(
+        p: SelectProps<T> & { ref?: RefType<ReactSelect> }
+    ) => ReactElement);
 
 Select.displayName = `Select`;

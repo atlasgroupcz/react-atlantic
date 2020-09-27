@@ -1,24 +1,23 @@
-# [1.2.0](https://github.com/atlasgroupcz/react-atlantic/compare/1.0.1...1.2.0) (2020-09-27)
+## [1.2.1](https://github.com/atlasgroupcz/react-atlantic/compare/1.2.0...1.2.1) (2020-09-27)
 
 ### Bug Fixes
 
--   🐛 casing ([331e314](https://github.com/atlasgroupcz/react-atlantic/commit/331e314a1bcbc49293f78fd9e9904daf1324a9df))
--   🐛 default theme dom pollution; AtlanticProvider custom type ([81cfddf](https://github.com/atlasgroupcz/react-atlantic/commit/81cfddfa61b437d1fbd68df7311139de39831cd2))
--   🐛 include @types/\* as project dependencies ([3987733](https://github.com/atlasgroupcz/react-atlantic/commit/3987733dd1aadcfba105eac34abb277b5a161fe1))
--   🐛 remap static imports to noop ([739bd09](https://github.com/atlasgroupcz/react-atlantic/commit/739bd09a12b8294014d632bdb67a7d4706d4769c))
--   🐛 renaming cause caseSensitivity broken ([0decb38](https://github.com/atlasgroupcz/react-atlantic/commit/0decb382c54010e900e5cea7cbe037a6d14ad077))
--   🐛 renaming to DatePicker ([24d0d6f](https://github.com/atlasgroupcz/react-atlantic/commit/24d0d6ff12ffcfa46a057cbe1416157de0a17b32))
--   🐛 replace inferred StyledButton type with a specific one ([10c5f08](https://github.com/atlasgroupcz/react-atlantic/commit/10c5f0864476908240a7e7b799ac6d2c7378ffe4))
--   🐛 tests ([8f1beb3](https://github.com/atlasgroupcz/react-atlantic/commit/8f1beb328a60549edcfc92c922dca60bb1e4ed9a))
+-   🐛 default theme dom pollution; AtlanticProvider custom type ([39b57c7](https://github.com/atlasgroupcz/react-atlantic/commit/39b57c7d0b02386f25682aacd67f787c3aca08d9))
+-   🐛 include @types/\* as project dependencies ([97bdb7f](https://github.com/atlasgroupcz/react-atlantic/commit/97bdb7f5d1911ebf2587e08cd7f6c8ff8b501a30))
+-   🐛 remap static imports to noop ([97ac646](https://github.com/atlasgroupcz/react-atlantic/commit/97ac64682898b962867b38a19c84bdeabb4701f2))
+-   🐛 renaming cause caseSensitivity broken ([b748551](https://github.com/atlasgroupcz/react-atlantic/commit/b748551fc81ba5a982fff8fee8bed5bba24342aa))
+-   🐛 renaming to DatePicker ([e92fafc](https://github.com/atlasgroupcz/react-atlantic/commit/e92fafc78151aba9f62bb4c88209dfec8b262aaf))
+-   🐛 replace inferred StyledButton type with a specific one ([d6ee2f9](https://github.com/atlasgroupcz/react-atlantic/commit/d6ee2f9a4c99e6bda85012d8f15368d1c44c9c40))
+-   🐛 tests ([3e30183](https://github.com/atlasgroupcz/react-atlantic/commit/3e30183ded7950f879b6e4b82340a2c640a261d1))
 -   **tabs:** 🐛 console keys ([468ac4b](https://github.com/atlasgroupcz/react-atlantic/commit/468ac4b2f064cbb9cbcda90d6a5b415491b6adfa))
 -   **tabs:** 🐛 demo types ([7fe46ab](https://github.com/atlasgroupcz/react-atlantic/commit/7fe46aba476a53156908daab619238786456fbea))
 
 ### Features
 
--   ✨ datepicker initialized ([af3b271](https://github.com/atlasgroupcz/react-atlantic/commit/af3b2719b1d025f0528c4f431a57bbd25e41a790))
--   ✨ datepicker wip ([3bc2048](https://github.com/atlasgroupcz/react-atlantic/commit/3bc2048552d61b2c60797db17d868bb435190114))
--   ✨ ref ([876d965](https://github.com/atlasgroupcz/react-atlantic/commit/876d96592434d95432e425386e94248a01ac8ba6))
--   ✨ styles ([8e834b8](https://github.com/atlasgroupcz/react-atlantic/commit/8e834b8c53bc26ae68e6ed38a7a3176a2f5b2a2b))
+-   ✨ datepicker initialized ([c88e5a6](https://github.com/atlasgroupcz/react-atlantic/commit/c88e5a64b99881ca346a2629ddd3aa7c24d7170a))
+-   ✨ datepicker wip ([555ab1b](https://github.com/atlasgroupcz/react-atlantic/commit/555ab1b22bc5dd7a793751711d23cce0bd656c13))
+-   ✨ ref ([fd5a885](https://github.com/atlasgroupcz/react-atlantic/commit/fd5a885b6ae4ea8a0d9ca7155ff35e9ef9962381))
+-   ✨ styles ([8228de5](https://github.com/atlasgroupcz/react-atlantic/commit/8228de5988c04eeaac004cd267351cfda8b3487e))
 -   ✨ tabs component init ([4123101](https://github.com/atlasgroupcz/react-atlantic/commit/412310158d6470ce9ed221f57c6bb8831eb49aa0))
 -   ✨ tabs story ([beb2d2d](https://github.com/atlasgroupcz/react-atlantic/commit/beb2d2d3088ac9b9d9db76662f554f01195bbaf3))
 -   ✨ useFilteredChildrenByKey ([f7fdf6b](https://github.com/atlasgroupcz/react-atlantic/commit/f7fdf6bcdcf034a0b378393c1bd69324b1030a26))
