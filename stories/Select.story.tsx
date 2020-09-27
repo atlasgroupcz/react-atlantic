@@ -11,6 +11,7 @@ import {
     SelectProps,
     StyledSelectProps,
 } from '../src/components/Select/types';
+import { wrap } from '../src';
 
 const stories = storiesOf('Select', module);
 
@@ -19,20 +20,26 @@ stories.addDecorator(withKnobs);
 stories.add(
     'Overview',
     () => {
-        const handlers = useSelectChange({ isDisabled: false });
         const options = [
             { label: 'Label 1', value: 'Value 1' },
             { label: 'Label 2', value: 'Value 2' },
             { label: 'Label 3', value: 'Value 3' },
         ];
 
+        const SmallSelect = wrap(Select, useSelectChange);
+        SmallSelect.displayName = 'Select';
+        const MediumSelect = wrap(Select, useSelectChange);
+        MediumSelect.displayName = 'Select';
+        const MultiSelect = wrap(Select, useSelectChange);
+        MultiSelect.displayName = 'Select';
+
         return (
             <>
-                <Select options={options} size={'small'} {...handlers} />
+                <SmallSelect options={options} size={'small'} isMenuOpened />
                 <br />
-                <Select options={options} isFullWidth={true} {...handlers} />
+                <MediumSelect options={options} isFullWidth={true} />
                 <br />
-                <Select options={options} isMulti {...handlers} />
+                <MultiSelect options={options} isMulti />
                 <br />
             </>
         );
