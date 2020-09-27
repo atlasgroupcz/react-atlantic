@@ -1,7 +1,6 @@
-import styled, { css, keyframes } from 'styled-components';
 import { IconProps } from '../../types';
-
 import { excludeIntrinsicElementProps } from '../../../../utils/excludeProps';
+import { css, keyframes, styled } from '../../../../styled';
 
 const iconPropKeys: (keyof IconProps)[] = ['isRotating'];
 const iconIntrinsicExclude = excludeIntrinsicElementProps<IconProps>();

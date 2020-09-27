@@ -25,9 +25,7 @@ export const CollapsePanel: CollapsePanelType = ({
         activeUnique,
     ]);
 
-    /**
-     * Method which triggers setState in hook [controller]
-     */
+    // Method which triggers setState in hook [controller]
     const handleClick = useCallback(
         (e) => {
             if (!isDisabled) {

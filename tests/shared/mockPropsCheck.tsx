@@ -1,6 +1,4 @@
 import React, { FC } from 'react';
-import { shallow } from 'enzyme';
-import { theme } from '../../src/theme';
 import { shallowWithTheme } from '../utils/shallowWithTheme';
 
 export const mockPropsCheckTest = <T extends {}>(
