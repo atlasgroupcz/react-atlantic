@@ -5,7 +5,7 @@ import { TabListDemo, TabListDemoTwo } from './List';
 const NUMBER_OF_TABS = 5;
 
 export const TabsFirstDemo = () => {
-    const [key, setKey] = useState<ReactText>('1');
+    const [key, setKey] = useState<ReactText>('');
 
     const handleClick = (
         _: React.MouseEvent<Element, MouseEvent>,
