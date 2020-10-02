@@ -7,7 +7,6 @@ const stories = storiesOf('Skeleton', module);
 
 stories.addDecorator(withKnobs);
 
-//Input-HOC
 stories.add(
     'Overview',
     () => (
@@ -20,7 +19,6 @@ stories.add(
     }
 );
 
-//Input-VIEW
 stories.add(
     'Playground',
     () => {
