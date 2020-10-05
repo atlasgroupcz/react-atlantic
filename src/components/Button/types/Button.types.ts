@@ -23,4 +23,4 @@ export type ButtonProps = {
 } & CommonHTMLProps<HTMLButtonElement> &
     MouseEvents<HTMLButtonElement> &
     SizeWithDocs &
-    ButtonTypeWithDocs;
+    ButtonTypeWithDocs & { htmlType?: JSX.IntrinsicElements['button']['type'] };

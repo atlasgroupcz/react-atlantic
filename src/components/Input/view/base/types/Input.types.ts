@@ -35,5 +35,8 @@ export type ControllerInputProps = CommonHTMLProps<HTMLInputElement> &
     InputElementProps;
 
 export type InputProps = PropsWithoutChildren<
-    StyledInputProps & ControllerInputProps
+    StyledInputProps &
+        ControllerInputProps & {
+            htmlType?: JSX.IntrinsicElements['input']['type'];
+        }
 >;

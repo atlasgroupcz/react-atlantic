@@ -5,79 +5,80 @@ import { css } from '../../../../../styled';
 
 export const StyledInput = styled(
     forwardRef<HTMLInputElement, InputProps>(
-        ({ size, isRound, isFullWidth, isDisabled, ...props }, ref) => (
-            <input {...props} ref={ref} />
-        )
+        (
+            { size, isRound, isFullWidth, isDisabled, htmlType, ...props },
+            ref
+        ) => <input {...props} ref={ref} type={htmlType} />
     )
 )<InputProps>`
-  box-sizing: border-box;
-  display: inline-block;
-  margin: 0;
-  min-width: 0;
-  height: 100%;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  user-select: text;
-  -webkit-appearance: none;
-  touch-action: manipulation;
-  outline: 0;
-  color: ${(props) => props.theme.color.text.alpha};
-  font-family: ${(props) => props.theme.font.family};
-  font-weight: 400;
-  border: none;
-  background-color: transparent;
+    box-sizing: border-box;
+    display: inline-block;
+    margin: 0;
+    min-width: 0;
+    height: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    user-select: text;
+    -webkit-appearance: none;
+    touch-action: manipulation;
+    outline: 0;
+    color: ${(props) => props.theme.color.text.alpha};
+    font-family: ${(props) => props.theme.font.family};
+    font-weight: 400;
+    border: none;
+    background-color: transparent;
 
-  &::placeholder {
-    color: ${(props) => props.theme.color.text.beta};
-  }
-  
-  // Hide IE clear button
-  &::-ms-clear {
-    display: none;
-  }
-  
-  ${(props) =>
-      props.isFullWidth &&
-      css`
-          width: 100%;
-      `}
-  
-  ${(props) =>
-      props.size === 'small' &&
-      css`
-          font-size: ${props.theme.font.size.sm};
+    &::placeholder {
+        color: ${(props) => props.theme.color.text.beta};
+    }
 
-          i + span,
-          span + i {
-              margin-left: ${props.theme.margin.sm};
-          }
-      `}
-  
-  ${(props) =>
-      props.size === 'medium' &&
-      css`
-          font-size: ${props.theme.font.size.md};
-      `}
-  
-  ${(props) =>
-      props.size === 'large' &&
-      css`
-          font-size: ${props.theme.font.size.lg};
+    // Hide IE clear button
+    &::-ms-clear {
+        display: none;
+    }
 
-          i + span,
-          span + i {
-              margin-left: ${props.theme.margin.lg};
-          }
-      `}
+    ${(props) =>
+        props.isFullWidth &&
+        css`
+            width: 100%;
+        `}
+
+    ${(props) =>
+        props.size === 'small' &&
+        css`
+            font-size: ${props.theme.font.size.sm};
+
+            i + span,
+            span + i {
+                margin-left: ${props.theme.margin.sm};
+            }
+        `}
   
   ${(props) =>
-      props.isDisabled &&
-      css`
-          color: ${props.theme.color.text.beta};
-          cursor: not-allowed;
+        props.size === 'medium' &&
+        css`
+            font-size: ${props.theme.font.size.md};
+        `}
+  
+  ${(props) =>
+        props.size === 'large' &&
+        css`
+            font-size: ${props.theme.font.size.lg};
 
-          ::placeholder {
-              color: ${props.theme.color.text.beta};
-          }
-      `}
+            i + span,
+            span + i {
+                margin-left: ${props.theme.margin.lg};
+            }
+        `}
+  
+  ${(props) =>
+        props.isDisabled &&
+        css`
+            color: ${props.theme.color.text.beta};
+            cursor: not-allowed;
+
+            ::placeholder {
+                color: ${props.theme.color.text.beta};
+            }
+        `}
 `;

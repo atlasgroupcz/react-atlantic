@@ -25,7 +25,11 @@ stories.add(
             <br />
             <Input size={'small'} />
             <br />
-            <Input size={'large'} prefix={<Icon name={'user'} />} />
+            <Input
+                size={'large'}
+                prefix={<Icon name={'user'} />}
+                htmlType="password"
+            />
         </>
     ),
     {
