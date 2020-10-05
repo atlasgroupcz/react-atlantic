@@ -2,7 +2,7 @@ import { css } from 'styled-components';
 import { styled } from '../../../../styled';
 
 export const StyledReactDatePickerContainer = styled.div<{
-    isFullWidth: boolean;
+    isFullWidth?: boolean;
 }>`
     ${({ isFullWidth }) =>
         isFullWidth
