@@ -9,7 +9,7 @@ const stories = storiesOf('Button', module);
 
 stories.addDecorator(withKnobs);
 
-stories.add('Overview', () => <Button>Prdel</Button>, {
+stories.add('Overview', () => <Button htmlType="submit">Prdel</Button>, {
     info: { inline: true },
 });
 
