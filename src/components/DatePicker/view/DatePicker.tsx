@@ -21,13 +21,19 @@ export type DatePickerType = ForwardRefExoticComponent<
 export const DatePicker: DatePickerType = forwardRef(
     (
         {
-            customInput = <Input prefix={<Icon name={'calendarAlt'} />} />,
+            isFullWidth,
+            customInput = (
+                <Input
+                    prefix={<Icon name={'calendarAlt'} />}
+                    isFullWidth={isFullWidth}
+                />
+            ),
             ...props
         },
         ref
     ) => {
         return (
-            <StyledReactDatePickerContainer>
+            <StyledReactDatePickerContainer isFullWidth={isFullWidth}>
                 <ReactDatePicker
                     ref={ref}
                     {...props}
