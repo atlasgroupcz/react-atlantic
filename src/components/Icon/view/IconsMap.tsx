@@ -152,6 +152,8 @@ export const IconsMap = {
     minus: <Icons.Minus />,
     plusCircle: <Icons.PlusCircle />,
     fileImport: <Icons.FileImport />,
+    filterSolid: <Icons.FilterSolid />,
+    folderPlusSolid: <Icons.FolderPlusSolid />,
 };
 
 export type IconName = keyof typeof IconsMap;
