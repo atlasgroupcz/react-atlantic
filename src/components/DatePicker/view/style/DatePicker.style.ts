@@ -1,6 +1,29 @@
+import { css } from 'styled-components';
 import { styled } from '../../../../styled';
 
-export const StyledReactDatePickerContainer = styled.div`
+export const StyledReactDatePickerContainer = styled.div<{
+    isFullWidth: boolean;
+}>`
+    ${({ isFullWidth }) =>
+        isFullWidth
+            ? css`
+                  width: 100%;
+              `
+            : ``}
+
+    .react-datepicker-wrapper {
+        ${({ isFullWidth }) =>
+            isFullWidth
+                ? css`
+                      width: 100%;
+                  `
+                : ``}
+    }
+
+    .react-datepicker__triangle {
+        left: 210px !important;
+    }
+
     .react-datepicker-popper {
         margin-top: ${(props) => props.theme.margin.md};
         z-index: 1;
