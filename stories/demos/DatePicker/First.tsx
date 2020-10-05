@@ -10,7 +10,12 @@ export const DatePickerFirstDemo = () => {
 
     return (
         <>
-            <DatePicker selected={date} onChange={onChange} locale={'cs'} />
+            <DatePicker
+                selected={date}
+                onChange={onChange}
+                locale={'cs'}
+                isFullWidth
+            />
         </>
     );
 };
