@@ -3,15 +3,25 @@ import { action } from '@storybook/addon-actions';
 import { boolean, select, text, withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import { defaultValues } from './constants';
-import { Size, Type, Button } from '../src';
+import { Size, Type, Button, SimpleButton, PureButton } from '../src';
 
 const stories = storiesOf('Button', module);
 
 stories.addDecorator(withKnobs);
 
-stories.add('Overview', () => <Button htmlType="submit">Prdel</Button>, {
-    info: { inline: true },
-});
+stories.add(
+    'Overview',
+    () => (
+        <>
+            <Button htmlType="submit">Prdel</Button>
+            <PureButton>Prdel</PureButton>
+            <SimpleButton>Prdel</SimpleButton>
+        </>
+    ),
+    {
+        info: { inline: true },
+    }
+);
 
 stories.add(
     'Playground',

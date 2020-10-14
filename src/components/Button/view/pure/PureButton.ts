@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Button } from '../..';
+import { Button } from '../default';
 
 export const PureButton = styled(Button)`
     && {
