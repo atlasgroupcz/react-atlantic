@@ -1,9 +1,9 @@
 import { css, keyframes, StyledComponent } from 'styled-components';
-import { StyledIcon } from '../../../Icon/view/style/Icon.style';
-import { ButtonProps } from '../../types';
-import { StyledText } from '../../../Typography/Text/Text.style';
-import { styled } from '../../../../styled';
-import { excludeComponentProps } from '../../../../utils/excludeProps';
+import { StyledIcon } from '../../../../Icon/view/style/Icon.style';
+import { ButtonProps } from '../../../types';
+import { StyledText } from '../../../../Typography/Text/Text.style';
+import { styled } from '../../../../../styled';
+import { excludeComponentProps } from '../../../../../utils/excludeProps';
 import { FC } from 'react';
 
 type StyledButtonProps = Omit<ButtonProps, 'type' | 'htmlType'> & {
