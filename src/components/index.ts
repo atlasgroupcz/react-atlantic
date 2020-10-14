@@ -6,7 +6,7 @@ export * from './Button';
 export * from './Device';
 export * from './Input';
 export * from './Icon';
-export * from './Button/view/pure';
+export * from './Button';
 export * from './Typography';
 export * from './Timeline';
 export * from './Pagination';
