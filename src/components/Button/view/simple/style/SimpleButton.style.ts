@@ -21,73 +21,84 @@ export const StyledSimpleButton = styled(
             background: ${(props) => props.theme.color.background.beta};
         }
 
-        ${(props) =>
-            props.isAlternative &&
-            css`
-                background: ${props.theme.color.background.beta};
+        ${({ isAlternative = false, ...props }) =>
+            isAlternative
+                ? css`
+                      background: ${props.theme.color.background.beta};
 
-                &:hover {
-                    background: ${props.theme.color.background.alpha};
-                }
-            `}
+                      &:hover {
+                          background: ${props.theme.color.background.alpha};
+                      }
+                  `
+                : ``}
 
-        ${(props) =>
-            props.type &&
-            css`
-                ${props.type === 'primary' &&
-                css`
-                    background: ${props.theme.color.primary.alpha};
+        ${({ type = 'default', ...props }) =>
+            type
+                ? css`
+                      ${type === 'primary'
+                          ? css`
+                                background: ${props.theme.color.primary.alpha};
 
-                    &:hover {
-                        background: ${props.theme.color.primary.beta};
-                    }
-                `}
+                                &:hover {
+                                    background: ${props.theme.color.primary
+                                        .beta};
+                                }
+                            `
+                          : ``}
 
-                ${props.type === 'success' &&
-                css`
-                    background: ${props.theme.color.success.alpha};
+                      ${type === 'success'
+                          ? css`
+                                background: ${props.theme.color.success.alpha};
 
-                    &:hover {
-                        background: ${props.theme.color.success.beta};
-                    }
-                `}
+                                &:hover {
+                                    background: ${props.theme.color.success
+                                        .beta};
+                                }
+                            `
+                          : ``}
           
-          ${props.type === 'warning' &&
-                css`
-                    background: ${props.theme.color.warning.alpha};
+          ${type === 'warning'
+                          ? css`
+                                background: ${props.theme.color.warning.alpha};
 
-                    &:hover {
-                        background: ${props.theme.color.warning.beta};
-                    }
-                `}
+                                &:hover {
+                                    background: ${props.theme.color.warning
+                                        .beta};
+                                }
+                            `
+                          : ``}
           
-          ${props.type === 'error' &&
-                css`
-                    background: ${props.theme.color.error.alpha};
+          ${type === 'error'
+                          ? css`
+                                background: ${props.theme.color.error.alpha};
 
-                    &:hover {
-                        background: ${props.theme.color.error.beta};
-                    }
-                `}
+                                &:hover {
+                                    background: ${props.theme.color.error.beta};
+                                }
+                            `
+                          : ``}
           
-          ${props.type === 'dashed' &&
-                css`
-                    border: 1px dashed ${props.theme.color.border};
-                `}
-            `}
+          ${type === 'dashed'
+                          ? css`
+                                border: 1px dashed ${props.theme.color.border};
+                            `
+                          : ``}
+                  `
+                : ``}
 
-        ${(props) =>
-            props.isDisabled &&
-            css`
-                background: transparent;
+        ${({ isDisabled }) =>
+            isDisabled
+                ? css`
+                      background: transparent;
 
-                &:hover {
-                    background: transparent;
-                }
+                      &:hover {
+                          background: transparent;
+                      }
 
-                ${StyledText}, ${StyledIcon} {
-                    opacity: 0.6;
-                }
-            `}
+                      ${StyledText}, ${StyledIcon} {
+                          opacity: 0.6;
+                      }
+                  `
+                : ``}
     }
 `;
