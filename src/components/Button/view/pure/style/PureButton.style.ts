@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { Button } from '../Button';
+import { Button } from '../../default';
 
-export const PureButton = styled(Button)`
+export const StyledPureButton = styled(Button)`
     && {
         background: none;
         border: none;
