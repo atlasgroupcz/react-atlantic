@@ -13,7 +13,7 @@ export const StyledSimpleButton = styled(
     buttonComponentExclude(Button, simpleButtonExcludeProps)
 )<SimpleButtonProps>`
     && {
-        background: ${(props) => props.theme.color.background.alpha};
+        background: none;
         box-shadow: none;
         border: none;
 
@@ -24,7 +24,7 @@ export const StyledSimpleButton = styled(
         ${({ isAlternative = false, ...props }) =>
             isAlternative
                 ? css`
-                      background: ${props.theme.color.background.beta};
+                      background: none;
 
                       &:hover {
                           background: ${props.theme.color.background.alpha};
