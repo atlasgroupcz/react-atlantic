@@ -1,18 +1,17 @@
 import styled, { css } from 'styled-components';
+import { excludeComponentProps } from '../../../../../utils/excludeProps';
 import { StyledIcon } from '../../../../Icon';
 import { StyledText } from '../../../../Typography/Text/Text.style';
 import { Button } from '../../default';
 import { SimpleButtonProps } from '../SimpleButton';
 
-export type StyledSimpleButtonProps = Omit<
-    SimpleButtonProps,
-    'type' | 'htmlType'
-> & {
-    atlanticType: SimpleButtonProps['type'];
-    type: JSX.IntrinsicElements['button']['type'];
-};
+const simpleButtonExcludeProps: (keyof SimpleButtonProps)[] = ['isAlternative'];
 
-export const StyledSimpleButton = styled(Button)<StyledSimpleButtonProps>`
+const buttonComponentExclude = excludeComponentProps<SimpleButtonProps>();
+
+export const StyledSimpleButton = styled(
+    buttonComponentExclude(Button, simpleButtonExcludeProps)
+)<SimpleButtonProps>`
     && {
         background: ${(props) => props.theme.color.background.alpha};
         box-shadow: none;

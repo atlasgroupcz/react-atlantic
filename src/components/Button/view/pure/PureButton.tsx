@@ -5,10 +5,8 @@ import { StyledPureButton } from './style';
 export type PureButtonProps = {} & ButtonProps;
 
 export const PureButton: FC<PureButtonProps> = ({
-    htmlType,
     type = 'default',
-
     ...props
 }) => {
-    return <StyledPureButton atlanticType={type} type={htmlType} {...props} />;
+    return <StyledPureButton type={type} {...props} />;
 };

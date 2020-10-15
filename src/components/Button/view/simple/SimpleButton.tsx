@@ -7,16 +7,14 @@ export type SimpleButtonProps = {
 } & ButtonProps;
 
 export const SimpleButton: FC<SimpleButtonProps> = ({
-    htmlType,
     type = 'default',
     isAlternative = false,
     ...props
 }) => {
     return (
         <StyledSimpleButton
-            atlanticType={type}
-            type={htmlType}
             isAlternative={isAlternative}
+            type={type}
             {...props}
         />
     );
