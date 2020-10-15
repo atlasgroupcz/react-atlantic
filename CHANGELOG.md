@@ -1,4 +1,16 @@
-# [1.3.0](https://github.com/atlasgroupcz/react-atlantic/compare/1.2.2...1.3.0) (2020-10-05)
+## [1.3.1](https://github.com/atlasgroupcz/react-atlantic/compare/v1.3.0...v1.3.1) (2020-10-15)
+
+### Bug Fixes
+
+-   🐛 button types ([409d632](https://github.com/atlasgroupcz/react-atlantic/commit/409d632f4a6543bce3a1d8062a2b722a79ace762))
+-   🐛 deps tree ([e9c2820](https://github.com/atlasgroupcz/react-atlantic/commit/e9c28207c48af958dcab289b4853c23b095ba46a))
+-   🐛 fix export ([4e8406e](https://github.com/atlasgroupcz/react-atlantic/commit/4e8406e31a6ed2990d15656e32987399696208d1))
+
+### Features
+
+-   ✨ stories, fix import ([883a884](https://github.com/atlasgroupcz/react-atlantic/commit/883a884af3cb5b92651aed297e7cc1b0042b09e0))
+
+# [1.3.0](https://github.com/atlasgroupcz/react-atlantic/compare/1.2.2...v1.3.0) (2020-10-05)
 
 ### Bug Fixes
 
