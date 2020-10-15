@@ -1,10 +1,6 @@
 import React, { FC } from 'react';
-import { ButtonProps } from '../../types';
+import { SimpleButtonProps } from '../../types';
 import { StyledSimpleButton } from './style';
-
-export type SimpleButtonProps = {
-    isAlternative?: boolean;
-} & ButtonProps;
 
 export const SimpleButton: FC<SimpleButtonProps> = ({
     type = 'default',

@@ -2,8 +2,8 @@ import styled, { css } from 'styled-components';
 import { excludeComponentProps } from '../../../../../utils/excludeProps';
 import { StyledIcon } from '../../../../Icon';
 import { StyledText } from '../../../../Typography/Text/Text.style';
+import { SimpleButtonProps } from '../../../types';
 import { Button } from '../../default';
-import { SimpleButtonProps } from '../SimpleButton';
 
 const simpleButtonExcludeProps: (keyof SimpleButtonProps)[] = ['isAlternative'];
 
