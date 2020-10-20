@@ -80,6 +80,7 @@ export const defaultValues = {
     notificationContent: 'Change me, please 🥺',
     notificationTitle: 'Notification',
     notificationButonIcon: null,
+    allowResize: false,
     content: 'Change me, please 🥺',
     messageType: 'primary',
     shape: 'circle',
