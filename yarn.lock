@@ -14276,10 +14276,10 @@ typescript@^3.5.3:
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.9.7.tgz#98d600a5ebdc38f40cb277522f12dc800e9e25fa"
   integrity sha512-BLbiRkiBzAwsjut4x/dsibSTB6yWpwT5qWmC2OfuCg3GgVQCSgMs4vEctYPhsaGtd0AeuuHMkjZ2h2WG8MSzRw==
 
-typescript@^4.0.2:
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.0.2.tgz#7ea7c88777c723c681e33bf7988be5d008d05ac2"
-  integrity sha512-e4ERvRV2wb+rRZ/IQeb3jm2VxBsirQLpQhdxplZ2MEzGvDkkMmPglecnNDfSUBivMjP93vRbngYYDQqQ/78bcQ==
+typescript@^4.1.0-dev.20201020:
+  version "4.1.0-dev.20201020"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.1.0-dev.20201020.tgz#0bf783a058ac654727f7ef2f4c45dd92c9e1ecf5"
+  integrity sha512-0rFdYxOuLpa1oqvhYjVIMHLz4rmozSa7ODQElhVrkjO5CiWL/5e9uaIoOnb5zE6TStZXjhWM2Tzo/CQOeyJfyQ==
 
 ua-parser-js@^0.7.18:
   version "0.7.21"
