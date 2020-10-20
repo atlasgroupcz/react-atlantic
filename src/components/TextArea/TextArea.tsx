@@ -2,9 +2,9 @@ import React, { FC, forwardRef } from 'react';
 import { StyledTextArea } from './style';
 import { TextAreaProps } from './types';
 
-export type InputBaseType = FC<TextAreaProps>;
+export type TextAreaType = FC<TextAreaProps>;
 
-export const TextArea: InputBaseType = forwardRef<
+export const TextArea: TextAreaType = forwardRef<
     HTMLTextAreaElement,
     TextAreaProps
 >(({ ...props }, ref) => {
