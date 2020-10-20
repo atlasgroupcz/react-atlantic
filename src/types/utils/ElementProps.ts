@@ -4,6 +4,7 @@ import {
     HTMLAttributes,
     InputHTMLAttributes,
     PropsWithRef,
+    TextareaHTMLAttributes,
 } from 'react';
 
 /**
@@ -15,6 +16,8 @@ export type ElementProps<T extends HTMLElement = HTMLElement> = PropsWithRef<
             ? InputHTMLAttributes<T>
             : T extends HTMLAnchorElement
             ? AnchorHTMLAttributes<T>
+            : T extends HTMLTextAreaElement
+            ? TextareaHTMLAttributes<T>
             : HTMLAttributes<T>,
         T
     >

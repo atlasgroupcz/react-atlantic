@@ -1,4 +1,14 @@
-## [1.3.2](https://github.com/atlasgroupcz/react-atlantic/compare/1.3.1...1.3.2) (2020-10-16)
+# [1.4.0](https://github.com/atlasgroupcz/react-atlantic/compare/1.3.2...1.4.0) (2020-10-20)
+
+### Bug Fixes
+
+-   🐛 imports ([b8bac2a](https://github.com/atlasgroupcz/react-atlantic/commit/b8bac2a4c9b968a7dfeaa9d7ec5d07a4fba60af5))
+
+### Features
+
+-   ✨ TextArea component ([a078795](https://github.com/atlasgroupcz/react-atlantic/commit/a07879574331201baaaa1615ed74a85d7eb72ff1))
+
+## [1.3.2](https://github.com/atlasgroupcz/react-atlantic/compare/1.3.1...v1.3.2) (2020-10-16)
 
 ### Bug Fixes
 
