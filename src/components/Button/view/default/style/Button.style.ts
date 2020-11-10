@@ -114,7 +114,7 @@ export const StyledButton = styled(
                     ? props.theme.rounded
                     : props.theme.radius};
                 background: ${props.theme.color.background.gamma};
-                border: none;
+                border: 1px solid ${(props) => props.theme.color.border};
                 animation: ${focusAnimation} 0.4s ease-in-out;
             }
         `}
@@ -182,7 +182,7 @@ export const StyledButton = styled(
         props.isDisabled &&
         css`
             background-color: ${props.theme.color.default};
-            border: none;
+            border: 1px solid ${(props) => props.theme.color.border};
             color: ${props.theme.color.text.beta};
             cursor: not-allowed;
 
