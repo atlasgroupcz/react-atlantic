@@ -45,10 +45,8 @@ const DefaultButton = styled.button`
     padding: 0 ${(props) => props.theme.padding.md};
     height: ${(props) => props.theme.height.md};
     line-height: 1;
-
     background-image: none;
     color: ${(props) => props.theme.color.text.alpha};
-
     outline: 0;
     cursor: pointer;
     font-size: ${(props) => props.theme.font.size.md};
@@ -111,12 +109,12 @@ export const StyledButton = styled(
                 left: -3px;
                 right: -3px;
                 bottom: -3px;
-
                 z-index: -1;
                 border-radius: ${props.isRound
                     ? props.theme.rounded
                     : props.theme.radius};
                 background: ${props.theme.color.background.gamma};
+                border: none;
                 animation: ${focusAnimation} 0.4s ease-in-out;
             }
         `}
@@ -184,6 +182,7 @@ export const StyledButton = styled(
         props.isDisabled &&
         css`
             background-color: ${props.theme.color.default};
+            border: none;
             color: ${props.theme.color.text.beta};
             cursor: not-allowed;
 
