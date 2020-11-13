@@ -1,10 +1,9 @@
-import React from 'react';
 import { Message, MessageProps } from '../../../src';
-import { mockPropsCheckTest, mountTest, toBeDefinedTest } from '../../shared';
+import { mountTest, toBeDefinedTest, mockPropsCheckTest } from '../../shared';
 
 const mockMessageProps: MessageProps = {
     type: 'success',
-    Icon: <>test</>,
+    Icon: null,
 };
 
 describe('Message', () => {
