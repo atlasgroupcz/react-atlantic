@@ -15,4 +15,5 @@ export * from './Tabs';
 export * from './DatePicker';
 export * from './Select';
 export * from './Progress';
+export * from './Message';
 export * from './TextArea';
