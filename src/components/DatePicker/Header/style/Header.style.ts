@@ -5,13 +5,11 @@ export const StyledReactDatePickerHeaderContainer = styled.div`
     position: relative;
     display: flex;
     justify-content: space-between;
-
     padding: ${(props) => props.theme.padding.sm};
     border-radius: ${(props) => props.theme.radius}
         ${(props) => props.theme.radius} 0 0;
     height: ${(props) => props.theme.height.md};
     background-color: ${(props) => props.theme.color.primary.alpha};
-
     font-size: ${(props) => props.theme.font.size.md};
     font-family: ${(props) => props.theme.font.family};
 
@@ -44,6 +42,7 @@ export const StyledReactDatePickerButtonMoveYear = styled(Button)`
 
 export const StyledReactDatePickerMonthAndDate = styled.span`
     flex: 100%;
+    margin: 0 ${(props) => props.theme.margin.sm};
     line-height: ${(props) => props.theme.height.md};
     text-align: center;
     color: ${(props) => props.theme.color.text.gamma};
