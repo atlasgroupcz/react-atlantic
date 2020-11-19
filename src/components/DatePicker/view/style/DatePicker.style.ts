@@ -1,6 +1,5 @@
 import { css } from 'styled-components';
 import { styled } from '../../../../styled';
-import { Button } from '../../../Button';
 
 export const StyledReactDatePickerContainer = styled.div<{
     isFullWidth?: boolean;
@@ -102,11 +101,4 @@ export const StyledReactDatePickerContainer = styled.div<{
             background-color: ${(props) => props.theme.color.background.beta};
         }
     }
-`;
-
-export const StyledReactDatePickerButton = styled(Button)`
-    border-top-left-radius: 0px;
-    border-top-right-radius: 0px;
-    border: 0;
-    border-top: 1px solid #d9d9d9;
 `;

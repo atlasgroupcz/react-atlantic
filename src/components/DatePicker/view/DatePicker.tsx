@@ -9,13 +9,9 @@ import { DatePickerProps } from '../types';
 import ReactDatePicker, { registerLocale } from 'react-datepicker';
 import { Input } from '../../Input';
 import { Icon } from '../../Icon';
-import {
-    StyledReactDatePickerButton,
-    StyledReactDatePickerContainer,
-} from './style';
+import { StyledReactDatePickerContainer } from './style';
 import 'react-datepicker/dist/react-datepicker.css';
 import { DatePickerHeader } from '../Header';
-import { Text } from '../../Typography';
 
 registerLocale('cs', cs);
 
@@ -33,6 +29,7 @@ export const DatePicker: DatePickerType = forwardRef(
                     isFullWidth={isFullWidth}
                 />
             ),
+            renderCustomHeader = DatePickerHeader,
             ...props
         },
         ref
@@ -43,28 +40,8 @@ export const DatePicker: DatePickerType = forwardRef(
                     ref={ref}
                     {...props}
                     customInput={customInput}
-                    renderCustomHeader={({
-                        date,
-                        decreaseMonth,
-                        increaseMonth,
-                        prevMonthButtonDisabled,
-                        nextMonthButtonDisabled,
-                        changeYear,
-                    }) =>
-                        DatePickerHeader({
-                            date,
-                            decreaseMonth,
-                            increaseMonth,
-                            prevMonthButtonDisabled,
-                            nextMonthButtonDisabled,
-                            changeYear,
-                        })
-                    }
-                >
-                    <StyledReactDatePickerButton isFullWidth>
-                        <Text>Zvolit dnešní datum</Text>
-                    </StyledReactDatePickerButton>
-                </ReactDatePicker>
+                    renderCustomHeader={renderCustomHeader}
+                />
             </StyledReactDatePickerContainer>
         );
     }
