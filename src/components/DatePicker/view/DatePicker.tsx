@@ -11,7 +11,6 @@ import { Input } from '../../Input';
 import { Icon } from '../../Icon';
 import {
     StyledReactDatePickerButton,
-    StyledReactDatePickerButtonContainer,
     StyledReactDatePickerContainer,
 } from './style';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -62,11 +61,9 @@ export const DatePicker: DatePickerType = forwardRef(
                         })
                     }
                 >
-                    <StyledReactDatePickerButtonContainer>
-                        <StyledReactDatePickerButton isFullWidth>
-                            <Text>Zvolit dnešní datum</Text>
-                        </StyledReactDatePickerButton>
-                    </StyledReactDatePickerButtonContainer>
+                    <StyledReactDatePickerButton isFullWidth>
+                        <Text>Zvolit dnešní datum</Text>
+                    </StyledReactDatePickerButton>
                 </ReactDatePicker>
             </StyledReactDatePickerContainer>
         );

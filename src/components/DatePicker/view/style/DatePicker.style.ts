@@ -31,6 +31,7 @@ export const StyledReactDatePickerContainer = styled.div<{
     }
 
     .react-datepicker {
+        width: 250px;
         font-size: ${(props) => props.theme.font.size.md};
         font-family: ${(props) => props.theme.font.family};
         background-color: ${(props) => props.theme.color.background.alpha};
@@ -41,6 +42,10 @@ export const StyledReactDatePickerContainer = styled.div<{
             margin: 0;
             padding: 0;
             border: 0;
+        }
+
+        &__month-container {
+            width: 100%;
         }
 
         &__month {
@@ -72,6 +77,7 @@ export const StyledReactDatePickerContainer = styled.div<{
             }
 
             &--today {
+                font-weight: 400;
                 background-color: ${(props) =>
                     props.theme.color.background.beta};
             }
@@ -79,7 +85,6 @@ export const StyledReactDatePickerContainer = styled.div<{
             &--selected {
                 background-color: ${(props) => props.theme.color.primary.alpha};
                 color: ${(props) => props.theme.color.text.gamma};
-                border: 1px solid ${(props) => props.theme.color.primary.alpha};
 
                 &:hover {
                     background-color: ${(props) =>
@@ -95,12 +100,9 @@ export const StyledReactDatePickerContainer = styled.div<{
     }
 `;
 
-export const StyledReactDatePickerButtonContainer = styled.div`
-    border-top: 1px solid ${(props) => props.theme.color.border};
-`;
-
 export const StyledReactDatePickerButton = styled(Button)`
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;
     border: 0;
+    border-top: 1px solid #d9d9d9;
 `;
