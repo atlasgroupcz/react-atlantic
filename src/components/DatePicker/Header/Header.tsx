@@ -5,7 +5,6 @@ import {
     StyledReactDatePickerButtonMoveYear,
     StyledReactDatePickerHeaderContainer,
     StyledReactDatePickerMonthAndDate,
-    StyledReactDatePickerTriangle,
 } from './style';
 
 export interface DatePickerHeaderProps {
@@ -46,7 +45,6 @@ export const DatePickerHeader: React.FC<DatePickerHeaderProps> = (
 
     return (
         <>
-            <StyledReactDatePickerTriangle />
             <StyledReactDatePickerHeaderContainer>
                 <StyledReactDatePickerButtonMoveYear
                     onClick={() => changeYear(date.getFullYear() - 1)}

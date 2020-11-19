@@ -24,10 +24,16 @@ export const StyledReactDatePickerContainer = styled.div<{
     .react-datepicker-popper {
         margin-top: ${(props) => props.theme.margin.md};
         z-index: 90;
-    }
 
-    .react-datepicker__triangle {
-        display: none;
+        &[data-placement^='bottom'] .react-datepicker__triangle {
+            left: 17px !important;
+            border-bottom-color: ${(props) => props.theme.color.primary.alpha};
+        }
+
+        &[data-placement^='top'] .react-datepicker__triangle {
+            left: 17px !important;
+            border-top-color: ${(props) => props.theme.color.default};
+        }
     }
 
     .react-datepicker {
@@ -56,10 +62,8 @@ export const StyledReactDatePickerContainer = styled.div<{
         &__week {
             display: flex;
             align-items: center;
-            justify-content: space-between;
             padding: 0 ${(props) => props.theme.margin.sm};
             color: ${(props) => props.theme.color.text.alpha};
-            text-align: center;
         }
 
         &__day,
