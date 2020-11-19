@@ -2,7 +2,7 @@ import { ElementProps } from './utils';
 
 export type HTMLInputElementProps = Pick<
     ElementProps<HTMLInputElement>,
-    'value'
+    'value' | 'readOnly' | 'name' | 'accept' | 'multiple'
 >;
 
 export type HTMLInputDefaultElementProps = Pick<

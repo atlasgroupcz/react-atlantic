@@ -1,4 +1,36 @@
-## [1.2.2](https://github.com/atlasgroupcz/react-atlantic/compare/1.2.1...1.2.2) (2020-09-27)
+# [1.5.0](https://github.com/atlasgroupcz/react-atlantic/compare/1.4.2...1.5.0) (2020-11-13)
+
+### Bug Fixes
+
+-   🐛 HTMLInput multiple files prop ([3e0f94c](https://github.com/atlasgroupcz/react-atlantic/commit/3e0f94c8e307b6ca07554ebe9ad84435622e8a9f))
+-   🐛 test render props support ([3fd3840](https://github.com/atlasgroupcz/react-atlantic/commit/3fd38403d499eda97c9dbb5d70ec8d3425bafa83))
+
+### Features
+
+-   ✨ innerRef type util ([7c3d94d](https://github.com/atlasgroupcz/react-atlantic/commit/7c3d94de0eaf2a769fcdc9df1615cc3e5acc085e))
+-   ✨ Message ([e7cc251](https://github.com/atlasgroupcz/react-atlantic/commit/e7cc2510477247ad3b09b309798771e5e8041f1f))
+
+## [1.4.1](https://github.com/atlasgroupcz/react-atlantic/compare/1.4.0...v1.4.1) (2020-10-23)
+
+### Bug Fixes
+
+-   🐛 button types ([409d632](https://github.com/atlasgroupcz/react-atlantic/commit/409d632f4a6543bce3a1d8062a2b722a79ace762))
+-   🐛 deps tree ([e9c2820](https://github.com/atlasgroupcz/react-atlantic/commit/e9c28207c48af958dcab289b4853c23b095ba46a))
+-   🐛 fix export ([4e8406e](https://github.com/atlasgroupcz/react-atlantic/commit/4e8406e31a6ed2990d15656e32987399696208d1))
+-   🐛 imports ([b8bac2a](https://github.com/atlasgroupcz/react-atlantic/commit/b8bac2a4c9b968a7dfeaa9d7ec5d07a4fba60af5))
+-   🐛 simple button background none ([10f9ed3](https://github.com/atlasgroupcz/react-atlantic/commit/10f9ed3e334f897bd495c21b203c13085c03bb11))
+-   🐛 type ([cc2d616](https://github.com/atlasgroupcz/react-atlantic/commit/cc2d616b11748b275cb295604b2e4c80266105c8))
+
+### Features
+
+-   ✨ fullwidth on datepicker container ([3d495ea](https://github.com/atlasgroupcz/react-atlantic/commit/3d495eac73cf1cd31c61d210f0a6b144ba493408))
+-   ✨ input readonly ([03a3e6b](https://github.com/atlasgroupcz/react-atlantic/commit/03a3e6b5264cee2e21a80cbbbea9162921c53345))
+-   ✨ new icons filter, folderPlus ([1fdf561](https://github.com/atlasgroupcz/react-atlantic/commit/1fdf5613d7d61b74da839ec3ba1a00875392973c))
+-   ✨ progress bar ([8a454d9](https://github.com/atlasgroupcz/react-atlantic/commit/8a454d9cfce6d88eb0ccc8cb87edbfc140f1e28b))
+-   ✨ stories, fix import ([883a884](https://github.com/atlasgroupcz/react-atlantic/commit/883a884af3cb5b92651aed297e7cc1b0042b09e0))
+-   ✨ TextArea component ([a078795](https://github.com/atlasgroupcz/react-atlantic/commit/a07879574331201baaaa1615ed74a85d7eb72ff1))
+
+## [1.2.2](https://github.com/atlasgroupcz/react-atlantic/compare/1.2.1...v1.2.2) (2020-09-27)
 
 ### Bug Fixes
 

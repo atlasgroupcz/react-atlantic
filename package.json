@@ -1,14 +1,12 @@
 {
     "name": "@atlasgroup/react-atlantic",
-    "version": "1.2.2",
+    "version": "1.5.0",
     "homepage": "https://atlasgroupcz.github.io/react-atlantic",
     "private": false,
     "main": "lib/index.js",
     "dependencies": {
         "@babel/runtime": "^7.11.2",
         "@types/d3-ease": "^1.0.9",
-        "@types/enzyme": "^3.10.6",
-        "@types/jest": "^26.0.13",
         "@types/node": "14.6.4",
         "@types/react": "16.9.49",
         "@types/react-datepicker": "^3.1.1",
@@ -75,6 +73,8 @@
         "@storybook/addons": "^6.0.21",
         "@storybook/react": "^6.0.21",
         "@types/babel__core": "^7.1.9",
+        "@types/enzyme": "^3.10.6",
+        "@types/jest": "^26.0.15",
         "@types/storybook__addon-info": "^5.2.1",
         "@types/storybook__react": "^5.2.1",
         "@typescript-eslint/eslint-plugin": "^4.1.0",
@@ -105,7 +105,7 @@
         "pretty-quick": "^3.0.0",
         "react-docgen-typescript-loader": "^3.7.2",
         "ts-jest": "^26.3.0",
-        "typescript": "^4.0.2",
+        "typescript": "^4.1.0-dev.20201020",
         "wait-for-expect": "^3.0.2",
         "webpack": "^4.44.1"
     },

@@ -1,20 +1,25 @@
 import { css, keyframes, StyledComponent } from 'styled-components';
-import { StyledIcon } from '../../../Icon/view/style/Icon.style';
-import { ButtonProps } from '../../types';
-import { StyledText } from '../../../Typography/Text/Text.style';
-import { styled } from '../../../../styled';
-import { excludeComponentProps } from '../../../../utils/excludeProps';
+import { StyledIcon } from '../../../../Icon/view/style/Icon.style';
+import { ButtonProps } from '../../../types';
+import { StyledText } from '../../../../Typography/Text/Text.style';
+import { styled } from '../../../../../styled';
+import { excludeComponentProps } from '../../../../../utils/excludeProps';
 import { FC } from 'react';
 
-const buttonTypePropKeys: (keyof ButtonProps)[] = [
+type StyledButtonProps = Omit<ButtonProps, 'type' | 'htmlType'> & {
+    atlanticType: ButtonProps['type'];
+    type: JSX.IntrinsicElements['button']['type'];
+};
+
+const buttonTypePropKeys: (keyof StyledButtonProps)[] = [
     'isRound',
     'isDisabled',
     'isFullWidth',
     'isTransparent',
     'size',
-    'type',
+    'atlanticType',
 ];
-const buttonComponentExclude = excludeComponentProps<ButtonProps>();
+const buttonComponentExclude = excludeComponentProps<StyledButtonProps>();
 
 const focusAnimation = keyframes`
     0%    {
@@ -40,10 +45,8 @@ const DefaultButton = styled.button`
     padding: 0 ${(props) => props.theme.padding.md};
     height: ${(props) => props.theme.height.md};
     line-height: 1;
-
     background-image: none;
     color: ${(props) => props.theme.color.text.alpha};
-
     outline: 0;
     cursor: pointer;
     font-size: ${(props) => props.theme.font.size.md};
@@ -94,7 +97,7 @@ const DefaultButton = styled.button`
 
 export const StyledButton = styled(
     buttonComponentExclude(DefaultButton, buttonTypePropKeys)
-)`
+)<StyledButtonProps>`
     ${(props) =>
         !props.isDisabled &&
         props.isTransparent &&
@@ -106,12 +109,12 @@ export const StyledButton = styled(
                 left: -3px;
                 right: -3px;
                 bottom: -3px;
-
                 z-index: -1;
                 border-radius: ${props.isRound
                     ? props.theme.rounded
                     : props.theme.radius};
                 background: ${props.theme.color.background.gamma};
+                border: 1px solid ${(props) => props.theme.color.border};
                 animation: ${focusAnimation} 0.4s ease-in-out;
             }
         `}
@@ -123,27 +126,27 @@ export const StyledButton = styled(
         let borderColor = props.theme.color.border;
         let borderType = `solid`;
 
-        if (props.type === 'primary') {
+        if (props.atlanticType === 'primary') {
             bgColor = props.theme.color.primary.alpha;
             hoverBgColor = props.theme.color.primary.beta;
             color = props.theme.color.text.gamma;
             borderColor = bgColor;
-        } else if (props.type === 'success') {
+        } else if (props.atlanticType === 'success') {
             bgColor = props.theme.color.success.alpha;
             hoverBgColor = props.theme.color.success.beta;
             color = props.theme.color.text.gamma;
             borderColor = bgColor;
-        } else if (props.type === 'warning') {
+        } else if (props.atlanticType === 'warning') {
             bgColor = props.theme.color.warning.alpha;
             hoverBgColor = props.theme.color.warning.beta;
             color = props.theme.color.text.gamma;
             borderColor = bgColor;
-        } else if (props.type === 'error') {
+        } else if (props.atlanticType === 'error') {
             bgColor = props.theme.color.error.alpha;
             hoverBgColor = props.theme.color.error.beta;
             color = props.theme.color.text.gamma;
             borderColor = bgColor;
-        } else if (props.type === 'dashed') {
+        } else if (props.atlanticType === 'dashed') {
             borderType = `dashed`;
         }
 
@@ -179,6 +182,7 @@ export const StyledButton = styled(
         props.isDisabled &&
         css`
             background-color: ${props.theme.color.default};
+            border: 1px solid ${(props) => props.theme.color.border};
             color: ${props.theme.color.text.beta};
             cursor: not-allowed;
 
@@ -248,7 +252,4 @@ export const StyledButton = styled(
         css`
             width: 100%;
         `}
-` as StyledComponent<
-    FC<Omit<JSX.IntrinsicElements['button'], 'type'> & ButtonProps>,
-    {}
->;
+` as StyledComponent<FC<StyledButtonProps>, {}>;
