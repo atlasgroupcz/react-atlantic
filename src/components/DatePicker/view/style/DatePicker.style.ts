@@ -33,6 +33,18 @@ export const StyledReactDatePickerContainer = styled.div<{
         font-size: ${(props) => props.theme.font.size.md};
         font-family: ${(props) => props.theme.font.family};
         background-color: ${(props) => props.theme.color.background.alpha};
+        border-radius: ${(props) => props.theme.radius};
+        box-shadow: ${(props) => props.theme.boxShadow.md};
+
+        &__day-names,
+        &__week {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 ${(props) => props.theme.margin.sm};
+            color: ${(props) => props.theme.color.text.alpha};
+            text-align: center;
+        }
 
         &__day,
         &__day-name {
@@ -51,13 +63,13 @@ export const StyledReactDatePickerContainer = styled.div<{
             }
 
             &--selected {
-                background-color: ${(props) => props.theme.color.success.alpha};
+                background-color: ${(props) => props.theme.color.primary.alpha};
                 color: ${(props) => props.theme.color.text.gamma};
-                border: 1px solid ${(props) => props.theme.color.success.alpha};
+                border: 1px solid ${(props) => props.theme.color.primary.alpha};
 
                 &:hover {
                     background-color: ${(props) =>
-                        props.theme.color.success.beta};
+                        props.theme.color.primary.beta};
                 }
             }
         }
