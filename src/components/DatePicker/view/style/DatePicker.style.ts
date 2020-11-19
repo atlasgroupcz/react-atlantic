@@ -80,3 +80,13 @@ export const StyledReactDatePickerContainer = styled.div<{
         }
     }
 `;
+
+export const StyledReactDatePickerButtonContainer = styled.div`
+    border-top: 1px solid ${(props) => props.theme.color.border};
+`;
+
+export const StyledReactDatePickerButton = styled(Button)`
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border: 0;
+`;

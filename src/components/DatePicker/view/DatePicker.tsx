@@ -9,7 +9,11 @@ import { DatePickerProps } from '../types';
 import ReactDatePicker, { registerLocale } from 'react-datepicker';
 import { Input } from '../../Input';
 import { Icon } from '../../Icon';
-import { StyledReactDatePickerContainer } from './style';
+import {
+    StyledReactDatePickerButton,
+    StyledReactDatePickerButtonContainer,
+    StyledReactDatePickerContainer,
+} from './style';
 import 'react-datepicker/dist/react-datepicker.css';
 
 registerLocale('cs', cs);
@@ -34,11 +38,13 @@ export const DatePicker: DatePickerType = forwardRef(
     ) => {
         return (
             <StyledReactDatePickerContainer isFullWidth={isFullWidth}>
-                <ReactDatePicker
-                    ref={ref}
-                    {...props}
-                    customInput={customInput}
-                />
+                <ReactDatePicker ref={ref} {...props} customInput={customInput}>
+                    <StyledReactDatePickerButtonContainer>
+                        <StyledReactDatePickerButton isFullWidth>
+                            {`Zvolit dnešní datum`}
+                        </StyledReactDatePickerButton>
+                    </StyledReactDatePickerButtonContainer>
+                </ReactDatePicker>
             </StyledReactDatePickerContainer>
         );
     }
