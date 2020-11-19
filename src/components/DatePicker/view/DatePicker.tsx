@@ -16,6 +16,7 @@ import {
 } from './style';
 import 'react-datepicker/dist/react-datepicker.css';
 import { DatePickerHeader } from '../Header';
+import { Text } from '../../Typography';
 
 registerLocale('cs', cs);
 
@@ -63,7 +64,7 @@ export const DatePicker: DatePickerType = forwardRef(
                 >
                     <StyledReactDatePickerButtonContainer>
                         <StyledReactDatePickerButton isFullWidth>
-                            {`Zvolit dnešní datum`}
+                            <Text>Zvolit dnešní datum</Text>
                         </StyledReactDatePickerButton>
                     </StyledReactDatePickerButtonContainer>
                 </ReactDatePicker>

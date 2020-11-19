@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Button } from '../../../Button';
+import { SimpleButton } from '../../../Button';
 
 export const StyledReactDatePickerHeaderContainer = styled.div`
     position: relative;
@@ -18,7 +18,7 @@ export const StyledReactDatePickerHeaderContainer = styled.div`
     }
 `;
 
-export const StyledReactDatePickerButtonMoveMonth = styled(Button)`
+export const StyledReactDatePickerButtonMoveMonth = styled(SimpleButton)`
     width: ${(props) => props.theme.height.md};
     margin: 0;
 
@@ -29,7 +29,7 @@ export const StyledReactDatePickerButtonMoveMonth = styled(Button)`
     }
 `;
 
-export const StyledReactDatePickerButtonMoveYear = styled(Button)`
+export const StyledReactDatePickerButtonMoveYear = styled(SimpleButton)`
     width: ${(props) => props.theme.height.md};
     margin: 0;
 
