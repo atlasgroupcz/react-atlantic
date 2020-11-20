@@ -31,12 +31,11 @@ export const StyledReactDatePickerContainer = styled.div<{
 
         &[data-placement^='top'] .react-datepicker__triangle {
             left: 17px !important;
-            border-top-color: ${(props) => props.theme.color.default};
+            border-top-color: ${(props) => props.theme.color.background.alpha};
         }
     }
 
     .react-datepicker {
-        width: 250px;
         font-size: ${(props) => props.theme.font.size.md};
         font-family: ${(props) => props.theme.font.family};
         background-color: ${(props) => props.theme.color.background.alpha};

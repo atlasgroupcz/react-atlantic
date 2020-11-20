@@ -1,5 +1,6 @@
 import React from 'react';
 import { Icon } from '../../Icon';
+import { months } from '../types';
 import {
     StyledReactDatePickerButtonMoveMonth,
     StyledReactDatePickerButtonMoveYear,
@@ -19,21 +20,6 @@ export interface DatePickerHeaderProps {
 export const DatePickerHeader: React.FC<DatePickerHeaderProps> = (
     props
 ): React.ReactElement => {
-    const months = [
-        'Leden',
-        'Únor',
-        'Březen',
-        'Duben',
-        'Květen',
-        'Červen',
-        'Červenec',
-        'Srpen',
-        'Září',
-        'Říjen',
-        'Listopad',
-        'Prosinec',
-    ];
-
     const {
         date,
         decreaseMonth,
