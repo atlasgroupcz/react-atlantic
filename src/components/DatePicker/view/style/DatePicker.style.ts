@@ -25,12 +25,10 @@ export const StyledReactDatePickerContainer = styled.div<{
         z-index: 90;
 
         &[data-placement^='bottom'] .react-datepicker__triangle {
-            left: 17px !important;
             border-bottom-color: ${(props) => props.theme.color.primary.alpha};
         }
 
         &[data-placement^='top'] .react-datepicker__triangle {
-            left: 17px !important;
             border-top-color: ${(props) => props.theme.color.background.alpha};
         }
     }
@@ -39,8 +37,8 @@ export const StyledReactDatePickerContainer = styled.div<{
         font-size: ${(props) => props.theme.font.size.md};
         font-family: ${(props) => props.theme.font.family};
         background-color: ${(props) => props.theme.color.background.alpha};
+        border: 1px solid ${(props) => props.theme.color.border};
         box-shadow: ${(props) => props.theme.boxShadow.md};
-        border: 0;
 
         &__header {
             margin: 0;
