@@ -11,6 +11,7 @@ import { Input } from '../../Input';
 import { Icon } from '../../Icon';
 import { StyledReactDatePickerContainer } from './style';
 import 'react-datepicker/dist/react-datepicker.css';
+import { DatePickerHeader } from '../Header';
 
 registerLocale('cs', cs);
 
@@ -28,6 +29,7 @@ export const DatePicker: DatePickerType = forwardRef(
                     isFullWidth={isFullWidth}
                 />
             ),
+            renderCustomHeader = DatePickerHeader,
             ...props
         },
         ref
@@ -38,6 +40,7 @@ export const DatePicker: DatePickerType = forwardRef(
                     ref={ref}
                     {...props}
                     customInput={customInput}
+                    renderCustomHeader={renderCustomHeader}
                 />
             </StyledReactDatePickerContainer>
         );
