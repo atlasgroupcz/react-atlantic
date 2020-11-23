@@ -1,7 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { Text } from '../src';
-import { Tooltips } from '../src/components/Tooltips';
+import { Text, Tooltips } from '../src';
 
 const stories = storiesOf('Tooltips', module);
 
