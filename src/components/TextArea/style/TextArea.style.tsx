@@ -115,5 +115,6 @@ export const StyledTextArea = styled(
             }
         `}
 
-    resize: ${({ allowResize = false }) => (allowResize ? `both` : `none`)};
+    resize: ${({ allowResize = false }) =>
+        allowResize ? `both` : `none`};
 `;

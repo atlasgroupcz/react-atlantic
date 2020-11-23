@@ -13,6 +13,7 @@ export * from './Pagination';
 export * from './Skeleton';
 export * from './Tabs';
 export * from './DatePicker';
+export * from './Progress';
 export * from './Select';
 export * from './Progress';
 export * from './Message';
