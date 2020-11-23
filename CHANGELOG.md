@@ -1,4 +1,14 @@
-# [1.5.0](https://github.com/atlasgroupcz/react-atlantic/compare/1.4.2...1.5.0) (2020-11-13)
+# [1.6.0](https://github.com/atlasgroupcz/react-atlantic/compare/v1.5.0...v1.6.0) (2020-11-23)
+
+### Features
+
+-   ✨ add datepickerHeader ([7e11530](https://github.com/atlasgroupcz/react-atlantic/commit/7e1153064f15850a35f7868bb7dae83d3c04d6c8))
+-   ✨ add searchNoResults icon ([5928942](https://github.com/atlasgroupcz/react-atlantic/commit/5928942ece2f86eeb34951549cdac4c05321f8cf))
+-   ✨ new icons filter, folderPlus ([3286a6b](https://github.com/atlasgroupcz/react-atlantic/commit/3286a6be622527856fc9eea0c70783df5275c4c0))
+-   ✨ progress bar ([659ccc5](https://github.com/atlasgroupcz/react-atlantic/commit/659ccc5dca1c73e19cbca2e7e44e328e7dad2b6c))
+-   ✨ tooltps ([5fd97e1](https://github.com/atlasgroupcz/react-atlantic/commit/5fd97e115c2782c70afd04c8b40d9ac9f25943ef))
+
+# [1.5.0](https://github.com/atlasgroupcz/react-atlantic/compare/1.4.2...v1.5.0) (2020-11-13)
 
 ### Bug Fixes
 

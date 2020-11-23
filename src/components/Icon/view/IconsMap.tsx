@@ -154,6 +154,7 @@ export const IconsMap = {
     fileImport: <Icons.FileImport />,
     filterSolid: <Icons.FilterSolid />,
     folderPlusSolid: <Icons.FolderPlusSolid />,
+    searchNoResults: <Icons.SearchNoResults />,
 };
 
 export type IconName = keyof typeof IconsMap;
