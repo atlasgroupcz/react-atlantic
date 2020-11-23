@@ -10,6 +10,7 @@ export * from './Button';
 export * from './Typography';
 export * from './Timeline';
 export * from './Pagination';
+export * from './Tooltips';
 export * from './Skeleton';
 export * from './Tabs';
 export * from './DatePicker';

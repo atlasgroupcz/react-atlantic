@@ -1,4 +1,10 @@
-# [1.6.0](https://github.com/atlasgroupcz/react-atlantic/compare/v1.5.0...v1.6.0) (2020-11-23)
+## [1.6.1](https://github.com/atlasgroupcz/react-atlantic/compare/1.6.0...1.6.1) (2020-11-23)
+
+### Bug Fixes
+
+-   🐛 imports ([9a53563](https://github.com/atlasgroupcz/react-atlantic/commit/9a535635d71540c78534fe98abb704c6ec93be1a))
+
+# [1.6.0](https://github.com/atlasgroupcz/react-atlantic/compare/1.5.0...v1.6.0) (2020-11-23)
 
 ### Features
 
