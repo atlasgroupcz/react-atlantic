@@ -4,7 +4,6 @@ import { SimpleButton } from '../../../Button';
 export const StyledReactDatePickerHeaderContainer = styled.div`
     position: relative;
     display: flex;
-    height: ${(props) => props.theme.height.md};
     padding: ${(props) => props.theme.padding.sm};
     border-radius: ${(props) => props.theme.radius}
         ${(props) => props.theme.radius} 0 0;
