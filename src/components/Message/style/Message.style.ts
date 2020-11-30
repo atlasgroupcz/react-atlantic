@@ -16,28 +16,33 @@ export const StyledMessageContainer = styled.div<StyledMessageProps>`
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
     border-radius: ${(props) => props.theme.radius};
     color: ${(props) => props.theme.color.text.alpha};
-    background-color: ${(props) => props.theme.color.background.alpha};
 
     ${(props) =>
         props.type === 'primary' &&
         css`
-            background-color: ${props.theme.color.background.alpha};
+            background-color: ${props.theme.color.primary.alpha};
         `}
 
     ${(props) =>
         props.type === 'success' &&
         css`
-            background-color: ${props.theme.color.background.alpha};
+            background-color: ${props.theme.color.success.alpha};
         `}
   
   ${(props) =>
         props.type === 'warning' &&
         css`
-            background-color: ${props.theme.color.background.alpha};
+            background-color: ${props.theme.color.warning.alpha};
         `}
 
   ${(props) =>
         props.type === 'error' &&
+        css`
+            background-color: ${props.theme.color.error.alpha};
+        `}
+
+    ${(props) =>
+        props.isTransparent &&
         css`
             background-color: ${props.theme.color.background.alpha};
         `}
