@@ -4,20 +4,16 @@ import { StyledText } from '../../Typography/Text/Text.style';
 import { StyledMessageProps } from '../types/StyledMessageProps';
 
 export const StyledMessageContainer = styled.div<StyledMessageProps>`
-    margin: 0 auto ${(props) => props.theme.margin.md} auto;
-    position: relative;
-    display: table;
-    max-width: 100%;
-    padding: ${(props) => props.theme.padding.md}
-        ${(props) => props.theme.padding.md}
-        ${(props) => props.theme.padding.md} 34px;
+    display: inline-flex;
+    align-items: center;
+    padding: ${(props) => props.theme.padding.md};
     margin-bottom: ${(props) => props.theme.padding.sm};
-    box-sizing: border-box;
-    cursor: default;
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
+    box-shadow: ${(props) => props.theme.boxShadow.md};
     border-radius: ${(props) => props.theme.radius};
+    cursor: default;
 
     ${StyledText} {
+        margin: 0;
         color: ${(props) => props.theme.color.text.gamma};
     }
 
@@ -27,7 +23,7 @@ export const StyledMessageContainer = styled.div<StyledMessageProps>`
             background-color: ${props.theme.color.background.alpha};
 
             ${StyledText} {
-                color: ${(props) => props.theme.color.text.alpha};
+                color: ${props.theme.color.text.alpha};
             }
         `}
 
@@ -66,11 +62,7 @@ export const StyledMessageContainer = styled.div<StyledMessageProps>`
         `}
 `;
 export const StyledMessageIcon = styled(Icon)<StyledMessageProps>`
-    cursor: default;
-    position: absolute;
-    top: 13px;
-    left: 10px;
-    width: 14px;
+    margin-right: ${(props) => props.theme.padding.md};
 
     ${(props) =>
         props.name === 'loading' &&
