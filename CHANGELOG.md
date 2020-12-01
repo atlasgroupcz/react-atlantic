@@ -1,4 +1,6 @@
-## [1.6.2](https://github.com/atlasgroupcz/react-atlantic/compare/v1.6.1...v1.6.2) (2020-12-01)
+## [1.6.3](https://github.com/atlasgroupcz/react-atlantic/compare/v1.6.2...v1.6.3) (2020-12-01)
+
+## [1.6.2](https://github.com/atlasgroupcz/react-atlantic/compare/1.6.1...v1.6.2) (2020-12-01)
 
 ## [1.6.1](https://github.com/atlasgroupcz/react-atlantic/compare/1.6.0...v1.6.1) (2020-11-23)
 

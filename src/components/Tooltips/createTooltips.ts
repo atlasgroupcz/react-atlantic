@@ -17,7 +17,6 @@ export const createTooltips = (
             left: 50%;
             top: calc(100% + ${arrowHeight});
             transform: translateX(-50%);
-            max-width: 100%;
             line-height: 1.5;
             margin-top: ${(props) => props.theme.margin.md};
             padding: ${(props) => props.theme.padding.sm}
