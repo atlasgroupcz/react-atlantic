@@ -82,7 +82,8 @@ export const StyledReactDatePickerContainer = styled.div<{
                     props.theme.color.background.beta};
             }
 
-            &--selected {
+            &--selected,
+            &--keyboard-selected {
                 background-color: ${(props) => props.theme.color.primary.alpha};
                 color: ${(props) => props.theme.color.text.gamma};
 

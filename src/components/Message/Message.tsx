@@ -13,12 +13,18 @@ type MessageType = FC<MessageProps>;
 export const Message: MessageType = ({
     children,
     type,
-    Icon = defaultIconFromType(type),
     innerRef,
+    isTransparent,
+    Icon = defaultIconFromType(type, isTransparent),
     ...ContainerProps
 }) => {
     return (
-        <StyledMessageContainer ref={innerRef} type={type} {...ContainerProps}>
+        <StyledMessageContainer
+            ref={innerRef}
+            type={type}
+            isTransparent={isTransparent}
+            {...ContainerProps}
+        >
             {Icon}
             {children}
         </StyledMessageContainer>
