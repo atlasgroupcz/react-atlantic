@@ -4,8 +4,9 @@ const arrowHeight = `6px`;
 const tooltipOuterGap = `10px`;
 
 export const createTooltips = (
-    contentAttr = 'data-title',
-    positionAttr = 'data-position'
+    contentAttr: string,
+    positionAttr: string,
+    delay: number
 ) => css`
     [${contentAttr}] {
         position: relative;
@@ -32,7 +33,7 @@ export const createTooltips = (
                 props.theme.color.background.epsilon + '00'};
             overflow-wrap: break-word;
             white-space: nowrap;
-            transition: background 0.3s ease-out;
+            transition: background 0.3s ease-out, visibility 0s;
         }
 
         // Arrow
@@ -50,19 +51,21 @@ export const createTooltips = (
             border: 8px solid transparent;
             border-bottom-color: ${(props) =>
                 props.theme.color.background.epsilon + '00'};
-            transition: border-color 0.3s ease-out;
+            transition: border-color 0.3s ease-out, visibility 0s;
         }
 
         &:hover:after {
             background: ${(props) =>
                 props.theme.color.background.epsilon + 'e6'};
             visibility: visible;
+            transition-delay: ${delay}ms;
         }
 
         &:hover:before {
             border-bottom-color: ${(props) =>
                 props.theme.color.background.epsilon + 'e6'};
             visibility: visible;
+            transition-delay: ${delay}ms;
         }
 
         &[${positionAttr}='top'] {
