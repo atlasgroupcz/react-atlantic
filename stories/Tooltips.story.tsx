@@ -41,6 +41,10 @@ stories.add(
                         Custom attributes!
                     </Text>
                 </Tooltips>
+                <br />
+                <Tooltips delay={1000}>
+                    <Text data-title="Custom delay!">Custom delay!!</Text>
+                </Tooltips>
             </>
         );
     },
