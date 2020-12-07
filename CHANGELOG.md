@@ -1,4 +1,10 @@
-## [1.6.3](https://github.com/atlasgroupcz/react-atlantic/compare/v1.6.2...v1.6.3) (2020-12-01)
+## [1.6.4](https://github.com/atlasgroupcz/react-atlantic/compare/1.6.3...1.6.4) (2020-12-07)
+
+### Features
+
+-   ✨ tooltips delay ([6f54d08](https://github.com/atlasgroupcz/react-atlantic/commit/6f54d08bdaec7540b8619ad0e488b41b6875a545))
+
+## [1.6.3](https://github.com/atlasgroupcz/react-atlantic/compare/1.6.2...v1.6.3) (2020-12-01)
 
 ## [1.6.2](https://github.com/atlasgroupcz/react-atlantic/compare/1.6.1...v1.6.2) (2020-12-01)
 
