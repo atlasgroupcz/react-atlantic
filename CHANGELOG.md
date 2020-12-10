@@ -1,4 +1,9 @@
-## [1.6.4](https://github.com/atlasgroupcz/react-atlantic/compare/1.6.3...1.6.4) (2020-12-07)
+## [1.6.5](https://github.com/atlasgroupcz/react-atlantic/compare/1.6.3...1.6.5) (2020-12-10)
+
+### Bug Fixes
+
+-   🐛 exclude isTransparent from Message ([b634234](https://github.com/atlasgroupcz/react-atlantic/commit/b63423418d102ee8edc7f46d09ba58e82514b3a9))
+-   🐛 exclude isTransparent in MessageIcon ([57958eb](https://github.com/atlasgroupcz/react-atlantic/commit/57958eba01df9f7e8bb0a160f967d2d7cdf48698))
 
 ### Features
 
