@@ -29,6 +29,10 @@ stories.add(
         const isDisabled = boolean(`isDisabled:`, defaultValues.isDisabled);
         const isFullWidth = boolean(`isFullWidth:`, defaultValues.isFullWidth);
         const isRound = boolean(`isRound:`, defaultValues.isRound);
+        const isTransparent = boolean(
+            `isTransparent:`,
+            defaultValues.isTransparent
+        );
         const size: Size = select(
             `size:`,
             ['small', `medium`, 'large'],
@@ -47,6 +51,7 @@ stories.add(
                 isDisabled={isDisabled}
                 isFullWidth={isFullWidth}
                 isRound={isRound}
+                isTransparent={isTransparent}
                 size={size}
                 type={type}
                 onClick={onClick}
