@@ -1,9 +1,21 @@
 import styled, { css } from 'styled-components';
+import {
+    excludeComponentProps,
+    excludeIntrinsicElementProps,
+} from '../../../utils/excludeProps';
 import { Icon } from '../../Icon';
 import { StyledText } from '../../Typography/Text/Text.style';
 import { StyledMessageProps } from '../types/StyledMessageProps';
 
-export const StyledMessageContainer = styled.div<StyledMessageProps>`
+const intrinsicElementExclude = excludeIntrinsicElementProps<
+    StyledMessageProps
+>();
+
+const componentExclude = excludeComponentProps<StyledMessageProps>();
+
+export const StyledMessageContainer = styled(
+    intrinsicElementExclude('div', ['isTransparent'])
+)<StyledMessageProps>`
     display: inline-flex;
     align-items: center;
     padding: ${(props) => props.theme.padding.md};
@@ -61,7 +73,9 @@ export const StyledMessageContainer = styled.div<StyledMessageProps>`
             }
         `}
 `;
-export const StyledMessageIcon = styled(Icon)<StyledMessageProps>`
+export const StyledMessageIcon = styled(
+    componentExclude(Icon, ['isTransparent'])
+)<StyledMessageProps>`
     margin-right: ${(props) => props.theme.padding.md};
 
     ${(props) =>

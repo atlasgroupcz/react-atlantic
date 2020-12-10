@@ -8,6 +8,7 @@ export const defaultValues = {
     isChecked: false,
     isDefaultChecked: false,
     isDisabled: false,
+    isTransparent: false,
     isPartiallyChecked: false,
     isFullWidth: false,
     isRound: false,
