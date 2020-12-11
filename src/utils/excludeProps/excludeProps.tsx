@@ -24,14 +24,17 @@ export const excludeComponentProps = <R extends {} = {}>() => <
 
 export const excludeIntrinsicElementProps = <R extends {} = {}>() => <
     T extends keyof JSX.IntrinsicElements,
+    A extends FC<any>,
     E extends ReadonlyArray<keyof JSX.IntrinsicElements[T] | keyof R>
 >(
     element: T,
     excludeArr: E
-): FC<ComponentPropsWithoutRef<T> & R> =>
-    memo(({ children, ...props }) => {
+): FC<
+    ComponentPropsWithoutRef<T> & R & { as?: keyof JSX.IntrinsicElements | A }
+> =>
+    memo(({ children, as, ...props }) => {
         return createElement(
-            element,
+            as ?? element,
             removeProperties(props, excludeArr as any),
             children
         );
