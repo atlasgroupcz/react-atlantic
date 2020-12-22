@@ -1,6 +1,9 @@
 import React, { FC, useMemo } from 'react';
 import { ProgressBarProps } from '../../types';
-import { getProgressFillType } from '../../utils/getProgressFillType';
+import {
+    interpolateTransition,
+    useDefaultInterpolateTransitionValues,
+} from '../../utils';
 import {
     StyledProgressBar,
     StyledProgressBarFill,
@@ -10,13 +13,21 @@ import {
 
 export type ProgressBarType = FC<ProgressBarProps>;
 
-export const ProgressBar: ProgressBarType = ({ value, ...props }) => {
-    const fillType = useMemo(() => getProgressFillType(value), [value]);
+export const ProgressBar: ProgressBarType = ({
+    value,
+    transitionColors,
+    ...props
+}) => {
+    const defaultColors = useDefaultInterpolateTransitionValues();
+    const color = useMemo(
+        () => interpolateTransition(value, transitionColors || defaultColors),
+        [defaultColors, transitionColors, value]
+    );
     return (
         <StyledProgressBar {...props}>
             <StyledProgressBarLine>
                 <StyledProgressBarFillContainer progress={value}>
-                    <StyledProgressBarFill type={fillType} />
+                    <StyledProgressBarFill color={color} />
                 </StyledProgressBarFillContainer>
             </StyledProgressBarLine>
         </StyledProgressBar>

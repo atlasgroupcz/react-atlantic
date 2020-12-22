@@ -1,8 +1,7 @@
 import styled, { keyframes, css } from 'styled-components';
-import { Type } from '../../../../../types';
 
 interface StyledProgressBarProps {
-    type?: Type;
+    color?: string;
     progress?: Readonly<number>;
 }
 
@@ -55,27 +54,9 @@ export const StyledProgressBarFill = styled.span<StyledProgressBarProps>`
     transition: background-color 0.5s;
     animation: ${animationFill} 0.5s cubic-bezier(0.79, 0.14, 0.15, 0.86);
 
-    ${(props) =>
-        props.type === 'primary' &&
+    ${({ color }) =>
+        color &&
         css`
-            background-color: ${props.theme.color.primary.alpha};
-        `}
-
-    ${(props) =>
-        props.type === 'success' &&
-        css`
-            background-color: ${props.theme.color.success.alpha};
-        `}
-		
-	${(props) =>
-        props.type === 'warning' &&
-        css`
-            background-color: ${props.theme.color.warning.alpha};
-        `}
-		
-	${(props) =>
-        props.type === 'error' &&
-        css`
-            background-color: ${props.theme.color.error.alpha};
+            background-color: ${color};
         `}
 `;

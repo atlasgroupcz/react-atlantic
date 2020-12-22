@@ -1,6 +1,10 @@
 import React, { FC, useMemo } from 'react';
+
 import { ProgressCirleProps } from '../../types';
-import { getProgressFillType } from '../../utils/getProgressFillType';
+import {
+    interpolateTransition,
+    useDefaultInterpolateTransitionValues,
+} from '../../utils';
 import {
     StyledProgressCircle,
     StyledProgressCircleSVG,
@@ -14,10 +18,15 @@ export type ProgressCircleType = FC<ProgressCirleProps>;
 
 export const ProgressCircle: ProgressCircleType = ({
     value,
+    transitionColors,
     circleSize = 100,
     ...props
 }) => {
-    const fillType = useMemo(() => getProgressFillType(value), [value]);
+    const defaultColors = useDefaultInterpolateTransitionValues();
+    const color = useMemo(
+        () => interpolateTransition(value, transitionColors || defaultColors),
+        [defaultColors, transitionColors, value]
+    );
 
     const strokeWidth = 3;
     const center = circleSize / 2;
@@ -26,7 +35,7 @@ export const ProgressCircle: ProgressCircleType = ({
     const currentDashOffset = totalDashOffset - value * (totalDashOffset / 100);
 
     return (
-        <StyledProgressCircle circleSize={circleSize} {...props}>
+        <StyledProgressCircle color={color} circleSize={circleSize} {...props}>
             <StyledProgressCircleSVG>
                 <StyledProgressCircleSVGBackground
                     cx={center}
@@ -40,13 +49,13 @@ export const ProgressCircle: ProgressCircleType = ({
                     cy={center}
                     r={radius}
                     fill="none"
-                    type={fillType}
+                    color={color}
                     strokeWidth={strokeWidth}
                     dashOffset={currentDashOffset}
                     dashArray={totalDashOffset}
                 />
             </StyledProgressCircleSVG>
-            <StyledProgressCircleTextContainer type={fillType}>
+            <StyledProgressCircleTextContainer color={color}>
                 <StyledProgressCircleText key={value}>
                     {`${value}%`}
                 </StyledProgressCircleText>

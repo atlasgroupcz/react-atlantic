@@ -1,1 +1,1 @@
-export * from './getProgressFillType';
+export * from './interpolateTransition';
