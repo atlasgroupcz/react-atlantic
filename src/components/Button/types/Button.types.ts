@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import {
     CommonHTMLProps,
     MouseEvents,
@@ -23,4 +24,8 @@ export type ButtonProps = {
 } & CommonHTMLProps<HTMLButtonElement> &
     MouseEvents<HTMLButtonElement> &
     SizeWithDocs &
-    ButtonTypeWithDocs & { htmlType?: JSX.IntrinsicElements['button']['type'] };
+    ButtonTypeWithDocs & {
+        htmlType?: JSX.IntrinsicElements['button']['type'];
+    } & {
+        as?: keyof JSX.IntrinsicElements | FC<any>;
+    };
