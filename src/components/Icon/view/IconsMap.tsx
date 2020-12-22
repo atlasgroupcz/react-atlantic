@@ -156,6 +156,7 @@ export const IconsMap = {
     folderPlusSolid: <Icons.FolderPlusSolid />,
     searchNoResults: <Icons.SearchNoResults />,
     userTimes: <Icons.UserTimes />,
+    lockAltSolid: <Icons.LockAltSolid />,
 };
 
 export type IconName = keyof typeof IconsMap;
