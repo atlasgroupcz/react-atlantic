@@ -9,7 +9,7 @@ export type StyledPanelProps = {};
 //     FocusEvents<HTMLDivElement> &
 //     MouseEvents<HTMLDivElement>;
 
-export type ControllerPanelProps = CommonHTMLProps<HTMLDivElement> & {
+export type ControllerPanelProps = CommonHTMLProps<HTMLLIElement> & {
     unique: ReactText;
     header: ReactNode;
     isDisabled?: boolean;

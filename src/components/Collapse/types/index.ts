@@ -8,7 +8,7 @@ export * from './CollapseIconFactoryType';
 export type StyledCollapseProps = {};
 
 export type CollapseProps = PropsWithChildren<
-    CommonHTMLProps<HTMLDivElement> &
+    CommonHTMLProps<HTMLUListElement> &
         StyledCollapseProps &
         CollapseProviderProps & {
             expandIcon?: CollapseIconFactoryType;

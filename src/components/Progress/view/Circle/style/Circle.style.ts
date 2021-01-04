@@ -1,8 +1,8 @@
 import styled, { css } from 'styled-components';
-import { Type } from '../../../../../types';
+import { excludeIntrinsicElementProps } from '../../../../../utils/excludeProps';
 
 interface StyledSVGCircleProps {
-    type?: Type;
+    color?: string;
     dashOffset?: number;
     strokeWidth?: number;
     dashArray?: number;
@@ -10,33 +10,50 @@ interface StyledSVGCircleProps {
 
 interface StyledProgressCircleProps {
     circleSize?: number;
-    type?: Type;
-    key?: number;
+    color?: string;
 }
 
-export const StyledProgressCircle = styled.div<StyledProgressCircleProps>`
+const excludeProgressCircle = excludeIntrinsicElementProps<
+    StyledProgressCircleProps
+>();
+const circleExcludeArr: (keyof StyledProgressCircleProps)[] = [
+    'color',
+    'circleSize',
+];
+
+const excludeSVGCircle = excludeIntrinsicElementProps<StyledSVGCircleProps>();
+const svgExcludeArr: (keyof StyledSVGCircleProps)[] = [
+    'color',
+    'dashOffset',
+    'strokeWidth',
+    'dashArray',
+];
+
+export const StyledProgressCircle = styled(
+    excludeProgressCircle('div', circleExcludeArr)
+)`
     height: ${(props) => props.circleSize}px;
     width: ${(props) => props.circleSize}px;
     position: relative;
 `;
 
-export const StyledProgressCircleSVG = styled.svg<StyledSVGCircleProps>`
+export const StyledProgressCircleSVG = styled.svg`
     height: 100%;
     width: 100%;
     display: block;
     max-width: 100%;
 `;
 
-export const StyledProgressCircleSVGBackground = styled.circle<
-    StyledSVGCircleProps
->`
+export const StyledProgressCircleSVGBackground = styled(
+    excludeSVGCircle('circle', svgExcludeArr)
+)`
     stroke: ${(props) => props.theme.color.border};
     stroke-width: ${(props) => props.strokeWidth};
 `;
 
-export const StyledProgressCircleSVGColorful = styled.circle<
-    StyledSVGCircleProps
->`
+export const StyledProgressCircleSVGColorful = styled(
+    excludeSVGCircle('circle', svgExcludeArr)
+)`
     stroke-width: ${(props) => props.strokeWidth};
     stroke-dasharray: ${(props) => props.dashArray};
     stroke-dashoffset: ${(props) => props.dashOffset};
@@ -44,32 +61,14 @@ export const StyledProgressCircleSVGColorful = styled.circle<
     transform: rotate(-90deg);
     transition: stroke 1s ease, stroke-dashoffset 1s ease;
 
-    ${(props) =>
-        props.type === 'error' &&
+    ${({ color }) =>
+        color &&
         css`
-            stroke: ${props.theme.color.error.alpha};
-        `}
-
-    ${(props) =>
-        props.type === 'warning' &&
-        css`
-            stroke: ${props.theme.color.warning.alpha};
-        `}
-
-    ${(props) =>
-        props.type === 'primary' &&
-        css`
-            stroke: ${props.theme.color.primary.alpha};
-        `}
-        
-    ${(props) =>
-        props.type === 'success' &&
-        css`
-            stroke: ${props.theme.color.success.alpha};
+            stroke: ${color};
         `}
 `;
 
-export const StyledProgressCircleText = styled.span<StyledProgressCircleProps>`
+export const StyledProgressCircleText = styled.span`
     font-family: ${(props) => props.theme.font.family};
     font-size: 26px;
     font-weight: 700;
@@ -79,32 +78,14 @@ export const StyledProgressCircleText = styled.span<StyledProgressCircleProps>`
     transform: translateX(-50%) translateY(-50%);
 `;
 
-export const StyledProgressCircleTextContainer = styled.div<
-    StyledProgressCircleProps
->`
+export const StyledProgressCircleTextContainer = styled(
+    excludeProgressCircle('div', circleExcludeArr)
+)`
     transition: color 1s ease;
 
-    ${(props) =>
-        props.type === 'error' &&
+    ${({ color }) =>
+        color &&
         css`
-            color: ${props.theme.color.error.alpha};
-        `}
-
-    ${(props) =>
-        props.type === 'warning' &&
-        css`
-            color: ${props.theme.color.warning.alpha};
-        `}
-
-    ${(props) =>
-        props.type === 'primary' &&
-        css`
-            color: ${props.theme.color.primary.alpha};
-        `}
-
-    ${(props) =>
-        props.type === 'success' &&
-        css`
-            color: ${props.theme.color.success.alpha};
+            background-color: ${color};
         `}
 `;

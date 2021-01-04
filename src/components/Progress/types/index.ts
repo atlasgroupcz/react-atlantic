@@ -2,6 +2,7 @@ import { CommonHTMLProps, MouseEvents } from '../../../types';
 
 export type ProgressProps = {
     value: number;
+    transitionColors?: string[];
 } & CommonHTMLProps<HTMLDivElement> &
     MouseEvents<HTMLDivElement>;
 

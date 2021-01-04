@@ -26,6 +26,11 @@ export const StyledReactDatePickerContainer = styled.div<{
 
         &[data-placement^='bottom'] .react-datepicker__triangle {
             border-bottom-color: ${(props) => props.theme.color.primary.alpha};
+
+            &:before {
+                border-bottom-color: ${(props) =>
+                    props.theme.color.primary.alpha};
+            }
         }
 
         &[data-placement^='top'] .react-datepicker__triangle {

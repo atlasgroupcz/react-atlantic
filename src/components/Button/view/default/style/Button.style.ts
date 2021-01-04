@@ -3,7 +3,7 @@ import { StyledIcon } from '../../../../Icon/view/style/Icon.style';
 import { ButtonProps, ButtonStyleType } from '../../../types';
 import { StyledText } from '../../../../Typography/Text/Text.style';
 import { styled } from '../../../../../styled';
-import { excludeComponentProps } from '../../../../../utils/excludeProps';
+import { excludeIntrinsicElementProps } from '../../../../../utils/excludeProps';
 import { FC } from 'react';
 import { Size } from '../../../../../types';
 
@@ -20,7 +20,9 @@ const buttonTypePropKeys: (keyof StyledButtonProps)[] = [
     'size',
     'atlanticType',
 ];
-const buttonComponentExclude = excludeComponentProps<StyledButtonProps>();
+const buttonIntrinsicElementExclude = excludeIntrinsicElementProps<
+    StyledButtonProps
+>();
 
 const focusAnimation = keyframes`
     0%    {
@@ -222,13 +224,10 @@ export const getButtonFullWidthStyles = (isFullWidth: boolean) => css`
     `}
 `;
 
-const DefaultButton = styled.button`
-    ${getDefaultButtonStyles()}
-`;
-
 export const StyledButton = styled(
-    buttonComponentExclude(DefaultButton, buttonTypePropKeys)
-)<StyledButtonProps>`
+    buttonIntrinsicElementExclude('button', buttonTypePropKeys)
+)`
+    ${getDefaultButtonStyles()};
     ${(props) =>
         !props.isDisabled &&
         props.isTransparent &&
