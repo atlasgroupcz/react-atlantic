@@ -1,5 +1,4 @@
 import React from 'react';
-import { wrapCurried_DEPRECATED } from '../../../src/utils/wrapCurried_DEPRECATED';
 import { mockPropsCheckTest, toBeDefinedTest, mountTest } from '../../shared';
 
 import { mountWithTheme } from '../../utils';
@@ -8,7 +7,9 @@ import {
     CollapseProps,
     CollapseIconFactoryType,
     useCollapseUnique,
-} from '../../../src/components/Collapse';
+    wrap,
+} from '../../../src';
+import { StyledPanelHeader } from '../../../src/components/Collapse/Panel/style';
 
 const mockCollapseProps: CollapseProps = {
     activeUnique: [1, 2],
@@ -55,7 +56,7 @@ describe('Collapse - view', () => {
     });
 
     it(`it should not have icon`, () => {
-        const expandIcon: CollapseIconFactoryType = (props) => null;
+        const expandIcon: CollapseIconFactoryType = () => null;
 
         const wrapper = mountWithTheme(
             <Collapse {...mockCollapseProps} expandIcon={expandIcon}>
@@ -67,7 +68,7 @@ describe('Collapse - view', () => {
             </Collapse>
         );
 
-        const panel = wrapper.find(`.${firstPanelClassName} div div`).at(0);
+        const panel = wrapper.find(StyledPanelHeader).at(0);
         const panelChildrenLength = panel.children().length;
 
         const expectedChildrenLength = 1;
@@ -79,7 +80,7 @@ describe('Collapse - useCollapseUnique', () => {
     const firstPanelClassName = 'custom-tmp-1';
     const secondPanelClassName = 'custom-tmp-2';
 
-    const CollapseChildren = (
+    const children = (
         <>
             <Collapse.Panel
                 header="header"
@@ -94,28 +95,17 @@ describe('Collapse - useCollapseUnique', () => {
         </>
     );
 
-    const HoCWithoutAccordion = wrapCurried_DEPRECATED(Collapse)(
-        useCollapseUnique,
-        CollapseChildren
-    );
+    const TestCollapse = wrap(Collapse, useCollapseUnique);
 
-    const HoCWithAccordion = wrapCurried_DEPRECATED(Collapse)(
-        [useCollapseUnique, { isAccordion: true }],
-        CollapseChildren
-    );
-
-    toBeDefinedTest(HoCWithoutAccordion);
-    mountTest(HoCWithoutAccordion);
-
-    const firstPanelSelector = `.${firstPanelClassName} div div`;
-    const secondPanelSelector = `.${secondPanelClassName} div div`;
+    toBeDefinedTest(TestCollapse);
+    mountTest(TestCollapse);
 
     it('should be expanded as collapse logic', () => {
         const expectedActiveUnique = ['1', '2'];
-        const wrapper = mountWithTheme(<HoCWithoutAccordion />);
+        const wrapper = mountWithTheme(<TestCollapse>{children}</TestCollapse>);
         expect(wrapper.find(Collapse).exists()).toBe(true);
-        wrapper.find(Collapse).find(firstPanelSelector).simulate('click');
-        wrapper.find(Collapse).find(secondPanelSelector).simulate('click');
+        wrapper.find(Collapse).find(StyledPanelHeader).at(0).simulate('click');
+        wrapper.find(Collapse).find(StyledPanelHeader).at(1).simulate('click');
 
         expect(wrapper.find(Collapse).props().activeUnique).toEqual(
             expectedActiveUnique
@@ -124,10 +114,12 @@ describe('Collapse - useCollapseUnique', () => {
 
     it('should be expanded as accordion logic', () => {
         const expectedActiveUnique = '2';
-        const wrapper = mountWithTheme(<HoCWithAccordion />);
+        const wrapper = mountWithTheme(
+            <TestCollapse isAccordion>{children}</TestCollapse>
+        );
         expect(wrapper.find(Collapse).exists()).toBe(true);
-        wrapper.find(Collapse).find(firstPanelSelector).simulate('click');
-        wrapper.find(Collapse).find(secondPanelSelector).simulate('click');
+        wrapper.find(Collapse).find(StyledPanelHeader).at(0).simulate('click');
+        wrapper.find(Collapse).find(StyledPanelHeader).at(1).simulate('click');
 
         expect(wrapper.find(Collapse).props().activeUnique).toEqual(
             expectedActiveUnique
@@ -137,11 +129,11 @@ describe('Collapse - useCollapseUnique', () => {
     it('hoc should be affected as not accordion logic', () => {
         const expectedActiveUnique = '2';
         const wrapper = mountWithTheme(
-            <HoCWithAccordion isAccordion={false} />
+            <TestCollapse isAccordion={false}>{children}</TestCollapse>
         );
         expect(wrapper.find(Collapse).exists()).toBe(true);
-        wrapper.find(Collapse).find(firstPanelSelector).simulate('click');
-        wrapper.find(Collapse).find(secondPanelSelector).simulate('click');
+        wrapper.find(Collapse).find(StyledPanelHeader).at(0).simulate('click');
+        wrapper.find(Collapse).find(StyledPanelHeader).at(1).simulate('click');
 
         expect(wrapper.find(Collapse).props().activeUnique).not.toEqual(
             expectedActiveUnique
