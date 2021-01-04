@@ -8,36 +8,28 @@ import {
 } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import { Collapse, useCollapseUnique, CollapseProps } from '../src';
-import { wrapCurried_DEPRECATED } from '../src/utils';
-import { StoryFnReactReturnType } from '@storybook/react/dist/client/preview/types';
+import { wrap } from '../src/utils';
 
 const stories = storiesOf('Collapse', module);
 
 stories.addDecorator(withKnobs);
 
+const StoryCollapse = wrap(Collapse, useCollapseUnique);
 stories.add(
     'Overview',
-    () =>
-        wrapCurried_DEPRECATED(Collapse)(
-            [
-                useCollapseUnique,
-                {
-                    defaultActiveUnique: ['1', '2'],
-                    isAccordion: false,
-                },
-            ],
-            <>
-                <Collapse.Panel header={'level1 - 2'} unique="1">
-                    <p>prdel 1</p>
-                </Collapse.Panel>
-                <Collapse.Panel header="level1 - 2" unique="2">
-                    <p>prdel 2</p>
-                </Collapse.Panel>
-                <Collapse.Panel header="level1 - 3" unique="3">
-                    <p>prdel 3</p>
-                </Collapse.Panel>
-            </>
-        )() as StoryFnReactReturnType,
+    () => (
+        <StoryCollapse>
+            <Collapse.Panel header={'level1 - 2'} unique="1">
+                <p>panel 1</p>
+            </Collapse.Panel>
+            <Collapse.Panel header="level1 - 2" unique="2">
+                <p>panel 2</p>
+            </Collapse.Panel>
+            <Collapse.Panel header="level1 - 3" unique="3">
+                <p>panel 3</p>
+            </Collapse.Panel>
+        </StoryCollapse>
+    ),
     {
         info: { inline: true },
     }
@@ -85,7 +77,7 @@ const renderPanels = (disabledPanelIndex: number, numberOfPanels: number) => {
                 header={`level 1 - ${index}`}
                 unique={`${index}`}
             >
-                <p>PRDEL number : {index}</p>
+                <p>Panel number : {index}</p>
             </Collapse.Panel>
         ));
 };
