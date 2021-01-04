@@ -1,7 +1,10 @@
 import { styled } from '../../../../styled';
 import { StyledIcon } from '../../../Icon';
 
-export const StyledPanel = styled.div``;
+export const StyledPanel = styled.li`
+    list-style-type: none;
+`;
+
 export const StyledPanelContent = styled.div``;
 export const StyledPanelHeader = styled.div`
     display: flex;
