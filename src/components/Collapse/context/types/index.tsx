@@ -2,6 +2,7 @@ import React, { PropsWithChildren, ReactText } from 'react';
 import { CollapseIconFactoryType } from '../../types/CollapseIconFactoryType';
 import { Icon } from '../../../Icon';
 import { HorizontalPosition } from '../../../../types';
+import { StyledCollapseIconContainer } from '../../style';
 
 export type CollapseProviderProps = {
     activeUnique: string[] | number[] | ReactText;
@@ -29,7 +30,9 @@ export const defaultCollapseContextState: CollapseContextState = {
     activeUnique: 1,
     onClick: () => null,
     expandIcon: (props) => (
-        <Icon name={props.isActive ? 'arrowDown' : 'arrowRight'} />
+        <StyledCollapseIconContainer>
+            <Icon name={props.isActive ? 'arrowDown' : 'arrowRight'} />
+        </StyledCollapseIconContainer>
     ),
     expandIconPosition: 'left',
 };
