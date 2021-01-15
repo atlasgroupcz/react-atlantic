@@ -15,7 +15,7 @@ type StyledTimelineProps = PropsWithChildren<
     }
 >;
 
-const circleSize = `15px`;
+const circleSize = `14px`;
 const itemVerticalGap = `5px`;
 
 export const StyledTimelineItemCircle = styled.div<StyledTimelineCircleProps>`
@@ -25,7 +25,7 @@ export const StyledTimelineItemCircle = styled.div<StyledTimelineCircleProps>`
     z-index: 1;
     cursor: pointer;
     border-radius: 50%;
-    border: 2px solid ${(props) => props.theme.color.text.beta};
+    border: 2px solid ${(props) => props.theme.color.border};
     background-color: ${(props) => props.theme.color.background.alpha};
 `;
 
