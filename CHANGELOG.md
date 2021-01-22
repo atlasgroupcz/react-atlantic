@@ -1,3 +1,5 @@
+## [1.6.7](https://github.com/atlasgroupcz/react-atlantic/compare/1.6.6...1.6.7) (2021-01-22)
+
 ## [1.6.6](https://github.com/atlasgroupcz/react-atlantic/compare/1.6.4...1.6.6) (2021-01-04)
 
 ### Bug Fixes
