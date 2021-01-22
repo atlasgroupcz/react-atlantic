@@ -46,6 +46,7 @@ export const TimelineItem: TimelineItemType = forwardRef(
                 )}
             </StyledTimelineItemContentContainer>
         );
+
         const ChildrenContent = children && (
             <StyledTimelineItemContentContainer>
                 <StyledTimelineItemContent>

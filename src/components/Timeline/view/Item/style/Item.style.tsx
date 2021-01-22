@@ -2,6 +2,7 @@ import React, { forwardRef, PropsWithChildren } from 'react';
 import { Type, MouseEvents } from '../../../../../types';
 import { styled } from '../../../../../styled';
 import { TimelineItemProps } from '../Item.types';
+import { StyledIcon } from '../../../../Icon';
 
 export interface StyledTimelineCircleProps {
     isActive?: Readonly<boolean>;
@@ -15,7 +16,7 @@ type StyledTimelineProps = PropsWithChildren<
     }
 >;
 
-const circleSize = `15px`;
+const circleSize = `14px`;
 const itemVerticalGap = `5px`;
 
 export const StyledTimelineItemCircle = styled.div<StyledTimelineCircleProps>`
@@ -25,7 +26,7 @@ export const StyledTimelineItemCircle = styled.div<StyledTimelineCircleProps>`
     z-index: 1;
     cursor: pointer;
     border-radius: 50%;
-    border: 2px solid ${(props) => props.theme.color.text.beta};
+    border: 2px solid ${(props) => props.theme.color.border};
     background-color: ${(props) => props.theme.color.background.alpha};
 `;
 
@@ -45,7 +46,11 @@ export const StyledTimelineItemCircleContainer = styled.div`
         bottom: 0;
         left: 50%;
         transform: translateX(-1px);
-        border-left: 1px solid ${(props) => props.theme.color.border};
+        border-left: 2px solid ${(props) => props.theme.color.border};
+    }
+
+    ${StyledIcon} {
+        z-index: 1;
     }
 `;
 

@@ -1,6 +1,6 @@
 {
     "name": "@atlasgroup/react-atlantic",
-    "version": "1.6.6",
+    "version": "1.6.7",
     "homepage": "https://atlasgroupcz.github.io/react-atlantic",
     "private": false,
     "main": "lib/index.js",
@@ -38,7 +38,7 @@
         "predeploy": "yarn build:storybook",
         "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md",
         "changelog:all": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
-        "version": "yarn changelog:all && git stage CHANGELOG.md",
+        "version": "yarn changelog && git stage CHANGELOG.md",
         "depsTree": "dpdm src --ext \".ts,.tsx,.json\"",
         "validateDepsTree": "node scripts/validateDependencyTree.js"
     },
