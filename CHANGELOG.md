@@ -1,3 +1,9 @@
+## [1.6.8](https://github.com/atlasgroupcz/react-atlantic/compare/1.6.7...1.6.8) (2021-01-27)
+
+### Bug Fixes
+
+-   **device:** 🐛 handlers ([426aaf8](https://github.com/atlasgroupcz/react-atlantic/commit/426aaf8bafbcbbb21177daf7fe9a41d5031b9fb1))
+
 ## [1.6.7](https://github.com/atlasgroupcz/react-atlantic/compare/1.6.6...1.6.7) (2021-01-22)
 
 ## [1.6.6](https://github.com/atlasgroupcz/react-atlantic/compare/1.6.4...1.6.6) (2021-01-04)
