@@ -10,7 +10,6 @@ import ReactDatePicker, { registerLocale } from 'react-datepicker';
 import { Input } from '../../Input';
 import { Icon } from '../../Icon';
 import { StyledReactDatePickerContainer } from './style';
-import 'react-datepicker/dist/react-datepicker.css';
 import { DatePickerHeader } from '../Header';
 
 registerLocale('cs', cs);

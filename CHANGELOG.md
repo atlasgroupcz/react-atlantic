@@ -1,3 +1,9 @@
+## [1.6.9](https://github.com/atlasgroupcz/react-atlantic/compare/1.6.8...1.6.9) (2021-01-27)
+
+### Bug Fixes
+
+-   **date-picker:** 🐛 global css ([4f2e470](https://github.com/atlasgroupcz/react-atlantic/commit/4f2e4707ba51348616efa1bdb3af2c0fef83927d))
+
 ## [1.6.8](https://github.com/atlasgroupcz/react-atlantic/compare/1.6.7...1.6.8) (2021-01-27)
 
 ### Bug Fixes
