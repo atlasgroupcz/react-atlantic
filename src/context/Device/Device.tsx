@@ -119,11 +119,13 @@ export const DeviceProvider: FC<Readonly<
 
     useEffect(() => {
         if (window) {
-            window.onresize = debounce(onResize, 50);
+            const resizeCallback = debounce(onResize, 50);
+
+            window.addEventListener('resize', resizeCallback);
             onResize();
 
             return () => {
-                window.onresize = null;
+                window.removeEventListener('resize', resizeCallback);
             };
         }
 
