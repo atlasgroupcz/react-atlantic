@@ -1,7 +1,5 @@
 import styled, { css } from 'styled-components';
 import { excludeComponentProps } from '../../../../../utils/excludeProps';
-import { StyledIcon } from '../../../../Icon';
-import { StyledText } from '../../../../Typography/Text/Text.style';
 import { SimpleButtonProps } from '../../../types';
 import { Button } from '../../default';
 
@@ -83,21 +81,6 @@ export const StyledSimpleButton = styled(
                                 border: 1px dashed ${props.theme.color.border};
                             `
                           : ``}
-                  `
-                : ``}
-
-        ${({ isDisabled }) =>
-            isDisabled
-                ? css`
-                      background: transparent;
-
-                      &:hover {
-                          background: transparent;
-                      }
-
-                      ${StyledText}, ${StyledIcon} {
-                          opacity: 0.6;
-                      }
                   `
                 : ``}
     }

@@ -255,12 +255,24 @@ export const StyledButton = styled(
             props.isTransparent as boolean
         )}
     
-    ${(props) =>
-        getButtonRoundStyles(props.isRound as boolean)}
+    ${(props) => getButtonRoundStyles(props.isRound as boolean)}
     
-    ${(props) =>
-        getButtonSizeStyles(props.size as Size)}
+    ${(props) => getButtonSizeStyles(props.size as Size)}
     
-    ${(props) =>
-        getButtonFullWidthStyles(props.isFullWidth as boolean)}
+    ${(props) => getButtonFullWidthStyles(props.isFullWidth as boolean)}
+
+    ${({ isDisabled }) =>
+        isDisabled
+            ? css`
+                  background: transparent;
+
+                  &:hover {
+                      background: transparent;
+                  }
+
+                  ${StyledText}, ${StyledIcon} {
+                      opacity: 0.6;
+                  }
+              `
+            : ``}
 ` as StyledComponent<FC<StyledButtonProps>, {}>;
