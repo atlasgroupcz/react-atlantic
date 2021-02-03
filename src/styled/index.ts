@@ -5,12 +5,14 @@ import styledStyled, {
     createGlobalStyle as styledCreateGlobalStyle,
     ThemedCssFunction,
     useTheme as useStyledTheme,
+    ServerStyleSheet as StyledServerStyleSheet,
 } from 'styled-components';
 import { ThemeType } from '../theme';
 
 export const css = styledCss as ThemedCssFunction<ThemeType>;
 export const createGlobalStyle = styledCreateGlobalStyle;
 export const keyframes = styledKeyframes;
+export const ServerStyleSheet = StyledServerStyleSheet;
 export const styled = styledStyled as ThemedStyledInterface<ThemeType>;
 export const createStyled = <T extends {}>() =>
     styledStyled as ThemedStyledInterface<T>;
