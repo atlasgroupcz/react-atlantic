@@ -265,6 +265,7 @@ export const StyledButton = styled(
         isDisabled
             ? css`
                   background: transparent;
+                  border-color: transparent;
 
                   &:hover {
                       background: transparent;
