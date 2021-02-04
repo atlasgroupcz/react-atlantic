@@ -157,6 +157,7 @@ export const IconsMap = {
     searchNoResults: <Icons.SearchNoResults />,
     userTimes: <Icons.UserTimes />,
     lockAltSolid: <Icons.LockAltSolid />,
+    dragAndDrop: <Icons.DragAndDrop />,
 };
 
 export type IconName = keyof typeof IconsMap;
