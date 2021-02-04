@@ -16,3 +16,12 @@ export const excludeProps = <R extends {}>() => <
             children
         );
     });
+
+/**
+ * @deprecated
+ */
+export const excludeIntrinsicElementProps = excludeProps;
+/**
+ * @deprecated
+ */
+export const excludeComponentProps = excludeProps;
