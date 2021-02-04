@@ -264,15 +264,14 @@ export const StyledButton = styled(
     ${({ isDisabled }) =>
         isDisabled
             ? css`
-                  background: transparent;
-                  border-color: transparent;
+                  background: ${(props) => props.theme.color.background.gamma};
+                  border-color: 1px solid ${(props) => props.theme.color.border};
+                  opacity: 0.5;
+                  cursor: not-allowed;
 
                   &:hover {
-                      background: transparent;
-                  }
-
-                  ${StyledText}, ${StyledIcon} {
-                      opacity: 0.6;
+                      background: ${(props) =>
+                          props.theme.color.background.gamma};
                   }
               `
             : ``}

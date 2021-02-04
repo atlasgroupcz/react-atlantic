@@ -14,6 +14,9 @@ stories.add(
     () => (
         <>
             <Button htmlType="submit">Prdel</Button>
+            <Button htmlType="submit" isDisabled>
+                Prdel
+            </Button>
             <PureButton htmlType="submit">Prdel</PureButton>
             <SimpleButton htmlType="submit">Prdel</SimpleButton>
             <Button as={'a'}>Odkaz</Button>
