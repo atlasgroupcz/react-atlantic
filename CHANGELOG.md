@@ -1,3 +1,15 @@
+# [1.7.0](https://github.com/atlasgroupcz/react-atlantic/compare/1.6.9...1.7.0) (2021-02-10)
+
+### Bug Fixes
+
+-   🐛 backwards compatibility ([a374e58](https://github.com/atlasgroupcz/react-atlantic/commit/a374e586b2f6e9c7ede56cc51c6272dafcae8acd))
+-   🐛 disabled button border ([7496294](https://github.com/atlasgroupcz/react-atlantic/commit/7496294a77cf441498d1ef5eaa71993e985f1635))
+
+### Features
+
+-   ✨ disabled Button ([76669d6](https://github.com/atlasgroupcz/react-atlantic/commit/76669d6ba9b6b035bddfcdde771491f8fb4d9170))
+-   ✨ server style sheet ([198c52a](https://github.com/atlasgroupcz/react-atlantic/commit/198c52ae83bdea496aa5d1703ee43e6c043323d5))
+
 ## [1.6.10](https://github.com/atlasgroupcz/react-atlantic/compare/1.6.8...1.6.10) (2021-02-01)
 
 ### Bug Fixes

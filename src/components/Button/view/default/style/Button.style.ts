@@ -224,6 +224,21 @@ export const getButtonFullWidthStyles = (isFullWidth: boolean) => css`
     `}
 `;
 
+export const getDisabledButtonStyles = (isDisabled: boolean) =>
+    css`
+        ${isDisabled &&
+        css`
+            background: ${(props) => props.theme.color.background.gamma};
+            border-color: 1px solid ${(props) => props.theme.color.border};
+            opacity: 0.5;
+            cursor: not-allowed;
+
+            &:hover {
+                background: ${(props) => props.theme.color.background.gamma};
+            }
+        `}
+    `;
+
 export const StyledButton = styled(
     buttonIntrinsicElementExclude('button', buttonTypePropKeys)
 )`
@@ -261,18 +276,5 @@ export const StyledButton = styled(
     
     ${(props) => getButtonFullWidthStyles(props.isFullWidth as boolean)}
 
-    ${({ isDisabled }) =>
-        isDisabled
-            ? css`
-                  background: transparent;
-
-                  &:hover {
-                      background: transparent;
-                  }
-
-                  ${StyledText}, ${StyledIcon} {
-                      opacity: 0.6;
-                  }
-              `
-            : ``}
+    ${(props) => getDisabledButtonStyles(props.isDisabled as boolean)}
 ` as StyledComponent<FC<StyledButtonProps>, {}>;
