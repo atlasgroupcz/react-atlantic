@@ -228,9 +228,10 @@ export const getDisabledButtonStyles = (isDisabled: boolean) =>
     css`
         ${isDisabled &&
         css`
-            background: ${(props) => props.theme.color.background.gamma};
-            border-color: 1px solid ${(props) => props.theme.color.border};
-            opacity: 0.5;
+            background-color: ${(props) => props.theme.color.background.gamma};
+            border: 1px solid ${(props) => props.theme.color.border};
+            color: ${(props) => props.theme.color.text.alpha};
+            opacity: 0.6;
             cursor: not-allowed;
 
             &:hover {
