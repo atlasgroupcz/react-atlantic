@@ -9,7 +9,6 @@ import {
     StyledCheckboxSpan,
 } from './style';
 import { useChain, useSpring, useTrail } from 'react-spring';
-import * as easings from 'd3-ease';
 import { CheckboxType } from '../../types';
 
 export const Checkbox: CheckboxType = ({
