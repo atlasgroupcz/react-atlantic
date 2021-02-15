@@ -23,7 +23,10 @@ export const Transfer = <T extends OptionType>({
             <div style={{ display: 'flex' }}>
                 <div>
                     <div>
-                        <Input {...inputProps} />
+                        <Input
+                            {...inputProps}
+                            suffix={<Icon name={`clear`} />}
+                        />
                     </div>
 
                     {isOpen && (

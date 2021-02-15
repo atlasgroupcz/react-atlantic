@@ -1,22 +1,29 @@
-import { PropsWithoutChildren } from '../../../types';
 import { OptionType } from '../../Select';
 import { InputProps } from '../../Input';
 import { ButtonProps } from '../../Button';
 import { PropsWithChildren } from 'react';
 
-export type ControllerTransferProps<T extends OptionType = OptionType> = {
+type SharedTransferProps<T extends OptionType = OptionType> = {
     options?: T[];
-    value?: T[];
     onOptionClick?: (option: T) => void;
+    label?: string;
+    isOpen?: boolean;
+
     inputProps?: InputProps;
     cancelButtonProps?: PropsWithChildren<ButtonProps>;
     submitButtonProps?: PropsWithChildren<ButtonProps>;
     clearButtonProps?: PropsWithChildren<ButtonProps>;
-    label?: string;
-    isOpen?: boolean;
+};
+
+export type ControllerTransferProps<
+    T extends OptionType = OptionType
+> = SharedTransferProps<T> & {
     defaultValue?: T[];
+    onSubmit?: (value: T[]) => void;
 };
 
 export type TransferProps<
     T extends OptionType = OptionType
-> = PropsWithoutChildren<Omit<ControllerTransferProps<T>, 'defaultValue'>>;
+> = SharedTransferProps<T> & {
+    value?: T[];
+};

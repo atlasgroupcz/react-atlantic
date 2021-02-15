@@ -17,12 +17,12 @@ stories.add(
             { label: 'Label 3', value: 'Value 3' },
         ];
 
-        const value = [options[0]];
+        const defaultValue = [options[0]];
 
         const transferProps = useTransfer({
             options,
-            submitButtonProps: { onClick: console.log },
-            value,
+            defaultValue,
+            onSubmit: console.log,
         });
 
         return <Transfer {...transferProps} />;

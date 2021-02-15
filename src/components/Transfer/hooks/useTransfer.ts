@@ -1,13 +1,16 @@
 import { InputProps, useInputChange } from '../../Input';
 import { ControllerTransferProps, TransferProps } from '../types';
 import { OptionType } from '../../Select';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { ButtonProps } from '../../Button';
 
-export const useTransfer = <T extends OptionType = OptionType>(
-    args: ControllerTransferProps<T>
-): TransferProps => {
+export const useTransfer = <T extends OptionType = OptionType>({
+    options,
+    defaultValue,
+    ...args
+}: ControllerTransferProps<T>): TransferProps<T> => {
     const inputProps = useInputChange({});
+
     const [isOpen, setOpen] = useState<boolean>(false);
 
     const onFocus: InputProps['onFocus'] = (e) => {
@@ -15,10 +18,11 @@ export const useTransfer = <T extends OptionType = OptionType>(
         inputProps.onFocus?.(e);
     };
 
-    const [_value, setValue] = useState<T[]>(args.value || []);
+    const [value, setValue] = useState<T[]>(defaultValue || []);
+    const lastValid = useRef<T[]>(value);
 
-    const options = sortOptions(
-        args.options?.filter((option) =>
+    const sortedOptions = sortOptions(
+        options?.filter((option) =>
             option.label
                 .toLowerCase()
                 .includes((inputProps.value as string)?.toLowerCase())
@@ -34,7 +38,7 @@ export const useTransfer = <T extends OptionType = OptionType>(
                 : [...prev, option]
         );
 
-    const resetToInitialState = () => setValue(args.value || []);
+    const resetToInitialState = () => setValue(lastValid.current);
 
     const onCancel: ButtonProps['onClick'] = (e) => {
         setOpen(false);
@@ -45,21 +49,23 @@ export const useTransfer = <T extends OptionType = OptionType>(
     const onSubmit: ButtonProps['onClick'] = (e) => {
         setOpen(false);
         args.submitButtonProps?.onClick?.(e);
+        args.onSubmit?.(value);
+        lastValid.current = value;
     };
 
     const onClear: ButtonProps['onClick'] = (e) => {
-        setOpen(false);
         setValue([]);
         args.clearButtonProps?.onClick?.(e);
     };
 
-    const value = sortOptions(_value);
+    const sortedValue = sortOptions(value);
+
     return {
-        options,
-        value,
+        options: sortedOptions,
+        value: sortedValue,
         onOptionClick,
         isOpen,
-        label: args.label || `selected: ${value.length} / ${options.length}`,
+        label: args.label || `Vybráno: ${value.length} z ${options?.length}`,
         inputProps: {
             placeholder: `Vyberte...`,
             ...inputProps,
@@ -83,7 +89,7 @@ export const useTransfer = <T extends OptionType = OptionType>(
     };
 };
 
-const sortOptions = (options: OptionType[]) =>
+const sortOptions = <T extends OptionType = OptionType>(options: T[]) =>
     options.sort((a, b) =>
         a.label.toString().localeCompare(b.label.toString())
     );
