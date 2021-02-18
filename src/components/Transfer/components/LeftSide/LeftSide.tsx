@@ -3,12 +3,12 @@ import {
     StyledTransferLeftSide,
     StyledTransferLeftSideNoResults,
 } from './styles';
-import { Input } from '../../../Input';
 import { Icon } from '../../../Icon/view';
 import { Checkbox } from '../../../Checkbox/view/alpha';
 import { OptionType } from '../../../Select/types';
 import { TransferProps } from '../../types';
 import { TransferList } from '../List';
+import { Input } from '../../../Input';
 
 // TODO: Fix onOptionClick type
 export type TransferLeftSideProps<T extends OptionType = OptionType> = {
@@ -17,7 +17,12 @@ export type TransferLeftSideProps<T extends OptionType = OptionType> = {
     onOptionClick: any;
 } & Pick<
     TransferProps,
-    'options' | 'value' | 'inputProps' | 'noResults' | 'size' | 'visibleRows'
+    | 'options'
+    | 'value'
+    | 'clearInputProps'
+    | 'noResults'
+    | 'size'
+    | 'visibleRows'
 >;
 
 export type TransferLeftSideType = FC<TransferLeftSideProps>;
@@ -28,13 +33,14 @@ export const TransferLeftSide: TransferLeftSideType = ({
     onOptionClick,
     options,
     value,
-    inputProps,
+    clearInputProps,
     noResults,
     size,
     visibleRows,
 }) => {
     const selectedOptionsSet = new Set(value?.map((option) => option.value));
-
+    const { onClick, ...rest } = clearInputProps as any;
+    console.log(`selectedOptionsSet`, selectedOptionsSet);
     return (
         <StyledTransferLeftSide
             isLeftSideOpen={isLeftSideOpen}
@@ -42,13 +48,15 @@ export const TransferLeftSide: TransferLeftSideType = ({
             size={size}
         >
             <Input
-                suffix={<Icon name={`clear`} />}
+                suffix={
+                    rest?.value && <Icon name={`clear`} onClick={onClick} />
+                }
                 isFullWidth
                 size={size}
-                {...inputProps}
+                {...rest}
             />
 
-            {isLeftSideOpen && (options?.length ?? 0) > 0 && (
+            {isLeftSideOpen && !!options?.length && (
                 <TransferList size={size} visibleRows={visibleRows}>
                     {options?.map((option) => (
                         <TransferList.Item

@@ -1,18 +1,19 @@
-import { InputProps, useInputChange } from '../../Input';
+import { InputProps, useInputClearable } from '../../Input';
 import { ControllerTransferProps, TransferProps } from '../types';
 import { OptionType } from '../../Select';
 import React, { useRef, useState } from 'react';
 import { ButtonProps } from '../../Button';
 import { Text } from '../../Typography/Text';
+import { useOutsideClick } from './useOutsideClick';
 
 export const useTransfer = <T extends OptionType = OptionType>({
     options,
     defaultValue,
     ...args
 }: ControllerTransferProps<T>): TransferProps<T> => {
-    const inputProps = useInputChange({});
-
+    const inputProps = useInputClearable({});
     const [isOpen, setOpen] = useState<boolean>(false);
+    const ref = useOutsideClick<HTMLDivElement>(() => setOpen(false));
 
     const onFocus: InputProps['onFocus'] = (e) => {
         setOpen(true);
@@ -67,6 +68,7 @@ export const useTransfer = <T extends OptionType = OptionType>({
         value: sortedValue,
         onOptionClick,
         isOpen,
+        ref,
         label: args.label || (
             <React.Fragment>
                 <Text>{`Vybráno: `}</Text>
@@ -77,7 +79,7 @@ export const useTransfer = <T extends OptionType = OptionType>({
             </React.Fragment>
         ),
         noResults: args.noResults || <Text>{`Nenalezeno...`}</Text>,
-        inputProps: {
+        clearInputProps: {
             placeholder: `Vyberte...`,
             ...inputProps,
             onFocus,

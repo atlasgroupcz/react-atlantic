@@ -1,8 +1,9 @@
 import { OptionType } from '../../Select';
 import { InputProps } from '../../Input';
 import { ButtonProps } from '../../Button';
-import { PropsWithChildren, ReactNode } from 'react';
+import { PropsWithChildren, PropsWithRef, ReactNode, RefObject } from 'react';
 import { Size } from '../../../types';
+import { IconProps } from '../../Icon';
 
 type SharedTransferProps<T extends OptionType = OptionType> = {
     options?: T[];
@@ -11,7 +12,7 @@ type SharedTransferProps<T extends OptionType = OptionType> = {
     isOpen?: boolean;
     noResults?: ReactNode;
 
-    inputProps?: InputProps;
+    clearInputProps?: InputProps & Pick<IconProps, 'onClick'>;
     cancelButtonProps?: PropsWithChildren<ButtonProps>;
     submitButtonProps?: PropsWithChildren<ButtonProps>;
     clearButtonProps?: PropsWithChildren<ButtonProps>;
@@ -34,4 +35,5 @@ export type TransferProps<
     T extends OptionType = OptionType
 > = SharedTransferProps<T> & {
     value?: T[];
+    ref: RefObject<HTMLDivElement>;
 } & StyledComponentTransferProps;

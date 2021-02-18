@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import { Transfer } from '../src/components/Transfer';
@@ -18,7 +18,6 @@ stories.add(
         ];
 
         const defaultValue = [options[0]];
-
         const transferProps = useTransfer({
             options,
             defaultValue,

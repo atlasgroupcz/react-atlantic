@@ -4,6 +4,7 @@ import { StyledText } from '../../../../Typography/Text/Text.style';
 import { StyledComponentTransferProps } from '../../../types';
 import { getTransferSideHeight } from '../../../utils/getTransferSideHeight';
 import { StyledInputContainer } from '../../../../Input/view/composed/withFix/style';
+import { StyledIcon } from '../../../../Icon';
 
 type StyledTransferLeftSideProps = {
     isLeftSideOpen?: boolean;
@@ -46,6 +47,11 @@ export const StyledTransferLeftSide = styled.div<StyledTransferLeftSideProps>`
     ${StyledInputContainer} {
         border: none;
         transition: none;
+        ${StyledIcon} {
+            &:hover {
+                color: ${({ theme }) => theme.color.error.alpha};
+            }
+        }
     }
 
     ${StyledCheckboxLabel} {

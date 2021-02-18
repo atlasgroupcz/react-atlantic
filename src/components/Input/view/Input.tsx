@@ -1,38 +1,10 @@
-import React, { forwardRef } from 'react';
+import React from 'react';
 import { FC } from 'react';
-import { InputBase } from './base';
 import { InputProps } from './base/types';
 import { PropsWithoutChildren } from '../../../types';
+import { InputWrapper } from './composed';
 import { InputFixProps } from './composed/withFix/types';
-import { InputWrapper as InputWrapperWithFix } from './composed';
-import { StyledInputContainer } from './composed/withFix/style/InputContainer.style';
 
 export type InputType = FC<PropsWithoutChildren<InputFixProps & InputProps>>;
 
-export const Input: InputType = forwardRef(
-    ({ prefix, suffix, size = 'medium', className, ...props }, ref) => {
-        if (prefix || suffix) {
-            return (
-                <InputWrapperWithFix
-                    {...props}
-                    className={className}
-                    size={size}
-                    prefix={prefix}
-                    suffix={suffix}
-                    ref={ref}
-                />
-            );
-        }
-        return (
-            <StyledInputContainer
-                className={className}
-                size={size}
-                isFullWidth={props.isFullWidth}
-                isDisabled={props.isDisabled}
-                isRound={props.isRound}
-            >
-                <InputBase {...props} ref={ref} />
-            </StyledInputContainer>
-        );
-    }
-);
+export const Input = InputWrapper;
