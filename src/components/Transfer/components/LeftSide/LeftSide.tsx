@@ -40,7 +40,7 @@ export const TransferLeftSide: TransferLeftSideType = ({
 }) => {
     const selectedOptionsSet = new Set(value?.map((option) => option.value));
     const { onClick, ...rest } = clearInputProps as any;
-    console.log(`selectedOptionsSet`, selectedOptionsSet);
+
     return (
         <StyledTransferLeftSide
             isLeftSideOpen={isLeftSideOpen}
@@ -49,7 +49,11 @@ export const TransferLeftSide: TransferLeftSideType = ({
         >
             <Input
                 suffix={
-                    rest?.value && <Icon name={`clear`} onClick={onClick} />
+                    !isLeftSideOpen ? (
+                        <Icon name={`arrowDown`} />
+                    ) : (
+                        rest?.value && <Icon name={`clear`} onClick={onClick} />
+                    )
                 }
                 isFullWidth
                 size={size}
