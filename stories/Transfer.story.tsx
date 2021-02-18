@@ -25,7 +25,11 @@ stories.add(
             onSubmit: console.log,
         });
 
-        return <Transfer {...transferProps} />;
+        return (
+            <div style={{ height: '500px' }}>
+                <Transfer {...transferProps} />
+            </div>
+        );
     },
     {
         info: { inline: true },

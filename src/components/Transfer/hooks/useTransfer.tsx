@@ -1,8 +1,9 @@
 import { InputProps, useInputChange } from '../../Input';
 import { ControllerTransferProps, TransferProps } from '../types';
 import { OptionType } from '../../Select';
-import { useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { ButtonProps } from '../../Button';
+import { Text } from '../../Typography/Text';
 
 export const useTransfer = <T extends OptionType = OptionType>({
     options,
@@ -31,12 +32,13 @@ export const useTransfer = <T extends OptionType = OptionType>({
 
     const onOptionClick: ControllerTransferProps<T>['onOptionClick'] = (
         option
-    ) =>
+    ) => {
         setValue((prev) =>
             prev.some((item) => item.value === option.value)
                 ? prev.filter((item) => item.value !== option.value)
                 : [...prev, option]
         );
+    };
 
     const resetToInitialState = () => setValue(lastValid.current);
 
@@ -65,7 +67,16 @@ export const useTransfer = <T extends OptionType = OptionType>({
         value: sortedValue,
         onOptionClick,
         isOpen,
-        label: args.label || `Vybráno: ${value.length} z ${options?.length}`,
+        label: args.label || (
+            <React.Fragment>
+                <Text>{`Vybráno: `}</Text>
+                <Text
+                    type={'primary'}
+                    element={'strong'}
+                >{`${value.length} z ${options?.length}`}</Text>
+            </React.Fragment>
+        ),
+        noResults: args.noResults || <Text>{`Nenalezeno...`}</Text>,
         inputProps: {
             placeholder: `Vyberte...`,
             ...inputProps,
