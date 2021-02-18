@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import { StyledCheckboxLabel } from '../../../../Checkbox/view/alpha/style';
 import { StyledText } from '../../../../Typography/Text/Text.style';
-import { StyledComponentTransferProps } from '../../../types';
+import { TransferProps } from '../../../types';
 import { getTransferSideHeight } from '../../../utils/getTransferSideHeight';
 import { StyledInputContainer } from '../../../../Input/view/composed/withFix/style';
 import { StyledIcon } from '../../../../Icon';
@@ -10,7 +10,7 @@ type StyledTransferLeftSideProps = {
     isLeftSideOpen?: boolean;
     isRightSideOpen?: boolean;
     isValueExist?: boolean;
-} & Pick<StyledComponentTransferProps, 'size' | 'visibleRows'>;
+} & Pick<TransferProps, 'size' | 'visibleRows' | 'isDisabled'>;
 
 type StyledTransferLeftDropdownProps = {
     isIconVisible?: boolean;
@@ -100,7 +100,7 @@ export const StyledTransferLeftSide = styled.div<StyledTransferLeftSideProps>`
         width: 100%;
     }
 
-    ${({ theme, isLeftSideOpen, isRightSideOpen }) =>
+    ${({ theme, isLeftSideOpen, isRightSideOpen, isDisabled }) =>
         isLeftSideOpen || isRightSideOpen
             ? css`
                   border: none;
@@ -115,9 +115,13 @@ export const StyledTransferLeftSide = styled.div<StyledTransferLeftSideProps>`
                   border: 1px solid ${({ theme }) => theme.color.border};
                   border-radius: ${({ theme }) => theme.radius};
 
-                  &:hover {
-                      border-color: ${({ theme }) => theme.color.primary.alpha};
-                  }
+                  ${!isDisabled &&
+                  css`
+                      &:hover {
+                          border-color: ${({ theme }) =>
+                              theme.color.primary.alpha};
+                      }
+                  `}
               `}
 
     ${({ isLeftSideOpen }) =>

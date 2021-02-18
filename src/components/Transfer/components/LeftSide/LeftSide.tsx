@@ -49,6 +49,7 @@ export const TransferLeftSide: TransferLeftSideType = ({
             isLeftSideOpen={isLeftSideOpen}
             isRightSideOpen={isRightSideOpen}
             isValueExist={rest?.value}
+            isDisabled={isDisabled}
             size={size}
         >
             <Input
