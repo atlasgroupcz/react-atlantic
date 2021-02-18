@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import {
+    StyledTransferLeftDropdown,
     StyledTransferLeftSide,
     StyledTransferLeftSideNoResults,
 } from './styles';
@@ -47,15 +48,25 @@ export const TransferLeftSide: TransferLeftSideType = ({
         <StyledTransferLeftSide
             isLeftSideOpen={isLeftSideOpen}
             isRightSideOpen={isRightSideOpen}
+            isValueExist={rest?.value}
             size={size}
         >
             <Input
                 suffix={
-                    !isLeftSideOpen ? (
-                        <Icon name={`arrowDown`} />
-                    ) : (
-                        rest?.value && <Icon name={`clear`} onClick={onClick} />
-                    )
+                    <StyledTransferLeftDropdown
+                        isTransferOpen={isLeftSideOpen}
+                        isIconVisible={
+                            !isLeftSideOpen || (isLeftSideOpen && rest?.value)
+                        }
+                    >
+                        {!isLeftSideOpen ? (
+                            <Icon name={`arrowDown`} />
+                        ) : (
+                            rest?.value && (
+                                <Icon name={`clear`} onClick={onClick} />
+                            )
+                        )}
+                    </StyledTransferLeftDropdown>
                 }
                 isFullWidth
                 size={size}

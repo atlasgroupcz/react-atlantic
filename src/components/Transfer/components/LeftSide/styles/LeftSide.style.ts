@@ -9,7 +9,13 @@ import { StyledIcon } from '../../../../Icon';
 type StyledTransferLeftSideProps = {
     isLeftSideOpen?: boolean;
     isRightSideOpen?: boolean;
+    isValueExist?: boolean;
 } & Pick<StyledComponentTransferProps, 'size' | 'visibleRows'>;
+
+type StyledTransferLeftDropdownProps = {
+    isIconVisible?: boolean;
+    isTransferOpen?: boolean;
+};
 
 export const StyledTransferLeftSideNoResults = styled.div<
     StyledTransferLeftSideProps
@@ -23,22 +29,55 @@ export const StyledTransferLeftSideNoResults = styled.div<
         visibleRows &&
         size === 'small' &&
         css`
-            height: ${getTransferSideHeight(theme.height.sm, visibleRows)};
+            height: ${getTransferSideHeight(theme.height.sm, visibleRows)}px;
         `}
 
     ${({ theme, size, visibleRows }) =>
         visibleRows &&
         size === 'medium' &&
         css`
-            height: ${getTransferSideHeight(theme.height.md, visibleRows)};
+            height: ${getTransferSideHeight(theme.height.md, visibleRows)}px;
         `}
     
     ${({ theme, size, visibleRows }) =>
         visibleRows &&
         size === 'large' &&
         css`
-            height: ${getTransferSideHeight(theme.height.lg, visibleRows)};
+            height: ${getTransferSideHeight(theme.height.lg, visibleRows)}px;
         `}
+`;
+
+export const StyledTransferLeftDropdown = styled.div<
+    StyledTransferLeftDropdownProps
+>`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: ${({ theme }) => theme.width.md};
+    height: calc(100% - ${({ theme }) => parseFloat(theme.margin.xs) * 2}px);
+    margin: ${({ theme }) => theme.margin.xs} 0;
+    border-left: 1px solid transparent;
+
+    ${({ theme, isIconVisible }) =>
+        isIconVisible &&
+        css`
+            border-color: ${theme.color.border};
+        `}
+
+    ${StyledIcon} {
+        color: ${({ theme }) => theme.color.text.beta};
+
+        &:hover {
+            ${({ theme, isTransferOpen }) =>
+                isTransferOpen
+                    ? css`
+                          color: ${theme.color.error.alpha};
+                      `
+                    : css`
+                          color: ${theme.color.primary.alpha};
+                      `}
+        }
+    }
 `;
 
 export const StyledTransferLeftSide = styled.div<StyledTransferLeftSideProps>`
@@ -47,11 +86,14 @@ export const StyledTransferLeftSide = styled.div<StyledTransferLeftSideProps>`
     ${StyledInputContainer} {
         border: none;
         transition: none;
-        ${StyledIcon} {
-            &:hover {
-                color: ${({ theme }) => theme.color.error.alpha};
-            }
-        }
+        align-items: stretch;
+
+        // When Icon is visible, remove Input padding
+        ${({ isValueExist, isLeftSideOpen }) =>
+            ((isValueExist && isLeftSideOpen) || !isLeftSideOpen) &&
+            css`
+                padding-right: 0;
+            `}
     }
 
     ${StyledCheckboxLabel} {

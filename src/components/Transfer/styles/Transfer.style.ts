@@ -21,7 +21,7 @@ export const StyledTransfer = styled.div<StyledTransferProps>`
         isLeftSideOpen &&
         css`
             position: absolute;
-            min-width: 300px;
+            width: 300px;
             border: 1px solid ${theme.color.primary.alpha};
             border-radius: ${theme.radius};
             background: ${theme.color.background.alpha};
@@ -31,7 +31,7 @@ export const StyledTransfer = styled.div<StyledTransferProps>`
     ${({ isRightSideOpen }) =>
         isRightSideOpen &&
         css`
-            min-width: 500px;
+            width: 600px;
         `}
 `;
 
