@@ -17,21 +17,21 @@ export const StyledTransfer = styled.div<StyledTransferProps>`
             width: 100%;
         `}
 
-    ${({ theme, isLeftSideOpen }) =>
+    ${({ theme, isLeftSideOpen, customWidth }) =>
         isLeftSideOpen &&
         css`
             position: absolute;
-            width: 300px;
+            width: ${customWidth?.leftSide ?? `300px`};
             border: 1px solid ${theme.color.primary.alpha};
             border-radius: ${theme.radius};
             background: ${theme.color.background.alpha};
             box-shadow: ${theme.boxShadow.sm};
         `}
     
-    ${({ isRightSideOpen }) =>
+    ${({ isRightSideOpen, customWidth }) =>
         isRightSideOpen &&
         css`
-            width: 600px;
+            width: ${customWidth?.rightSide ?? `600px`}; ;
         `}
 `;
 

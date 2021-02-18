@@ -24,6 +24,7 @@ export const Transfer = forwardRef<HTMLDivElement, TransferProps>(
             isFullWidth = false,
             visibleRows = 5,
             isDisabled,
+            customWidth,
         },
         ref
     ) => {
@@ -36,6 +37,7 @@ export const Transfer = forwardRef<HTMLDivElement, TransferProps>(
                     isLeftSideOpen={isLeftSideOpen}
                     isRightSideOpen={isRightSideOpen}
                     isFullWidth={isFullWidth}
+                    customWidth={customWidth}
                 >
                     <TransferLeftSide
                         isLeftSideOpen={isLeftSideOpen}

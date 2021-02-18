@@ -30,6 +30,10 @@ export type StyledComponentTransferProps = {
     size?: Size;
     visibleRows?: number;
     isFullWidth?: boolean;
+    customWidth?: {
+        leftSide?: string;
+        rightSide?: string;
+    };
 };
 
 export type TransferProps<
