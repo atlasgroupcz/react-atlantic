@@ -19,6 +19,7 @@ export const Checkbox: CheckboxType = ({
     id,
     isChecked,
     className,
+    size = 'small',
     ...props
 }) => {
     const springRef = useRef(null);
@@ -46,11 +47,13 @@ export const Checkbox: CheckboxType = ({
             isDisabled={isDisabled}
             className={className}
             htmlFor={id}
+            size={size}
         >
             {horizontalPosition === 'right' && children && (
                 <StyledCheckboxSpan
                     position={horizontalPosition}
                     isDisabled={isDisabled}
+                    size={size}
                 >
                     {children}
                 </StyledCheckboxSpan>
@@ -87,6 +90,7 @@ export const Checkbox: CheckboxType = ({
                 <StyledCheckboxSpan
                     position={horizontalPosition}
                     isDisabled={isDisabled}
+                    size={size}
                 >
                     {children}
                 </StyledCheckboxSpan>
