@@ -9,6 +9,7 @@ import { useOutsideClick } from './useOutsideClick';
 export const useTransfer = <T extends OptionType = OptionType>({
     options,
     defaultValue,
+    isDisabled,
     ...args
 }: ControllerTransferProps<T>): TransferProps<T> => {
     const inputProps = useInputClearable({});
@@ -16,8 +17,10 @@ export const useTransfer = <T extends OptionType = OptionType>({
     const ref = useOutsideClick<HTMLDivElement>(() => setOpen(false));
 
     const onFocus: InputProps['onFocus'] = (e) => {
-        setOpen(true);
-        inputProps.onFocus?.(e);
+        if (!isDisabled) {
+            setOpen(true);
+            inputProps.onFocus?.(e);
+        }
     };
 
     const [value, setValue] = useState<T[]>(defaultValue || []);
@@ -34,31 +37,39 @@ export const useTransfer = <T extends OptionType = OptionType>({
     const onOptionClick: ControllerTransferProps<T>['onOptionClick'] = (
         option
     ) => {
-        setValue((prev) =>
-            prev.some((item) => item.value === option.value)
-                ? prev.filter((item) => item.value !== option.value)
-                : [...prev, option]
-        );
+        if (!isDisabled) {
+            setValue((prev) =>
+                prev.some((item) => item.value === option.value)
+                    ? prev.filter((item) => item.value !== option.value)
+                    : [...prev, option]
+            );
+        }
     };
 
     const resetToInitialState = () => setValue(lastValid.current);
 
     const onCancel: ButtonProps['onClick'] = (e) => {
-        setOpen(false);
-        resetToInitialState();
-        args.cancelButtonProps?.onClick?.(e);
+        if (!isDisabled) {
+            setOpen(false);
+            resetToInitialState();
+            args.cancelButtonProps?.onClick?.(e);
+        }
     };
 
     const onSubmit: ButtonProps['onClick'] = (e) => {
-        setOpen(false);
-        args.submitButtonProps?.onClick?.(e);
-        args.onSubmit?.(value);
-        lastValid.current = value;
+        if (!isDisabled) {
+            setOpen(false);
+            args.submitButtonProps?.onClick?.(e);
+            args.onSubmit?.(value);
+            lastValid.current = value;
+        }
     };
 
     const onClear: ButtonProps['onClick'] = (e) => {
-        setValue([]);
-        args.clearButtonProps?.onClick?.(e);
+        if (!isDisabled) {
+            setValue([]);
+            args.clearButtonProps?.onClick?.(e);
+        }
     };
 
     const sortedValue = sortOptions(value);

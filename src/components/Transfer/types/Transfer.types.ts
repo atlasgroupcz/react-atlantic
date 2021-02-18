@@ -1,7 +1,7 @@
 import { OptionType } from '../../Select';
 import { InputProps } from '../../Input';
 import { ButtonProps } from '../../Button';
-import { PropsWithChildren, PropsWithRef, ReactNode, RefObject } from 'react';
+import { PropsWithChildren, ReactNode, RefObject } from 'react';
 import { Size } from '../../../types';
 import { IconProps } from '../../Icon';
 
@@ -11,6 +11,7 @@ type SharedTransferProps<T extends OptionType = OptionType> = {
     label?: ReactNode;
     isOpen?: boolean;
     noResults?: ReactNode;
+    isDisabled?: boolean;
 
     clearInputProps?: InputProps & Pick<IconProps, 'onClick'>;
     cancelButtonProps?: PropsWithChildren<ButtonProps>;
