@@ -1,5 +1,4 @@
 import React, { forwardRef } from 'react';
-import { OptionType } from '../Select';
 import { TransferProps } from './types';
 import { StyledTransfer, StyledTransferContainer } from './styles';
 import {
@@ -7,7 +6,6 @@ import {
     TransferLeftSide,
     TransferRightSide,
 } from './components';
-import { InputFixProps } from '../Input';
 
 export const Transfer = forwardRef<HTMLDivElement, TransferProps>(
     (
@@ -25,6 +23,7 @@ export const Transfer = forwardRef<HTMLDivElement, TransferProps>(
             size = 'medium',
             isFullWidth = false,
             visibleRows = 5,
+            isDisabled,
         },
         ref
     ) => {
@@ -48,6 +47,7 @@ export const Transfer = forwardRef<HTMLDivElement, TransferProps>(
                         noResults={noResults}
                         size={size}
                         value={value}
+                        isDisabled={isDisabled}
                     />
 
                     {isRightSideOpen && (

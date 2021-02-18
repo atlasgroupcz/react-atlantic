@@ -23,6 +23,7 @@ export type TransferLeftSideProps<T extends OptionType = OptionType> = {
     | 'noResults'
     | 'size'
     | 'visibleRows'
+    | 'isDisabled'
 >;
 
 export type TransferLeftSideType = FC<TransferLeftSideProps>;
@@ -37,6 +38,7 @@ export const TransferLeftSide: TransferLeftSideType = ({
     noResults,
     size,
     visibleRows,
+    isDisabled,
 }) => {
     const selectedOptionsSet = new Set(value?.map((option) => option.value));
     const { onClick, ...rest } = clearInputProps as any;
@@ -57,6 +59,7 @@ export const TransferLeftSide: TransferLeftSideType = ({
                 }
                 isFullWidth
                 size={size}
+                isDisabled={isDisabled}
                 {...rest}
             />
 

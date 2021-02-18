@@ -12,7 +12,7 @@ export const useTransfer = <T extends OptionType = OptionType>({
     isDisabled,
     ...args
 }: ControllerTransferProps<T>): TransferProps<T> => {
-    const inputProps = useInputClearable({});
+    const inputProps = useInputClearable({ isDisabled });
     const [isOpen, setOpen] = useState<boolean>(false);
     const ref = useOutsideClick<HTMLDivElement>(() => setOpen(false));
 
@@ -80,6 +80,7 @@ export const useTransfer = <T extends OptionType = OptionType>({
         onOptionClick,
         isOpen,
         ref,
+        isDisabled,
         label: args.label || (
             <React.Fragment>
                 <Text>{`Vybráno: `}</Text>
