@@ -8,5 +8,5 @@ export const InputBase: InputBaseType = forwardRef<
     HTMLInputElement,
     InputProps
 >(({ ...props }, ref) => {
-    return <StyledInput {...props} ref={ref} />;
+    return <StyledInput disabled={props.isDisabled} {...props} ref={ref} />;
 });
