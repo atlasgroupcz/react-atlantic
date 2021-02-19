@@ -4,6 +4,7 @@ import {
     excludeComponentProps,
     excludeIntrinsicElementProps,
 } from '../../../../../utils/excludeProps';
+import { Size } from '../../../../../types';
 
 type StyledCheckboxProps = {
     isChecked?: boolean;
@@ -12,6 +13,7 @@ type StyledCheckboxProps = {
     isTextDotted?: boolean;
     name?: string;
     position?: 'right' | 'left';
+    size?: Size;
 };
 const styledCheckboxPropKeys: (keyof StyledCheckboxProps)[] = [
     'isPartiallyChecked',
@@ -85,6 +87,24 @@ export const StyledCheckboxLabel = styled(
         css`
             cursor: not-allowed;
         `};
+
+    ${(props) =>
+        props.size === 'small' &&
+        css`
+            height: ${props.theme.height.sm};
+        `}
+
+    ${(props) =>
+        props.size === 'medium' &&
+        css`
+            height: ${props.theme.height.md};
+        `}
+    
+    ${(props) =>
+        props.size === 'large' &&
+        css`
+            height: ${props.theme.height.lg};
+        `}
 `;
 
 export const StyledCheckboxMark = styled(
@@ -133,6 +153,24 @@ export const StyledCheckboxSpan = styled(
         props.isDisabled &&
         css`
             cursor: not-allowed;
+        `}
+
+    ${(props) =>
+        props.size === 'small' &&
+        css`
+            font-size: ${props.theme.font.size.sm};
+        `}
+    
+    ${(props) =>
+        props.size === 'medium' &&
+        css`
+            font-size: ${props.theme.font.size.md};
+        `}
+    
+    ${(props) =>
+        props.size === 'large' &&
+        css`
+            font-size: ${props.theme.font.size.lg};
         `}
 `;
 
