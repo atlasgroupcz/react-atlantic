@@ -16,6 +16,7 @@ export const StyledTransfer = styled.div<StyledTransferProps>`
         css`
             position: absolute;
             width: ${customWidth?.leftSide ?? `300px`};
+            z-index: 99;
             border: 1px solid ${theme.color.primary.alpha};
             border-radius: ${theme.radius};
             background: ${theme.color.background.alpha};
