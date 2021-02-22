@@ -1,7 +1,7 @@
 import { css, keyframes, StyledComponent } from 'styled-components';
-import { StyledIcon } from '../../../../Icon/view/style/Icon.style';
+import { StyledIcon } from '../../../../Icon/view/style';
 import { ButtonProps, ButtonStyleType } from '../../../types';
-import { StyledText } from '../../../../Typography/Text/Text.style';
+import { StyledText } from '../../../../Typography/Text';
 import { styled } from '../../../../../styled';
 import { excludeIntrinsicElementProps } from '../../../../../utils/excludeProps';
 import { FC } from 'react';

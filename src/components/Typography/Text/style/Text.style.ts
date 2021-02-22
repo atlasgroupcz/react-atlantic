@@ -1,63 +1,63 @@
 import styled, { css } from 'styled-components';
-import { TextProps } from './types';
-import { getDefaultTypographyStyles } from '../style';
+import { TextProps } from '../types';
+import { getDefaultTypographyStyles } from '../../style';
 
 export const StyledText = styled.span<TextProps>`
-  ${(props) => getDefaultTypographyStyles(props)};
-  
-  ${(props) =>
-      props.type === 'primary' &&
-      css`
-          color: ${props.theme.color.primary.alpha};
-      `}
-  
-  ${(props) =>
-      props.type === 'success' &&
-      css`
-          color: ${props.theme.color.success.alpha};
-      `}
-  
-  ${(props) =>
-      props.type === 'warning' &&
-      css`
-          color: ${props.theme.color.warning.alpha};
-      `}
-  
-  ${(props) =>
-      props.type === 'error' &&
-      css`
-          color: ${props.theme.color.error.alpha};
-      `}
-`;
+    ${(props) => getDefaultTypographyStyles(props)};
 
-export const StyledStrongText = styled.strong<TextProps>`
-  ${(props) => getDefaultTypographyStyles(props)};
-
-  font-weight: 600;
-  
     ${(props) =>
         props.type === 'primary' &&
         css`
             color: ${props.theme.color.primary.alpha};
         `}
+
+    ${(props) =>
+        props.type === 'success' &&
+        css`
+            color: ${props.theme.color.success.alpha};
+        `}
   
   ${(props) =>
-      props.type === 'success' &&
-      css`
-          color: ${props.theme.color.success.alpha};
-      `}
+        props.type === 'warning' &&
+        css`
+            color: ${props.theme.color.warning.alpha};
+        `}
   
   ${(props) =>
-      props.type === 'warning' &&
-      css`
-          color: ${props.theme.color.warning.alpha};
-      `}
+        props.type === 'error' &&
+        css`
+            color: ${props.theme.color.error.alpha};
+        `}
+`;
+
+export const StyledStrongText = styled.strong<TextProps>`
+    ${(props) => getDefaultTypographyStyles(props)};
+
+    font-weight: 600;
+
+    ${(props) =>
+        props.type === 'primary' &&
+        css`
+            color: ${props.theme.color.primary.alpha};
+        `}
+
+    ${(props) =>
+        props.type === 'success' &&
+        css`
+            color: ${props.theme.color.success.alpha};
+        `}
   
   ${(props) =>
-      props.type === 'error' &&
-      css`
-          color: ${props.theme.color.error.alpha};
-      `}
+        props.type === 'warning' &&
+        css`
+            color: ${props.theme.color.warning.alpha};
+        `}
+  
+  ${(props) =>
+        props.type === 'error' &&
+        css`
+            color: ${props.theme.color.error.alpha};
+        `}
 `;
 
 export const StyledMarkText = styled.mark<TextProps>`
