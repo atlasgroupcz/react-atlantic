@@ -11,12 +11,6 @@ export const StyledTransfer = styled.div<StyledTransferProps>`
     display: flex;
     flex-wrap: wrap;
 
-    ${({ isFullWidth }) =>
-        isFullWidth &&
-        css`
-            width: 100%;
-        `}
-
     ${({ theme, isLeftSideOpen, customWidth }) =>
         isLeftSideOpen &&
         css`
@@ -27,7 +21,7 @@ export const StyledTransfer = styled.div<StyledTransferProps>`
             background: ${theme.color.background.alpha};
             box-shadow: ${theme.boxShadow.sm};
         `}
-    
+
     ${({ isRightSideOpen, customWidth }) =>
         isRightSideOpen &&
         css`
