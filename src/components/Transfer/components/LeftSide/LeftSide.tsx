@@ -100,7 +100,7 @@ export const TransferLeftSide: TransferLeftSideType = ({
                 </TransferList>
             )}
 
-            {options?.length === 0 && (
+            {options?.length === 0 && !isDisabled && (
                 <StyledTransferLeftSideNoResults
                     size={size}
                     visibleRows={visibleRows}
