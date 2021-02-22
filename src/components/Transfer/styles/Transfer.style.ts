@@ -11,23 +11,18 @@ export const StyledTransfer = styled.div<StyledTransferProps>`
     display: flex;
     flex-wrap: wrap;
 
-    ${({ isFullWidth }) =>
-        isFullWidth &&
-        css`
-            width: 100%;
-        `}
-
     ${({ theme, isLeftSideOpen, customWidth }) =>
         isLeftSideOpen &&
         css`
             position: absolute;
             width: ${customWidth?.leftSide ?? `300px`};
+            z-index: 99;
             border: 1px solid ${theme.color.primary.alpha};
             border-radius: ${theme.radius};
             background: ${theme.color.background.alpha};
             box-shadow: ${theme.boxShadow.sm};
         `}
-    
+
     ${({ isRightSideOpen, customWidth }) =>
         isRightSideOpen &&
         css`
