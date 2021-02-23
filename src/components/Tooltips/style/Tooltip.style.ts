@@ -1,6 +1,6 @@
 import { styled } from '../../../styled';
 
-export const StyledTooltip = styled.div`
+export const StyledTooltip = styled.div<{ positionAttr: string }>`
     z-index: 1000;
     position: fixed;
     padding: ${(props) => props.theme.padding.sm}
@@ -18,7 +18,7 @@ export const StyledTooltip = styled.div`
         border: 5px solid transparent;
     }
 
-    ${positionAttr === 'top'} {
+    &[${({ positionAttr }) => positionAttr}='top'] {
         margin-bottom: ${(props) => props.theme.margin.sm};
 
         &::after {
@@ -29,7 +29,7 @@ export const StyledTooltip = styled.div`
         }
     }
 
-    ${positionAttr === 'bottom'} {
+    &[${({ positionAttr }) => positionAttr}='bottom'] {
         margin-top: ${(props) => props.theme.margin.sm};
 
         &::after {
@@ -40,7 +40,7 @@ export const StyledTooltip = styled.div`
         }
     }
 
-    ${positionAttr === 'left'} {
+    &[${({ positionAttr }) => positionAttr}='left'] {
         margin-right: ${(props) => props.theme.margin.sm};
 
         &::after {
@@ -52,7 +52,7 @@ export const StyledTooltip = styled.div`
         }
     }
 
-    ${positionAttr === 'right'} {
+    &[${({ positionAttr }) => positionAttr}='right'] {
         margin-left: ${(props) => props.theme.margin.sm};
 
         &::after {
