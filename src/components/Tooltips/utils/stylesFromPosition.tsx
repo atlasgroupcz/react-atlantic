@@ -2,13 +2,14 @@ import { CSSPosition } from '../types/CSSPosition';
 
 export const stylesFromPosition = (
     { left, right, top, bottom }: DOMRect,
+    offset: number,
     preferredDirection: CSSPosition
 ): string => {
     const isLeftRight = ['left', 'right'].includes(preferredDirection);
     const isTopBottom = ['top', 'bottom'].includes(preferredDirection);
 
     if (isLeftRight) {
-        const verticalMidpoint = (top + bottom) / 2;
+        const verticalMidpoint = (top + bottom) / 2 - offset;
 
         switch (preferredDirection as 'left' | 'right') {
             case 'left':
@@ -19,7 +20,7 @@ export const stylesFromPosition = (
     }
 
     if (isTopBottom) {
-        const horizontalMidpoint = (left + right) / 2;
+        const horizontalMidpoint = (left + right) / 2 - offset;
 
         switch (preferredDirection as 'top' | 'bottom') {
             case 'top':
