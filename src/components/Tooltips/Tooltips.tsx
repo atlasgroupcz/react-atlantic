@@ -1,9 +1,11 @@
 import React, { FC, useCallback, useEffect, useRef } from 'react';
-import { Tooltip } from './Tooltip.style';
-import { attachListeners } from './utils/attachListeners';
-import { attachTooltipToElement } from './utils/attachTooltipToElement';
-import { cleanupListeners } from './utils/cleanupListeners';
-import { cleanupTooltipElement } from './utils/cleanupTooltipElement';
+import { Tooltip } from './style';
+import {
+    attachListeners,
+    attachTooltipToElement,
+    cleanupListeners,
+    cleanupTooltipElement,
+} from './utils';
 
 type TooltipsProps = {
     contentAttr?: string;
