@@ -1,5 +1,5 @@
 import React, { FC, useCallback, useEffect, useRef } from 'react';
-import { Tooltip } from './style';
+import { StyledTooltipContainer, StyledTooltip } from './style';
 import {
     attachListeners,
     attachTooltipToElement,
@@ -59,9 +59,9 @@ export const Tooltips: FC<TooltipsProps> = ({
     });
 
     return (
-        <div ref={containerRef}>
+        <StyledTooltipContainer ref={containerRef}>
             {children}
-            <Tooltip ref={tooltipRef} />
-        </div>
+            <StyledTooltip ref={tooltipRef} />
+        </StyledTooltipContainer>
     );
 };
