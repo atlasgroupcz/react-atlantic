@@ -61,7 +61,7 @@ export const Tooltips: FC<TooltipsProps> = ({
     return (
         <StyledTooltipContainer ref={containerRef}>
             {children}
-            <StyledTooltip ref={tooltipRef} />
+            <StyledTooltip ref={tooltipRef} positionAttr={positionAttr} />
         </StyledTooltipContainer>
     );
 };
