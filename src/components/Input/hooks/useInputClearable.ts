@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { Dispatch, SetStateAction, useState } from 'react';
 import { HTMLInputDefaultElementProps } from '../../../types';
 import { useCallback } from 'react';
 import {
@@ -15,7 +15,10 @@ type UseInputChangeType = (
         Pick<StyledInputProps, 'isDisabled'> & {
             onClear?: () => void;
         }
-) => ControllerInputProps;
+) => {
+    onClick: () => void;
+    setValue: Dispatch<SetStateAction<InputProps['value']>>;
+} & ControllerInputProps;
 
 export const useInputClearable: UseInputChangeType = ({
     defaultValue = '',
@@ -36,12 +39,12 @@ export const useInputClearable: UseInputChangeType = ({
         [onChange, isDisabled]
     );
 
-    const handleClick: IconProps['onClick'] = useCallback((): void => {
+    const handleClick = useCallback((): void => {
         if (!isDisabled) {
             setValue(``);
             onClear?.();
         }
     }, [onClear, isDisabled]);
 
-    return { value, onChange: handleChange, onClick: handleClick };
+    return { value, setValue, onChange: handleChange, onClick: handleClick };
 };

@@ -22,7 +22,6 @@ stories.add(
             options,
             defaultValue,
             onSubmit: console.log,
-            isDisabled: true,
         });
 
         return (
