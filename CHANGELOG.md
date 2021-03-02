@@ -1,3 +1,21 @@
+## [1.7.3](https://github.com/atlasgroupcz/react-atlantic/compare/1.7.0...1.7.3) (2021-03-02)
+
+### Bug Fixes
+
+-   **transfer:** 🐛 fixes isDisabled state and zero values passed in Transfer ([5e7bf4b](https://github.com/atlasgroupcz/react-atlantic/commit/5e7bf4b955817bc596985bd0ba09422c67306c29))
+-   **transfer:** 🐛 options, value, no results ([d1d2fbb](https://github.com/atlasgroupcz/react-atlantic/commit/d1d2fbbe4c95d5bf39cc4336fec460515289ef55))
+-   🐛 add fill ([87a03ac](https://github.com/atlasgroupcz/react-atlantic/commit/87a03ac478007c7492761f94b6145e6c19a2515d))
+-   🐛 disabled button border and color ([2efdad9](https://github.com/atlasgroupcz/react-atlantic/commit/2efdad9229f69f4905eb96a1e2d87cc8d619f35e))
+
+### Features
+
+-   **transfer:** ✨ disabled ([9a44dc9](https://github.com/atlasgroupcz/react-atlantic/commit/9a44dc9838a7123be1cfef5afa739df4390c8d10))
+-   **transfer:** ✨ disabled ([fbe4684](https://github.com/atlasgroupcz/react-atlantic/commit/fbe4684ea9cad8e91646cf19ba2c4bfaef203b81))
+-   **transfer:** ✨ init ([d00cd92](https://github.com/atlasgroupcz/react-atlantic/commit/d00cd923124def813dfd3ea160a3dbcb7976fac2))
+-   **transfer:** ✨ input clearable, icon ([4fa1664](https://github.com/atlasgroupcz/react-atlantic/commit/4fa16642d74acecde96483fbf8900d2109a0a78c))
+-   **transfer:** ✨ outside click, input clearable ([fd15c3e](https://github.com/atlasgroupcz/react-atlantic/commit/fd15c3e445eceaa03e2dbe7caf53f527a66300c1))
+-   **transfer:** ✨ prev value ([b550088](https://github.com/atlasgroupcz/react-atlantic/commit/b5500889f20c3ad4b47c92e265c731c1b88d752d))
+
 ## [1.7.2](https://github.com/atlasgroupcz/react-atlantic/compare/1.7.0...1.7.2) (2021-02-19)
 
 ### Bug Fixes
