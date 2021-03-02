@@ -50,6 +50,7 @@ export const Transfer = forwardRef<HTMLDivElement, TransferProps>(
                         size={size}
                         value={value}
                         isDisabled={isDisabled}
+                        isFullWidth={isFullWidth}
                     />
 
                     {isRightSideOpen && (

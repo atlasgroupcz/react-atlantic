@@ -6,7 +6,7 @@ import { Size } from '../../../types';
 import { IconProps } from '../../Icon';
 
 type SharedTransferProps<T extends OptionType = OptionType> = {
-    options?: T[];
+    options: T[];
     onOptionClick?: (option: T) => void;
     label?: ReactNode;
     isOpen?: boolean;

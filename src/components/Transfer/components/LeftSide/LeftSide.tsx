@@ -25,6 +25,7 @@ export type TransferLeftSideProps<T extends OptionType = OptionType> = {
     | 'size'
     | 'visibleRows'
     | 'isDisabled'
+    | 'isFullWidth'
 >;
 
 export type TransferLeftSideType = FC<TransferLeftSideProps>;
@@ -40,24 +41,26 @@ export const TransferLeftSide: TransferLeftSideType = ({
     size,
     visibleRows,
     isDisabled,
+    isFullWidth,
 }) => {
     const selectedOptionsSet = new Set(value?.map((option) => option.value));
-    const { onClick, ...rest } = clearInputProps as any;
+    const { onClick, ...rest } = clearInputProps || {};
 
     return (
         <StyledTransferLeftSide
             isLeftSideOpen={isLeftSideOpen}
             isRightSideOpen={isRightSideOpen}
-            isValueExist={rest?.value}
+            isValueExist={!!rest?.value}
             isDisabled={isDisabled}
             size={size}
+            isFullWidth={isFullWidth}
         >
             <Input
                 suffix={
                     <StyledTransferLeftDropdown
                         isTransferOpen={isLeftSideOpen}
                         isIconVisible={
-                            !isLeftSideOpen || (isLeftSideOpen && rest?.value)
+                            !isLeftSideOpen || (isLeftSideOpen && !!rest?.value)
                         }
                     >
                         {!isLeftSideOpen ? (
@@ -75,35 +78,41 @@ export const TransferLeftSide: TransferLeftSideType = ({
                 {...rest}
             />
 
-            {isLeftSideOpen && !!options?.length && (
-                <TransferList size={size} visibleRows={visibleRows}>
-                    {options?.map((option) => (
-                        <TransferList.Item
-                            size={size}
-                            key={
-                                option.value +
-                                selectedOptionsSet.has(option.value)
-                            }
-                        >
-                            <Checkbox
-                                isChecked={selectedOptionsSet.has(option.value)}
-                                onClick={() => onOptionClick?.(option)}
-                                size={size}
-                            >
-                                {option.label}
-                            </Checkbox>
-                        </TransferList.Item>
-                    ))}
-                </TransferList>
-            )}
+            {isLeftSideOpen && (
+                <>
+                    {!!options?.length && (
+                        <TransferList size={size} visibleRows={visibleRows}>
+                            {options?.map((option) => (
+                                <TransferList.Item
+                                    size={size}
+                                    key={
+                                        option.value +
+                                        selectedOptionsSet.has(option.value)
+                                    }
+                                >
+                                    <Checkbox
+                                        isChecked={selectedOptionsSet.has(
+                                            option.value
+                                        )}
+                                        onClick={() => onOptionClick?.(option)}
+                                        size={size}
+                                    >
+                                        {option.label}
+                                    </Checkbox>
+                                </TransferList.Item>
+                            ))}
+                        </TransferList>
+                    )}
 
-            {options?.length === 0 && (
-                <StyledTransferLeftSideNoResults
-                    size={size}
-                    visibleRows={visibleRows}
-                >
-                    {noResults}
-                </StyledTransferLeftSideNoResults>
+                    {!options?.length && !isDisabled && (
+                        <StyledTransferLeftSideNoResults
+                            size={size}
+                            visibleRows={visibleRows}
+                        >
+                            {noResults}
+                        </StyledTransferLeftSideNoResults>
+                    )}
+                </>
             )}
         </StyledTransferLeftSide>
     );

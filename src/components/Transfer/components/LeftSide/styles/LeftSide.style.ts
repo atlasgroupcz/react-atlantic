@@ -10,7 +10,7 @@ type StyledTransferLeftSideProps = {
     isLeftSideOpen?: boolean;
     isRightSideOpen?: boolean;
     isValueExist?: boolean;
-} & Pick<TransferProps, 'size' | 'visibleRows' | 'isDisabled'>;
+} & Pick<TransferProps, 'size' | 'visibleRows' | 'isDisabled' | 'isFullWidth'>;
 
 type StyledTransferLeftDropdownProps = {
     isIconVisible?: boolean;
@@ -124,8 +124,8 @@ export const StyledTransferLeftSide = styled.div<StyledTransferLeftSideProps>`
                   `}
               `}
 
-    ${({ isLeftSideOpen }) =>
-        isLeftSideOpen &&
+    ${({ isLeftSideOpen, isFullWidth }) =>
+        (isLeftSideOpen || isFullWidth) &&
         css`
             width: 100%;
         `}

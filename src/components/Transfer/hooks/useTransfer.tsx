@@ -12,13 +12,20 @@ export const useTransfer = <T extends OptionType = OptionType>({
     isDisabled,
     ...args
 }: ControllerTransferProps<T>): TransferProps<T> => {
-    const inputProps = useInputClearable({ isDisabled });
+    const inputProps = useInputClearable({
+        isDisabled,
+        defaultValue: getPlaceholder(defaultValue),
+    });
     const [isOpen, setOpen] = useState<boolean>(false);
-    const ref = useOutsideClick<HTMLDivElement>(() => setOpen(false));
+    const ref = useOutsideClick<HTMLDivElement>(() => {
+        setOpen(false);
+        resetToInitialState();
+    });
 
     const onFocus: InputProps['onFocus'] = (e) => {
         if (!isDisabled) {
             setOpen(true);
+            inputProps.setValue(``);
             inputProps.onFocus?.(e);
         }
     };
@@ -46,7 +53,10 @@ export const useTransfer = <T extends OptionType = OptionType>({
         }
     };
 
-    const resetToInitialState = () => setValue(lastValid.current);
+    const resetToInitialState = () => {
+        setValue(lastValid.current);
+        inputProps.setValue(getPlaceholder(lastValid.current));
+    };
 
     const onCancel: ButtonProps['onClick'] = (e) => {
         if (!isDisabled) {
@@ -61,6 +71,7 @@ export const useTransfer = <T extends OptionType = OptionType>({
             setOpen(false);
             args.submitButtonProps?.onClick?.(e);
             args.onSubmit?.(value);
+            inputProps.setValue(getPlaceholder(value));
             lastValid.current = value;
         }
     };
@@ -118,3 +129,6 @@ const sortOptions = <T extends OptionType = OptionType>(options: T[]) =>
     options.sort((a, b) =>
         a.label.toString().localeCompare(b.label.toString())
     );
+
+const getPlaceholder = <T extends OptionType = OptionType>(options?: T[]) =>
+    options?.map(({ label }) => label).join(`, `) || `Vyberte...`;
