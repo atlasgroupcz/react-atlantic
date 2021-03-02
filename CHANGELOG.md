@@ -16,6 +16,7 @@
 -   **transfer:** ✨ outside click, input clearable ([fd15c3e](https://github.com/atlasgroupcz/react-atlantic/commit/fd15c3e445eceaa03e2dbe7caf53f527a66300c1))
 -   **transfer:** ✨ prev value ([b550088](https://github.com/atlasgroupcz/react-atlantic/commit/b5500889f20c3ad4b47c92e265c731c1b88d752d))
 
+
 ## [1.7.2](https://github.com/atlasgroupcz/react-atlantic/compare/1.7.0...1.7.2) (2021-02-19)
 
 ### Bug Fixes
