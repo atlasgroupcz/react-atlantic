@@ -1,45 +1,37 @@
-import React, { FC, forwardRef, useMemo } from 'react';
-import { OptionType, SelectProps } from '../types';
-import { default as ReactSelect } from 'react-select';
-import { defaultSelectComponents } from './defaultSelectComponents';
-import { RefType } from '../../../types/Ref';
-import { ReactElement } from 'react';
+import React, { forwardRef } from 'react';
+import { SelectProps } from '../types';
 
-export const Select = forwardRef<ReactSelect, SelectProps>(
+export const Select = forwardRef<HTMLDivElement, SelectProps<any>>(
     (
         {
-            isSearchable = false,
-            blurInputOnSelect = true,
-            isMulti = false,
-            isFullWidth = false,
-            size = 'medium',
-            components,
+            isOpen,
+            options,
+            onOptionClick,
+            onClick,
+            placeholder,
             value,
-            ...props
+            isDisabled,
+            ...rest
         },
         ref
-    ) => {
-        const memoizedComponents = useMemo(
-            () => defaultSelectComponents(size, isFullWidth),
-            [size, isFullWidth]
-        );
+    ) => (
+        <div {...rest} ref={ref}>
+            <div onClick={onClick}>{value?.label || placeholder}</div>
 
-        return (
-            <ReactSelect
-                value={value}
-                isSearchable={isSearchable}
-                blurInputOnSelect={blurInputOnSelect}
-                size={size}
-                isMulti={isMulti}
-                components={memoizedComponents}
-                ref={ref}
-                {...props}
-            />
-        );
-    }
-) as Omit<FC, '()'> &
-    (<T extends OptionType>(
-        p: SelectProps<T> & { ref?: RefType<ReactSelect> }
-    ) => ReactElement);
+            {isOpen && !!options?.length && (
+                <ul>
+                    {options.map((option) => (
+                        <li
+                            key={`${option.value}`}
+                            onClick={() => onOptionClick?.(option)}
+                        >
+                            {option.label}
+                        </li>
+                    ))}
+                </ul>
+            )}
+        </div>
+    )
+);
 
 Select.displayName = `Select`;
