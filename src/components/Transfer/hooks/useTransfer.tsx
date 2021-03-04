@@ -3,8 +3,8 @@ import { ControllerTransferProps, TransferProps } from '../types';
 import { OptionType } from '../../Select';
 import React, { useRef, useState } from 'react';
 import { ButtonProps } from '../../Button';
-import { Text } from '../../Typography/Text';
-import { useOutsideClick } from './useOutsideClick';
+import { Text } from '../../Typography';
+import { useOutsideClick } from '../../../hooks/useOutsideClick';
 
 export const useTransfer = <T extends OptionType = OptionType>({
     options,
@@ -86,6 +86,7 @@ export const useTransfer = <T extends OptionType = OptionType>({
     const sortedValue = sortOptions(value);
 
     return {
+        ...args,
         options: sortedOptions,
         value: sortedValue,
         onOptionClick,
