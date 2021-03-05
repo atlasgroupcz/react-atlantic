@@ -1,9 +1,6 @@
 import styled, { css } from 'styled-components';
-import {
-    excludeComponentProps,
-    excludeIntrinsicElementProps,
-} from '../../../../../utils/excludeProps';
 import { Size } from '../../../../../types';
+import { getDefaultTypographyStyles } from '../../../../Typography/style';
 
 type StyledCheckboxProps = {
     isChecked?: boolean;
@@ -14,19 +11,6 @@ type StyledCheckboxProps = {
     position?: 'right' | 'left';
     size?: Size;
 };
-const styledCheckboxPropKeys: (keyof StyledCheckboxProps)[] = [
-    'isPartiallyChecked',
-    'isDisabled',
-    'isTextDotted',
-    'isChecked',
-    'position',
-    'name',
-];
-
-const checkboxExclude = excludeComponentProps<StyledCheckboxProps>();
-const checkboxIntrinsicExclude = excludeIntrinsicElementProps<
-    StyledCheckboxProps
->();
 
 export const HiddenCheckbox = styled.input.attrs({
     type: 'checkbox',
@@ -39,11 +23,11 @@ export const HiddenCheckbox = styled.input.attrs({
     z-index: -1;
 `;
 
-export const StyledCheckboxInputShown = styled(
-    checkboxExclude('div', styledCheckboxPropKeys)
-).attrs({
-    className: `atlantic--checkbox`, // To je BEM? 😮😮😮
-})`
+export const StyledCheckboxInputShown = styled('div')
+    .withConfig({ shouldForwardProp: (prop) => !['isDisabled'].includes(prop) })
+    .attrs({
+        className: `atlantic--checkbox`, // To je BEM? 😮😮😮
+    })<StyledCheckboxProps>`
     display: flex;
     align-items: center;
     justify-content: center;
@@ -60,16 +44,14 @@ export const StyledCheckboxInputShown = styled(
         `}
 `;
 
-export const StyledCheckboxLabel = styled(
-    checkboxIntrinsicExclude('label', styledCheckboxPropKeys)
-)`
-    height: ${(props) => props.theme.height.sm};
-    font-size: 14px;
-    font-family: ${(props) => props.theme.font.family};
+export const StyledCheckboxLabel = styled.label.withConfig({
+    shouldForwardProp: (prop) => !['isDisabled', 'size'].includes(prop),
+})<StyledCheckboxProps>`
+    ${(props) => getDefaultTypographyStyles(props)};
     display: inline-flex;
     align-items: center;
+    height: ${(props) => props.theme.height.sm};
     cursor: pointer;
-    color: ${(props) => props.theme.color.text.alpha};
 
     ${(props) =>
         !props.isDisabled &&
@@ -106,9 +88,10 @@ export const StyledCheckboxLabel = styled(
         `}
 `;
 
-export const StyledCheckboxMark = styled(
-    checkboxExclude('div', styledCheckboxPropKeys)
-)`
+export const StyledCheckboxMark = styled.div.withConfig({
+    shouldForwardProp: (prop) =>
+        !['isChecked', 'isPartiallyChecked', 'isDisabled'].includes(prop),
+})<StyledCheckboxProps>`
     display: flex;
     align-items: center;
     justify-content: center;
@@ -140,9 +123,9 @@ export const StyledCheckboxMark = styled(
         `};
 `;
 
-export const StyledCheckboxSpan = styled(
-    checkboxIntrinsicExclude('span', styledCheckboxPropKeys)
-)`
+export const StyledCheckboxSpan = styled.span.withConfig({
+    shouldForwardProp: (prop) => !['isDisabled', 'size'].includes(prop),
+})<StyledCheckboxProps>`
     padding: 0 ${(props) => props.theme.padding.md};
     user-select: none;
     line-height: 1;
@@ -172,9 +155,10 @@ export const StyledCheckboxSpan = styled(
         `}
 `;
 
-export const StyledCheckboxIcon = styled(
-    checkboxIntrinsicExclude('i', styledCheckboxPropKeys)
-)`
+export const StyledCheckboxIcon = styled.i.withConfig({
+    shouldForwardProp: (prop) =>
+        !['isDisabled', 'isChecked', 'isPartiallyChecked'].includes(prop),
+})<StyledCheckboxProps>`
     line-height: 0;
     color: ${(props) => props.theme.color.text.gamma};
 
