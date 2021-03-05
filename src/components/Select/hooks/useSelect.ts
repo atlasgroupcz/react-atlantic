@@ -13,7 +13,7 @@ export const useSelect = <T extends OptionType = OptionType>({
 
     const onClick: SelectProps['onClick'] = () => {
         if (!isDisabled) {
-            setOpen(true);
+            setOpen((prev) => !prev);
         }
     };
 
