@@ -5,27 +5,38 @@ import {
     StyledTitle3,
     StyledTitle4,
     StyledTitle5,
-} from './Title.style';
-import { CommonHTMLProps } from '../../../types';
+} from './style';
+import { ElementProps } from '../../../types/utils';
 
 export type TitleLevel = 1 | 2 | 3 | 4 | 5;
 
 export type TitleProps = {
     level?: TitleLevel;
     children: ReactText;
-} & CommonHTMLProps<HTMLTitleElement>;
+} & ElementProps<HTMLHeadingElement>;
 
 const levels = {
-    1: (children: ReactText) => <StyledTitle1>{children}</StyledTitle1>,
-    2: (children: ReactText) => <StyledTitle2>{children}</StyledTitle2>,
-    3: (children: ReactText) => <StyledTitle3>{children}</StyledTitle3>,
-    4: (children: ReactText) => <StyledTitle4>{children}</StyledTitle4>,
-    5: (children: ReactText) => <StyledTitle5>{children}</StyledTitle5>,
+    1: (children: ReactText, props: ElementProps<HTMLHeadingElement>) => (
+        <StyledTitle1 {...props}>{children}</StyledTitle1>
+    ),
+    2: (children: ReactText, props: ElementProps<HTMLHeadingElement>) => (
+        <StyledTitle2 {...props}>{children}</StyledTitle2>
+    ),
+    3: (children: ReactText, props: ElementProps<HTMLHeadingElement>) => (
+        <StyledTitle3 {...props}>{children}</StyledTitle3>
+    ),
+    4: (children: ReactText, props: ElementProps<HTMLHeadingElement>) => (
+        <StyledTitle4 {...props}>{children}</StyledTitle4>
+    ),
+    5: (children: ReactText, props: ElementProps<HTMLHeadingElement>) => (
+        <StyledTitle5 {...props}>{children}</StyledTitle5>
+    ),
 };
 
 export const Title: FC<PropsWithChildren<TitleProps>> = ({
     level = 1,
     children,
-}) => <>{levels[level]?.(children) || levels[1](children)}</>;
+    ...props
+}) => <>{levels[level]?.(children, props) || levels[1](children, props)}</>;
 
 Title.displayName = `Title`;

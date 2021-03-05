@@ -4,7 +4,7 @@ import {
     excludeIntrinsicElementProps,
 } from '../../../utils/excludeProps';
 import { Icon } from '../../Icon';
-import { StyledText } from '../../Typography/Text/Text.style';
+import { StyledText } from '../../Typography/Text/style';
 import { StyledMessageProps } from '../types/StyledMessageProps';
 
 const intrinsicElementExclude = excludeIntrinsicElementProps<

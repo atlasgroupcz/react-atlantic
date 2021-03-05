@@ -1,13 +1,13 @@
 import styled, { css } from 'styled-components';
-import { StyledText } from '../Text/Text.style';
+import { StyledText } from '../../Text/style';
 import {
     StyledTitle1,
     StyledTitle2,
     StyledTitle3,
     StyledTitle4,
     StyledTitle5,
-} from '../Title/Title.style';
-import { getDefaultTypographyStyles } from '../style';
+} from '../../Title';
+import { getDefaultTypographyStyles } from '../../style';
 
 export const getDefaultLinkStyles = () => css`
     ${(props) => getDefaultTypographyStyles(props)};

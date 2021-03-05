@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { StyledLink } from './Link.style';
+import { StyledLink } from './style';
 import { CommonHTMLProps, MouseEvents } from '../../../types';
 import { ElementProps } from '../../../types/utils';
 

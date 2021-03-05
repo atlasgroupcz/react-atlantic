@@ -1,8 +1,14 @@
 import * as React from 'react';
 import { select, withKnobs, boolean } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
-import { Icon } from '../src';
+import { Icon, Text } from '../src';
 import { IconName, IconsMap } from '../src/components/Icon/view/IconsMap';
+import {
+    StyledIconContainer,
+    StyledIconImage,
+    StyledIconName,
+    StyledIconsContainer,
+} from './style';
 
 const stories = storiesOf('Icon', module);
 const iconNames = Object.keys(IconsMap) as IconName[];
@@ -12,11 +18,18 @@ stories.addDecorator(withKnobs);
 stories.add(
     'Overview',
     () => (
-        <div>
+        <StyledIconsContainer>
             {iconNames.map((iconName) => (
-                <Icon name={iconName} />
+                <StyledIconContainer>
+                    <StyledIconImage>
+                        <Icon name={iconName} />
+                    </StyledIconImage>
+                    <StyledIconName>
+                        <Text>{iconName}</Text>
+                    </StyledIconName>
+                </StyledIconContainer>
             ))}
-        </div>
+        </StyledIconsContainer>
     ),
     {
         info: { inline: true },
