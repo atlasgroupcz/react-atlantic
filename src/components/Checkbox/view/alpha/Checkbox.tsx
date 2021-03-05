@@ -1,4 +1,5 @@
 import React from 'react';
+import { CheckSimple } from '../../../../Icons';
 import {
     HiddenCheckbox,
     StyledCheckboxIcon,
@@ -6,7 +7,7 @@ import {
     StyledCheckboxLabel,
     StyledCheckboxMark,
     StyledCheckboxSpan,
-} from './styles';
+} from './style';
 import { CheckboxType } from '../../types';
 
 export const Checkbox: CheckboxType = ({
@@ -44,7 +45,6 @@ export const Checkbox: CheckboxType = ({
             disabled={isDisabled}
             {...props}
         />
-
         <StyledCheckboxInputShown isDisabled={isDisabled}>
             <StyledCheckboxMark
                 isDisabled={isDisabled}
@@ -52,11 +52,12 @@ export const Checkbox: CheckboxType = ({
                 isPartiallyChecked={isPartiallyChecked}
             >
                 <StyledCheckboxIcon
-                    name={`check`}
                     isDisabled={isDisabled}
                     isChecked={isChecked}
                     isPartiallyChecked={isPartiallyChecked}
-                />
+                >
+                    <CheckSimple />
+                </StyledCheckboxIcon>
             </StyledCheckboxMark>
         </StyledCheckboxInputShown>
 

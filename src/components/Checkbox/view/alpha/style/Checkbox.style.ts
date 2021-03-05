@@ -1,4 +1,3 @@
-import { animated } from 'react-spring';
 import styled, { css } from 'styled-components';
 import {
     excludeComponentProps,
@@ -41,7 +40,7 @@ export const HiddenCheckbox = styled.input.attrs({
 `;
 
 export const StyledCheckboxInputShown = styled(
-    checkboxExclude(animated.div, styledCheckboxPropKeys)
+    checkboxExclude('div', styledCheckboxPropKeys)
 ).attrs({
     className: `atlantic--checkbox`, // To je BEM? 😮😮😮
 })`
@@ -108,7 +107,7 @@ export const StyledCheckboxLabel = styled(
 `;
 
 export const StyledCheckboxMark = styled(
-    checkboxExclude(animated.div, styledCheckboxPropKeys)
+    checkboxExclude('div', styledCheckboxPropKeys)
 )`
     display: flex;
     align-items: center;
@@ -124,22 +123,21 @@ export const StyledCheckboxMark = styled(
     ${(props) =>
         (props.isChecked || props.isPartiallyChecked) &&
         css`
+            opacity: 1;
             background-color: ${props.theme.color.primary.alpha};
         `}
-
     ${(props) =>
         props.isDisabled &&
         (props.isChecked || props.isPartiallyChecked) &&
         css`
             background-color: ${props.theme.color.background.beta};
         `}
-
-    ${(props) =>
+        ${(props) =>
         props.isDisabled &&
         css`
             color: transparent;
             cursor: not-allowed;
-        `}
+        `};
 `;
 
 export const StyledCheckboxSpan = styled(
@@ -181,16 +179,16 @@ export const StyledCheckboxIcon = styled(
     color: ${(props) => props.theme.color.text.gamma};
 
     ${(props) =>
-        (props.isPartiallyChecked || (!props.isChecked && props.isDisabled)) &&
-        css`
-            color: transparent;
-        `}
-
-    ${(props) =>
         props.isDisabled &&
         css`
             color: ${props.theme.color.text.beta};
             cursor: not-allowed;
+        `}
+
+    ${(props) =>
+        (props.isPartiallyChecked || (!props.isChecked && props.isDisabled)) &&
+        css`
+            color: transparent;
         `}
 `;
 
