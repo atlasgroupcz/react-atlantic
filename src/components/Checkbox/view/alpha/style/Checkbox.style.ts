@@ -104,6 +104,14 @@ export const StyledCheckboxMark = styled.div.withConfig({
     opacity: 0;
 
     ${(props) =>
+        props.isChecked &&
+        css`
+            ${StyledCheckboxIcon} {
+                color: ${(props) => props.theme.color.text.gamma};
+            }
+        `}
+
+    ${(props) =>
         (props.isChecked || props.isPartiallyChecked) &&
         css`
             opacity: 1;
