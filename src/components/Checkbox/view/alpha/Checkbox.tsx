@@ -1,14 +1,13 @@
 import React from 'react';
-import { CheckSimple } from '../../../../Icons';
 import {
     HiddenCheckbox,
-    StyledCheckboxIcon,
     StyledCheckboxInputShown,
     StyledCheckboxLabel,
     StyledCheckboxMark,
     StyledCheckboxSpan,
 } from './style';
 import { CheckboxType } from '../../types';
+import { Icon } from '../../../Icon';
 
 export const Checkbox: CheckboxType = ({
     isPartiallyChecked,
@@ -51,13 +50,7 @@ export const Checkbox: CheckboxType = ({
                 isChecked={isChecked}
                 isPartiallyChecked={isPartiallyChecked}
             >
-                <StyledCheckboxIcon
-                    isDisabled={isDisabled}
-                    isChecked={isChecked}
-                    isPartiallyChecked={isPartiallyChecked}
-                >
-                    <CheckSimple />
-                </StyledCheckboxIcon>
+                <Icon name="checkSimple" />
             </StyledCheckboxMark>
         </StyledCheckboxInputShown>
 

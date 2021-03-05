@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import { Size } from '../../../../../types';
+import { StyledIcon } from '../../../../Icon';
 import { getDefaultTypographyStyles } from '../../../../Typography/style';
 
 type StyledCheckboxProps = {
@@ -100,14 +101,21 @@ export const StyledCheckboxMark = styled.div.withConfig({
     height: ${(props) => props.theme.width.xs};
     min-height: ${(props) => props.theme.width.xs};
     border-radius: ${(props) => parseInt(props.theme.radius, 0) - 2}px;
-    background-color: ${(props) => props.theme.color.primary.alpha};
     opacity: 0;
 
     ${(props) =>
         props.isChecked &&
         css`
-            ${StyledCheckboxIcon} {
+            ${StyledIcon} {
                 color: ${(props) => props.theme.color.text.gamma};
+            }
+        `}
+
+    ${(props) =>
+        props.isPartiallyChecked &&
+        css`
+            ${StyledIcon} {
+                color: transparent;
             }
         `}
 
@@ -117,17 +125,17 @@ export const StyledCheckboxMark = styled.div.withConfig({
             opacity: 1;
             background-color: ${props.theme.color.primary.alpha};
         `}
+
+
     ${(props) =>
         props.isDisabled &&
-        (props.isChecked || props.isPartiallyChecked) &&
         css`
             background-color: ${props.theme.color.background.beta};
-        `}
-        ${(props) =>
-        props.isDisabled &&
-        css`
-            color: transparent;
             cursor: not-allowed;
+
+            ${StyledIcon} {
+                color: ${(props) => props.theme.color.text.beta};
+            }
         `};
 `;
 
@@ -163,27 +171,6 @@ export const StyledCheckboxSpan = styled.span.withConfig({
         `}
 `;
 
-export const StyledCheckboxIcon = styled.i.withConfig({
-    shouldForwardProp: (prop) =>
-        !['isDisabled', 'isChecked', 'isPartiallyChecked'].includes(prop),
-})<StyledCheckboxProps>`
-    line-height: 0;
-    color: ${(props) => props.theme.color.text.gamma};
-
-    ${(props) =>
-        props.isDisabled &&
-        css`
-            color: ${props.theme.color.text.beta};
-            cursor: not-allowed;
-        `}
-
-    ${(props) =>
-        (props.isPartiallyChecked || (!props.isChecked && props.isDisabled)) &&
-        css`
-            color: transparent;
-        `}
-`;
-
 HiddenCheckbox.displayName = 'HiddenCheckbox';
 
 StyledCheckboxInputShown.displayName = 'StyledCheckboxInputShown';
@@ -193,5 +180,3 @@ StyledCheckboxLabel.displayName = 'StyledCheckboxLabel';
 StyledCheckboxMark.displayName = 'StyledCheckboxMark';
 
 StyledCheckboxSpan.displayName = 'StyledCheckboxSpan';
-
-StyledCheckboxIcon.displayName = 'StyledCheckboxIcon';
