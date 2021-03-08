@@ -16,12 +16,14 @@ type StyledCheckboxProps = {
 export const HiddenCheckbox = styled.input.attrs({
     type: 'checkbox',
 })`
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
     opacity: 0;
     width: 0;
     height: 0;
     margin: 0;
-    position: absolute;
-    z-index: -1;
 `;
 
 export const StyledCheckboxInputShown = styled('div').withConfig({
@@ -47,15 +49,15 @@ export const StyledCheckboxLabel = styled.label.withConfig({
     shouldForwardProp: (prop) => !['isDisabled', 'size'].includes(prop),
 })<StyledCheckboxProps>`
     ${(props) => getDefaultTypographyStyles(props)};
+    position: relative;
     display: inline-flex;
     align-items: center;
-    height: ${(props) => props.theme.height.sm};
     cursor: pointer;
 
     ${(props) =>
         !props.isDisabled &&
         css`
-            :hover {
+            &:hover {
                 ${StyledCheckboxInputShown} {
                     border: 1px solid ${props.theme.color.primary.alpha};
                 }
@@ -94,10 +96,9 @@ export const StyledCheckboxMark = styled.div.withConfig({
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
     width: ${(props) => props.theme.width.xs};
-    min-width: ${(props) => props.theme.width.xs};
     height: ${(props) => props.theme.width.xs};
-    min-height: ${(props) => props.theme.width.xs};
     border-radius: ${(props) => parseInt(props.theme.radius, 0) - 2}px;
     transition: all 0.5s cubic-bezier(0.4, 0, 0.23, 1);
 
