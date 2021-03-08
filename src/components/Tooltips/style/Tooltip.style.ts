@@ -1,8 +1,12 @@
-import { styled } from '../../../styled';
+import { css, styled } from '../../../styled';
 
-export const StyledTooltip = styled.div<{ positionAttr: string }>`
+export const tooltipStyles = css<{ positionAttr: string }>`
+    opacity: 0;
+    visibility: hidden;
+
     z-index: 1000;
     position: fixed;
+
     padding: ${(props) => props.theme.padding.sm}
         ${(props) => props.theme.padding.md};
     font-size: ${(props) => props.theme.font.size.md};
@@ -11,10 +15,12 @@ export const StyledTooltip = styled.div<{ positionAttr: string }>`
     color: ${(props) => props.theme.color.text.gamma};
     background: ${(props) => props.theme.color.background.epsilon + '99'};
     border-radius: ${(props) => props.theme.radius};
+    pointer-events: none;
 
     &::after {
-        content: ' ';
+        content: '';
         position: absolute;
+        pointer-events: none;
         border: 5px solid transparent;
     }
 
@@ -24,6 +30,7 @@ export const StyledTooltip = styled.div<{ positionAttr: string }>`
         &::after {
             top: 100%;
             left: 50%;
+            transform: translateX(-50%);
             border-top-color: ${(props) =>
                 props.theme.color.background.epsilon + '99'};
         }
@@ -35,6 +42,7 @@ export const StyledTooltip = styled.div<{ positionAttr: string }>`
         &::after {
             bottom: 100%;
             left: 50%;
+            transform: translateX(-50%);
             border-bottom-color: ${(props) =>
                 props.theme.color.background.epsilon + '99'};
         }
@@ -63,6 +71,10 @@ export const StyledTooltip = styled.div<{ positionAttr: string }>`
                 props.theme.color.background.epsilon + '99'};
         }
     }
+`;
+
+export const StyledTooltip = styled.div<{ positionAttr: string }>`
+    ${tooltipStyles}
 `;
 
 export const StyledTooltipContainer = styled.div`

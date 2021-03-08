@@ -3,10 +3,8 @@ export const cleanupListeners = (
     attachTooltip: (e: Event) => void,
     cleanupTooltip: () => void
 ) => {
-    currentEls.forEach((el) =>
-        el.removeEventListener('mouseenter', attachTooltip)
-    );
-    currentEls.forEach((el) =>
-        el.removeEventListener('mouseout', cleanupTooltip)
-    );
+    for (const el of currentEls) {
+        el.removeEventListener('mouseenter', attachTooltip);
+        el.removeEventListener('mouseout', cleanupTooltip);
+    }
 };

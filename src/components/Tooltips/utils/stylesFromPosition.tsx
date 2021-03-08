@@ -1,9 +1,12 @@
 import { CSSPosition } from '../types/CSSPosition';
 
+const defaultStyles = 'visibility: visible;';
+
 export const stylesFromPosition = (
     { left, right, top, bottom }: DOMRect,
     offset: number,
-    preferredDirection: CSSPosition
+    preferredDirection: CSSPosition,
+    transition: string
 ): string => {
     const isLeftRight = ['left', 'right'].includes(preferredDirection);
     const isTopBottom = ['top', 'bottom'].includes(preferredDirection);
@@ -13,9 +16,9 @@ export const stylesFromPosition = (
 
         switch (preferredDirection as 'left' | 'right') {
             case 'left':
-                return `right: calc(100% - ${left}px);top: ${verticalMidpoint}px;`;
+                return `right: calc(100% - ${left}px);top: ${verticalMidpoint}px;${defaultStyles}${transition}`;
             case 'right':
-                return `left: ${right}px;top: ${verticalMidpoint}px;`;
+                return `left: ${right}px;top: ${verticalMidpoint}px;${defaultStyles}${transition}`;
         }
     }
 
@@ -24,9 +27,9 @@ export const stylesFromPosition = (
 
         switch (preferredDirection as 'top' | 'bottom') {
             case 'top':
-                return `bottom: calc(100% - ${top}px);left: ${horizontalMidpoint}px;`;
+                return `bottom: calc(100% - ${top}px);left: ${horizontalMidpoint}px;${defaultStyles}${transition}`;
             case 'bottom':
-                return `top: ${bottom}px;left: ${horizontalMidpoint}px;`;
+                return `top: ${bottom}px;left: ${horizontalMidpoint}px;${defaultStyles}${transition}`;
         }
     }
 
