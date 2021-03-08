@@ -1,8 +1,8 @@
 import { Size } from '../../../types';
-import { ReactNode, RefObject } from 'react';
+import { ReactNode, ReactText, RefObject } from 'react';
 import { ElementProps } from '../../../types/utils';
 
-export interface OptionType<V = ReactNode, L = ReactNode> {
+export interface OptionType<V = ReactText, L = ReactNode> {
     value: V;
     label: L;
 }

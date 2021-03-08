@@ -37,7 +37,7 @@ export type StyledComponentTransferProps = {
 };
 
 export type TransferProps<
-    T extends OptionType = OptionType
+    T extends OptionType<string, string> = OptionType<string, string>
 > = SharedTransferProps<T> & {
     value?: T[];
     ref: RefObject<HTMLDivElement>;

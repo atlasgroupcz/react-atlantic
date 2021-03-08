@@ -6,7 +6,7 @@ import { ButtonProps } from '../../Button';
 import { Text } from '../../Typography';
 import { useOutsideClick } from '../../../hooks/useOutsideClick';
 
-export const useTransfer = <T extends OptionType = OptionType>({
+export const useTransfer = <T extends OptionType<string, string>>({
     options,
     defaultValue,
     isDisabled,
@@ -126,7 +126,7 @@ export const useTransfer = <T extends OptionType = OptionType>({
     };
 };
 
-const sortOptions = <T extends OptionType = OptionType>(options: T[]) =>
+const sortOptions = <T extends OptionType<string, string>>(options: T[]) =>
     options.sort((a, b) =>
         a.label.toString().localeCompare(b.label.toString())
     );
