@@ -85,10 +85,10 @@ export const TransferLeftSide: TransferLeftSideType = ({
                             {options?.map((option) => (
                                 <TransferList.Item
                                     size={size}
-                                    key={
-                                        option.value +
-                                        selectedOptionsSet.has(option.value)
-                                    }
+                                    key={`${option.value}
+                                        ${selectedOptionsSet.has(
+                                            option.value
+                                        )}`}
                                 >
                                     <Checkbox
                                         isChecked={selectedOptionsSet.has(

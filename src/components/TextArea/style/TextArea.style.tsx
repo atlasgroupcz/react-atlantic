@@ -31,7 +31,7 @@ export const StyledTextArea = styled(
     touch-action: manipulation;
 
     background-color: ${(props) => props.theme.color.background.alpha};
-    color: ${(props) => props.theme.color.black};
+    color: ${(props) => props.theme.color.text.alpha};
     border: 1px solid ${(props) => props.theme.color.border};
     border-radius: ${(props) => props.theme.radius};
     outline: 0;
@@ -115,6 +115,5 @@ export const StyledTextArea = styled(
             }
         `}
 
-    resize: ${({ allowResize = false }) =>
-        allowResize ? `both` : `none`};
+    resize: ${({ allowResize = false }) => (allowResize ? `both` : `none`)};
 `;

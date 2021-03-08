@@ -1,3 +1,31 @@
+# [1.8.0](https://github.com/atlasgroupcz/react-atlantic/compare/1.7.0...1.8.0) (2021-03-08)
+
+### Bug Fixes
+
+-   **transfer:** 🐛 options, value, no results ([d1d2fbb](https://github.com/atlasgroupcz/react-atlantic/commit/d1d2fbbe4c95d5bf39cc4336fec460515289ef55))
+-   🐛 color prop ([4c842ff](https://github.com/atlasgroupcz/react-atlantic/commit/4c842fff3624d1e024c4d61662da6141bdcbf280))
+-   **transfer:** 🐛 fixes isDisabled state and zero values passed in Transfer ([5e7bf4b](https://github.com/atlasgroupcz/react-atlantic/commit/5e7bf4b955817bc596985bd0ba09422c67306c29))
+-   🐛 add fill ([87a03ac](https://github.com/atlasgroupcz/react-atlantic/commit/87a03ac478007c7492761f94b6145e6c19a2515d))
+-   🐛 disabled button border and color ([2efdad9](https://github.com/atlasgroupcz/react-atlantic/commit/2efdad9229f69f4905eb96a1e2d87cc8d619f35e))
+
+### Features
+
+-   ✨ calculateOffset ([05c4d4f](https://github.com/atlasgroupcz/react-atlantic/commit/05c4d4f4fbe323d81058333ba65f24d2a771fba3))
+-   ✨ js tooltips ([be50982](https://github.com/atlasgroupcz/react-atlantic/commit/be50982f07b9551296347cd6221345fe752f25d9))
+-   ✨ select ([848fb66](https://github.com/atlasgroupcz/react-atlantic/commit/848fb6665918346864c044a83e53d3be410c7e7e))
+-   **tooltips:** ✨ tooltip transitions ([0ae4fd4](https://github.com/atlasgroupcz/react-atlantic/commit/0ae4fd4cc9073678e6c199a17ddd7780de39971d))
+-   ✨ Tooltip logic ([83423a6](https://github.com/atlasgroupcz/react-atlantic/commit/83423a638d34ca3abab221359bfbd23740434000))
+-   **transfer:** ✨ disabled ([9a44dc9](https://github.com/atlasgroupcz/react-atlantic/commit/9a44dc9838a7123be1cfef5afa739df4390c8d10))
+-   **transfer:** ✨ disabled ([fbe4684](https://github.com/atlasgroupcz/react-atlantic/commit/fbe4684ea9cad8e91646cf19ba2c4bfaef203b81))
+-   **transfer:** ✨ init ([d00cd92](https://github.com/atlasgroupcz/react-atlantic/commit/d00cd923124def813dfd3ea160a3dbcb7976fac2))
+-   **transfer:** ✨ input clearable, icon ([4fa1664](https://github.com/atlasgroupcz/react-atlantic/commit/4fa16642d74acecde96483fbf8900d2109a0a78c))
+-   **transfer:** ✨ outside click, input clearable ([fd15c3e](https://github.com/atlasgroupcz/react-atlantic/commit/fd15c3e445eceaa03e2dbe7caf53f527a66300c1))
+-   **transfer:** ✨ prev value ([b550088](https://github.com/atlasgroupcz/react-atlantic/commit/b5500889f20c3ad4b47c92e265c731c1b88d752d))
+
+### BREAKING CHANGES
+
+-   removed react-select dependency
+
 ## [1.7.3](https://github.com/atlasgroupcz/react-atlantic/compare/1.7.0...1.7.3) (2021-03-02)
 
 ### Bug Fixes
@@ -15,7 +43,6 @@
 -   **transfer:** ✨ input clearable, icon ([4fa1664](https://github.com/atlasgroupcz/react-atlantic/commit/4fa16642d74acecde96483fbf8900d2109a0a78c))
 -   **transfer:** ✨ outside click, input clearable ([fd15c3e](https://github.com/atlasgroupcz/react-atlantic/commit/fd15c3e445eceaa03e2dbe7caf53f527a66300c1))
 -   **transfer:** ✨ prev value ([b550088](https://github.com/atlasgroupcz/react-atlantic/commit/b5500889f20c3ad4b47c92e265c731c1b88d752d))
-
 
 ## [1.7.2](https://github.com/atlasgroupcz/react-atlantic/compare/1.7.0...1.7.2) (2021-02-19)
 
