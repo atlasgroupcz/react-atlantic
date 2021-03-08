@@ -24,6 +24,25 @@ export const HiddenCheckbox = styled.input.attrs({
     z-index: -1;
 `;
 
+export const StyledCheckboxInputShown = styled('div').withConfig({
+    shouldForwardProp: (prop) => !['isDisabled'].includes(prop),
+})<StyledCheckboxProps>`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: ${(props) => parseInt(props.theme.padding.xs, 0) - 1}px;
+    background: ${(props) => props.theme.color.background.alpha};
+    border-radius: ${(props) => parseInt(props.theme.radius, 0) - 1}px;
+    border: 1px solid ${(props) => props.theme.color.border};
+
+    ${(props) =>
+        props.isDisabled &&
+        css`
+            background-color: ${props.theme.color.default};
+            cursor: not-allowed;
+        `}
+`;
+
 export const StyledCheckboxLabel = styled.label.withConfig({
     shouldForwardProp: (prop) => !['isDisabled', 'size'].includes(prop),
 })<StyledCheckboxProps>`
@@ -37,7 +56,7 @@ export const StyledCheckboxLabel = styled.label.withConfig({
         !props.isDisabled &&
         css`
             :hover {
-                .atlantic--checkbox {
+                ${StyledCheckboxInputShown} {
                     border: 1px solid ${props.theme.color.primary.alpha};
                 }
             }
@@ -65,27 +84,6 @@ export const StyledCheckboxLabel = styled.label.withConfig({
         props.size === 'large' &&
         css`
             height: ${props.theme.height.lg};
-        `}
-`;
-
-export const StyledCheckboxInputShown = styled('div')
-    .withConfig({ shouldForwardProp: (prop) => !['isDisabled'].includes(prop) })
-    .attrs({
-        className: `atlantic--checkbox`, // To je BEM? 😮😮😮
-    })<StyledCheckboxProps>`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: ${(props) => parseInt(props.theme.padding.xs, 0) - 1}px;
-    background: ${(props) => props.theme.color.background.alpha};
-    border-radius: ${(props) => parseInt(props.theme.radius, 0) - 1}px;
-    border: 1px solid ${(props) => props.theme.color.border};
-
-    ${(props) =>
-        props.isDisabled &&
-        css`
-            background-color: ${props.theme.color.default};
-            cursor: not-allowed;
         `}
 `;
 
