@@ -1,13 +1,9 @@
 import styled, { css } from 'styled-components';
-import { excludeIntrinsicElementProps } from '../../../../utils/excludeProps';
 import { IndicatorProps } from '../../types/Indicator.types';
 
-const indicatorExclude = excludeIntrinsicElementProps<IndicatorProps>();
-const indicatorPropKeys: (keyof IndicatorProps)[] = ['size', 'type'];
-
-export const StyledIndicator = styled(
-    indicatorExclude('sup', indicatorPropKeys)
-)`
+export const StyledIndicator = styled.sup.withConfig({
+    shouldForwardProp: (prop) => !['size', 'type'].includes(prop),
+})<IndicatorProps>`
     display: block;
     background-color: ${(props) => props.theme.color.default};
 

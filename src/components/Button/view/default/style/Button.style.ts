@@ -3,7 +3,6 @@ import { StyledIcon } from '../../../../Icon/view/style';
 import { ButtonProps, ButtonStyleType } from '../../../types';
 import { StyledText } from '../../../../Typography/Text';
 import { styled } from '../../../../../styled';
-import { excludeIntrinsicElementProps } from '../../../../../utils/excludeProps';
 import { FC } from 'react';
 import { Size } from '../../../../../types';
 
@@ -11,18 +10,6 @@ type StyledButtonProps = Omit<ButtonProps, 'type' | 'htmlType'> & {
     atlanticType: ButtonProps['type'];
     type: JSX.IntrinsicElements['button']['type'];
 };
-
-const buttonTypePropKeys: (keyof StyledButtonProps)[] = [
-    'isRound',
-    'isDisabled',
-    'isFullWidth',
-    'isTransparent',
-    'size',
-    'atlanticType',
-];
-const buttonIntrinsicElementExclude = excludeIntrinsicElementProps<
-    StyledButtonProps
->();
 
 const focusAnimation = keyframes`
     0%    {
@@ -240,9 +227,17 @@ export const getDisabledButtonStyles = (isDisabled: boolean) =>
         `}
     `;
 
-export const StyledButton = styled(
-    buttonIntrinsicElementExclude('button', buttonTypePropKeys)
-)`
+export const StyledButton = styled.button.withConfig({
+    shouldForwardProp: (prop) =>
+        ![
+            'isRound',
+            'isDisabled',
+            'isFullWidth',
+            'isTransparent',
+            'size',
+            'atlanticType',
+        ].includes(prop),
+})<StyledButtonProps>`
     ${getDefaultButtonStyles()};
     ${(props) =>
         !props.isDisabled &&

@@ -1,15 +1,10 @@
 import styled, { css } from 'styled-components';
-import { excludeComponentProps } from '../../../../../utils/excludeProps';
 import { SimpleButtonProps } from '../../../types';
 import { Button } from '../../default';
 
-const simpleButtonExcludeProps: (keyof SimpleButtonProps)[] = ['isAlternative'];
-
-const buttonComponentExclude = excludeComponentProps<SimpleButtonProps>();
-
-export const StyledSimpleButton = styled(
-    buttonComponentExclude(Button, simpleButtonExcludeProps)
-)<SimpleButtonProps>`
+export const StyledSimpleButton = styled(Button).withConfig({
+    shouldForwardProp: (prop) => !['isAlternative'].includes(prop),
+})<SimpleButtonProps>`
     && {
         background: none;
         box-shadow: none;
