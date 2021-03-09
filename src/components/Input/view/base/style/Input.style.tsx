@@ -32,6 +32,10 @@ export const StyledInput = styled(
         color: ${(props) => props.theme.color.text.beta};
     }
 
+    &::-moz-placeholder {
+        opacity: 1;
+    }
+
     // Hide IE clear button
     &::-ms-clear {
         display: none;
