@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components';
-import { excludeIntrinsicElementProps } from '../../../../../utils/excludeProps';
 
 interface StyledSVGCircleProps {
     color?: string;
@@ -13,25 +12,9 @@ interface StyledProgressCircleProps {
     color?: string;
 }
 
-const excludeProgressCircle = excludeIntrinsicElementProps<
-    StyledProgressCircleProps
->();
-const circleExcludeArr: (keyof StyledProgressCircleProps)[] = [
-    'color',
-    'circleSize',
-];
-
-const excludeSVGCircle = excludeIntrinsicElementProps<StyledSVGCircleProps>();
-const svgExcludeArr: (keyof StyledSVGCircleProps)[] = [
-    'color',
-    'dashOffset',
-    'strokeWidth',
-    'dashArray',
-];
-
-export const StyledProgressCircle = styled(
-    excludeProgressCircle('div', circleExcludeArr)
-)`
+export const StyledProgressCircle = styled.div.withConfig({
+    shouldForwardProp: (prop) => !['color', 'circleSize'].includes(prop),
+})<StyledProgressCircleProps>`
     height: ${(props) => props.circleSize}px;
     width: ${(props) => props.circleSize}px;
     position: relative;
@@ -44,16 +27,18 @@ export const StyledProgressCircleSVG = styled.svg`
     max-width: 100%;
 `;
 
-export const StyledProgressCircleSVGBackground = styled(
-    excludeSVGCircle('circle', svgExcludeArr)
-)`
+export const StyledProgressCircleSVGBackground = styled.circle.withConfig({
+    shouldForwardProp: (prop) =>
+        !['color', 'dashOffset', 'strokeWidth', 'dashArray'].includes(prop),
+})<StyledSVGCircleProps>`
     stroke: ${(props) => props.theme.color.border};
     stroke-width: ${(props) => props.strokeWidth};
 `;
 
-export const StyledProgressCircleSVGColorful = styled(
-    excludeSVGCircle('circle', svgExcludeArr)
-)`
+export const StyledProgressCircleSVGColorful = styled.circle.withConfig({
+    shouldForwardProp: (prop) =>
+        !['color', 'dashOffset', 'strokeWidth', 'dashArray'].includes(prop),
+})<StyledSVGCircleProps>`
     stroke-width: ${(props) => props.strokeWidth};
     stroke-dasharray: ${(props) => props.dashArray};
     stroke-dashoffset: ${(props) => props.dashOffset};
@@ -78,9 +63,9 @@ export const StyledProgressCircleText = styled.span`
     transform: translateX(-50%) translateY(-50%);
 `;
 
-export const StyledProgressCircleTextContainer = styled(
-    excludeProgressCircle('div', circleExcludeArr)
-)`
+export const StyledProgressCircleTextContainer = styled.div.withConfig({
+    shouldForwardProp: (prop) => !['color', 'circleSize'].includes(prop),
+})<StyledProgressCircleProps>`
     transition: color 1s ease;
 
     ${({ color }) =>
