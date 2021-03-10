@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, forwardRef } from 'react';
 import {
     StyledCodeText,
     StyledDelText,
@@ -9,13 +9,16 @@ import {
 import { TextProps } from './types';
 
 const elements = {
-    span: (props: TextProps) => <StyledText {...props} />,
-    strong: (props: TextProps) => <StyledStrongText {...props} />,
-    code: (props: TextProps) => <StyledCodeText {...props} />,
-    del: (props: TextProps) => <StyledDelText {...props} />,
-    mark: (props: TextProps) => <StyledMarkText {...props} />,
+    span: StyledText,
+    strong: StyledStrongText,
+    code: StyledCodeText,
+    del: StyledDelText,
+    mark: StyledMarkText,
 };
 
-export const Text: FC<TextProps> = ({ element = 'span', ...props }) => (
-    <>{elements[element]?.(props) || elements['span'](props)}</>
+export const Text: FC<TextProps> = forwardRef(
+    ({ element = 'span', ...props }, ref) => {
+        const Component = elements[element] ?? elements['span'];
+        return <Component ref={ref} {...props} />;
+    }
 );

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useMemo } from 'react';
 import {
     createContext,
     FC,
@@ -9,6 +9,7 @@ import {
     useEffect,
     useState,
 } from 'react';
+import debounce from 'lodash.debounce';
 
 export type DeviceType =
     | 'mobile'
@@ -140,29 +141,17 @@ export const DeviceProvider: FC<Readonly<
             navigator.maxTouchPoints > 0 ||
             navigator.msMaxTouchPoints > 0);
 
+    const memoizedValue = useMemo(
+        () => ({
+            currentDevice,
+            isTouchable,
+        }),
+        [currentDevice, isTouchable]
+    );
+
     return (
-        <DeviceContext.Provider
-            value={{
-                currentDevice,
-                isTouchable,
-            }}
-        >
+        <DeviceContext.Provider value={memoizedValue}>
             {children}
         </DeviceContext.Provider>
     );
-};
-
-export const debounce = (cb: () => void, interval: Readonly<number>) => {
-    let timeout: number | null | undefined;
-
-    return (...args: ReadonlyArray<Event>) => {
-        const later = () => {
-            timeout = null;
-            // @ts-ignore
-            cb.apply(this, args);
-        };
-
-        clearTimeout(timeout!);
-        timeout = setTimeout(later, interval);
-    };
 };

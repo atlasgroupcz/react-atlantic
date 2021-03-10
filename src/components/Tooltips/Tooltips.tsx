@@ -1,13 +1,21 @@
-import React, { FC, useCallback, useEffect, useMemo, useRef } from 'react';
+import React, {
+    createContext,
+    FC,
+    useCallback,
+    useContext,
+    useEffect,
+    useRef,
+} from 'react';
+
 import { RefType } from '../../types/Ref';
 import { StyledTooltipContainer, StyledTooltip } from './style';
 import {
     attachListeners,
     attachTooltipToElement,
-    cleanupListeners,
     cleanupTooltipElement,
     createTransition,
 } from './utils';
+import debounce from 'lodash.debounce';
 
 type TooltipsProps = {
     contentAttr?: string;
@@ -17,27 +25,28 @@ type TooltipsProps = {
     Tooltip?: FC<{ ref: RefType<any>; positionAttr: string }>;
 };
 
-const createObserveOptions = (contentAttr: string) => ({
-    attributeFilter: [contentAttr],
-    attributes: true,
-    childList: false,
-    characterData: false,
-    subtree: false,
-});
+const tooltipSet = new Set<HTMLElement | null>();
 
-const createTooltipObserver = (
-    contentAttr: string,
-    onContentUpdate: (value: string | null) => void
-) =>
-    new MutationObserver((mutationsList) => {
-        console.log('update');
+const garbageCollect = (attach: any, cleanup: any) => {
+    for (const ref of tooltipSet) {
+        const exists = ref?.isConnected;
+        if (!exists) tooltipSet.delete(ref);
+    }
 
-        for (const mutation of mutationsList) {
-            onContentUpdate(
-                (mutation.target as Element).getAttribute(contentAttr)
-            );
-        }
-    });
+    update(attach, cleanup);
+};
+
+const reconcile = debounce(garbageCollect, 50);
+
+const update = (attach: any, cleanup: any) => {
+    attachListeners(tooltipSet, attach, cleanup);
+};
+
+const TooltipContext = createContext<(instance: HTMLElement | null) => void>(
+    () => {}
+);
+
+export const useTooltip = () => useContext(TooltipContext);
 
 export const Tooltips: FC<TooltipsProps> = ({
     children,
@@ -48,34 +57,19 @@ export const Tooltips: FC<TooltipsProps> = ({
     transition = createTransition(200, 500, 'ease-out'),
 }) => {
     const tooltipRef = useRef<HTMLDivElement>(null);
-    const containerRef = useRef<HTMLDivElement>(null);
-    // const currentElements = useRef<Set<HTMLElement>>(new Set());
-
-    const mutationObserver = useMemo(() => {
-        const tooltipElement = tooltipRef.current;
-        if (tooltipElement)
-            return createTooltipObserver(contentAttr, (newValue) => {
-                if (newValue) tooltipElement.innerText = newValue;
-            });
-        //! This memo needs to update on ref mount/update
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [contentAttr, tooltipRef.current]);
-
-    const tooltipTarget = useRef<HTMLDivElement | null>(null);
 
     const attachTooltip = useCallback(
         (e: Event) => {
             const tooltipElement = tooltipRef.current;
-            const target = e.target;
-            if (tooltipElement && target) {
-                tooltipTarget.current = target as HTMLDivElement;
-                mutationObserver?.observe(
-                    tooltipTarget.current,
-                    createObserveOptions(contentAttr)
-                );
+            const currentTarget = e.currentTarget as HTMLElement & EventTarget;
 
+            if (
+                tooltipElement &&
+                currentTarget &&
+                tooltipSet.has(currentTarget)
+            ) {
                 attachTooltipToElement(
-                    e,
+                    currentTarget,
                     tooltipElement,
                     contentAttr,
                     positionAttr,
@@ -83,39 +77,39 @@ export const Tooltips: FC<TooltipsProps> = ({
                 );
             }
         },
-        [contentAttr, mutationObserver, positionAttr, transition]
+        [contentAttr, positionAttr, transition]
     );
 
     const cleanupTooltip = useCallback(() => {
         const tooltipElement = tooltipRef.current;
-        if (tooltipElement) {
-            mutationObserver?.disconnect();
+        if (!tooltipElement) return;
+
+        const isAttached = tooltipElement.hasAttribute('style');
+        if (isAttached) {
             cleanupTooltipElement(tooltipElement);
         }
-    }, [mutationObserver]);
+    }, []);
 
     useEffect(() => {
-        const container = containerRef.current;
-        if (container && !hideTooltips) {
-            const els = container.querySelectorAll<HTMLElement>(
-                `[${contentAttr}]`
-            );
+        window.addEventListener('scroll', cleanupTooltip);
+    }, []);
 
-            attachListeners(els, attachTooltip, cleanupTooltip);
-
-            return () => {
-                cleanupListeners(els, attachTooltip, cleanupTooltip);
-                if (!container.contains(tooltipTarget.current)) {
-                    cleanupTooltip();
-                }
-            };
-        }
-    });
+    const tooltip = useCallback(
+        (instance: HTMLElement | null) => {
+            if (instance) {
+                tooltipSet.add(instance);
+                reconcile(attachTooltip, cleanupTooltip);
+            }
+        },
+        [attachTooltip, cleanupTooltip]
+    );
 
     return (
-        <StyledTooltipContainer ref={containerRef}>
+        <TooltipContext.Provider value={tooltip}>
             {children}
-            <Tooltip ref={tooltipRef} positionAttr={positionAttr} />
-        </StyledTooltipContainer>
+            {!hideTooltips && (
+                <Tooltip ref={tooltipRef} positionAttr={positionAttr} />
+            )}
+        </TooltipContext.Provider>
     );
 };
