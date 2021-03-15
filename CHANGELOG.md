@@ -1,3 +1,11 @@
+## [1.8.2](https://github.com/atlasgroupcz/react-atlantic/compare/1.8.1...1.8.2) (2021-03-15)
+
+### Bug Fixes
+
+-   **tooltips:** 🐛 ref set ([23cc06a](https://github.com/atlasgroupcz/react-atlantic/commit/23cc06a1bd88e8bce8ec4a40585d6992702a088d))
+-   🐛 placeholder text color in FF ([9fc529c](https://github.com/atlasgroupcz/react-atlantic/commit/9fc529c6940124b07325da2acc72e8fb5449553a))
+-   🐛 placeholder text color in FF ([050c9d2](https://github.com/atlasgroupcz/react-atlantic/commit/050c9d287746be2514bd1c3a24e9efd87d2c4736))
+
 ## [1.8.1](https://github.com/atlasgroupcz/react-atlantic/compare/1.8.0...1.8.1) (2021-03-12)
 
 # [1.8.0](https://github.com/atlasgroupcz/react-atlantic/compare/1.7.0...1.8.0) (2021-03-08)
