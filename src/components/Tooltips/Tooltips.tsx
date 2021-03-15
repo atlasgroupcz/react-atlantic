@@ -92,7 +92,10 @@ export const Tooltips: FC<TooltipsProps> = ({
 
     useEffect(() => {
         window.addEventListener('scroll', cleanupTooltip);
-    }, []);
+        return () => {
+            window.removeEventListener('scroll', cleanupTooltip);
+        };
+    }, [cleanupTooltip]);
 
     const tooltip = useCallback(
         (instance: HTMLElement | null) => {
