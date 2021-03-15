@@ -11,6 +11,6 @@ export const attachListeners = (
     for (const el of currentEls) {
         if (!el) continue;
         el.addEventListener('mouseenter', attachTooltip);
-        el.addEventListener('mouseout', cleanupTooltip);
+        el.addEventListener('mouseleave', cleanupTooltip);
     }
 };
