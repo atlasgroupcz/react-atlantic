@@ -1,21 +1,7 @@
 import styled, { css, FlattenSimpleInterpolation } from 'styled-components';
 import { Size } from '../../../../types';
 import { ThemeType } from '../../../../theme';
-import { excludeIntrinsicElementProps } from '../../../../utils/excludeProps';
 import { StyledSkeletonProps } from '../../types';
-
-const skeletonIntrinsicExclude = excludeIntrinsicElementProps<
-    StyledSkeletonProps
->();
-
-const skeletonPropKeys: (keyof StyledSkeletonProps)[] = [
-    'size',
-    'width',
-    'height',
-    'shape',
-    'bgColor',
-    'animationColors',
-];
 
 const sizeFactory = <T extends ThemeType<any>>(
     size: Size,
@@ -47,9 +33,17 @@ const parseWidth = (width: number | string): FlattenSimpleInterpolation => {
           `;
 };
 
-export const StyledSkeleton = styled(
-    skeletonIntrinsicExclude('div', skeletonPropKeys)
-)`
+export const StyledSkeleton = styled.div.withConfig({
+    shouldForwardProp: (prop) =>
+        ![
+            'size',
+            'width',
+            'height',
+            'shape',
+            'bgColor',
+            'animationColors',
+        ].includes(prop),
+})<StyledSkeletonProps>`
     height: 100%;
     width: 100%;
     position: relative;

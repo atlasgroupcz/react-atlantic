@@ -1,71 +1,57 @@
-import React, { useEffect, useState } from 'react';
+import React, { FC, useEffect, useRef, useState } from 'react';
 import { storiesOf } from '@storybook/react';
-import { Text, Tooltips } from '../src';
+import { Text, Tooltips, useTooltip } from '../src';
 
 const stories = storiesOf('Tooltips', module);
+
+export interface ComponentProps {}
+export type ComponentType = FC<ComponentProps>;
+
+export const Component: ComponentType = () => {
+    const [state] = useState<number>(1);
+
+    const tooltip = useTooltip();
+
+    return (
+        <div>
+            <div>
+                <Text ref={tooltip} data-title={state}>
+                    Hello world! {state}
+                </Text>
+            </div>
+
+            <br />
+            <br />
+            <Text>
+                Custom position: (
+                <Text ref={tooltip} data-title="left" data-position="left">
+                    left
+                </Text>
+                ,{' '}
+                <Text ref={tooltip} data-title="right" data-position="right">
+                    right
+                </Text>
+                ,{' '}
+                <Text ref={tooltip} data-title="top" data-position="top">
+                    top
+                </Text>
+                ,{' '}
+                <Text ref={tooltip} data-title="bottom" data-position="bottom">
+                    bottom
+                </Text>
+                )
+            </Text>
+        </div>
+    );
+};
 
 stories.add(
     'Playground',
     () => {
-        const [state, setState] = useState<number>(0);
-
-        useEffect(() => {
-            setInterval(() => {
-                setState((s) => s + 1);
-            }, 1000);
-        }, []);
-
         return (
             <>
                 <Tooltips>
-                    <div>
-                        {<Text data-title={state}>Hello world! {state}</Text>}
-                        <br />
-                        <br />
-                        {[...new Array(1)].map((_, i) => (
-                            <Text key={i}>
-                                Custom position: (
-                                <Text data-title="left" data-position="left">
-                                    left
-                                </Text>
-                                ,{' '}
-                                <Text data-title="right" data-position="right">
-                                    right
-                                </Text>
-                                ,{' '}
-                                <Text data-title="top" data-position="top">
-                                    top
-                                </Text>
-                                ,{' '}
-                                <Text
-                                    data-title="bottom"
-                                    data-position="bottom"
-                                >
-                                    bottom
-                                </Text>
-                                )
-                            </Text>
-                        ))}
-                        <Text>
-                            Custom position: (
-                            <Text data-title="left" data-position="left">
-                                left
-                            </Text>
-                            ,{' '}
-                            <Text data-title="right" data-position="right">
-                                right
-                            </Text>
-                            ,{' '}
-                            <Text data-title="top" data-position="top">
-                                top
-                            </Text>
-                            ,{' '}
-                            <Text data-title="bottom" data-position="bottom">
-                                bottom
-                            </Text>
-                            )
-                        </Text>
-                    </div>
+                    <Component />
                 </Tooltips>
                 <br />
                 <Tooltips contentAttr="data-custom">

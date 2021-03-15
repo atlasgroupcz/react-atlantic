@@ -1,9 +1,5 @@
 import { IconProps } from '../../types';
-import { excludeIntrinsicElementProps } from '../../../../utils/excludeProps';
 import { css, keyframes, styled } from '../../../../styled';
-
-const iconPropKeys: (keyof IconProps)[] = ['isRotating'];
-const iconIntrinsicExclude = excludeIntrinsicElementProps<IconProps>();
 
 export const spin = () => {
     return keyframes`
@@ -13,7 +9,9 @@ export const spin = () => {
   }`;
 };
 
-export const StyledIcon = styled(iconIntrinsicExclude('i', iconPropKeys))`
+export const StyledIcon = styled.i.withConfig({
+    shouldForwardProp: (prop) => !['isRotating'].includes(prop),
+})<IconProps>`
     display: inline-block;
     cursor: ${(props) => (props.onClick ? 'pointer' : 'inherit')};
     line-height: 0;

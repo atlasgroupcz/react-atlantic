@@ -1,12 +1,9 @@
 import styled, { css } from 'styled-components';
 import { BadgeProps } from '../../types/Badge.types';
 
-import { excludeIntrinsicElementProps } from '../../../../utils/excludeProps';
-
-const badgePropKeys: (keyof BadgeProps)[] = ['size', 'type'];
-const badgeIntrinsicExclude = excludeIntrinsicElementProps<BadgeProps>();
-
-export const StyledBadge = styled(badgeIntrinsicExclude('sup', badgePropKeys))`
+export const StyledBadge = styled.sup.withConfig({
+    shouldForwardProp: (prop) => !['size', 'type'].includes(prop),
+})<BadgeProps>`
     display: inline-block;
     text-align: center;
     color: ${(props) => props.theme.color.text.alpha};
