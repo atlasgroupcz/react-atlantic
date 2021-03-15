@@ -1,4 +1,6 @@
 export const cleanupTooltipElement = (tooltipElement: HTMLDivElement) => {
-    tooltipElement.removeAttribute('style');
-    tooltipElement.innerText = '';
+    requestAnimationFrame(() => {
+        tooltipElement.removeAttribute('style');
+        tooltipElement.innerText = '';
+    });
 };
