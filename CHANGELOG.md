@@ -1,3 +1,9 @@
+## [1.8.3](https://github.com/atlasgroupcz/react-atlantic/compare/v1.8.2...v1.8.3) (2021-03-16)
+
+### Bug Fixes
+
+-   🐛 mouse event ([395b053](https://github.com/atlasgroupcz/react-atlantic/commit/395b0539acb1e2695d931a27c20f80aea56b60a9))
+
 ## [1.8.2](https://github.com/atlasgroupcz/react-atlantic/compare/1.8.1...1.8.2) (2021-03-15)
 
 ### Bug Fixes
