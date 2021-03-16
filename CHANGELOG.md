@@ -1,3 +1,9 @@
+## [1.8.4](https://github.com/atlasgroupcz/react-atlantic/compare/v1.8.3...v1.8.4) (2021-03-16)
+
+### Bug Fixes
+
+-   🐛 tooltips empty content ([7f1a79e](https://github.com/atlasgroupcz/react-atlantic/commit/7f1a79e52758817be680c675cdea5334c73de2ed))
+
 ## [1.8.3](https://github.com/atlasgroupcz/react-atlantic/compare/v1.8.2...v1.8.3) (2021-03-16)
 
 ### Bug Fixes
