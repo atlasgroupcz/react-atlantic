@@ -8,7 +8,7 @@ import React, {
 } from 'react';
 
 import { RefType } from '../../types/Ref';
-import { StyledTooltipContainer, StyledTooltip } from './style';
+import { StyledTooltip } from './style';
 import {
     attachListeners,
     attachTooltipToElement,
