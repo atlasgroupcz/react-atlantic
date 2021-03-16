@@ -15,8 +15,6 @@ export const attachTooltipToElement = (
     const preferredPosition =
         currentTarget.getAttribute(positionAttr) ?? DEFAULT_POSITION;
 
-    console.log(currentTarget);
-
     const content = currentTarget.getAttribute(contentAttr);
 
     if (content !== null) {
