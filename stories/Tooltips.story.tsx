@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useRef, useState } from 'react';
+import React, { FC, useState } from 'react';
 import { storiesOf } from '@storybook/react';
 import { Text, Tooltips, useTooltip } from '../src';
 
@@ -9,14 +9,28 @@ export type ComponentType = FC<ComponentProps>;
 
 export const Component: ComponentType = () => {
     const [state] = useState<number>(1);
-
     const tooltip = useTooltip();
 
     return (
         <div>
             <div>
                 <Text ref={tooltip} data-title={state}>
-                    Hello world! {state}
+                    Hello world 0! {state}
+                </Text>
+            </div>
+            <div>
+                <Text ref={tooltip} data-title={state}>
+                    Hello world 1! {state}
+                </Text>
+            </div>
+            <div>
+                <Text ref={tooltip} data-title={state}>
+                    Hello world 2! {state}
+                </Text>
+            </div>
+            <div>
+                <Text ref={tooltip} data-title={state}>
+                    Hello world 3! {state}
                 </Text>
             </div>
 
