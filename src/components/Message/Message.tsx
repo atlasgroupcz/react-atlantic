@@ -1,9 +1,8 @@
 import React, { FC, ReactElement } from 'react';
 import { defaultIconFromType } from './utils';
-import { StyledMessageContainer } from './style';
+import { StyledMessageContainer } from './styles';
 import { StyledMessageProps } from './types';
 import { InnerRef } from '../../types/utils/InnerRef';
-
 export interface MessageProps extends InnerRef<StyledMessageProps> {
     Icon?: ReactElement;
 }
@@ -12,6 +11,7 @@ type MessageType = FC<MessageProps>;
 
 export const Message: MessageType = ({
     children,
+    className,
     type,
     innerRef,
     isTransparent,
@@ -20,6 +20,7 @@ export const Message: MessageType = ({
 }) => {
     return (
         <StyledMessageContainer
+            className={className}
             ref={innerRef}
             type={type}
             isTransparent={isTransparent}

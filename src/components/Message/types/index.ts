@@ -1,1 +1,1 @@
-export * from './StyledMessageProps';
+export * from './Message.types';

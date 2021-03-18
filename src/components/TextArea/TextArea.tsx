@@ -1,5 +1,5 @@
 import React, { FC, forwardRef } from 'react';
-import { StyledTextArea } from './style';
+import { StyledTextArea } from './styles';
 import { TextAreaProps } from './types';
 
 export type TextAreaType = FC<TextAreaProps>;

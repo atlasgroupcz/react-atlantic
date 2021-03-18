@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import { StyledTransformRightSideProps } from '../types';
 import { StyledText } from '../../../../Typography/Text/style';
 import { StyledLink } from '../../../../Typography/Link/style';
-import { StyledIcon } from '../../../../Icon/view/style';
+import { StyledIcon } from '../../../../Icon/view/styles';
 import { PureButton } from '../../../../Button/view/pure';
 
 export const StyledTransformRightSideHeaderCloseButton = styled(

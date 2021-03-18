@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { ButtonProps } from '../../types';
-import { StyledPureButton } from './style';
+import { StyledPureButton } from './styles';
 
 export type PureButtonProps = {} & ButtonProps;
 

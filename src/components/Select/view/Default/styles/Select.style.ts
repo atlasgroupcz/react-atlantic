@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
-import { getDefaultTypographyStyles } from '../../../../Typography/style';
-import { StyledIcon } from '../../../../Icon/view/style';
+import { getDefaultTypographyStyles } from '../../../../Typography/styles';
+import { StyledIcon } from '../../../../Icon/view/styles';
 import { SelectProps } from '../../../types';
 
 type StyledDefaultSelectProps = Pick<

@@ -6,10 +6,9 @@ import React, {
     useMemo,
     useRef,
 } from 'react';
-
-import { StyledTooltip } from './style';
 import { TooltipContextType } from './types/TooltipContextType';
 import { TooltipsProps } from './types/TooltipsProps';
+import { StyledTooltip } from './styles';
 import {
     attachTooltipToElement,
     cleanupTooltipElement,

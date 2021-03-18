@@ -1,5 +1,5 @@
 import React, { forwardRef, useMemo, useRef } from 'react';
-import { StyledTimelineContainer } from './style';
+import { StyledTimelineContainer } from './styles';
 import { TimelineItem } from './Item';
 import {
     defaultTimelineContextValue,

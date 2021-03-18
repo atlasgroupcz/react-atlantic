@@ -12,7 +12,7 @@ import {
     StyledProgressCircleSVGColorful,
     StyledProgressCircleTextContainer,
     StyledProgressCircleText,
-} from './style';
+} from './styles';
 
 export type ProgressCircleType = FC<ProgressCirleProps>;
 

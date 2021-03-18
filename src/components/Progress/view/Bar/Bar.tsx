@@ -9,7 +9,7 @@ import {
     StyledProgressBarFill,
     StyledProgressBarFillContainer,
     StyledProgressBarLine,
-} from './style';
+} from './styles';
 
 export type ProgressBarType = FC<ProgressBarProps>;
 

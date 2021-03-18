@@ -7,7 +7,7 @@ import {
     StyledTitle4,
     StyledTitle5,
 } from '../../Title';
-import { getDefaultTypographyStyles } from '../../style';
+import { getDefaultTypographyStyles } from '../../styles';
 
 export const getDefaultLinkStyles = () => css`
     ${(props) => getDefaultTypographyStyles(props)};

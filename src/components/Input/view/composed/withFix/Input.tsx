@@ -4,7 +4,7 @@ import {
     StyledInputPrefix,
     StyledInputSuffix,
     StyledInputContainer,
-} from './style';
+} from './styles';
 import { InputBase } from '../../base';
 import { PropsWithoutChildren } from '../../../../../types';
 import { handleParentRef } from '../../../../../utils';
