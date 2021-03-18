@@ -1,5 +1,5 @@
 import { styled } from '../../src/styled';
-import { StyledText } from '../../src/components/Typography/Text/style';
+import { StyledText } from '../../src/components/Typography/Text/styles';
 
 export const StyledIconImage = styled.div`
     display: flex;

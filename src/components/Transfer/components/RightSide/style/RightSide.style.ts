@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import { StyledTransformRightSideProps } from '../types';
-import { StyledText } from '../../../../Typography/Text/style';
-import { StyledLink } from '../../../../Typography/Link/style';
+import { StyledText } from '../../../../Typography/Text/styles';
+import { StyledLink } from '../../../../Typography/Link/styles';
 import { StyledIcon } from '../../../../Icon/view/styles';
 import { PureButton } from '../../../../Button/view/pure';
 

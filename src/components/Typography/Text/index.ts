@@ -1,3 +1,3 @@
-export * from './style';
+export * from './styles';
 export * from './types';
 export * from './Text';

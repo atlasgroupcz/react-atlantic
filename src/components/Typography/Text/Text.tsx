@@ -5,7 +5,7 @@ import {
     StyledMarkText,
     StyledStrongText,
     StyledText,
-} from './style';
+} from './styles';
 import { TextProps } from './types';
 
 const elements = {

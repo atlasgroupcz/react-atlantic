@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { StyledText } from '../../Text/style';
+import { StyledText } from '../../Text/styles';
 import {
     StyledTitle1,
     StyledTitle2,
