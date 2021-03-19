@@ -1,5 +1,6 @@
 import { styled } from '../../../../styled';
 import { StyledIcon } from '../../../Icon';
+import { StyledCollapseIconContainer } from '../../style';
 
 export const StyledPanel = styled.li`
     list-style-type: none;
@@ -13,8 +14,10 @@ export const StyledPanelHeader = styled.div`
     cursor: pointer;
 
     &:hover {
-        ${StyledIcon} {
-            color: ${(props) => props.theme.color.primary.alpha};
+        ${StyledCollapseIconContainer} {
+            ${StyledIcon} {
+                color: ${(props) => props.theme.color.primary.alpha};
+            }
         }
     }
 `;
