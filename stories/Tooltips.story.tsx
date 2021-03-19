@@ -1,6 +1,7 @@
 import React, { FC, useState } from 'react';
 import { storiesOf } from '@storybook/react';
-import { Text, Tooltips, useTooltip } from '../src';
+import { Text } from '../src';
+import { Tooltips, useTooltip } from '../src/components/Tooltips';
 
 const stories = storiesOf('Tooltips', module);
 

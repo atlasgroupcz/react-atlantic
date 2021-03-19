@@ -1,3 +1,9 @@
+## [1.8.5](https://github.com/atlasgroupcz/react-atlantic/compare/v1.8.4...v1.8.5) (2021-03-19)
+
+### Bug Fixes
+
+-   🐛 collapse icon hover ([55c2e00](https://github.com/atlasgroupcz/react-atlantic/commit/55c2e0058ddf2a827707490ec53c78bfec38f558))
+
 ## [1.8.4](https://github.com/atlasgroupcz/react-atlantic/compare/v1.8.3...v1.8.4) (2021-03-16)
 
 ### Bug Fixes

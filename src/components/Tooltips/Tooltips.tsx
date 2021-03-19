@@ -2,51 +2,22 @@ import React, {
     createContext,
     FC,
     useCallback,
-    useContext,
     useEffect,
+    useMemo,
     useRef,
 } from 'react';
 
-import { RefType } from '../../types/Ref';
 import { StyledTooltip } from './style';
+import { TooltipContextType } from './types/TooltipContextType';
+import { TooltipsProps } from './types/TooltipsProps';
 import {
-    attachListeners,
     attachTooltipToElement,
     cleanupTooltipElement,
     createTransition,
 } from './utils';
-import debounce from 'lodash.debounce';
+import { isTooltipAttached } from './utils/isTooltipAttached';
 
-type TooltipsProps = {
-    contentAttr?: string;
-    positionAttr?: string;
-    hideTooltips?: boolean;
-    transition?: string;
-    Tooltip?: FC<{ ref: RefType<any>; positionAttr: string }>;
-};
-
-const tooltipSet = new Set<HTMLElement | null>();
-
-const garbageCollect = (attach: any, cleanup: any) => {
-    for (const ref of tooltipSet) {
-        const exists = ref?.isConnected;
-        if (!exists) tooltipSet.delete(ref);
-    }
-
-    update(attach, cleanup);
-};
-
-const reconcile = debounce(garbageCollect, 50);
-
-const update = (attach: any, cleanup: any) => {
-    attachListeners(tooltipSet, attach, cleanup);
-};
-
-const TooltipContext = createContext<(instance: HTMLElement | null) => void>(
-    () => {}
-);
-
-export const useTooltip = () => useContext(TooltipContext);
+export const TooltipContext = createContext<TooltipContextType>({} as any);
 
 export const Tooltips: FC<TooltipsProps> = ({
     children,
@@ -57,17 +28,15 @@ export const Tooltips: FC<TooltipsProps> = ({
     transition = createTransition(200, 500, 'ease-out'),
 }) => {
     const tooltipRef = useRef<HTMLDivElement>(null);
+    const currentTooltip = useRef<HTMLElement | null>(null);
 
     const attachTooltip = useCallback(
         (e: Event) => {
             const tooltipElement = tooltipRef.current;
             const currentTarget = e.currentTarget as HTMLElement & EventTarget;
 
-            if (
-                tooltipElement &&
-                currentTarget &&
-                tooltipSet.has(currentTarget)
-            ) {
+            if (tooltipElement && currentTarget) {
+                currentTooltip.current = currentTarget;
                 attachTooltipToElement(
                     currentTarget,
                     tooltipElement,
@@ -84,31 +53,30 @@ export const Tooltips: FC<TooltipsProps> = ({
         const tooltipElement = tooltipRef.current;
         if (!tooltipElement) return;
 
-        const isAttached = tooltipElement.hasAttribute('style');
+        const isAttached = isTooltipAttached(tooltipElement);
         if (isAttached) {
             cleanupTooltipElement(tooltipElement);
         }
     }, []);
 
     useEffect(() => {
-        window.addEventListener('scroll', cleanupTooltip);
+        window.addEventListener('scroll', cleanupTooltip, true);
         return () => {
-            window.removeEventListener('scroll', cleanupTooltip);
+            window.removeEventListener('scroll', cleanupTooltip, true);
         };
     }, [cleanupTooltip]);
 
-    const tooltip = useCallback(
-        (instance: HTMLElement | null) => {
-            if (instance) {
-                tooltipSet.add(instance);
-                reconcile(attachTooltip, cleanupTooltip);
-            }
-        },
+    const value = useMemo<TooltipContextType>(
+        () => ({
+            currentTooltip,
+            attachTooltip,
+            cleanupTooltip,
+        }),
         [attachTooltip, cleanupTooltip]
     );
 
     return (
-        <TooltipContext.Provider value={tooltip}>
+        <TooltipContext.Provider value={value}>
             {children}
             {!hideTooltips && (
                 <Tooltip ref={tooltipRef} positionAttr={positionAttr} />
