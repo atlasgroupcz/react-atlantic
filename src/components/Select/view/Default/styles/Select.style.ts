@@ -107,6 +107,7 @@ export const StyledDefaultSelect = styled.div<StyledDefaultSelectProps>`
     box-sizing: border-box;
     display: flex;
     align-items: center;
+    background: ${({ theme }) => theme.color.background.alpha};
     border: 1px solid ${({ theme }) => theme.color.border};
     border-radius: ${({ theme }) => theme.radius};
     cursor: pointer;
