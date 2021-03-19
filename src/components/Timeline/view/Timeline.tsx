@@ -10,7 +10,7 @@ import { mapChild } from './utils';
 import { TimelineType } from '../types';
 
 export const Timeline: TimelineType = forwardRef(
-    ({ children, align = 'right', ...props }, ref) => {
+    ({ children, className, align = 'right', ...props }, ref) => {
         const isOppositeContent = useRef<TimelineContextState>(
             defaultTimelineContextValue
         );
@@ -25,7 +25,11 @@ export const Timeline: TimelineType = forwardRef(
 
         return (
             <TimelineProvider isOppositeContent={isOppositeContent.current}>
-                <StyledTimelineContainer {...props} ref={ref}>
+                <StyledTimelineContainer
+                    className={className}
+                    {...props}
+                    ref={ref}
+                >
                     {modifiedChildren}
                 </StyledTimelineContainer>
             </TimelineProvider>

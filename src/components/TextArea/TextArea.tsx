@@ -7,6 +7,6 @@ export type TextAreaType = FC<TextAreaProps>;
 export const TextArea: TextAreaType = forwardRef<
     HTMLTextAreaElement,
     TextAreaProps
->(({ ...props }, ref) => {
-    return <StyledTextArea {...props} ref={ref} />;
+>(({ className, ...props }, ref) => {
+    return <StyledTextArea className={className} {...props} ref={ref} />;
 });

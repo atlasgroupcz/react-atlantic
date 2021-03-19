@@ -4,7 +4,12 @@ import { ParagraphProps } from './types';
 
 export const Paragraph: FC<PropsWithChildren<ParagraphProps>> = ({
     children,
+    className,
     ...props
 }) => {
-    return <StyledParagraph {...props}>{children}</StyledParagraph>;
+    return (
+        <StyledParagraph className={className} {...props}>
+            {children}
+        </StyledParagraph>
+    );
 };
