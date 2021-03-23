@@ -6,33 +6,23 @@ export const resolvePositionDepsOnWindow = (
     preferredDirection: CSSPosition
 ) => {
     switch (preferredDirection) {
-        case 'left': {
-            if (left - tooltipElement.clientWidth < 0) {
-                return 'right';
-            }
-            return 'left';
-            //if fit else return right
-        }
-        case 'right': {
-            if (right + tooltipElement.clientWidth > window.innerWidth) {
-                return 'left';
-            }
-            return 'right';
-            //if fit else return left
-        }
-        case 'bottom': {
-            if (bottom + tooltipElement.clientHeight > window.innerHeight) {
-                return 'top';
-            }
-            return 'bottom';
-            //if fit else return top
-        }
-        case 'top': {
-            if (top - tooltipElement.clientHeight < 0) {
-                return 'bottom';
-            }
-            return 'top';
-            //if fit else return bottom
-        }
+        case 'left':
+            return left - tooltipElement.clientWidth < 0 ? 'right' : 'left';
+        //if fit else return right
+        case 'right':
+            return right + tooltipElement.clientWidth > window.innerWidth
+                ? 'left'
+                : 'right';
+
+        //if fit else return left
+        case 'bottom':
+            return bottom + tooltipElement.clientHeight > window.innerHeight
+                ? 'top'
+                : 'bottom';
+        //if fit else return top
+        case 'top':
+            return top - tooltipElement.clientHeight < 0 ? 'bottom' : 'top';
+
+        //if fit else return bottom
     }
 };
