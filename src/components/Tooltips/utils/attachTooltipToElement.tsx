@@ -7,7 +7,8 @@ export const attachTooltipToElement = (
     tooltipElement: HTMLDivElement,
     contentAttr: string,
     positionAttr: string,
-    transition: string
+    transition: string,
+    padding: number
 ) => {
     const viewportPosition = currentTarget.getBoundingClientRect();
 
@@ -27,7 +28,8 @@ export const attachTooltipToElement = (
             tooltipElement,
             viewportPosition,
             preferredPosition,
-            transition
+            transition,
+            padding
         );
     }
 };

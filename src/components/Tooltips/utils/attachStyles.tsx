@@ -6,7 +6,8 @@ export const attachStyles = (
     tooltipElement: HTMLDivElement,
     viewportPosition: DOMRect,
     preferredPosition: string | null,
-    transition: string
+    transition: string,
+    padding: number
 ) => {
     const position = validatePosition(preferredPosition) ?? DEFAULT_POSITION;
 
@@ -17,7 +18,8 @@ export const attachStyles = (
                 viewportPosition,
                 tooltipElement,
                 position,
-                transition
+                transition,
+                padding
             )
         );
     });
