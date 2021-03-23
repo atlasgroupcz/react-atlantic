@@ -20,9 +20,8 @@ export const useTooltip = () => {
 
     useEffect(() => {
         return () => {
-            //JE TO ZAMER
             // eslint-disable-next-line react-hooks/exhaustive-deps
-            if (ref.current.has(currentTooltip.current)) {
+            if (ref.current.has(currentTooltip?.current)) {
                 cleanupTooltip();
             }
         };

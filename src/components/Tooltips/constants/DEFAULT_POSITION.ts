@@ -1,1 +1,1 @@
-export const DEFAULT_POSITION = 'right';
+export const DEFAULT_POSITION = 'bottom';

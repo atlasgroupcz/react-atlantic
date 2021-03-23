@@ -7,4 +7,5 @@ export type TooltipsProps = {
     hideTooltips?: boolean;
     transition?: string;
     Tooltip?: FC<{ ref: RefType<any>; positionAttr: string }>;
+    borderPadding?: number;
 };
