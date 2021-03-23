@@ -1,5 +1,5 @@
 import { css, keyframes, StyledComponent } from 'styled-components';
-import { StyledIcon } from '../../../../Icon/view/style';
+import { StyledIcon } from '../../../../Icon/view/styles';
 import { ButtonProps, ButtonStyleType } from '../../../types';
 import { StyledText } from '../../../../Typography/Text';
 import { styled } from '../../../../../styled';

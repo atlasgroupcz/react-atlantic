@@ -1,5 +1,5 @@
 import React, { FC, useMemo, useCallback } from 'react';
-import { StyledPanel, StyledPanelHeader, StyledPanelContent } from './style';
+import { StyledPanel, StyledPanelHeader, StyledPanelContent } from './styles';
 import { PanelProps } from './types';
 import { useCollapseContext } from '../context';
 import { isActiveKey } from './utils';

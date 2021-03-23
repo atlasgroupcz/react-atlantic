@@ -9,7 +9,7 @@ import { DatePickerProps } from '../types';
 import ReactDatePicker, { registerLocale } from 'react-datepicker';
 import { Input } from '../../Input';
 import { Icon } from '../../Icon';
-import { StyledReactDatePickerContainer } from './style';
+import { StyledReactDatePickerContainer } from './styles';
 import { DatePickerHeader } from '../Header';
 
 registerLocale('cs', cs);

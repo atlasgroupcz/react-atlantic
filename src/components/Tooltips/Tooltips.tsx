@@ -6,16 +6,16 @@ import React, {
     useMemo,
     useRef,
 } from 'react';
-
-import { StyledTooltip } from './style';
 import { TooltipContextType } from './types/TooltipContextType';
 import { TooltipsProps } from './types/TooltipsProps';
+import { StyledTooltip } from './styles';
 import {
     attachTooltipToElement,
     cleanupTooltipElement,
     createTransition,
 } from './utils';
 import { isTooltipAttached } from './utils/isTooltipAttached';
+import { BORDER_PADDING } from './constants/PADDING';
 
 export const TooltipContext = createContext<TooltipContextType>({} as any);
 
@@ -26,6 +26,7 @@ export const Tooltips: FC<TooltipsProps> = ({
     positionAttr = 'data-position',
     Tooltip = StyledTooltip,
     transition = createTransition(200, 500, 'ease-out'),
+    borderPadding = BORDER_PADDING,
 }) => {
     const tooltipRef = useRef<HTMLDivElement>(null);
     const currentTooltip = useRef<HTMLElement | null>(null);
@@ -42,11 +43,12 @@ export const Tooltips: FC<TooltipsProps> = ({
                     tooltipElement,
                     contentAttr,
                     positionAttr,
-                    transition
+                    transition,
+                    borderPadding
                 );
             }
         },
-        [contentAttr, positionAttr, transition]
+        [borderPadding, contentAttr, positionAttr, transition]
     );
 
     const cleanupTooltip = useCallback(() => {

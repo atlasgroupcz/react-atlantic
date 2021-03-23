@@ -1,9 +1,9 @@
 import styled, { css } from 'styled-components';
-import { StyledCheckboxLabel } from '../../../../Checkbox/view/alpha/style';
-import { StyledText } from '../../../../Typography/Text/style';
+import { StyledCheckboxLabel } from '../../../../Checkbox/view/alpha/styles';
+import { StyledText } from '../../../../Typography/Text/styles';
 import { TransferProps } from '../../../types';
 import { getTransferSideHeight } from '../../../utils/getTransferSideHeight';
-import { StyledInputContainer } from '../../../../Input/view/composed/withFix/style';
+import { StyledInputContainer } from '../../../../Input/view/composed/withFix/styles';
 import { StyledIcon } from '../../../../Icon';
 
 type StyledTransferLeftSideProps = {

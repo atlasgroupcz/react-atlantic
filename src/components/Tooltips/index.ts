@@ -1,5 +1,5 @@
 export * from './Tooltips';
 export * from './hooks';
-export * from './style';
+export * from './styles';
 export * from './types';
 export * from './utils';

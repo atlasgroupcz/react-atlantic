@@ -1,3 +1,17 @@
+## [1.8.6](https://github.com/atlasgroupcz/react-atlantic/compare/v1.8.5...v1.8.6) (2021-03-23)
+
+### Bug Fixes
+
+-   🐛 export in tooltip ([87a0ca3](https://github.com/atlasgroupcz/react-atlantic/commit/87a0ca3180c7592226a5b3dea1a6bda1ca50ac14))
+-   🐛 import ([cd878c1](https://github.com/atlasgroupcz/react-atlantic/commit/cd878c123a033d35b5c366e383433241188eef59))
+-   🐛 import in test ([f0d836d](https://github.com/atlasgroupcz/react-atlantic/commit/f0d836d76702d085dac70fea56f6a5e4eaabeb7f))
+-   🐛 select background ([da1906e](https://github.com/atlasgroupcz/react-atlantic/commit/da1906ef8a0e2d3cb8b038a92597a2a20f13573a))
+
+### Features
+
+-   ✨ padding calculation ([b6e8589](https://github.com/atlasgroupcz/react-atlantic/commit/b6e85898ffa4e7e96735e24a288c0cc652f998db))
+-   ✨ tooltip positions ([009dd7b](https://github.com/atlasgroupcz/react-atlantic/commit/009dd7bde5e597f354ecb6fb8d2adf259fd23d48))
+
 ## [1.8.5](https://github.com/atlasgroupcz/react-atlantic/compare/v1.8.4...v1.8.5) (2021-03-19)
 
 ### Bug Fixes

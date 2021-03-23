@@ -2,7 +2,7 @@ import React, { PropsWithChildren, ReactText } from 'react';
 import { CollapseIconFactoryType } from '../../types/CollapseIconFactoryType';
 import { Icon } from '../../../Icon';
 import { HorizontalPosition } from '../../../../types';
-import { StyledCollapseIconContainer } from '../../style';
+import { StyledCollapseIconContainer } from '../../styles';
 
 export type CollapseProviderProps = {
     activeUnique: string[] | number[] | ReactText;

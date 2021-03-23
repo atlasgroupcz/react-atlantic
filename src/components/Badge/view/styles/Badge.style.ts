@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { BadgeProps } from '../../types/Badge.types';
+import { BadgeProps } from '../../types';
 
 export const StyledBadge = styled.sup.withConfig({
     shouldForwardProp: (prop) => !['size', 'type'].includes(prop),

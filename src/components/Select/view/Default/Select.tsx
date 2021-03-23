@@ -22,6 +22,7 @@ export const Select = forwardRef<HTMLDivElement, SelectProps<any>>(
             isDisabled,
             isFullWidth,
             size = 'medium',
+            className,
             ...rest
         },
         ref
@@ -30,6 +31,7 @@ export const Select = forwardRef<HTMLDivElement, SelectProps<any>>(
             {...rest}
             isFullWidth={isFullWidth}
             ref={ref}
+            className={className}
         >
             <StyledDefaultSelect onClick={onClick} isOpen={isOpen} size={size}>
                 <StyledDefaultSelectValue isOptionSelected={!!value?.label}>

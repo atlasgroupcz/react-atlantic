@@ -1,6 +1,6 @@
 import React from 'react';
 import { Type } from '../../../types';
-import { StyledMessageIcon } from '../style';
+import { StyledMessageIcon } from '../styles';
 
 export const defaultIconFromType = (type?: Type, isTransparent?: boolean) => {
     //* On modern browsers, switch is actually as fast as a lookup table, kimda wierd

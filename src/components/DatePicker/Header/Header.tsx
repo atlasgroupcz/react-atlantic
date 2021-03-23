@@ -6,7 +6,7 @@ import {
     StyledReactDatePickerButtonMoveYear,
     StyledReactDatePickerHeaderContainer,
     StyledReactDatePickerMonthAndDate,
-} from './style';
+} from './styles';
 
 export interface DatePickerHeaderProps {
     date: Date;
