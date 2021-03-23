@@ -46,7 +46,7 @@ const adjustVerticalMidpoint = (
     tooltipBottom: number,
     padding: number = PADDING
 ) => {
-    const isOverflowTop = tooltipTop < 0;
+    const isOverflowTop = tooltipTop < padding;
     const isOverflowBottom = tooltipBottom > window.innerHeight;
     let topValue = verticalMidpoint;
 
@@ -68,16 +68,17 @@ const adjustHorizontalMidpoint = (
     tooltipLeft: number,
     padding: number = PADDING
 ) => {
-    const isOverflowRight = tooltipRight > window.innerWidth;
-    const isOverflowLeft = tooltipLeft < 0;
+    const width = window.innerWidth - padding;
+    const isOverflowRight = tooltipRight > width;
+    const isOverflowLeft = tooltipLeft < padding;
     let leftValue = horizontalMidpoint;
 
     if (isOverflowLeft) {
         leftValue = padding;
     }
     if (isOverflowRight) {
-        const overflowRight = window.innerWidth - tooltipRight;
-        const subValue = Math.abs(overflowRight) + padding;
+        const overflowRight = width - tooltipRight;
+        const subValue = Math.abs(overflowRight);
         leftValue -= subValue;
     }
     return leftValue;
