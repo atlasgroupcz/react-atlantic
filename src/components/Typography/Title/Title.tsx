@@ -5,7 +5,7 @@ import {
     StyledTitle3,
     StyledTitle4,
     StyledTitle5,
-} from './style';
+} from './styles';
 import { ElementProps } from '../../../types/utils';
 
 export type TitleLevel = 1 | 2 | 3 | 4 | 5;

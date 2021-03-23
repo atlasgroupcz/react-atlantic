@@ -1,6 +1,6 @@
 import { css, styled } from '../../../../../../styled';
 import { InputProps } from '../../../base/types';
-import { StyledInput } from '../../../base/style';
+import { StyledInput } from '../../../base/styles';
 
 export const StyledInputAbstractFix = styled.span`
     font-size: 0;
@@ -25,27 +25,27 @@ export const StyledInputContainer = styled.span<StyledInputContainerProps>`
     border: 1px solid ${(props) => props.theme.color.border};
     background-color: ${(props) => props.theme.color.background.alpha};
     transition: 0.3s border-color;
-    
+
     &:hover,
     &:focus-within {
         border-color: ${(props) => props.theme.color.primary.alpha};
     }
-    
+
     ${StyledInputAbstractFix} + ${StyledInput} {
-      margin-left: ${(props) => props.theme.margin.sm};
+        margin-left: ${(props) => props.theme.margin.sm};
     }
-    
+
     ${StyledInput} + ${StyledInputAbstractFix} {
-      margin-left: ${(props) => props.theme.margin.sm};
+        margin-left: ${(props) => props.theme.margin.sm};
     }
-    
+
     ${(props) =>
         props.size === 'small' &&
         css`
             width: 180px;
             height: ${props.theme.height.sm};
         `}
-    
+
     ${(props) =>
         props.size === 'medium' &&
         css`
@@ -61,10 +61,10 @@ export const StyledInputContainer = styled.span<StyledInputContainerProps>`
         `}
     
      ${(props) =>
-         props.isFullWidth &&
-         css`
-             width: 100%;
-         `}
+        props.isFullWidth &&
+        css`
+            width: 100%;
+        `}
     
     ${(props) =>
         props.isDisabled &&

@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { StyledCollapse } from './style';
+import { StyledCollapse } from './styles';
 import { CollapseProps } from './types';
 import { CollapseProvider } from './context';
 import { defaultCollapseContextState } from './context/types';
@@ -13,6 +13,7 @@ export type CollapseComponentComposition = {
 
 export const Collapse: CollapseType & CollapseComponentComposition = ({
     children,
+    className,
     activeUnique,
     isAccordion = false,
     onClick,
@@ -28,7 +29,9 @@ export const Collapse: CollapseType & CollapseComponentComposition = ({
             expandIcon={expandIcon}
             expandIconPosition={expandIconPosition}
         >
-            <StyledCollapse {...props}>{children}</StyledCollapse>
+            <StyledCollapse {...props} className={className}>
+                {children}
+            </StyledCollapse>
         </CollapseProvider>
     );
 };

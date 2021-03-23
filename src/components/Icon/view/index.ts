@@ -1,3 +1,3 @@
 export * from './Icon';
 export * from './IconsMap';
-export * from './style';
+export * from './styles';

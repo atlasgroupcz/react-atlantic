@@ -1,6 +1,5 @@
 import React from 'react';
 import { mockPropsCheckTest, toBeDefinedTest, mountTest } from '../../shared';
-
 import { mountWithTheme } from '../../utils';
 import {
     Collapse,
@@ -9,7 +8,7 @@ import {
     useCollapseUnique,
     wrap,
 } from '../../../src';
-import { StyledPanelHeader } from '../../../src/components/Collapse/Panel/style';
+import { StyledPanelHeader } from '../../../src/components/Collapse/Panel/styles';
 
 const mockCollapseProps: CollapseProps = {
     activeUnique: [1, 2],

@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { StyledPaginationContainer } from './style';
+import { StyledPaginationContainer } from './styles';
 import { PaginationType } from './types';
 import { PaginationBase, PaginationWithArrows } from './view';
 import { getPaginationCount } from './utils';

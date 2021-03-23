@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { StyledButton } from '../../../../Button/view/default/style';
+import { StyledButton } from '../../../../Button/view/default/styles';
 
 export const StyledTransferFooterContainer = styled.div`
     box-sizing: border-box;

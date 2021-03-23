@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
-import { getDefaultTypographyStyles } from '../../../../Typography/style';
-import { StyledIcon } from '../../../../Icon/view/style';
+import { getDefaultTypographyStyles } from '../../../../Typography/styles';
+import { StyledIcon } from '../../../../Icon/view/styles';
 import { SelectProps } from '../../../types';
 
 type StyledDefaultSelectProps = Pick<
@@ -107,6 +107,7 @@ export const StyledDefaultSelect = styled.div<StyledDefaultSelectProps>`
     box-sizing: border-box;
     display: flex;
     align-items: center;
+    background: ${({ theme }) => theme.color.background.alpha};
     border: 1px solid ${({ theme }) => theme.color.border};
     border-radius: ${({ theme }) => theme.radius};
     cursor: pointer;

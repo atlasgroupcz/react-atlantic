@@ -1,2 +1,2 @@
 export * from './Indicator';
-export * from './style';
+export * from './styles';

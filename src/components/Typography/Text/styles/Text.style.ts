@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 import { TextProps } from '../types';
-import { getDefaultTypographyStyles } from '../../style';
+import { getDefaultTypographyStyles } from '../../styles';
 
 export const StyledText = styled.span<TextProps>`
     ${(props) => getDefaultTypographyStyles(props)};

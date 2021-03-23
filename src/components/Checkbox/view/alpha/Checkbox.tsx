@@ -7,7 +7,7 @@ import {
     StyledCheckboxLabel,
     StyledCheckboxMark,
     StyledCheckboxSpan,
-} from './style';
+} from './styles';
 import { useChain, useSpring, useTrail } from 'react-spring';
 import * as easings from 'd3-ease';
 import { CheckboxType } from '../../types';

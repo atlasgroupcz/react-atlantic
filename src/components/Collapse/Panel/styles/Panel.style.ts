@@ -1,6 +1,6 @@
 import { styled } from '../../../../styled';
 import { StyledIcon } from '../../../Icon';
-import { StyledCollapseIconContainer } from '../../style';
+import { StyledCollapseIconContainer } from '../../styles';
 
 export const StyledPanel = styled.li`
     list-style-type: none;

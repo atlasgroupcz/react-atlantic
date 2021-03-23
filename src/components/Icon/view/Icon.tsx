@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { StyledIcon } from './style';
+import { StyledIcon } from './styles';
 import { IconsMap } from './IconsMap';
 import { IconProps } from '../types';
 
