@@ -10,7 +10,8 @@ export const resolveDirectionAndPosition = (
     tooltipElement: HTMLDivElement,
     preferredDirection: CSSPosition,
     transition: string,
-    padding: number
+    padding: number,
+    margin: number
 ): string => {
     const position = resolvePositionDepsOnWindow(
         rect,
@@ -42,7 +43,7 @@ export const resolveDirectionAndPosition = (
                 tooltipBottom,
                 padding
             );
-            return `left: ${leftValue}px;top: ${topValue}px;${defaultStyles}${transition}`;
+            return `margin-right:${margin}px; left: ${leftValue}px;top: ${topValue}px;${defaultStyles}${transition}`;
         }
 
         case 'right': {
@@ -53,7 +54,7 @@ export const resolveDirectionAndPosition = (
                 tooltipBottom,
                 padding
             );
-            return `left: ${right}px;top: ${topValue}px;${defaultStyles}${transition}`;
+            return `margin-left:${margin}px; left: ${right}px;top: ${topValue}px;${defaultStyles}${transition}`;
         }
         case 'top': {
             //adjust horizontalMidpoint
@@ -63,7 +64,7 @@ export const resolveDirectionAndPosition = (
                 tooltipLeft,
                 padding
             );
-            return `bottom: calc(100% - ${top}px);left: ${leftValue}px;${defaultStyles}${transition}`;
+            return `margin-bottom:${margin}px; bottom: calc(100% - ${top}px);left: ${leftValue}px;${defaultStyles}${transition}`;
         }
         case 'bottom': {
             //adjust horizontalMidpoint;
@@ -73,7 +74,7 @@ export const resolveDirectionAndPosition = (
                 tooltipLeft,
                 padding
             );
-            return `top: ${bottom}px;left: ${leftValue}px;${defaultStyles}${transition}`;
+            return `margin-top:${margin}px; top: ${bottom}px;left: ${leftValue}px;${defaultStyles}${transition}`;
         }
     }
 };

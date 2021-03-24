@@ -8,4 +8,5 @@ export type TooltipsProps = {
     transition?: string;
     Tooltip?: FC<{ ref: RefType<any>; positionAttr: string }>;
     borderPadding?: number;
+    margin?: number;
 };
