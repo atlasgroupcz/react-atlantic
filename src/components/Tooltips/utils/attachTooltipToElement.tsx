@@ -8,11 +8,11 @@ export const attachTooltipToElement = (
     contentAttr: string,
     positionAttr: string,
     transition: string,
-    padding: number
+    padding: number,
+    margin: number
 ) => {
     const viewportPosition = currentTarget.getBoundingClientRect();
 
-    // TODO: Prevent window overflow
     const preferredPosition =
         currentTarget.getAttribute(positionAttr) ?? DEFAULT_POSITION;
 
@@ -29,7 +29,8 @@ export const attachTooltipToElement = (
             viewportPosition,
             preferredPosition,
             transition,
-            padding
+            padding,
+            margin
         );
     }
 };

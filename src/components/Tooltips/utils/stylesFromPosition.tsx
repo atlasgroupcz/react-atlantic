@@ -6,14 +6,16 @@ export const stylesFromPosition = (
     tooltipElement: HTMLDivElement,
     preferredDirection: CSSPosition,
     transition: string,
-    padding: number
+    padding: number,
+    margin: number
 ): string => {
     const style = resolveDirectionAndPosition(
         rect,
         tooltipElement,
         preferredDirection,
         transition,
-        padding
+        padding,
+        margin
     );
     return style;
 };
