@@ -16,6 +16,7 @@ import {
 } from './utils';
 import { isTooltipAttached } from './utils/isTooltipAttached';
 import { BORDER_PADDING } from './constants/PADDING';
+import { MARGIN_TOOLTIP } from './constants/MARGIN';
 
 export const TooltipContext = createContext<TooltipContextType>({} as any);
 
@@ -27,6 +28,7 @@ export const Tooltips: FC<TooltipsProps> = ({
     Tooltip = StyledTooltip,
     transition = createTransition(200, 500, 'ease-out'),
     borderPadding = BORDER_PADDING,
+    margin = MARGIN_TOOLTIP,
 }) => {
     const tooltipRef = useRef<HTMLDivElement>(null);
     const currentTooltip = useRef<HTMLElement | null>(null);
@@ -44,11 +46,12 @@ export const Tooltips: FC<TooltipsProps> = ({
                     contentAttr,
                     positionAttr,
                     transition,
-                    borderPadding
+                    borderPadding,
+                    margin
                 );
             }
         },
-        [borderPadding, contentAttr, positionAttr, transition]
+        [borderPadding, contentAttr, margin, positionAttr, transition]
     );
 
     const cleanupTooltip = useCallback(() => {
