@@ -1,10 +1,10 @@
-import { StyledComponentTransferProps, TransferProps } from '../../../types';
+import { TransferProps } from '../../../types';
 import { ElementProps } from '../../../../../types/utils';
 import { Position } from '../../../../../types';
 
 export type StyledTransformRightSideProps = Pick<
-    StyledComponentTransferProps,
-    'size'
+    TransferProps,
+    'size' | 'visibleItems' | 'isMultiLine'
 >;
 
 export type StyledTransformRightSideContainerProps = {

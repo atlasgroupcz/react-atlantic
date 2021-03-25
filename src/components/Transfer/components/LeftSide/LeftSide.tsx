@@ -28,6 +28,7 @@ export type TransferLeftSideProps<T extends OptionType = OptionType> = {
     | 'visibleItems'
     | 'isDisabled'
     | 'isFullWidth'
+    | 'isMultiLine'
 >;
 
 export type TransferLeftSideType = FC<TransferLeftSideProps>;
@@ -44,6 +45,7 @@ export const TransferLeftSide: TransferLeftSideType = ({
     visibleItems,
     isDisabled,
     isFullWidth,
+    isMultiLine,
     position,
 }) => {
     const selectedOptionsSet = new Set(value?.map((option) => option.value));
@@ -89,6 +91,8 @@ export const TransferLeftSide: TransferLeftSideType = ({
                             {options?.map((option) => (
                                 <TransferList.Item
                                     size={size}
+                                    visibleItems={visibleItems}
+                                    isMultiLine={isMultiLine}
                                     key={`${option.value}
                                         ${selectedOptionsSet.has(
                                             option.value

@@ -23,12 +23,13 @@ export const Transfer = forwardRef<HTMLDivElement, TransferProps>(
             cancelButtonProps,
             clearButtonProps,
             submitButtonProps,
-            size = 'medium',
+            size = 'large',
             isFullWidth = false,
-            visibleItems = 5,
+            visibleItems,
             isDisabled,
             customWidth = DEFAULT_WIDTHS_TRANSFER,
             preferredPosition = 'right',
+            isMultiLine = false,
         },
         ref
     ) => {
@@ -65,6 +66,7 @@ export const Transfer = forwardRef<HTMLDivElement, TransferProps>(
                         value={value}
                         isDisabled={isDisabled}
                         isFullWidth={isFullWidth}
+                        isMultiLine={isMultiLine}
                     />
 
                     {isRightSideOpen && (
@@ -76,6 +78,7 @@ export const Transfer = forwardRef<HTMLDivElement, TransferProps>(
                             clearButtonProps={clearButtonProps}
                             size={size}
                             visibleItems={visibleItems}
+                            isMultiLine={isMultiLine}
                         />
                     )}
 

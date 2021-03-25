@@ -73,7 +73,7 @@ export const StyledTransformRightSideItem = styled.div<
     StyledTransformRightSideProps
 >`
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     height: 100%;
     width: 100%;
@@ -85,16 +85,36 @@ export const StyledTransformRightSideItem = styled.div<
     }
 
     ${StyledText} {
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        overflow: hidden;
+        margin: 0;
     }
+
+    ${StyledIcon} {
+        flex-shrink: 0;
+        margin-left: ${({ theme }) => theme.margin.md};
+    }
+
+    ${({ isMultiLine }) =>
+        !isMultiLine &&
+        css`
+            ${StyledText} {
+                flex: 1;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+            }
+        `}
 
     ${({ theme, size }) =>
         size === 'small' &&
         css`
             ${StyledText} {
+                padding: ${theme.padding.xs} ${theme.padding.md};
+                line-height: 22px;
                 font-size: ${theme.font.size.sm};
+            }
+
+            ${StyledIcon} {
+                margin-top: 3px;
             }
         `}
 
@@ -102,7 +122,13 @@ export const StyledTransformRightSideItem = styled.div<
         size === 'medium' &&
         css`
             ${StyledText} {
+                padding: ${theme.padding.sm} ${theme.padding.md};
+                line-height: 24px;
                 font-size: ${theme.font.size.md};
+            }
+
+            ${StyledIcon} {
+                margin-top: 10px;
             }
         `}
     
@@ -110,7 +136,13 @@ export const StyledTransformRightSideItem = styled.div<
         size === 'large' &&
         css`
             ${StyledText} {
+                padding: ${theme.padding.sm} ${theme.padding.md};
+                line-height: 30px;
                 font-size: ${theme.font.size.lg};
+            }
+
+            ${StyledIcon} {
+                margin-top: 13px;
             }
         `}
 `;

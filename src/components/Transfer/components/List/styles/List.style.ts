@@ -8,6 +8,7 @@ export const StyledTransferList = styled.ul<StyledTransferListProps>`
     padding: 0;
     margin: 0;
     width: 100%;
+    height: 200px;
     list-style-type: none;
 
     ${({ theme, size, visibleItems }) =>

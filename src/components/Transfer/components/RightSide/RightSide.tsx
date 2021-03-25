@@ -20,6 +20,7 @@ export const TransferRightSide: TransferRightSideType = ({
     onOptionClick,
     size,
     visibleItems,
+    isMultiLine,
     ...props
 }) => {
     return (
@@ -35,10 +36,17 @@ export const TransferRightSide: TransferRightSideType = ({
                 {value?.map((option) => (
                     <TransferList.Item
                         size={size}
+                        visibleItems={visibleItems}
+                        isMultiLine={isMultiLine}
                         key={option.value}
                         onClick={() => onOptionClick?.(option)}
+                        data-title={!isMultiLine ? option.label : undefined}
                     >
-                        <StyledTransformRightSideItem size={size}>
+                        <StyledTransformRightSideItem
+                            size={size}
+                            visibleItems={visibleItems}
+                            isMultiLine={isMultiLine}
+                        >
                             <Text>{option.label}</Text>
                             <StyledTransformRightSideItemContainer>
                                 <Icon name={'clear'} />

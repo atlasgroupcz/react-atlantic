@@ -4,6 +4,7 @@ import { TransferListItemProps } from './types';
 
 export type TransferListItemType = FC<TransferListItemProps<HTMLLIElement>>;
 
-export const TransferListItem: TransferListItemType = ({ ...props }) => (
-    <StyledTransferListItem {...props} />
-);
+export const TransferListItem: TransferListItemType = React.forwardRef<
+    HTMLLIElement,
+    TransferListItemProps<HTMLLIElement>
+>(({ ...props }, ref) => <StyledTransferListItem {...props} ref={ref} />);

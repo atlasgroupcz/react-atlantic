@@ -1,6 +1,11 @@
 import styled, { css } from 'styled-components';
 import { StyledCheckboxSpan } from '../../../../../../Checkbox/view/alpha/styles';
 import { StyledTransferListItemProps } from '../types';
+import {
+    StyledCheckboxInputShown,
+    StyledCheckboxLabel,
+    StyledCheckboxSpan,
+} from '../../../../../../Checkbox/view/alpha/styles';
 
 export const StyledTransferListItem = styled.li<StyledTransferListItemProps>`
     box-sizing: border-box;
@@ -19,24 +24,60 @@ export const StyledTransferListItem = styled.li<StyledTransferListItemProps>`
         overflow: hidden;
     }
 
-    ${({ theme, size }) =>
+    ${StyledCheckboxLabel} {
+        align-items: flex-start;
+        height: auto;
+    }
+
+    ${({ size }) =>
         size === 'small' &&
         css`
-            line-height: ${theme.height.sm};
-            height: ${theme.height.sm};
+            ${StyledCheckboxInputShown} {
+                margin-top: 3px;
+            }
+
+            ${StyledCheckboxSpan} {
+                line-height: 21px;
+                padding-top: ${({ theme }) => theme.padding.xs};
+                padding-bottom: ${({ theme }) => theme.padding.xs};
+            }
         `}
 
-    ${({ theme, size }) =>
+    ${({ size }) =>
         size === 'medium' &&
         css`
-            line-height: ${theme.height.md};
-            height: ${theme.height.md};
+            ${StyledCheckboxInputShown} {
+                margin-top: 7px;
+            }
+
+            ${StyledCheckboxSpan} {
+                line-height: 24px;
+                padding-top: ${({ theme }) => theme.padding.sm};
+                padding-bottom: ${({ theme }) => theme.padding.sm};
+            }
         `}
     
-    ${({ theme, size }) =>
+    ${({ size }) =>
         size === 'large' &&
         css`
-            line-height: ${theme.height.lg};
-            height: ${theme.height.lg};
+            ${StyledCheckboxInputShown} {
+                margin-top: 10px;
+            }
+
+            ${StyledCheckboxSpan} {
+                line-height: 30px;
+                padding-top: ${({ theme }) => theme.padding.sm};
+                padding-bottom: ${({ theme }) => theme.padding.sm};
+            }
+        `}
+
+    ${({ isMultiLine }) =>
+        !isMultiLine &&
+        css`
+            ${StyledCheckboxSpan} {
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+            }
         `}
 `;
