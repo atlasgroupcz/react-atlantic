@@ -21,7 +21,7 @@ export type TransferRightSideProps<
     StyledTransformRightSideProps &
     Pick<
         TransferProps,
-        'label' | 'clearButtonProps' | 'value' | 'size' | 'visibleRows'
+        'label' | 'clearButtonProps' | 'value' | 'size' | 'visibleItems'
     > &
     ElementProps<T> &
     StyledTransformRightSideContainerProps;

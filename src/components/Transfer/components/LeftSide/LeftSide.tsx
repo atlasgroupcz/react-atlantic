@@ -25,7 +25,7 @@ export type TransferLeftSideProps<T extends OptionType = OptionType> = {
     | 'clearInputProps'
     | 'noResults'
     | 'size'
-    | 'visibleRows'
+    | 'visibleItems'
     | 'isDisabled'
     | 'isFullWidth'
 >;
@@ -41,7 +41,7 @@ export const TransferLeftSide: TransferLeftSideType = ({
     clearInputProps,
     noResults,
     size,
-    visibleRows,
+    visibleItems,
     isDisabled,
     isFullWidth,
     position,
@@ -85,7 +85,7 @@ export const TransferLeftSide: TransferLeftSideType = ({
             {isLeftSideOpen && (
                 <>
                     {!!options?.length && (
-                        <TransferList size={size} visibleRows={visibleRows}>
+                        <TransferList size={size} visibleItems={visibleItems}>
                             {options?.map((option) => (
                                 <TransferList.Item
                                     size={size}
@@ -111,7 +111,7 @@ export const TransferLeftSide: TransferLeftSideType = ({
                     {!options?.length && !isDisabled && (
                         <StyledTransferLeftSideNoResults
                             size={size}
-                            visibleRows={visibleRows}
+                            visibleItems={visibleItems}
                         >
                             {noResults}
                         </StyledTransferLeftSideNoResults>

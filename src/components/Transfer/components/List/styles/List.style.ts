@@ -10,24 +10,24 @@ export const StyledTransferList = styled.ul<StyledTransferListProps>`
     width: 100%;
     list-style-type: none;
 
-    ${({ theme, size, visibleRows }) =>
-        visibleRows &&
+    ${({ theme, size, visibleItems }) =>
+        visibleItems &&
         size === 'small' &&
         css`
-            height: ${getTransferSideHeight(theme.height.sm, visibleRows)}px;
+            height: ${getTransferSideHeight(theme.height.sm, visibleItems)}px;
         `}
 
-    ${({ theme, size, visibleRows }) =>
-        visibleRows &&
+    ${({ theme, size, visibleItems }) =>
+        visibleItems &&
         size === 'medium' &&
         css`
-            height: ${getTransferSideHeight(theme.height.md, visibleRows)}px;
+            height: ${getTransferSideHeight(theme.height.md, visibleItems)}px;
         `}
     
-    ${({ theme, size, visibleRows }) =>
-        visibleRows &&
+    ${({ theme, size, visibleItems }) =>
+        visibleItems &&
         size === 'large' &&
         css`
-            height: ${getTransferSideHeight(theme.height.lg, visibleRows)}px;
+            height: ${getTransferSideHeight(theme.height.lg, visibleItems)}px;
         `}
 `;

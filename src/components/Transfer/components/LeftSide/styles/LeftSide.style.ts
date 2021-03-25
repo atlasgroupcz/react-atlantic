@@ -11,7 +11,7 @@ type StyledTransferAbstractProps = {
     isLeftSideOpen?: boolean;
     isRightSideOpen?: boolean;
     isValueExist?: boolean;
-} & Pick<TransferProps, 'size' | 'visibleRows' | 'isDisabled' | 'isFullWidth'>;
+} & Pick<TransferProps, 'size' | 'visibleItems' | 'isDisabled' | 'isFullWidth'>;
 
 type StyledTransferLeftSideNoResultsProps = StyledTransferAbstractProps;
 type StyledTransferLeftSideProps = StyledTransferAbstractProps & {
@@ -31,25 +31,25 @@ export const StyledTransferLeftSideNoResults = styled.div<
     align-items: center;
     justify-content: center;
 
-    ${({ theme, size, visibleRows }) =>
-        visibleRows &&
+    ${({ theme, size, visibleItems }) =>
+        visibleItems &&
         size === 'small' &&
         css`
-            height: ${getTransferSideHeight(theme.height.sm, visibleRows)}px;
+            height: ${getTransferSideHeight(theme.height.sm, visibleItems)}px;
         `}
 
-    ${({ theme, size, visibleRows }) =>
-        visibleRows &&
+    ${({ theme, size, visibleItems }) =>
+        visibleItems &&
         size === 'medium' &&
         css`
-            height: ${getTransferSideHeight(theme.height.md, visibleRows)}px;
+            height: ${getTransferSideHeight(theme.height.md, visibleItems)}px;
         `}
     
-    ${({ theme, size, visibleRows }) =>
-        visibleRows &&
+    ${({ theme, size, visibleItems }) =>
+        visibleItems &&
         size === 'large' &&
         css`
-            height: ${getTransferSideHeight(theme.height.lg, visibleRows)}px;
+            height: ${getTransferSideHeight(theme.height.lg, visibleItems)}px;
         `}
 `;
 

@@ -19,7 +19,7 @@ export const TransferRightSide: TransferRightSideType = ({
     value,
     onOptionClick,
     size,
-    visibleRows,
+    visibleItems,
     ...props
 }) => {
     return (
@@ -31,7 +31,7 @@ export const TransferRightSide: TransferRightSideType = ({
                 />
             </StyledTransformRightSideHeader>
 
-            <TransferList size={size} visibleRows={visibleRows}>
+            <TransferList size={size} visibleItems={visibleItems}>
                 {value?.map((option) => (
                     <TransferList.Item
                         size={size}

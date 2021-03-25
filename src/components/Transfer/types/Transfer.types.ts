@@ -30,7 +30,7 @@ export type ControllerTransferProps<
 
 export type StyledComponentTransferProps = {
     size?: Size;
-    visibleRows?: number;
+    visibleItems?: number;
     isFullWidth?: boolean;
     customWidth?: {
         leftSide?: string;

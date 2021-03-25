@@ -3,7 +3,7 @@ import { StyledComponentTransferProps } from '../../../types';
 
 export type StyledTransferListProps = {} & Pick<
     StyledComponentTransferProps,
-    'size' | 'visibleRows'
+    'size' | 'visibleItems'
 >;
 
 export type FunctionalTransferListProps = {};

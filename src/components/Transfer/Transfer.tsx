@@ -25,7 +25,7 @@ export const Transfer = forwardRef<HTMLDivElement, TransferProps>(
             submitButtonProps,
             size = 'medium',
             isFullWidth = false,
-            visibleRows = 5,
+            visibleItems = 5,
             isDisabled,
             customWidth = DEFAULT_WIDTHS_TRANSFER,
             preferredPosition = 'right',
@@ -59,7 +59,7 @@ export const Transfer = forwardRef<HTMLDivElement, TransferProps>(
                         clearInputProps={clearInputProps}
                         options={options}
                         onOptionClick={onOptionClick}
-                        visibleRows={visibleRows}
+                        visibleItems={visibleItems}
                         noResults={noResults}
                         size={size}
                         value={value}
@@ -75,7 +75,7 @@ export const Transfer = forwardRef<HTMLDivElement, TransferProps>(
                             value={value}
                             clearButtonProps={clearButtonProps}
                             size={size}
-                            visibleRows={visibleRows}
+                            visibleItems={visibleItems}
                         />
                     )}
 

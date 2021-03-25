@@ -57,7 +57,7 @@ export const defaultValues = {
     children: 'Change me, please 🥺',
     value: 'Change me, please 🥺',
     selectValue: [{ value: 'Change me, please 🥺' }],
-    visibleRows: 5,
+    visibleItems: 5,
     options: [
         { value: 'value1', label: 'First option' },
         { value: 'value2', label: 'Second option' },

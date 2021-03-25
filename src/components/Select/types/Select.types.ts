@@ -23,7 +23,6 @@ export type ControllerSelectProps<
 
 export type StyledComponentSelectProps = {
     size?: Size;
-    visibleRows?: number;
     isFullWidth?: boolean;
 };
 
