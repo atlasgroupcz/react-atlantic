@@ -160,6 +160,14 @@ export const IconsMap = {
     dragAndDrop: <Icons.DragAndDrop />,
     starSlash: <Icons.StarSlash />,
     folders: <Icons.Folders />,
+    arrowSquareRight: <Icons.ArrowSquareRight />,
+    atlas: <Icons.Atlas />,
+    columnsLayout: <Icons.ColumnLayout />,
+    rowLayout: <Icons.RowLayout />,
+    commentPlus: <Icons.CommentPlus />,
+    linkedIn: <Icons.LinkedIn />,
+    twitter: <Icons.Twitter />,
+    documentCompare: <Icons.DocumentCompare />,
 };
 
 export type IconName = keyof typeof IconsMap;
