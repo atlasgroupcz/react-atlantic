@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Icon } from '../../../Icon/view';
+import { Icon } from '../../../Icon';
 import {
     StyledTransformRightSideContainer,
     StyledTransformRightSideHeader,
