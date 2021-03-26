@@ -37,7 +37,7 @@ export type StyledComponentTransferProps = {
         rightSide?: string;
     };
     preferredPosition?: TransferPosition;
-    positionManager?: UseTransferPosition;
+    positionController?: UseTransferPosition;
 };
 
 export type TransferProps<

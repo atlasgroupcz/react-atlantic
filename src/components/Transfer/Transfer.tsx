@@ -12,7 +12,7 @@ import { DEFAULT_WIDTHS_TRANSFER } from './constants';
 export const Transfer = forwardRef<HTMLDivElement, TransferProps>(
     (
         {
-            positionManager = useTransferPosition,
+            positionController = useTransferPosition,
             options,
             clearInputProps,
             label,
@@ -34,14 +34,13 @@ export const Transfer = forwardRef<HTMLDivElement, TransferProps>(
     ) => {
         const isLeftSideOpen = isOpen && !!value;
         const isRightSideOpen = isOpen && value && value.length > 0;
-        const { position, refOnTransfer, leftRight } = positionManager({
+        const { position, refOnTransfer, leftRight } = positionController({
             customWidth,
             preferredPosition,
             isLeftSideOpen: !!isLeftSideOpen,
             isRightSideOpen: !!isRightSideOpen,
         });
 
-        //TODO!: add ref
         return (
             <StyledTransferContainer size={size} ref={ref}>
                 <StyledTransfer
