@@ -1,7 +1,6 @@
 import styled, { css } from 'styled-components';
 import { Position } from '../../../types';
 import { StyledComponentTransferProps } from '../types';
-import { resolveWidthFromString } from '../utils';
 
 type StyledTransferProps = {
     isLeftSideOpen?: boolean;
@@ -26,12 +25,19 @@ export const StyledTransfer = styled.div<StyledTransferProps>`
             box-shadow: ${theme.boxShadow.sm};
         `}
 
-    ${({ isRightSideOpen, customWidth }) =>
-        isRightSideOpen &&
-        css`
-            position: absolute;
-            width: ${customWidth?.rightSide ?? `600px`};
-        `}
+    ${({ isRightSideOpen }) =>
+        isRightSideOpen
+            ? css`
+                  position: absolute;
+              `
+            : ``}
+
+    ${({ isRightSideOpen, customWidth, position }) =>
+        isRightSideOpen && ['left', 'right'].includes(position)
+            ? css`
+                  width: ${customWidth?.rightSide ?? `600px`};
+              `
+            : ``}
 
     ${({ position }) =>
         position === 'left'

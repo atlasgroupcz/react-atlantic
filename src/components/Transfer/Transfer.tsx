@@ -69,6 +69,7 @@ export const Transfer = forwardRef<HTMLDivElement, TransferProps>(
 
                     {isRightSideOpen && (
                         <TransferRightSide
+                            position={position}
                             label={label}
                             onOptionClick={onOptionClick}
                             value={value}

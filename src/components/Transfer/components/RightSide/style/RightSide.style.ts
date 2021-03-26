@@ -1,5 +1,8 @@
 import styled, { css } from 'styled-components';
-import { StyledTransformRightSideProps } from '../types';
+import {
+    StyledTransformRightSideContainerProps,
+    StyledTransformRightSideProps,
+} from '../types';
 import { StyledText } from '../../../../Typography/Text/styles';
 import { StyledLink } from '../../../../Typography/Link/styles';
 import { StyledIcon } from '../../../../Icon/view/styles';
@@ -101,9 +104,24 @@ export const StyledTransformRightSideItem = styled.div<
         `}
 `;
 
-export const StyledTransformRightSideContainer = styled.div`
+export const StyledTransformRightSideContainer = styled.div<
+    StyledTransformRightSideContainerProps
+>`
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    width: 50%;
+
+    ${({ position }) =>
+        ['left', 'right'].includes(position)
+            ? css`
+                  width: 50%;
+              `
+            : ``}
+
+    ${({ position }) =>
+        position === 'bottom'
+            ? css`
+                  width: 100%;
+              `
+            : ``}
 `;
