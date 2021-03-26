@@ -10,7 +10,7 @@ export const spin = () => {
 };
 
 export const StyledIcon = styled.i.withConfig({
-    shouldForwardProp: (prop) => !['isRotating'].includes(prop),
+    shouldForwardProp: (prop) => !['isRotating', 'name'].includes(prop),
 })<IconProps>`
     display: inline-block;
     cursor: ${(props) => (props.onClick ? 'pointer' : 'inherit')};
