@@ -8,7 +8,8 @@ export type UseTransferPositionProps = Pick<
 >;
 export type UseTransferPositionValue = {
     refOnTransfer: RefType<HTMLDivElement | null>;
-    position: Position;
+    position: Exclude<Position, 'top'>;
+    leftRight: Exclude<Position, 'bottom' | 'top'>;
 };
 
 export type UseTransferPosition = (

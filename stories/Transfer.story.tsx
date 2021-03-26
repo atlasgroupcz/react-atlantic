@@ -95,7 +95,7 @@ stories.add('Testground', () => {
             />
             <TestTransferComponent
                 position={'bottom-left'}
-                preferredPosition={'left'}
+                preferredPosition={'bottom'}
             />
             <TestTransferComponent
                 position={'bottom-right'}
