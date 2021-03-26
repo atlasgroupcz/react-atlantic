@@ -1,9 +1,18 @@
-## [1.8.7](https://github.com/atlasgroupcz/react-atlantic/compare/1.8.6...1.8.7) (2021-03-26)
+## [1.8.7](https://github.com/atlasgroupcz/react-atlantic/compare/v1.8.6...v1.8.7) (2021-03-26)
 
 ### Bug Fixes
 
 -   🐛 attributes ([3bd3a7e](https://github.com/atlasgroupcz/react-atlantic/commit/3bd3a7efdac4ce3f152cee9e44ed3e8e23995a3e))
 -   🐛 tooltips margin ([ac7b5c2](https://github.com/atlasgroupcz/react-atlantic/commit/ac7b5c28fa841c0244efe720e882b743c1e1f647))
+-   🐛 attributes ([365090c](https://github.com/atlasgroupcz/react-atlantic/commit/365090cad8317a0d17382205ecb52d33f4f86d43))
+-   🐛 resolve left right ([d656709](https://github.com/atlasgroupcz/react-atlantic/commit/d6567093fac44f8e58ad05fc58afe29d8a0bb0cc))
+-   🐛 tooltips margin ([c705c7b](https://github.com/atlasgroupcz/react-atlantic/commit/c705c7bd63f9ce00ac457ec8c8b1d7dd6be73b7c))
+
+### Features
+
+-   ✨ bottom position ([76566d5](https://github.com/atlasgroupcz/react-atlantic/commit/76566d5dd7c9bbcdebd03c822d5e5097d5959294))
+-   ✨ left right position ([37c9f14](https://github.com/atlasgroupcz/react-atlantic/commit/37c9f1470425940d7090697c7cd596ed0c2aaf7c))
+-   ✨ transfer dynamic position ([cf83158](https://github.com/atlasgroupcz/react-atlantic/commit/cf83158948667a391b95ffa070b6fc0202f8d726))
 
 ## [1.8.6](https://github.com/atlasgroupcz/react-atlantic/compare/v1.8.5...v1.8.6) (2021-03-23)
 
