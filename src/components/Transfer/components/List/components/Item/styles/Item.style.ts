@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { StyledCheckboxSpan } from '../../../../../../Checkbox/view/alpha/styles';
 import { StyledTransferListItemProps } from '../types';
 
 export const StyledTransferListItem = styled.li<StyledTransferListItemProps>`
@@ -10,6 +11,12 @@ export const StyledTransferListItem = styled.li<StyledTransferListItemProps>`
 
     &:hover {
         background: ${({ theme }) => theme.color.background.beta};
+    }
+
+    ${StyledCheckboxSpan} {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
     }
 
     ${({ theme, size }) =>

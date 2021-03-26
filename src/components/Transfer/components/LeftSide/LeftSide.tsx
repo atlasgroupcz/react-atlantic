@@ -10,12 +10,14 @@ import { OptionType } from '../../../Select/types';
 import { TransferProps } from '../../types';
 import { TransferList } from '../List';
 import { Input } from '../../../Input';
+import { Position } from '../../../../types';
 
 // TODO: Fix onOptionClick type
 export type TransferLeftSideProps<T extends OptionType = OptionType> = {
     isLeftSideOpen?: boolean;
     isRightSideOpen?: boolean;
     onOptionClick: any;
+    position: Position;
 } & Pick<
     TransferProps,
     | 'options'
@@ -42,12 +44,14 @@ export const TransferLeftSide: TransferLeftSideType = ({
     visibleRows,
     isDisabled,
     isFullWidth,
+    position,
 }) => {
     const selectedOptionsSet = new Set(value?.map((option) => option.value));
     const { onClick, ...rest } = clearInputProps || {};
 
     return (
         <StyledTransferLeftSide
+            position={position}
             isLeftSideOpen={isLeftSideOpen}
             isRightSideOpen={isRightSideOpen}
             isValueExist={!!rest?.value}

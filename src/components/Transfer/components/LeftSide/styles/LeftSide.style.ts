@@ -5,12 +5,18 @@ import { TransferProps } from '../../../types';
 import { getTransferSideHeight } from '../../../utils/getTransferSideHeight';
 import { StyledInputContainer } from '../../../../Input/view/composed/withFix/styles';
 import { StyledIcon } from '../../../../Icon';
+import { Position } from '../../../../../types';
 
-type StyledTransferLeftSideProps = {
+type StyledTransferAbstractProps = {
     isLeftSideOpen?: boolean;
     isRightSideOpen?: boolean;
     isValueExist?: boolean;
 } & Pick<TransferProps, 'size' | 'visibleRows' | 'isDisabled' | 'isFullWidth'>;
+
+type StyledTransferLeftSideNoResultsProps = StyledTransferAbstractProps;
+type StyledTransferLeftSideProps = StyledTransferAbstractProps & {
+    position: Position;
+};
 
 type StyledTransferLeftDropdownProps = {
     isIconVisible?: boolean;
@@ -18,7 +24,7 @@ type StyledTransferLeftDropdownProps = {
 };
 
 export const StyledTransferLeftSideNoResults = styled.div<
-    StyledTransferLeftSideProps
+    StyledTransferLeftSideNoResultsProps
 >`
     box-sizing: border-box;
     display: flex;
@@ -130,12 +136,25 @@ export const StyledTransferLeftSide = styled.div<StyledTransferLeftSideProps>`
             width: 100%;
         `}
 
-    ${({ theme, isRightSideOpen }) =>
+
+    ${({ theme, isRightSideOpen, position }) =>
         isRightSideOpen &&
+        position === 'right' &&
         css`
             width: 50%;
             border-right: 1px solid ${theme.color.border};
         `}
+
+
+        
+    ${({ theme, isRightSideOpen, position }) =>
+        isRightSideOpen &&
+        position === 'left' &&
+        css`
+            width: 50%;
+            border-left: 1px solid ${theme.color.border};
+        `}
+                 
     
     ${({ theme, size }) =>
         size === 'small' &&

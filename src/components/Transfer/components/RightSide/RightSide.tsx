@@ -8,10 +8,7 @@ import {
 } from './style';
 import { TransferList } from '../List';
 import { Text } from '../../../Typography/Text';
-import { PureButton } from '../../../Button/view/pure';
 import { TransferRightSideProps } from './types';
-import { Link } from '../../../Typography/Link';
-import { Button } from '../../../Button/view/default';
 
 export type TransferRightSideType = FC<TransferRightSideProps<HTMLDivElement>>;
 

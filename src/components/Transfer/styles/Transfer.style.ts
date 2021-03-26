@@ -1,9 +1,13 @@
 import styled, { css } from 'styled-components';
+import { HorizontalPosition } from '../../../types';
 import { StyledComponentTransferProps } from '../types';
+import { TransferPosition } from '../types/TransferPosition';
 
 type StyledTransferProps = {
     isLeftSideOpen?: boolean;
     isRightSideOpen?: boolean;
+    position: TransferPosition;
+    leftRight: HorizontalPosition;
 } & StyledComponentTransferProps;
 
 export const StyledTransfer = styled.div<StyledTransferProps>`
@@ -23,11 +27,38 @@ export const StyledTransfer = styled.div<StyledTransferProps>`
             box-shadow: ${theme.boxShadow.sm};
         `}
 
-    ${({ isRightSideOpen, customWidth }) =>
-        isRightSideOpen &&
-        css`
-            width: ${customWidth?.rightSide ?? `600px`}; ;
-        `}
+    ${({ leftRight }) =>
+        leftRight === 'left'
+            ? css`
+                  left: 0px;
+              `
+            : css`
+                  right: 0px;
+              `}
+
+
+    ${({ isRightSideOpen }) =>
+        isRightSideOpen
+            ? css`
+                  position: absolute;
+              `
+            : ``}
+
+
+    ${({ position }) =>
+        position === 'left'
+            ? css`
+                  flex-direction: row-reverse;
+              `
+            : ``}
+
+
+            ${({ isRightSideOpen, customWidth, position }) =>
+        isRightSideOpen && ['left', 'right'].includes(position)
+            ? css`
+                  width: ${customWidth?.rightSide ?? `600px`};
+              `
+            : ``}
 `;
 
 export const StyledTransferContainer = styled.div<StyledComponentTransferProps>`
