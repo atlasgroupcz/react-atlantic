@@ -1,5 +1,6 @@
 import { useLayoutEffect, useRef, useState } from 'react';
-import { Position } from '../../../types';
+import { HorizontalPosition } from '../../../types';
+import { TransferPosition } from '../types/TransferPosition';
 import { UseTransferPosition } from '../types/UseTransferPositionProps';
 import { resolvePositionForTransfer } from '../utils';
 import { resolveLeftRightPosition } from '../utils/resolveLeftRightPosition';
@@ -13,13 +14,11 @@ export const useTransferPosition: UseTransferPosition = ({
     const refOnTransfer = useRef<HTMLDivElement | null>(null);
     const rectWithoutRightSide = useRef<DOMRect | null>(null);
     //TODO: Maybe ref?
-    const [position, setPosition] = useState<Exclude<Position, 'top'>>(
+    const [position, setPosition] = useState<TransferPosition>(
         preferredPosition
     );
 
-    const [leftRight, setLeftRight] = useState<
-        Exclude<Position, 'bottom' | 'top'>
-    >('left');
+    const [leftRight, setLeftRight] = useState<HorizontalPosition>('left');
 
     useLayoutEffect(() => {
         const componentFullWidth = parseInt(customWidth?.rightSide!);
