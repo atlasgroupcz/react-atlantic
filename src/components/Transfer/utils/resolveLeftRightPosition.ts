@@ -12,5 +12,6 @@ export const resolveLeftRightPosition = (
     if (overflowedRight) {
         position = 'right';
     }
+    console.log(position, rect);
     return position;
 };

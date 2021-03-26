@@ -7,6 +7,7 @@ import { resolveLeftRightPosition } from '../utils/resolveLeftRightPosition';
 export const useTransferPosition: UseTransferPosition = ({
     preferredPosition = 'right',
     isRightSideOpen,
+    isLeftSideOpen,
     customWidth,
 }) => {
     const refOnTransfer = useRef<HTMLDivElement | null>(null);
@@ -23,15 +24,11 @@ export const useTransferPosition: UseTransferPosition = ({
     useLayoutEffect(() => {
         let componentFullWidth = 0;
         let componentHalfWidth = 0;
-        if (isRightSideOpen) {
-            componentFullWidth = resolveWidthFromString(
-                customWidth?.rightSide!
-            );
-            componentHalfWidth = resolveWidthFromString(customWidth?.leftSide!);
-        }
+        componentFullWidth = resolveWidthFromString(customWidth?.rightSide!);
+        componentHalfWidth = resolveWidthFromString(customWidth?.leftSide!);
         const rect = refOnTransfer.current?.getBoundingClientRect()!;
 
-        if (!isRightSideOpen) {
+        if (!isRightSideOpen && !isLeftSideOpen) {
             rectWithoutRightSide.current = rect;
         }
 
@@ -49,7 +46,7 @@ export const useTransferPosition: UseTransferPosition = ({
         if (newPosition !== preferredPosition) {
             setPosition(newPosition!);
         }
-    }, [customWidth, isRightSideOpen, preferredPosition]);
+    }, [customWidth, isLeftSideOpen, isRightSideOpen, preferredPosition]);
 
     return { refOnTransfer, position, leftRight };
 };
