@@ -1,3 +1,10 @@
+## [1.8.7](https://github.com/atlasgroupcz/react-atlantic/compare/1.8.6...1.8.7) (2021-03-26)
+
+### Bug Fixes
+
+-   🐛 attributes ([3bd3a7e](https://github.com/atlasgroupcz/react-atlantic/commit/3bd3a7efdac4ce3f152cee9e44ed3e8e23995a3e))
+-   🐛 tooltips margin ([ac7b5c2](https://github.com/atlasgroupcz/react-atlantic/commit/ac7b5c28fa841c0244efe720e882b743c1e1f647))
+
 ## [1.8.6](https://github.com/atlasgroupcz/react-atlantic/compare/v1.8.5...v1.8.6) (2021-03-23)
 
 ### Bug Fixes
