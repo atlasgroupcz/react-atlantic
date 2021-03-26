@@ -2,8 +2,9 @@ import { OptionType } from '../../Select';
 import { InputProps } from '../../Input';
 import { ButtonProps } from '../../Button';
 import { PropsWithChildren, ReactNode, RefObject } from 'react';
-import { Size } from '../../../types';
+import { Position, Size } from '../../../types';
 import { IconProps } from '../../Icon';
+import { UseTransferPosition } from './UseTransferPositionProps';
 
 type SharedTransferProps<T extends OptionType = OptionType> = {
     options: T[];
@@ -34,6 +35,8 @@ export type StyledComponentTransferProps = {
         leftSide?: string;
         rightSide?: string;
     };
+    preferredPosition?: Position;
+    positionManager?: UseTransferPosition;
 };
 
 export type TransferProps<

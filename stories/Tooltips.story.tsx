@@ -1,8 +1,9 @@
 import React, { FC, useState } from 'react';
 import { storiesOf } from '@storybook/react';
-import { Position, Text } from '../src';
+import { Text } from '../src';
 import { Tooltips, useTooltip } from '../src/components/Tooltips';
-import { CSSProperties } from 'styled-components';
+import { resolveStyle } from './utils/resolveStyle';
+import { TestComponentProps } from './types/TestComponentProps';
 
 const stories = storiesOf('Tooltips', module);
 
@@ -10,46 +11,7 @@ export interface ComponentProps {}
 export type ComponentType = FC<ComponentProps>;
 
 const TEST_TOOLTIP = 'TEEEEEEEEEEEEST TOOOOOOOOOOOOLTIP';
-export interface TestComponentProps {
-    position: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
-}
 export type TestComponentType = FC<TestComponentProps>;
-
-const topLeft: CSSProperties = {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-};
-const topRight: CSSProperties = {
-    position: 'absolute',
-    top: 0,
-    right: 0,
-};
-const bottomLeft: CSSProperties = {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-};
-const bottomRight: CSSProperties = {
-    position: 'absolute',
-    bottom: 0,
-    right: 0,
-};
-
-const resolveStyle = (
-    position: TestComponentProps['position']
-): CSSProperties => {
-    switch (position) {
-        case 'top-left':
-            return topLeft;
-        case 'top-right':
-            return topRight;
-        case 'bottom-left':
-            return bottomLeft;
-        case 'bottom-right':
-            return bottomRight;
-    }
-};
 
 export const TestComponent: TestComponentType = ({ position }) => {
     const tooltip = useTooltip();
