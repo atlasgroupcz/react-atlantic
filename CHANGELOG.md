@@ -1,3 +1,5 @@
+## [1.8.8](https://github.com/atlasgroupcz/react-atlantic/compare/v1.8.7...v1.8.8) (2021-03-26)
+
 ## [1.8.7](https://github.com/atlasgroupcz/react-atlantic/compare/v1.8.6...v1.8.7) (2021-03-26)
 
 ### Bug Fixes
