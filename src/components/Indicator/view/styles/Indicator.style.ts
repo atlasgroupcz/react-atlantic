@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import { IndicatorProps } from '../../types/Indicator.types';
 
 export const StyledIndicator = styled.sup.withConfig({
-    shouldForwardProp: (prop) => !['size', 'type'].includes(prop),
+    shouldForwardProp: (prop) => !['size', 'type', 'color'].includes(prop),
 })<IndicatorProps>`
     display: block;
     background-color: ${(props) => props.theme.color.default};

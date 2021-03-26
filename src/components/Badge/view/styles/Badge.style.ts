@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import { BadgeProps } from '../../types';
 
 export const StyledBadge = styled.sup.withConfig({
-    shouldForwardProp: (prop) => !['size', 'type'].includes(prop),
+    shouldForwardProp: (prop) => !['size', 'type', 'color'].includes(prop),
 })<BadgeProps>`
     display: inline-block;
     text-align: center;
