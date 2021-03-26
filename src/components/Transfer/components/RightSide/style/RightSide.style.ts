@@ -79,6 +79,12 @@ export const StyledTransformRightSideItem = styled.div<
         }
     }
 
+    ${StyledText} {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+
     ${({ theme, size }) =>
         size === 'small' &&
         css`
