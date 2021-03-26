@@ -139,7 +139,7 @@ stories.add(
 );
 //
 
-stories.add('Testground', () => {
+stories.add('Overflow Prevention', () => {
     return (
         <div
             style={{
