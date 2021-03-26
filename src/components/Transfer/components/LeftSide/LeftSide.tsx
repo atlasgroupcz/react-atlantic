@@ -10,6 +10,7 @@ import { OptionType } from '../../../Select/types';
 import { TransferProps } from '../../types';
 import { TransferList } from '../List';
 import { Input } from '../../../Input';
+import { Position } from '../../../../types';
 
 // TODO: Fix onOptionClick type
 export type TransferLeftSideProps<T extends OptionType = OptionType> = {

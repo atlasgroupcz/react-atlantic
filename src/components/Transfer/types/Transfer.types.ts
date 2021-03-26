@@ -35,7 +35,7 @@ export type StyledComponentTransferProps = {
         leftSide?: string;
         rightSide?: string;
     };
-    preferredPosition?: Position;
+    preferredPosition?: Exclude<Position, 'top'>;
     positionManager?: UseTransferPosition;
 };
 

@@ -1,10 +1,15 @@
 import { StyledComponentTransferProps, TransferProps } from '../../../types';
 import { ElementProps } from '../../../../../types/utils';
+import { Position } from '../../../../../types';
 
 export type StyledTransformRightSideProps = Pick<
     StyledComponentTransferProps,
     'size'
 >;
+
+export type StyledTransformRightSideContainerProps = {
+    position: Position;
+};
 
 export type FunctionalTransferRightSideProps = {
     onOptionClick?: any;
@@ -18,4 +23,5 @@ export type TransferRightSideProps<
         TransferProps,
         'label' | 'clearButtonProps' | 'value' | 'size' | 'visibleRows'
     > &
-    ElementProps<T>;
+    ElementProps<T> &
+    StyledTransformRightSideContainerProps;
