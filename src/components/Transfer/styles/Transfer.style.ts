@@ -1,12 +1,13 @@
 import styled, { css } from 'styled-components';
-import { Position } from '../../../types';
+import { HorizontalPosition } from '../../../types';
 import { StyledComponentTransferProps } from '../types';
+import { TransferPosition } from '../types/TransferPosition';
 
 type StyledTransferProps = {
     isLeftSideOpen?: boolean;
     isRightSideOpen?: boolean;
-    position: Exclude<Position, 'top'>;
-    leftRight: Exclude<Position, 'top' | 'bottom'>;
+    position: TransferPosition;
+    leftRight: HorizontalPosition;
 } & StyledComponentTransferProps;
 
 export const StyledTransfer = styled.div<StyledTransferProps>`
