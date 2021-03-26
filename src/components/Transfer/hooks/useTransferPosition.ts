@@ -1,7 +1,7 @@
 import { useLayoutEffect, useRef, useState } from 'react';
 import { Position } from '../../../types';
 import { UseTransferPosition } from '../types/UseTransferPositionProps';
-import { resolvePositionForTransfer, resolveWidthFromString } from '../utils';
+import { resolvePositionForTransfer } from '../utils';
 import { resolveLeftRightPosition } from '../utils/resolveLeftRightPosition';
 
 export const useTransferPosition: UseTransferPosition = ({
@@ -22,10 +22,8 @@ export const useTransferPosition: UseTransferPosition = ({
     >('left');
 
     useLayoutEffect(() => {
-        let componentFullWidth = 0;
-        let componentHalfWidth = 0;
-        componentFullWidth = resolveWidthFromString(customWidth?.rightSide!);
-        componentHalfWidth = resolveWidthFromString(customWidth?.leftSide!);
+        const componentFullWidth = parseInt(customWidth?.rightSide!);
+        const componentHalfWidth = parseInt(customWidth?.leftSide!);
         const rect = refOnTransfer.current?.getBoundingClientRect()!;
 
         if (!isRightSideOpen && !isLeftSideOpen) {
