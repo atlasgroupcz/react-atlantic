@@ -168,6 +168,7 @@ export const IconsMap = {
     linkedIn: <Icons.LinkedIn />,
     twitter: <Icons.Twitter />,
     documentCompare: <Icons.DocumentCompare />,
+    archiveSolid: <Icons.ArchiveSolid />,
 };
 
 export type IconName = keyof typeof IconsMap;
