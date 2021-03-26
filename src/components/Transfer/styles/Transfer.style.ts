@@ -1,9 +1,12 @@
 import styled, { css } from 'styled-components';
+import { Position } from '../../../types';
 import { StyledComponentTransferProps } from '../types';
+import { resolveWidthFromString } from '../utils';
 
 type StyledTransferProps = {
     isLeftSideOpen?: boolean;
     isRightSideOpen?: boolean;
+    position: Position;
 } & StyledComponentTransferProps;
 
 export const StyledTransfer = styled.div<StyledTransferProps>`
@@ -26,8 +29,17 @@ export const StyledTransfer = styled.div<StyledTransferProps>`
     ${({ isRightSideOpen, customWidth }) =>
         isRightSideOpen &&
         css`
-            width: ${customWidth?.rightSide ?? `600px`}; ;
+            position: absolute;
+            width: ${customWidth?.rightSide ?? `600px`};
         `}
+
+    ${({ position }) =>
+        position === 'left'
+            ? css`
+                  right: 0px;
+                  flex-direction: row-reverse;
+              `
+            : ``}
 `;
 
 export const StyledTransferContainer = styled.div<StyledComponentTransferProps>`
