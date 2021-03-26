@@ -1,11 +1,10 @@
-import { Position } from '../../../types';
 import { TransferProps } from '../types';
 
 export const resolvePositionForTransfer = (
     componentWidth: number,
     rect: DOMRect,
     prefPosition: TransferProps['preferredPosition']
-): Position => {
+): TransferProps['preferredPosition'] => {
     const { left } = rect;
     const endX = left + componentWidth;
     const startX = left - componentWidth / 2;

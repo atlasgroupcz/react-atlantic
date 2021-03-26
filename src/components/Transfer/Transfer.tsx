@@ -34,7 +34,7 @@ export const Transfer = forwardRef<HTMLDivElement, TransferProps>(
     ) => {
         const isLeftSideOpen = isOpen && !!value;
         const isRightSideOpen = isOpen && value && value.length > 0;
-        const { position, refOnTransfer } = positionManager({
+        const { position, refOnTransfer, leftRight } = positionManager({
             customWidth,
             preferredPosition,
             isLeftSideOpen: !!isLeftSideOpen,
@@ -45,6 +45,7 @@ export const Transfer = forwardRef<HTMLDivElement, TransferProps>(
         return (
             <StyledTransferContainer size={size} ref={ref}>
                 <StyledTransfer
+                    leftRight={leftRight}
                     position={position}
                     ref={refOnTransfer}
                     isLeftSideOpen={isLeftSideOpen}
