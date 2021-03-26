@@ -13,23 +13,17 @@ export const resolvePositionForTransfer = (
     const overflowedRight = endX > windowWidth;
     const overflowedLeft = startX < 0;
 
-    let newPosition = prefPosition!;
-
-    let c = 0;
-    if (newPosition === 'right' && overflowedRight) {
-        newPosition = 'left';
-        c++;
+    if (overflowedRight && overflowedLeft) {
+        return 'bottom';
     }
 
-    if (newPosition === 'left' && overflowedLeft) {
-        newPosition = 'right';
-        c++;
+    if (prefPosition === 'right' && overflowedRight && !overflowedLeft) {
+        return 'left';
     }
 
-    //TODO: check bottom else ERROR!
-    if (c === 2) {
-        newPosition = 'bottom';
+    if (prefPosition === 'left' && overflowedLeft && !overflowedRight) {
+        return 'right';
     }
 
-    return newPosition;
+    return prefPosition;
 };
