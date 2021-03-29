@@ -87,7 +87,7 @@ stories.add('Overflow Prevention', () => {
         >
             <TestTransferComponent
                 position={'top-left'}
-                preferredPosition={'bottom'}
+                preferredPosition={'left'}
             />
             <TestTransferComponent
                 position={'top-right'}
