@@ -64,6 +64,11 @@ export const StyledTransformRightSideHeader = styled.div<
         `}
 `;
 
+export const StyledTransformRightSideItemContainer = styled.div`
+    display: flex;
+    align-items: center;
+`;
+
 export const StyledTransformRightSideItem = styled.div<
     StyledTransformRightSideProps
 >`
