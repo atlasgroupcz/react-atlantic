@@ -36,7 +36,8 @@ export const useTransferPosition: UseTransferPosition = ({
         );
         const newLeftRight = resolveLeftRightPosition(
             componentHalfWidth,
-            rectWithoutRightSide.current!
+            rectWithoutRightSide.current!,
+            newPosition!
         );
 
         setLeftRight(newLeftRight);

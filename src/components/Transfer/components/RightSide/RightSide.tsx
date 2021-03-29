@@ -5,6 +5,7 @@ import {
     StyledTransformRightSideHeader,
     StyledTransformRightSideHeaderCloseButton,
     StyledTransformRightSideItem,
+    StyledTransformRightSideItemContainer,
 } from './style';
 import { TransferList } from '../List';
 import { Text } from '../../../Typography/Text';
@@ -39,7 +40,9 @@ export const TransferRightSide: TransferRightSideType = ({
                     >
                         <StyledTransformRightSideItem size={size}>
                             <Text>{option.label}</Text>
-                            <Icon name={'clear'} />
+                            <StyledTransformRightSideItemContainer>
+                                <Icon name={'clear'} />
+                            </StyledTransformRightSideItemContainer>
                         </StyledTransformRightSideItem>
                     </TransferList.Item>
                 ))}
