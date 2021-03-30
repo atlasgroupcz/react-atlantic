@@ -4,6 +4,7 @@ import { getTransferSideHeight } from '../../../utils/getTransferSideHeight';
 
 export const StyledTransferList = styled.ul<StyledTransferListProps>`
     box-sizing: border-box;
+    position: relative;
     overflow: auto;
     padding: 0;
     margin: 0;
