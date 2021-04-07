@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components';
-import { StyledCheckboxSpan } from '../../../../../../Checkbox/view/alpha/styles';
 import { StyledTransferListItemProps } from '../types';
 import {
     StyledCheckboxInputShown,
