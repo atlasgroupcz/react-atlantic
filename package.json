@@ -1,6 +1,6 @@
 {
     "name": "@atlasgroup/react-atlantic",
-    "version": "1.8.9",
+    "version": "1.8.10",
     "homepage": "https://atlasgroupcz.github.io/react-atlantic",
     "private": false,
     "main": "lib/index.js",
@@ -108,6 +108,13 @@
         "typescript": "^4.1.0-dev.20201020",
         "wait-for-expect": "^3.0.2",
         "webpack": "^4.44.1"
+    },
+    "peerDependencies": {
+        "@types/react": "16.8.x - 17.x",
+        "@types/react-dom": "16.9.8 - 17.x",
+        "react": "16.8.x - 17.x",
+        "react-dom": "^16.9.8 - 17.x",
+        "react-spring": "^9.0.0-rc.3"
     },
     "description": "[Demo, examples and docs](https://atlasgroupcz.github.io/react-atlantic/)",
     "directories": {

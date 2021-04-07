@@ -1,3 +1,16 @@
+## [1.8.10](https://github.com/atlasgroupcz/react-atlantic/compare/1.8.7...1.8.10) (2021-04-07)
+
+### Bug Fixes
+
+-   🐛 position resolver ([81b722d](https://github.com/atlasgroupcz/react-atlantic/commit/81b722de397719c38e39c79a0c5a26fa2e4874d1))
+-   🐛 resolve left right ([9dff2ed](https://github.com/atlasgroupcz/react-atlantic/commit/9dff2edc8866488ed5d1aa05008d382c15d0cd90))
+
+### Features
+
+-   ✨ bottom position ([73fee64](https://github.com/atlasgroupcz/react-atlantic/commit/73fee64fba04cee776eeaf3b7b8189220842e18c))
+-   ✨ left right position ([ab3518e](https://github.com/atlasgroupcz/react-atlantic/commit/ab3518e68a8503b77bce2a2741b37619f999bdb9))
+-   ✨ transfer dynamic position ([2bc9bf6](https://github.com/atlasgroupcz/react-atlantic/commit/2bc9bf60a79c02f0f1b38f090487804affb8c5e3))
+
 ## [1.8.9](https://github.com/atlasgroupcz/react-atlantic/compare/1.8.7...1.8.9) (2021-03-29)
 
 ### Bug Fixes

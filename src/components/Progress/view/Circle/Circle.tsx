@@ -20,7 +20,6 @@ export const ProgressCircle: ProgressCircleType = ({
     value,
     transitionColors,
     circleSize = 100,
-    className,
     ...props
 }) => {
     const defaultColors = useDefaultInterpolateTransitionValues();
@@ -36,12 +35,7 @@ export const ProgressCircle: ProgressCircleType = ({
     const currentDashOffset = totalDashOffset - value * (totalDashOffset / 100);
 
     return (
-        <StyledProgressCircle
-            color={color}
-            circleSize={circleSize}
-            className={className}
-            {...props}
-        >
+        <StyledProgressCircle color={color} circleSize={circleSize} {...props}>
             <StyledProgressCircleSVG>
                 <StyledProgressCircleSVGBackground
                     cx={center}
