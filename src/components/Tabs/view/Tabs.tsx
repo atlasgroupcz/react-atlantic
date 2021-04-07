@@ -7,6 +7,7 @@ export const Tabs = <T extends TabListProps>({
     activeKey,
     onClick,
     children,
+    ...props
 }: TabsProps<T>): ReturnType<FC<TabsProps<T>>> => {
     const child = useFilteredChildrenByKey(children, activeKey);
     //TODO: type error :{}
@@ -21,7 +22,7 @@ export const Tabs = <T extends TabListProps>({
 
     return (
         <>
-            <Component onClick={handleClick} activeKey={activeKey} />
+            <Component onClick={handleClick} activeKey={activeKey} {...props} />
             {child}
         </>
     );

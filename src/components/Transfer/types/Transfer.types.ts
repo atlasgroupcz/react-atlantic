@@ -2,7 +2,7 @@ import { OptionType } from '../../Select';
 import { InputProps } from '../../Input';
 import { ButtonProps } from '../../Button';
 import { PropsWithChildren, ReactNode, RefObject } from 'react';
-import { Size } from '../../../types';
+import { CommonHTMLProps, Size } from '../../../types';
 import { IconProps } from '../../Icon';
 import { UseTransferPosition } from './UseTransferPositionProps';
 import { TransferPosition } from './TransferPosition';
@@ -45,4 +45,5 @@ export type TransferProps<
 > = SharedTransferProps<T> & {
     value?: T[];
     ref: RefObject<HTMLDivElement>;
-} & StyledComponentTransferProps;
+} & StyledComponentTransferProps &
+    Omit<CommonHTMLProps, 'ref'>;

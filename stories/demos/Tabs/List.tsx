@@ -2,9 +2,13 @@ import React, { FC } from 'react';
 import { Badge, Button, TabListProps } from '../../../src';
 
 const NUMBER_OF_TABS = 5;
-export const TabListDemo: FC<TabListProps> = ({ activeKey, onClick }) => {
+export const TabListDemo: FC<TabListProps> = ({
+    activeKey,
+    onClick,
+    ...props
+}) => {
     return (
-        <>
+        <div {...props}>
             {[...Array(NUMBER_OF_TABS)].map((_, index) => (
                 <Button
                     isDisabled={activeKey === `${index}`}
@@ -15,7 +19,7 @@ export const TabListDemo: FC<TabListProps> = ({ activeKey, onClick }) => {
                     {index}
                 </Button>
             ))}
-        </>
+        </div>
     );
 };
 
