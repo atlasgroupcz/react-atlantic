@@ -29,8 +29,10 @@ export const Transfer = forwardRef<HTMLDivElement, TransferProps>(
             isDisabled,
             customWidth = DEFAULT_WIDTHS_TRANSFER,
             preferredPosition = 'right',
+            ref,
+            ...props
         },
-        ref
+        reference
     ) => {
         const isLeftSideOpen = isOpen && !!value;
         const isRightSideOpen = isOpen && value && value.length > 0;
@@ -42,7 +44,7 @@ export const Transfer = forwardRef<HTMLDivElement, TransferProps>(
         });
 
         return (
-            <StyledTransferContainer size={size} ref={ref}>
+            <StyledTransferContainer size={size} ref={reference} {...props}>
                 <StyledTransfer
                     leftRight={leftRight}
                     position={position}

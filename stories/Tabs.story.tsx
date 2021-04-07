@@ -18,9 +18,9 @@ stories.add(
         const numberOfTabs = number('NumberOfTabs', 1);
         const activeKey = number('ActiveKey', 0);
         const tabsProps: TabsProps = {
-            List: ({ activeKey }) => {
+            List: ({ activeKey, onClick, ...props }) => {
                 return (
-                    <>
+                    <div {...props}>
                         {[...Array(numberOfTabs)].map((_, index) => (
                             <Button
                                 key={index}
@@ -29,16 +29,16 @@ stories.add(
                                         ? 'success'
                                         : 'error'
                                 }
-                            ></Button>
+                            />
                         ))}
-                    </>
+                    </div>
                 );
             },
             activeKey: `${activeKey}`,
         };
 
         const tabs = (
-            <Tabs {...tabsProps}>
+            <Tabs tabIndex={1} {...tabsProps}>
                 {[...Array(numberOfTabs)].map((_, index) => (
                     <div key={index}>{`Tab-${index}`}</div>
                 ))}

@@ -16,7 +16,6 @@ export type ProgressBarType = FC<ProgressBarProps>;
 export const ProgressBar: ProgressBarType = ({
     value,
     transitionColors,
-    className,
     ...props
 }) => {
     const defaultColors = useDefaultInterpolateTransitionValues();
@@ -25,7 +24,7 @@ export const ProgressBar: ProgressBarType = ({
         [defaultColors, transitionColors, value]
     );
     return (
-        <StyledProgressBar className={className} {...props}>
+        <StyledProgressBar {...props}>
             <StyledProgressBarLine>
                 <StyledProgressBarFillContainer progress={value}>
                     <StyledProgressBarFill color={color} />
