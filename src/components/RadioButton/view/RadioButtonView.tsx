@@ -1,19 +1,19 @@
 import React, { FC, Fragment } from 'react';
 import { Text } from '../../Typography';
-import { UseRadioButtonsValue } from '../hooks';
-import { StyledRadioButton, StyledRadioButtonsContainer } from '../styles';
+import { UseRadioButtonValue } from '../hooks';
+import { StyledRadioButton, StyledRadioButtonContainer } from '../styles';
 
-export type RadioButtonsViewProps = UseRadioButtonsValue;
-export type RadioButtonsViewType = FC<RadioButtonsViewProps>;
+export type RadioButtonViewProps = UseRadioButtonValue;
+export type RadioButtonViewType = FC<RadioButtonViewProps>;
 
-export const RadioButtonsView: RadioButtonsViewType = ({
+export const RadioButtonView: RadioButtonViewType = ({
     onChange,
     values,
     value,
     groupName,
     isFullWidth,
 }) => (
-    <StyledRadioButtonsContainer isFullWidth={isFullWidth}>
+    <StyledRadioButtonContainer isFullWidth={isFullWidth}>
         {values?.map((optionType) => {
             const isChecked = optionType.value === value;
             const type = isChecked ? `primary` : `default`;
@@ -34,5 +34,5 @@ export const RadioButtonsView: RadioButtonsViewType = ({
                 </Fragment>
             );
         })}
-    </StyledRadioButtonsContainer>
+    </StyledRadioButtonContainer>
 );

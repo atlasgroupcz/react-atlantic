@@ -1,12 +1,12 @@
 import { FormEvent, useCallback, useEffect, useState } from 'react';
 import { OptionType } from '../../Select';
 
-export type UseRadioButtonsWithStateValue = {
+export type UseRadioButtonWithStateValue = {
     onChange: (event: FormEvent<HTMLInputElement>) => void;
     value: string;
-} & Omit<UseRadioButtonsWithStateProps, 'onChange'>;
+} & Omit<UseRadioButtonWithStateProps, 'onChange'>;
 
-export type UseRadioButtonsWithStateProps = {
+export type UseRadioButtonWithStateProps = {
     values: Array<OptionType>;
     groupName: string;
     onChange?: (newValue: string) => void;
@@ -14,16 +14,16 @@ export type UseRadioButtonsWithStateProps = {
     isFullWidth?: boolean;
 };
 
-export type UseRadioButtonsWithStateType = (
-    props: UseRadioButtonsWithStateProps
-) => UseRadioButtonsWithStateValue;
+export type UseRadioButtonWithStateType = (
+    props: UseRadioButtonWithStateProps
+) => UseRadioButtonWithStateValue;
 
-export const useRadioButtonsWithState: UseRadioButtonsWithStateType = ({
+export const useRadioButtonWithState: UseRadioButtonWithStateType = ({
     defaultValue = '',
     onChange: PropsOnChange,
     ...rest
 }) => {
-    const [value, setValue] = useState<UseRadioButtonsWithStateValue['value']>(
+    const [value, setValue] = useState<UseRadioButtonWithStateValue['value']>(
         defaultValue
     );
 
@@ -33,7 +33,7 @@ export const useRadioButtonsWithState: UseRadioButtonsWithStateType = ({
         }
     }, []);
 
-    const onChange = useCallback<UseRadioButtonsWithStateValue['onChange']>(
+    const onChange = useCallback<UseRadioButtonWithStateValue['onChange']>(
         (event) => {
             const newValue = event.currentTarget.value;
 

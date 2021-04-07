@@ -1,7 +1,7 @@
 import { FC } from 'react';
-import { UseRadioButtonsProps } from './hooks';
-import { RadioButtonsView } from './view';
+import { UseRadioButtonProps } from './hooks';
+import { RadioButtonView } from './view';
 
-export type RadioButtonsType = FC<UseRadioButtonsProps>;
+export type RadioButtonType = FC<UseRadioButtonProps>;
 
-export const RadioButtons: RadioButtonsType = RadioButtonsView;
+export const RadioButton: RadioButtonType = RadioButtonView;

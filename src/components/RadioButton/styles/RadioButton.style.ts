@@ -20,7 +20,7 @@ export const StyledRadioButton = styled.label<{
     justify-content: center;
 `;
 
-export const StyledRadioButtonsContainer = styled.div<{
+export const StyledRadioButtonContainer = styled.div<{
     isFullWidth?: boolean;
 }>`
     display: flex;
