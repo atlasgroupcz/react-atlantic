@@ -1,6 +1,6 @@
 import { HorizontalPosition } from '../../../types';
 import { RefType } from '../../../types/Ref';
-import { TransferProps } from './Transfer.types';
+import { TransferProps } from './Transfer';
 import { TransferPosition } from './TransferPosition';
 
 export type UseTransferPositionProps = Pick<

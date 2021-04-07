@@ -1,1 +1,4 @@
-export * from './Transfer.types';
+export * from './Transfer';
+export * from './HiddenTransferComponentProps';
+export * from './TransferLeftSideProps';
+export * from './TransferOpenSides';
