@@ -1,5 +1,5 @@
 import { FormEvent } from 'react';
-import { OptionType } from '../../Select/types/OptionType';
+import { OptionType } from '../../Select';
 
 export type UseRadioButtonsValue = {} & UseRadioButtonsProps;
 
@@ -7,7 +7,7 @@ export type UseRadioButtonsProps = {
     values: Array<OptionType>;
     groupName: string;
     onChange: (event: FormEvent<HTMLInputElement>) => void;
-    currentValue: string;
+    value: string;
     isFullWidth?: boolean;
 };
 
@@ -17,6 +17,6 @@ export type UseRadioButtonsType = (
 
 export const useRadioButtons: UseRadioButtonsType = ({
     onChange,
-    currentValue,
+    value,
     ...rest
-}) => ({ onChange, currentValue, ...rest });
+}) => ({ onChange, value, ...rest });

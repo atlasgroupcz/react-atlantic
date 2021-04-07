@@ -13,13 +13,13 @@ export type RadioButtonsViewType = FC<RadioButtonsViewProps>;
 export const RadioButtonsView: RadioButtonsViewType = ({
     onChange,
     values,
-    currentValue,
+    value,
     groupName,
     isFullWidth,
 }) => (
     <StyledRadioButtonsContainer isFullWidth={isFullWidth}>
-        {values?.map((optionType: OptionType) => {
-            const isChecked = optionType.value === currentValue;
+        {values?.map((optionType) => {
+            const isChecked = optionType.value === value;
             const type = isChecked ? `primary` : `default`;
 
             return (

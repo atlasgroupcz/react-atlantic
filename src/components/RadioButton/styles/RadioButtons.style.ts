@@ -1,9 +1,9 @@
-import { css, styled } from '@atlasgroup/react-atlantic/lib';
-import { ButtonStyleType } from '@atlasgroup/react-atlantic/src/components/Button/types/index';
+import { css, styled } from '../../../styled';
+import { ButtonStyleType } from '../../Button';
 import {
     getButtonTypeStyles,
     getDefaultButtonStyles,
-} from '@atlasgroup/react-atlantic/lib/components/Button/view/default/styles';
+} from '../../Button/view/default/styles';
 
 export const StyledRadioButton = styled.label<{
     type: ButtonStyleType;
