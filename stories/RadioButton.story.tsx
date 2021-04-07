@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { Select, Size } from '../src';
-import { select, withKnobs } from '@storybook/addon-knobs';
+import { Size } from '../src';
+import { boolean, select, withKnobs } from '@storybook/addon-knobs';
 import { RadioButtonsView } from '../src/components/RadioButton';
 import { useRadioButtonsWithState } from '../src/components/RadioButton/hooks/useRadioButtonsWithState';
 import { defaultValues } from './constants';
@@ -19,20 +19,19 @@ stories.add(
             defaultValues.firstValue
         ) as Size;
 
+        const isFullWidth = boolean(`isFullWidth:`, defaultValues.isFullWidth);
+
         const demoRadioButtonsHandlers = useRadioButtonsWithState({
             values: [
                 { value: 'firstValue', label: 'Label 1' },
                 { value: 'secondValue', label: 'Label 2' },
             ],
-            defaultValue,
             groupName: 'firstGroup',
+            defaultValue,
+            isFullWidth,
         });
 
-        return (
-            <>
-                <RadioButtonsView isFullWidth {...demoRadioButtonsHandlers} />
-            </>
-        );
+        return <RadioButtonsView {...demoRadioButtonsHandlers} />;
     },
     {
         info: { inline: true },
