@@ -2,10 +2,7 @@ import React, { FC, Fragment } from 'react';
 import { OptionType } from '../../Select';
 import { Text } from '../../Typography';
 import { UseRadioButtonsValue } from '../hooks';
-import {
-    StyledRadioButton,
-    StyledRadioButtonsContainer,
-} from '../styles/RadioButtons.style';
+import { StyledRadioButton, StyledRadioButtonsContainer } from '../styles';
 
 export type RadioButtonsViewProps = UseRadioButtonsValue;
 export type RadioButtonsViewType = FC<RadioButtonsViewProps>;
