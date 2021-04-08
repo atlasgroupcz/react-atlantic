@@ -72,31 +72,27 @@ export const StyledSwitcherWrap = styled.div<StyledSwitchProps>`
     width: 200%;
     transition: right 0.3s;
 
-    ${(props) =>
-        props.isChecked &&
-        css`
-            right: -${switchWidthNormal};
-        `}
+    ${({ isChecked, size }) => {
+        if (isChecked) {
+            if (size === 'small') {
+                return css`
+                    right: -${switchWidthSmall};
+                `;
+            } else if (size === 'large') {
+                return css`
+                    right: -${switchWidthLarge};
+                `;
+            } else if (size === 'medium') {
+                return css`
+                    right: -${switchWidthNormal};
+                `;
+            }
 
-    ${(props) =>
-        props.size === 'small' &&
-        props.isChecked &&
-        css`
-            right: -${switchWidthSmall};
-        `}
-  
-  ${(props) =>
-        props.size === 'large' &&
-        props.isChecked &&
-        css`
-            right: -${switchWidthLarge};
-        `}
-  ${(props) =>
-        props.size === 'medium' &&
-        props.isChecked &&
-        css`
-            right: -${switchWidthNormal};
-        `}
+            return css`
+                right: -${switchWidthNormal};
+            `;
+        }
+    }}
 `;
 
 export const StyledSwitcherTrue = styled.div<StyledSwitchProps>`
