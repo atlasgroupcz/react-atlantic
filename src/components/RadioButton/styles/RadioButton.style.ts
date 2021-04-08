@@ -9,6 +9,8 @@ export const StyledRadioButtonInputHidden = styled.input.attrs({
     type: 'radio',
 })`
     position: absolute;
+    left: -9999px;
+    top: -9999px;
     opacity: 0;
     width: 0;
     height: 0;
@@ -17,14 +19,10 @@ export const StyledRadioButtonInputHidden = styled.input.attrs({
 
 export const StyledRadioButtonLabel = styled.label<StyledRadioButtonProps>`
     ${getDefaultButtonStyles()};
-
-    ${(props) =>
-        css`
-            ${getButtonTypeStyles(props.type!, false)};
-        `}
-
-    display: flex;
+    ${({ type }) => getButtonTypeStyles(type!, false)};
+    display: inline-flex;
     align-items: center;
+    justify-content: center;
     border-radius: 0;
 `;
 
