@@ -168,6 +168,18 @@ export const IconsMap = {
     twitter: <Icons.Twitter />,
     documentCompare: <Icons.DocumentCompare />,
     archiveSolid: <Icons.ArchiveSolid />,
+    duotoneArrowTarget: <Icons.DuotoneArrowTarget />,
+    duotoneLayers: <Icons.DuotoneLayers />,
+    duotoneShield: <Icons.DuotoneShield />,
+    duotoneFlags: <Icons.DuotoneFlags />,
+    duotoneUniversity: <Icons.DuotoneUniversity />,
+    duotoneUsers: <Icons.DuotoneUsers />,
+    duotoneList: <Icons.DuotoneList />,
+    duotoneCoins: <Icons.DuotoneCoins />,
+    duotoneCopy: <Icons.DuotoneCopy />,
+    duotoneScreen: <Icons.DuotoneScreen />,
+    duotoneFolders: <Icons.DuotoneFolders />,
+    duotoneGlobe: <Icons.DuotoneGlobe />,
 };
 
 export type IconName = keyof typeof IconsMap;
