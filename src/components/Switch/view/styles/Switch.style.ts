@@ -22,41 +22,42 @@ const switchWidthNormalInt = parseInt(switchWidthNormal, 0);
 const togglerSizeNormalInt = parseInt(togglerSizeNormal, 0);
 
 export const StyledSwitchLabel = styled.label<StyledSwitchProps>`
+    overflow: hidden;
     position: relative;
     display: inline-block;
     width: ${switchWidthNormal};
-    height: ${(props) => props.theme.height.md};
-    overflow: hidden;
+    height: ${({ theme }) => theme.height.md};
+    border-radius: ${({ theme }) => theme.height.md};
+    font-family: ${({ theme }) => theme.font.family};
+    font-size: ${({ theme }) => theme.font.size.md};
     cursor: pointer;
-    border-radius: ${(props) => props.theme.height.md};
-    font-size: ${(props) => props.theme.font.size.md};
-    font-family: ${(props) => props.theme.font.family};
 
-    ${(props) =>
-        props.size === 'small' &&
+    ${({ theme, size }) =>
+        size === 'small' &&
         css`
-            height: ${props.theme.height.sm};
+            height: ${theme.height.sm};
             width: ${switchWidthSmall};
-            font-size: 12px;
+            font-size: ${theme.font.size.sm};
         `}
-    ${(props) =>
-        props.size === 'large' &&
+
+    ${({ theme, size }) =>
+        size === 'medium' &&
         css`
-            height: ${props.theme.height.lg};
-            width: ${switchWidthLarge};
-            font-size: 16px;
-        `}
-  
-  ${(props) =>
-        props.size === 'medium' &&
-        css`
-            height: ${props.theme.height.md};
+            height: ${theme.height.md};
             width: ${switchWidthNormal};
-            font-size: 14px;
+            font-size: ${theme.font.size.md};
+        `}
+        
+    ${({ theme, size }) =>
+        size === 'large' &&
+        css`
+            height: ${theme.height.lg};
+            width: ${switchWidthLarge};
+            font-size: ${theme.font.size.lg};
         `}
   
-   ${(props) =>
-        props.isDisabled &&
+   ${({ isDisabled }) =>
+        isDisabled &&
         css`
             cursor: not-allowed;
         `}
@@ -107,11 +108,6 @@ export const StyledSwitcherTrue = styled.div<StyledSwitchProps>`
     background-color: ${({ theme }) => theme.color.border};
     transition: background-color 0.3s ease, color 0.3s ease;
 
-    ${({ theme }) => css`
-        padding-left: ${theme.padding.md};
-        justify-content: flex-start;
-    `}
-
     ${({ theme, isChecked, htmlType }) =>
         isChecked &&
         css`
@@ -120,27 +116,8 @@ export const StyledSwitcherTrue = styled.div<StyledSwitchProps>`
                 htmlType === 'default' ? 'primary' : (htmlType as Type)
             ].alpha};
         `}
-  
-  ${(props) =>
-        props.size === 'small' &&
-        css`
-            padding-left: ${(props) => parseInt(props.theme.padding.md, 0)}px;
-        `}
-  
-  ${(props) =>
-        props.size === 'large' &&
-        css`
-            padding-left: ${(props) =>
-                parseInt(props.theme.padding.md, 0) + 3}px;
-        `}
-  
-  ${(props) =>
-        props.size === 'medium' &&
-        css`
-            padding-left: ${(props) => parseInt(props.theme.padding.md, 0)}px;
-        `}
-  
-  ${({ isDisabled, isChecked, htmlType, theme }) =>
+
+    ${({ theme, isDisabled, isChecked, htmlType }) =>
         isDisabled &&
         isChecked &&
         css`
@@ -159,71 +136,70 @@ export const StyledSwitcherToggler = styled.div<StyledSwitchProps>`
         2 * parseInt(props.theme.margin.sm, 0)}px;
     bottom: 0;
     width: ${togglerSizeNormalInt}px;
-    margin: ${(props) => props.theme.margin.sm};
-
-    background-color: ${(props) => props.theme.color.background.delta};
+    margin: ${({ theme }) => theme.margin.sm};
     border-radius: 50%;
+    background-color: ${({ theme }) => theme.color.background.delta};
     transition: right 0.3s ease;
 
-    ${(props) =>
-        props.isChecked &&
+    ${({ isChecked }) =>
+        isChecked &&
         css`
             right: ${switchWidthNormal};
         `}
 
-    ${(props) =>
-        props.isDisabled &&
+    ${({ theme, isDisabled }) =>
+        isDisabled &&
         css`
-            background-color: ${props.theme.color.background.delta};
+            background-color: ${theme.color.background.delta};
         `}
  
-  ${(props) =>
-        props.size === 'small' &&
+  ${({ theme, size }) =>
+        size === 'small' &&
         css`
             width: ${togglerSizeSmall};
             right: ${parseInt(switchWidthSmall, 0) -
             parseInt(togglerSizeSmall, 0) -
-            2 * parseInt(props.theme.margin.sm, 0)}px;
-            font-size: 12px;
+            2 * parseInt(theme.margin.sm, 0)}px;
+            font-size: ${theme.font.size.sm};
         `}
   
-   ${(props) =>
-        props.size === 'small' &&
-        props.isChecked &&
+   ${({ size, isChecked }) =>
+        size === 'small' &&
+        isChecked &&
         css`
             right: ${switchWidthSmall};
         `}
    
-   ${(props) =>
-        props.size === 'large' &&
+   ${({ theme, size }) =>
+        size === 'large' &&
         css`
             width: ${togglerSizeLarge};
             right: ${parseInt(switchWidthLarge, 0) -
             parseInt(togglerSizeLarge, 0) -
-            2 * parseInt(props.theme.margin.sm, 0)}px;
-            font-size: 16px;
+            2 * parseInt(theme.margin.sm, 0)}px;
+            font-size: ${theme.font.size.lg};
         `}
    
-   ${(props) =>
-        props.size === 'large' &&
-        props.isChecked &&
+   ${({ size, isChecked }) =>
+        size === 'large' &&
+        isChecked &&
         css`
             right: ${switchWidthLarge};
         `}
    
-   ${(props) =>
-        props.size === 'medium' &&
+   ${({ theme, size }) =>
+        size === 'medium' &&
         css`
             width: ${togglerSizeNormal};
-            right: ${(props) =>
-                switchWidthNormalInt -
-                togglerSizeNormalInt -
-                2 * parseInt(props.theme.margin.sm, 0)}px;
-            font-size: 14px;
+            right: ${switchWidthNormalInt -
+            togglerSizeNormalInt -
+            2 * parseInt(theme.margin.sm, 0)}px;
+            font-size: ${theme.font.size.md};
         `}
-   ${(props) =>
-        props.size === 'medium' &&
-        props.isChecked &&
+
+    ${({ size, isChecked }) =>
+        size === 'medium' &&
+        isChecked &&
         css`
             right: ${switchWidthNormal};
         `}
@@ -236,28 +212,28 @@ export const StyledSwitcherFalse = styled.div<StyledSwitchProps>`
     flex: 0 0 50%;
     height: 100%;
     line-height: 1;
-
     user-select: none;
-    color: ${(props) => props.theme.color.text.alpha};
-    background-color: ${(props) => props.theme.color.border};
+    color: ${({ theme }) => theme.color.text.alpha};
+    background-color: ${({ theme }) => theme.color.border};
     transition: background-color 0.3s ease, color 0.3s ease;
-    ${(props) =>
-        props.isChecked &&
+
+    ${({ theme, isChecked }) =>
+        isChecked &&
         css`
-            color: ${(props) => props.theme.color.text.gamma};
+            color: ${theme.color.text.gamma};
         `}
 
-    ${(props) =>
-        props.isDisabled &&
+    ${({ theme, isDisabled }) =>
+        isDisabled &&
         css`
-            color: ${props.theme.color.text.gamma};
+            color: ${theme.color.text.gamma};
         `}
    
-   ${(props) =>
-        props.isDisabled &&
-        props.htmlType &&
+   ${({ theme, isDisabled, htmlType }) =>
+        isDisabled &&
+        htmlType &&
         css`
-            color: ${props.theme.color.text.gamma};
+            color: ${theme.color.text.gamma};
         `}
 `;
 
