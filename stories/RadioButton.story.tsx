@@ -2,8 +2,8 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { Size } from '../src';
 import { boolean, select, withKnobs } from '@storybook/addon-knobs';
-import { RadioButtonView } from '../src/components/RadioButton';
-import { useRadioButtonWithState } from '../src/components/RadioButton/hooks/useRadioButtonWithState';
+import { RadioButton } from '../src/components/RadioButton';
+import { useRadioButtonWithState } from '../src/components/RadioButton';
 import { defaultValues } from './constants';
 
 const stories = storiesOf('RadioButton', module);
@@ -29,9 +29,10 @@ stories.add(
             groupName: 'firstGroup',
             defaultValue,
             isFullWidth,
+            onChange: (event) => console.log(event.currentTarget.value),
         });
 
-        return <RadioButtonView {...demoRadioButtonHandlers} />;
+        return <RadioButton {...demoRadioButtonHandlers} />;
     },
     {
         info: { inline: true },

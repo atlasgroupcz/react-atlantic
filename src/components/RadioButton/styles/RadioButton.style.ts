@@ -1,9 +1,9 @@
 import { css, styled } from '../../../styled';
-import { ButtonStyleType } from '../../Button';
 import {
     getButtonTypeStyles,
     getDefaultButtonStyles,
 } from '../../Button/view/default/styles';
+import { StyledRadioButtonProps } from '../types';
 
 export const StyledRadioButtonInputHidden = styled.input.attrs({
     type: 'radio',
@@ -15,14 +15,12 @@ export const StyledRadioButtonInputHidden = styled.input.attrs({
     margin: 0;
 `;
 
-export const StyledRadioButtonLabel = styled.label<{
-    type: ButtonStyleType;
-}>`
+export const StyledRadioButtonLabel = styled.label<StyledRadioButtonProps>`
     ${getDefaultButtonStyles()};
 
     ${(props) =>
         css`
-            ${getButtonTypeStyles(props.type, false)};
+            ${getButtonTypeStyles(props.type!, false)};
         `}
 
     display: flex;
@@ -30,9 +28,7 @@ export const StyledRadioButtonLabel = styled.label<{
     border-radius: 0;
 `;
 
-export const StyledRadioButtonContainer = styled.div<{
-    isFullWidth?: boolean;
-}>`
+export const StyledRadioButtonContainer = styled.div<StyledRadioButtonProps>`
     display: flex;
 
     ${StyledRadioButtonLabel}:first-of-type {

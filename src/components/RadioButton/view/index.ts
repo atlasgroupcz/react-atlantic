@@ -1,1 +1,1 @@
-export * from './RadioButtonView';
+export * from './RadioButton';

@@ -1,18 +1,12 @@
-import { FormEvent, useCallback, useEffect, useState } from 'react';
-import { OptionType } from '../../Select';
+import { useCallback, useEffect, useState } from 'react';
+import { UseRadioButtonArgs } from '../types';
 
-export type UseRadioButtonWithStateValue = {
-    onChange: (event: FormEvent<HTMLInputElement>) => void;
-    value: string;
-} & Omit<UseRadioButtonWithStateProps, 'onChange'>;
+export type UseRadioButtonWithStateValue = {} & UseRadioButtonWithStateProps &
+    UseRadioButtonArgs;
 
 export type UseRadioButtonWithStateProps = {
-    values: Array<OptionType>;
-    groupName: string;
-    onChange?: (newValue: string) => void;
     defaultValue?: string;
-    isFullWidth?: boolean;
-};
+} & Omit<UseRadioButtonArgs, 'value'>;
 
 export type UseRadioButtonWithStateType = (
     props: UseRadioButtonWithStateProps
@@ -33,13 +27,13 @@ export const useRadioButtonWithState: UseRadioButtonWithStateType = ({
         }
     }, []);
 
-    const onChange = useCallback<UseRadioButtonWithStateValue['onChange']>(
+    const onChange = useCallback<UseRadioButtonWithStateProps['onChange']>(
         (event) => {
             const newValue = event.currentTarget.value;
 
             if (newValue !== value) {
                 setValue(newValue);
-                PropsOnChange?.(newValue);
+                PropsOnChange?.(event);
             }
         },
         [value, PropsOnChange]

@@ -1,15 +1,8 @@
-import { FormEvent } from 'react';
-import { OptionType } from '../../Select';
+import { UseRadioButtonArgs } from '../types';
 
 export type UseRadioButtonValue = {} & UseRadioButtonProps;
 
-export type UseRadioButtonProps = {
-    values: Array<OptionType>;
-    groupName: string;
-    onChange: (event: FormEvent<HTMLInputElement>) => void;
-    value: string;
-    isFullWidth?: boolean;
-};
+type UseRadioButtonProps = {} & UseRadioButtonArgs;
 
 export type UseRadioButtonType = (
     props: UseRadioButtonProps
