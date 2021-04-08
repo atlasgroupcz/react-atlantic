@@ -6,8 +6,8 @@ import {
     StyledSwitcherWrap,
     StyledSwitchLabel,
 } from './styles';
-import { SwitchType } from '../types';
 import { HiddenCheckbox } from '../../Checkbox/view/alpha/styles';
+import { SwitchType } from '../types';
 
 export const Switch: SwitchType = ({
     isDisabled,
