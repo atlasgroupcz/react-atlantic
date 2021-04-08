@@ -5,7 +5,7 @@ import {
     Size,
     Type,
 } from '../../../types';
-import { FC, PropsWithChildren } from 'react';
+import { FC, PropsWithChildren, ReactElement } from 'react';
 
 export type SwitchType = FC<PropsWithChildren<SwitchProps>>;
 
@@ -16,8 +16,8 @@ export type UseSwitchArgs = {
 
 export type CommonSwitchProps = {
     isChecked?: boolean;
-    textOn?: string;
-    textOff?: string;
+    textOn?: ReactElement | null | string;
+    textOff?: ReactElement | null | string;
 };
 
 export type StyledSwitchProps = {
