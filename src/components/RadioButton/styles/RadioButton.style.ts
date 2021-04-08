@@ -5,12 +5,12 @@ import {
     getDefaultButtonStyles,
 } from '../../Button/view/default/styles';
 
-export const StyledRadioButton = styled.label<{
+export const StyledRadioButtonLabel = styled.label<{
     type: ButtonStyleType;
 }>`
+    ${getDefaultButtonStyles()};
     ${(props) =>
         css`
-            ${getDefaultButtonStyles()};
             ${getButtonTypeStyles(props.type, false)};
             border-radius: 0;
         `}
@@ -28,23 +28,29 @@ export const StyledRadioButtonContainer = styled.div<{
     ${(props) =>
         props.isFullWidth &&
         css`
-            ${StyledRadioButton} {
+            ${StyledRadioButtonLabel} {
                 width: 100%;
             }
             width: 100%;
         `}
 
-    input {
-        display: none;
-    }
-
-    ${StyledRadioButton}:first-of-type {
+    ${StyledRadioButtonLabel}:first-of-type {
         border-top-left-radius: ${(props) => props.theme.radius};
         border-bottom-left-radius: ${(props) => props.theme.radius};
     }
 
-    ${StyledRadioButton}:last-of-type {
+    ${StyledRadioButtonLabel}:last-of-type {
         border-top-right-radius: ${(props) => props.theme.radius};
         border-bottom-right-radius: ${(props) => props.theme.radius};
     }
+`;
+
+export const StyledRadioButtonInputHidden = styled.input.attrs({
+    type: 'radio',
+})`
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    margin: 0;
 `;

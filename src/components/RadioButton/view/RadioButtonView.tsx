@@ -1,7 +1,11 @@
 import React, { FC, Fragment } from 'react';
 import { Text } from '../../Typography';
 import { UseRadioButtonValue } from '../hooks';
-import { StyledRadioButton, StyledRadioButtonContainer } from '../styles';
+import {
+    StyledRadioButtonLabel,
+    StyledRadioButtonContainer,
+    StyledRadioButtonInputHidden,
+} from '../styles';
 
 export type RadioButtonViewProps = UseRadioButtonValue;
 export type RadioButtonViewType = FC<RadioButtonViewProps>;
@@ -20,17 +24,19 @@ export const RadioButtonView: RadioButtonViewType = ({
 
             return (
                 <Fragment key={optionType.value}>
-                    <StyledRadioButton htmlFor={optionType.value} type={type}>
+                    <StyledRadioButtonLabel
+                        htmlFor={optionType.value}
+                        type={type}
+                    >
+                        <StyledRadioButtonInputHidden
+                            name={groupName}
+                            checked={isChecked}
+                            onChange={onChange}
+                            id={optionType.value}
+                            value={optionType.value}
+                        />
                         <Text>{optionType.label}</Text>
-                    </StyledRadioButton>
-                    <input
-                        type={'radio'}
-                        name={groupName}
-                        checked={isChecked}
-                        onChange={onChange}
-                        id={optionType.value}
-                        value={optionType.value}
-                    />
+                    </StyledRadioButtonLabel>
                 </Fragment>
             );
         })}
