@@ -108,6 +108,11 @@ export const StyledSwitcherTrue = styled.div<StyledSwitchProps>`
     background-color: ${({ theme }) => theme.color.border};
     transition: background-color 0.3s ease, color 0.3s ease;
 
+    ${({ theme }) => css`
+        padding-left: ${theme.padding.md};
+        justify-content: flex-start;
+    `}
+
     ${({ theme, isChecked, htmlType }) =>
         isChecked &&
         css`
