@@ -107,52 +107,23 @@ export const StyledSwitcherTrue = styled.div<StyledSwitchProps>`
     height: 100%;
     line-height: 1;
     user-select: none;
-    color: ${(props) => props.theme.color.text.alpha};
-    background-color: ${(props) => props.theme.color.border};
+    color: ${({ theme }) => theme.color.text.alpha};
+    background-color: ${({ theme }) => theme.color.border};
     transition: background-color 0.3s ease, color 0.3s ease;
 
-    ${(props) => css`
-        padding-left: ${props.theme.padding.md};
+    ${({ theme }) => css`
+        padding-left: ${theme.padding.md};
         justify-content: flex-start;
     `}
 
-    ${(props) =>
-        props.isChecked &&
+    ${({ theme, isChecked, htmlType }) =>
+        isChecked &&
         css`
-            color: ${(props) => props.theme.color.text.gamma};
-            background-color: ${props.theme.color.primary.alpha};
+            color: ${theme.color.text.gamma};
+            background-color: ${theme.color[
+                htmlType === 'default' ? 'primary' : (htmlType as Type)
+            ].alpha};
         `}
-  
-  ${(props) =>
-        props.htmlType === 'success' &&
-        props.isChecked &&
-        css`
-            color: ${(props) => props.theme.color.text.gamma};
-            background-color: ${props.theme.color.success.alpha};
-        `}
-  
-  ${(props) =>
-        props.htmlType === 'warning' &&
-        props.isChecked &&
-        css`
-            color: ${(props) => props.theme.color.text.gamma};
-            background-color: ${props.theme.color.warning.alpha};
-        `}
- 
-  ${(props) =>
-        props.htmlType === 'error' &&
-        props.isChecked &&
-        css`
-            color: ${(props) => props.theme.color.text.gamma};
-            background-color: ${props.theme.color.error.alpha};
-        `}  
-  ${(props) =>
-        props.htmlType === 'primary' &&
-        props.isChecked &&
-        css`
-            color: ${(props) => props.theme.color.text.gamma};
-            background-color: ${props.theme.color.primary.alpha};
-        `} 
   
   ${(props) =>
         props.size === 'small' &&
@@ -173,36 +144,14 @@ export const StyledSwitcherTrue = styled.div<StyledSwitchProps>`
             padding-left: ${(props) => parseInt(props.theme.padding.md, 0)}px;
         `}
   
-  ${(props) => {
-        if (props.isDisabled) {
-            if (props.isChecked) {
-                if (props.htmlType === 'primary') {
-                    return css`
-                        background-color: ${props.theme.color.primary.delta};
-                    `;
-                }
-
-                if (props.htmlType === 'success') {
-                    return css`
-                        background-color: ${props.theme.color.success.delta};
-                    `;
-                }
-
-                if (props.htmlType === 'warning') {
-                    return css`
-                        background-color: ${props.theme.color.warning.delta};
-                    `;
-                }
-
-                if (props.htmlType === 'error') {
-                    return css`
-                        background-color: ${props.theme.color.error.delta};
-                    `;
-                }
-            }
-        }
-        return css``;
-    }}
+  ${({ isDisabled, isChecked, htmlType, theme }) =>
+        isDisabled &&
+        isChecked &&
+        css`
+            background-color: ${theme.color[
+                htmlType !== 'default' ? (htmlType as Type) : 'primary'
+            ].delta};
+        `}
 `;
 
 export const StyledSwitcherToggler = styled.div<StyledSwitchProps>`

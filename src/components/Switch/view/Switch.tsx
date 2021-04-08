@@ -11,14 +11,12 @@ import { HiddenCheckbox } from '../../Checkbox/view/alpha/styles';
 
 export const Switch: SwitchType = ({
     isDisabled,
-    children,
-    id,
     isChecked,
     className,
     size = 'small',
     textOn,
     textOff,
-    type,
+    type = 'default',
     ...props
 }) => (
     <StyledSwitchLabel
