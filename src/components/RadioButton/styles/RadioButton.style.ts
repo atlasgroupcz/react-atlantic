@@ -5,46 +5,6 @@ import {
     getDefaultButtonStyles,
 } from '../../Button/view/default/styles';
 
-export const StyledRadioButtonLabel = styled.label<{
-    type: ButtonStyleType;
-}>`
-    ${getDefaultButtonStyles()};
-    ${(props) =>
-        css`
-            ${getButtonTypeStyles(props.type, false)};
-            border-radius: 0;
-        `}
-
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-`;
-
-export const StyledRadioButtonContainer = styled.div<{
-    isFullWidth?: boolean;
-}>`
-    display: flex;
-
-    ${(props) =>
-        props.isFullWidth &&
-        css`
-            ${StyledRadioButtonLabel} {
-                width: 100%;
-            }
-            width: 100%;
-        `}
-
-    ${StyledRadioButtonLabel}:first-of-type {
-        border-top-left-radius: ${(props) => props.theme.radius};
-        border-bottom-left-radius: ${(props) => props.theme.radius};
-    }
-
-    ${StyledRadioButtonLabel}:last-of-type {
-        border-top-right-radius: ${(props) => props.theme.radius};
-        border-bottom-right-radius: ${(props) => props.theme.radius};
-    }
-`;
-
 export const StyledRadioButtonInputHidden = styled.input.attrs({
     type: 'radio',
 })`
@@ -53,4 +13,45 @@ export const StyledRadioButtonInputHidden = styled.input.attrs({
     width: 0;
     height: 0;
     margin: 0;
+`;
+
+export const StyledRadioButtonLabel = styled.label<{
+    type: ButtonStyleType;
+}>`
+    ${getDefaultButtonStyles()};
+
+    ${(props) =>
+        css`
+            ${getButtonTypeStyles(props.type, false)};
+        `}
+
+    display: flex;
+    align-items: center;
+    border-radius: 0;
+`;
+
+export const StyledRadioButtonContainer = styled.div<{
+    isFullWidth?: boolean;
+}>`
+    display: flex;
+
+    ${StyledRadioButtonLabel}:first-of-type {
+        border-top-left-radius: ${({ theme }) => theme.radius};
+        border-bottom-left-radius: ${({ theme }) => theme.radius};
+    }
+
+    ${StyledRadioButtonLabel}:last-of-type {
+        border-top-right-radius: ${({ theme }) => theme.radius};
+        border-bottom-right-radius: ${({ theme }) => theme.radius};
+    }
+
+    ${({ isFullWidth }) =>
+        isFullWidth &&
+        css`
+            width: 100%;
+
+            ${StyledRadioButtonLabel} {
+                width: 100%;
+            }
+        `}
 `;
