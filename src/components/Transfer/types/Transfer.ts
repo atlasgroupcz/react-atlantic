@@ -18,6 +18,7 @@ type SharedTransferProps<T extends OptionType = OptionType> = {
     options: T[];
     onOptionClick?: (option: T) => void;
     setValue?: Dispatch<SetStateAction<T[]>>;
+    setOpen?: Dispatch<SetStateAction<boolean>>;
     label?: ReactNode;
     isOpen?: boolean;
     isDisabled?: boolean;
@@ -26,6 +27,12 @@ type SharedTransferProps<T extends OptionType = OptionType> = {
     cancelButtonProps?: PropsWithChildren<ButtonProps>;
     submitButtonProps?: PropsWithChildren<ButtonProps>;
     clearButtonProps?: PropsWithChildren<ButtonProps>;
+    leftHeader?: ReactNode;
+    leftContainer?: ReactNode;
+
+    rightHeader?: ReactNode;
+    rightContainer?: ReactNode;
+    footer?: ReactNode;
     hiddenTransferComponent?: ReactNode;
     innerTransferController?: UseInnerTransfer;
 };

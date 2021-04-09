@@ -52,12 +52,7 @@ export const TestTransferComponent: FC<TestComponentProps> = ({
 stories.add(
     'Overview',
     () => {
-        const options = [
-            { label: 'Label 1', value: 'Value 1' },
-            { label: 'Label 2', value: 'Value 2' },
-            { label: 'Label 3', value: 'Value 3' },
-        ];
-
+        const options = generateOptions(10);
         const defaultValue = [options[0]];
         const transferProps = useTransfer({
             options,

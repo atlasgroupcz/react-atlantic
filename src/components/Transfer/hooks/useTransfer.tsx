@@ -1,11 +1,24 @@
-import { InputProps, useInputClearable } from '../../Input';
 import { ControllerTransferProps, TransferProps } from '../types';
 import { OptionType } from '../../Select';
-import React, { useRef, useState } from 'react';
-import { ButtonProps } from '../../Button';
-import { Text } from '../../Typography';
+import React, { useCallback, useState } from 'react';
 import { useOutsideClick } from '../../../hooks/useOutsideClick';
 import { transferOptionClick } from '../utils';
+import {
+    ControlledDefaultTransferCancelButton,
+    ControlledDefaultTransferSubmitButton,
+    DefaultTransferFooter,
+} from '../components/ShownTransfer/components';
+import { wrap } from '../../../utils';
+import { LeftSideList } from '../components/ShownTransfer/components/LeftSide/components';
+import { useLeftSideList } from '../components/ShownTransfer/hooks/useLeftSideList';
+import { ControlledDefaultTransferFilterInput } from '../components/ShownTransfer/components/FilterInput';
+import { DefaultRightHeader } from '../components/ShownTransfer/components/RightHeader';
+import { TransferList } from '../components/ShownTransfer/components/List/List';
+import { useRightList } from './List';
+import { NoResults } from '../components/ShownTransfer/components/NoResults';
+
+const ControlledLeftSideTransferList = wrap(LeftSideList, useLeftSideList);
+const ControlledRightContainer = wrap(TransferList, useRightList);
 
 export const useTransfer = <T extends OptionType<string, string>>({
     options,
@@ -13,34 +26,13 @@ export const useTransfer = <T extends OptionType<string, string>>({
     isDisabled,
     ...args
 }: ControllerTransferProps<T>): TransferProps<T> => {
-    const inputProps = useInputClearable({
-        isDisabled,
-        defaultValue: getPlaceholder(defaultValue),
-    });
-    const [isOpen, setOpen] = useState<boolean>(false);
-    const ref = useOutsideClick<HTMLDivElement>(() => {
-        setOpen(false);
-        resetToInitialState();
-    });
-
-    const onFocus: InputProps['onFocus'] = (e) => {
-        if (!isDisabled) {
-            setOpen(true);
-            inputProps.setValue(``);
-            inputProps.onFocus?.(e);
-        }
-    };
-
     const [value, setValue] = useState<T[]>(defaultValue || []);
-    const lastValid = useRef<T[]>(value);
+    const [isOpen, setOpen] = useState<boolean>(false);
 
-    const sortedOptions = sortOptions(
-        options?.filter((option) =>
-            option.label
-                .toLowerCase()
-                .includes((inputProps.value as string)?.toLowerCase())
-        ) || []
-    );
+    const handleOutsideClick = useCallback(() => {
+        setOpen(false);
+    }, []);
+    const ref = useOutsideClick<HTMLDivElement>(handleOutsideClick);
 
     const onOptionClick: ControllerTransferProps<T>['onOptionClick'] = (
         option
@@ -50,84 +42,34 @@ export const useTransfer = <T extends OptionType<string, string>>({
         }
     };
 
-    const resetToInitialState = () => {
-        setValue(lastValid.current);
-        inputProps.setValue(getPlaceholder(lastValid.current));
-    };
-
-    const onCancel: ButtonProps['onClick'] = (e) => {
-        if (!isDisabled) {
-            setOpen(false);
-            resetToInitialState();
-            args.cancelButtonProps?.onClick?.(e);
-        }
-    };
-
-    const onSubmit: ButtonProps['onClick'] = (e) => {
-        if (!isDisabled) {
-            setOpen(false);
-            args.submitButtonProps?.onClick?.(e);
-            args.onSubmit?.(value);
-            inputProps.setValue(getPlaceholder(value));
-            lastValid.current = value;
-        }
-    };
-
-    const onClear: ButtonProps['onClick'] = (e) => {
-        if (!isDisabled) {
-            setValue([]);
-            args.clearButtonProps?.onClick?.(e);
-        }
-    };
-
-    const sortedValue = sortOptions(value);
-
     return {
         ...args,
-        options: sortedOptions,
-        value: sortedValue,
+        options,
+        value,
         onOptionClick,
         setValue,
+        leftHeader: <ControlledDefaultTransferFilterInput />,
+        leftContainer: <ControlledLeftSideTransferList />,
+        rightHeader: <DefaultRightHeader />,
+        rightContainer: <ControlledRightContainer />,
+        footer: (
+            <DefaultTransferFooter
+                submitComponent={
+                    <ControlledDefaultTransferSubmitButton>
+                        Potvrdit
+                    </ControlledDefaultTransferSubmitButton>
+                }
+                cancelComponent={
+                    <ControlledDefaultTransferCancelButton>
+                        Zavřít
+                    </ControlledDefaultTransferCancelButton>
+                }
+            />
+        ),
+        noResults: args.noResults || <NoResults />,
+        setOpen,
         isOpen,
         ref,
         isDisabled,
-        label: args.label || (
-            <React.Fragment>
-                <Text>{`Vybráno: `}</Text>
-                <Text
-                    type={'primary'}
-                    element={'strong'}
-                >{`${value.length} z ${options?.length}`}</Text>
-            </React.Fragment>
-        ),
-        noResults: args.noResults || <Text>{`Nenalezeno...`}</Text>,
-        clearInputProps: {
-            placeholder: `Vyberte...`,
-            ...inputProps,
-            onFocus,
-        },
-        cancelButtonProps: {
-            children: `Zavřít`,
-            ...args.cancelButtonProps,
-            onClick: onCancel,
-        },
-        submitButtonProps: {
-            children: `Potvrdit`,
-            ...args.submitButtonProps,
-            onClick: onSubmit,
-        },
-        clearButtonProps: {
-            children: `Odstranit vše`,
-            onClick: onClear,
-            ...args.clearButtonProps,
-        },
     };
 };
-
-const sortOptions = <T extends OptionType<string, string>>(options: T[]) =>
-    options.sort((a, b) =>
-        a.label.toString().localeCompare(b.label.toString())
-    );
-
-const getPlaceholder = <T extends OptionType = OptionType>(options?: T[]) =>
-    options?.map(({ label }) => label).join(`, `) || `Vyberte...`;

@@ -18,4 +18,6 @@ export type TransferLeftSideProps<T extends OptionType = OptionType> = {
     | 'visibleRows'
     | 'isDisabled'
     | 'isFullWidth'
+    | 'leftHeader'
+    | 'leftContainer'
 >;

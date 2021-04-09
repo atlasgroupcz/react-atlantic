@@ -1,13 +1,8 @@
 import React, { FC } from 'react';
 import { StyledTransferLeftSide } from './styles';
 import { TransferLeftSideProps } from '../../../../types';
-import { LeftSideTransferInput, LeftSideList } from './components';
-import { useLeftSideList } from '../../hooks/useLeftSideList';
-import { wrap } from '../../../../../../utils';
 
 export type TransferLeftSideType = FC<TransferLeftSideProps>;
-
-const ControlledLeftSideTransferList = wrap(LeftSideList, useLeftSideList);
 
 export const TransferLeftSide: TransferLeftSideType = ({
     isLeftSideOpen,
@@ -17,7 +12,10 @@ export const TransferLeftSide: TransferLeftSideType = ({
     isDisabled,
     isFullWidth,
     position,
+    leftContainer,
+    leftHeader,
 }) => {
+    console.log(leftContainer, leftHeader);
     return (
         <StyledTransferLeftSide
             position={position}
@@ -28,11 +26,8 @@ export const TransferLeftSide: TransferLeftSideType = ({
             size={size}
             isFullWidth={isFullWidth}
         >
-            <LeftSideTransferInput
-                isLeftSideOpen={isLeftSideOpen}
-                {...clearInputProps}
-            />
-            {isLeftSideOpen && <ControlledLeftSideTransferList />}
+            {leftHeader}
+            {leftContainer}
         </StyledTransferLeftSide>
     );
 };

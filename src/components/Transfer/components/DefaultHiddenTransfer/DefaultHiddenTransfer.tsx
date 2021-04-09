@@ -2,15 +2,15 @@ import React, { FC } from 'react';
 import { Icon } from '../../../Icon';
 import { Input } from '../../../Input';
 import { useTransferContext } from '../../context';
+import { useHiddenInputValue } from '../../hooks/useHiddenInputValue';
+import { useHiddenTransfer } from '../../hooks/useHiddenTransfer';
 import { StyledTransferLeftDropdown } from '../ShownTransfer/components/LeftSide';
 
 export const DefaultHiddenTransfer: FC = () => {
-    const {
-        isFullWidth,
-        isDisabled,
-        size,
-        clearInputProps,
-    } = useTransferContext();
+    const { isFullWidth, isDisabled, size } = useTransferContext();
+    const onFocus = useHiddenTransfer();
+    const value = useHiddenInputValue();
+
     return (
         <Input
             suffix={
@@ -21,7 +21,8 @@ export const DefaultHiddenTransfer: FC = () => {
             isFullWidth={isFullWidth}
             size={size}
             isDisabled={isDisabled}
-            {...clearInputProps}
+            onFocus={onFocus}
+            value={value}
         />
     );
 };

@@ -9,10 +9,14 @@ import { transferOptionClick } from '../utils';
 //? TODO: write description
 export const useInnerTransfer: UseInnerTransfer = ({
     value = [],
+    options,
     ...props
 }) => {
     const [innerValue, setInnerValue] = useState<
         NonNullable<UseInnerTransferProps['value']>
+    >(value);
+    const [innerOptions, setInnerOptions] = useState<
+        NonNullable<UseInnerTransferProps['options']>
     >(value);
 
     const innerOptionClick = useCallback<
@@ -23,8 +27,19 @@ export const useInnerTransfer: UseInnerTransfer = ({
 
     return {
         ...props,
+        innerValue,
+        innerOptions,
         setInnerValue,
-        value: innerValue,
+        setInnerOptions,
         onOptionClick: innerOptionClick,
     };
 };
+// const sortedOptions = sortTransferOptions(
+//     options?.filter((option) =>
+//         option.label
+//             .toLowerCase()
+//             .includes((inputProps.value as string)?.toLowerCase())
+//     ) || []
+// );
+
+//     const sortedValue = sortTransferOptions(value);

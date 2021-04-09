@@ -1,46 +1,23 @@
 import React, { FC } from 'react';
-import { Checkbox } from '../../../../../../../Checkbox';
+import { wrap } from '../../../../../../../../utils';
+import { useLeftList } from '../../../../../../hooks/List';
 import { LeftSideProps } from '../../../../../../types/LeftSideList';
-import { TransferList } from '../../../List';
+import { TransferList } from '../../../List/List';
 import { StyledTransferLeftSideNoResults } from '../../styles';
 
 export type LeftSideListType = FC<LeftSideProps>;
 
+const LeftList = wrap(TransferList, useLeftList);
 export const LeftSideList: LeftSideListType = ({
     options,
-    size,
+    size = 'medium',
     visibleRows,
-    value,
     noResults,
     isDisabled,
-    onOptionClick,
 }) => {
-    const selectedOptionsSet = new Set(value?.map((option) => option.value));
-
     return (
         <>
-            {!!options?.length && (
-                <TransferList size={size} visibleRows={visibleRows}>
-                    {options?.map((option) => (
-                        <TransferList.Item
-                            size={size}
-                            key={`${option.value}
-                                        ${selectedOptionsSet.has(
-                                            option.value
-                                        )}`}
-                        >
-                            <Checkbox
-                                isChecked={selectedOptionsSet.has(option.value)}
-                                onClick={() => onOptionClick?.(option)}
-                                size={size}
-                            >
-                                {option.label}
-                            </Checkbox>
-                        </TransferList.Item>
-                    ))}
-                </TransferList>
-            )}
-
+            <LeftList />
             {!options?.length && !isDisabled && (
                 <StyledTransferLeftSideNoResults
                     size={size}
