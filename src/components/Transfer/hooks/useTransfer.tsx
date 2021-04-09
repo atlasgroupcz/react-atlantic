@@ -5,6 +5,7 @@ import React, { useRef, useState } from 'react';
 import { ButtonProps } from '../../Button';
 import { Text } from '../../Typography';
 import { useOutsideClick } from '../../../hooks/useOutsideClick';
+import { transferOptionClick } from '../utils';
 
 export const useTransfer = <T extends OptionType<string, string>>({
     options,
@@ -45,11 +46,7 @@ export const useTransfer = <T extends OptionType<string, string>>({
         option
     ) => {
         if (!isDisabled) {
-            setValue((prev) =>
-                prev.some((item) => item.value === option.value)
-                    ? prev.filter((item) => item.value !== option.value)
-                    : [...prev, option]
-            );
+            setValue((prev) => transferOptionClick(option, prev));
         }
     };
 
@@ -90,6 +87,7 @@ export const useTransfer = <T extends OptionType<string, string>>({
         options: sortedOptions,
         value: sortedValue,
         onOptionClick,
+        setValue,
         isOpen,
         ref,
         isDisabled,

@@ -16,7 +16,9 @@ export type UseInnerTransferValue = Pick<
     | 'onOptionClick'
     | 'options'
     | 'preferredPosition'
->;
+> & {
+    setInnerValue: TransferProps['setValue'];
+};
 
 export type UseInnerTransferProps = TransferProps;
 

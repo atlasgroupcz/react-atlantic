@@ -1,7 +1,13 @@
 import { OptionType } from '../../Select';
 import { InputProps } from '../../Input';
 import { ButtonProps } from '../../Button';
-import { PropsWithChildren, ReactNode, RefObject } from 'react';
+import {
+    Dispatch,
+    PropsWithChildren,
+    ReactNode,
+    RefObject,
+    SetStateAction,
+} from 'react';
 import { Size } from '../../../types';
 import { IconProps } from '../../Icon';
 import { UseTransferPosition } from './UseTransferPositionProps';
@@ -11,10 +17,11 @@ import { UseInnerTransfer } from './UseInnerTransfer';
 type SharedTransferProps<T extends OptionType = OptionType> = {
     options: T[];
     onOptionClick?: (option: T) => void;
+    setValue?: Dispatch<SetStateAction<T[]>>;
     label?: ReactNode;
     isOpen?: boolean;
-    noResults?: ReactNode;
     isDisabled?: boolean;
+    noResults?: ReactNode;
     clearInputProps?: InputProps & Pick<IconProps, 'onClick'>;
     cancelButtonProps?: PropsWithChildren<ButtonProps>;
     submitButtonProps?: PropsWithChildren<ButtonProps>;
