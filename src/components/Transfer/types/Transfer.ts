@@ -35,6 +35,7 @@ type SharedTransferProps<T extends OptionType = OptionType> = {
     footer?: ReactNode;
     hiddenTransferComponent?: ReactNode;
     innerTransferController?: UseInnerTransfer;
+    isSorted?: boolean;
 };
 
 export type ControllerTransferProps<

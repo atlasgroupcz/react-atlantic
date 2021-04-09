@@ -1,32 +1,48 @@
-import React, { FC } from 'react';
+import React, { useCallback, useState } from 'react';
 import { wrap } from '../../../../../../../utils';
 import { Icon } from '../../../../../../Icon';
 import { Input, InputFixProps } from '../../../../../../Input';
-import { useTransferContext } from '../../../../../context';
+import {
+    useInnerTransferContext,
+    useTransferContext,
+} from '../../../../../context';
 import { StyledTransferLeftDropdown } from '../../LeftSide';
-
-export interface FilterInputProps {}
-export type FilterInputType = FC<FilterInputProps>;
+import { filterFactory } from '../../../../../utils/filterFactory';
 
 export const useDefaultTransferFilterInput = ({
     ...props
 }: InputFixProps): InputFixProps => {
-    const { value } = useTransferContext();
+    const { options } = useTransferContext();
+    const { setInnerOptions } = useInnerTransferContext();
+    const [filterValue, setFilterValue] = useState<string>(``);
 
-    console.log(value);
+    const handleClear = useCallback(() => {
+        setFilterValue(``);
+        setInnerOptions(options);
+    }, [options, setInnerOptions]);
+
+    const handleChange = useCallback<NonNullable<InputFixProps['onChange']>>(
+        (e) => {
+            const { value } = e.currentTarget;
+            setFilterValue(value);
+            const filterFunc = filterFactory(value);
+            setInnerOptions(options.filter(filterFunc));
+        },
+        [options, setInnerOptions]
+    );
 
     return {
         suffix: (
             <StyledTransferLeftDropdown
                 isTransferOpen={true}
-                isIconVisible={!!value}
+                isIconVisible={!!filterValue}
             >
-                {value && (
-                    <Icon name={`clear`} onClick={() => console.log('lol')} />
-                )}
+                {filterValue && <Icon name={`clear`} onClick={handleClear} />}
             </StyledTransferLeftDropdown>
         ),
         isFullWidth: true,
+        onChange: handleChange,
+        value: filterValue,
         ...props,
     };
 };

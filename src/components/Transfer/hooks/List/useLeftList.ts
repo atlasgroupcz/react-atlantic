@@ -3,11 +3,11 @@ import { useInnerTransferContext, useTransferContext } from '../../context';
 import { TransferListProps } from '../../types/TransferListProps';
 
 export const useLeftList = (_: {}): TransferListProps => {
-    const { innerValue } = useInnerTransferContext();
-    const { options, size, visibleRows } = useTransferContext();
+    const { innerValue, innerOptions } = useInnerTransferContext();
+    const { size, visibleRows } = useTransferContext();
     return {
         Item: ControlledLeftSideItem,
-        options,
+        options: innerOptions,
         size,
         value: innerValue,
         visibleRows,

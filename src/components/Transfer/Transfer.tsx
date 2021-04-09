@@ -20,6 +20,7 @@ export const Transfer = forwardRef<HTMLDivElement, TransferProps>(
             isFullWidth = false,
             visibleRows = 5,
             hiddenTransferComponent = <DefaultHiddenTransfer />,
+            isSorted = true,
             ...props
         },
         ref
@@ -46,6 +47,7 @@ export const Transfer = forwardRef<HTMLDivElement, TransferProps>(
                 preferredPosition={preferredPosition}
                 isFullWidth={isFullWidth}
                 visibleRows={visibleRows}
+                isSorted={isSorted}
                 {...props}
             >
                 <StyledTransferContainer size={size} ref={ref}>

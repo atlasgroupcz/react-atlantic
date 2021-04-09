@@ -11,7 +11,7 @@ export type UseInnerTransferValue = Pick<
     setInnerOptions: Dispatch<SetStateAction<TransferProps['options']>>;
 };
 
-export type UseInnerTransferProps = TransferProps;
+export type UseInnerTransferProps = TransferProps & { isSorted?: boolean };
 
 export type UseInnerTransfer = (
     props: UseInnerTransferProps

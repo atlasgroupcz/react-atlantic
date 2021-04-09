@@ -1,15 +1,16 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import {
     UseInnerTransfer,
     UseInnerTransferProps,
     UseInnerTransferValue,
 } from '../types/UseInnerTransfer';
-import { transferOptionClick } from '../utils';
+import { sortTransferOptions, transferOptionClick } from '../utils';
 
 //? TODO: write description
 export const useInnerTransfer: UseInnerTransfer = ({
     value = [],
     options,
+    isSorted,
     ...props
 }) => {
     const [innerValue, setInnerValue] = useState<
@@ -17,7 +18,7 @@ export const useInnerTransfer: UseInnerTransfer = ({
     >(value);
     const [innerOptions, setInnerOptions] = useState<
         NonNullable<UseInnerTransferProps['options']>
-    >(value);
+    >(options);
 
     const innerOptionClick = useCallback<
         NonNullable<UseInnerTransferValue['onOptionClick']>
@@ -25,10 +26,20 @@ export const useInnerTransfer: UseInnerTransfer = ({
         setInnerValue((prev) => transferOptionClick(option, prev));
     }, []);
 
+    const outvalue = useMemo(
+        () => (isSorted ? sortTransferOptions(innerValue) : innerValue),
+        [innerValue, isSorted]
+    );
+
+    const outoptions = useMemo(
+        () => (isSorted ? sortTransferOptions(innerOptions) : innerOptions),
+        [innerOptions, isSorted]
+    );
+
     return {
         ...props,
-        innerValue,
-        innerOptions,
+        innerValue: outvalue,
+        innerOptions: outoptions,
         setInnerValue,
         setInnerOptions,
         onOptionClick: innerOptionClick,
