@@ -7,10 +7,12 @@ import { useTransferPosition } from './hooks';
 import { resolveLeftSideOpen } from './utils/resolveLeftSideOpen';
 import { resolveRightSideOpen } from './utils/resolveRightSideOpen';
 import { DEFAULT_WIDTHS_TRANSFER } from './constants';
+import { useInnerTransfer } from './hooks/useInnerTransfer';
 
 export const Transfer = forwardRef<HTMLDivElement, TransferProps>(
     (
         {
+            innerTransferController = useInnerTransfer,
             positionController = useTransferPosition,
             size = 'medium',
             customWidth = DEFAULT_WIDTHS_TRANSFER,
@@ -37,6 +39,7 @@ export const Transfer = forwardRef<HTMLDivElement, TransferProps>(
 
         return (
             <TransferProvider
+                innerTransferController={innerTransferController}
                 position={position}
                 size={size}
                 customWidth={customWidth}

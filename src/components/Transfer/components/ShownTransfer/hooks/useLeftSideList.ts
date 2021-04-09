@@ -1,4 +1,4 @@
-import { useTransferContext } from '../../../context';
+import { useInnerTransferContext } from '../../../context';
 import { LeftSideProps } from '../../../types/LeftSideList';
 
 export const useLeftSideList = (_: {}): LeftSideProps => {
@@ -10,7 +10,7 @@ export const useLeftSideList = (_: {}): LeftSideProps => {
         noResults,
         value,
         onOptionClick,
-    } = useTransferContext();
+    } = useInnerTransferContext();
 
     return {
         size,

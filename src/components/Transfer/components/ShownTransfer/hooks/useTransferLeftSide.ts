@@ -1,4 +1,4 @@
-import { useTransferContext } from '../../../context';
+import { useInnerTransferContext } from '../../../context';
 import { useTransferOpenSides } from '../../../hooks/useTransferOpenSides';
 import { TransferLeftSideProps } from '../../../types';
 
@@ -14,7 +14,7 @@ export const useTransferLeftSide = (_: {}): TransferLeftSideProps => {
         options,
         clearInputProps,
         position,
-    } = useTransferContext();
+    } = useInnerTransferContext();
     const { isLeftSideOpen, isRightSideOpen } = useTransferOpenSides();
 
     return {

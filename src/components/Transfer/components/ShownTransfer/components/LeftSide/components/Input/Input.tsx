@@ -23,9 +23,7 @@ export const LeftSideTransferInput: LeftSideTransferInputType = ({
             suffix={
                 <StyledTransferLeftDropdown
                     isTransferOpen={isLeftSideOpen}
-                    isIconVisible={
-                        !isLeftSideOpen || (isLeftSideOpen && !!value)
-                    }
+                    isIconVisible={!!value}
                 >
                     {value && <Icon name={`clear`} onClick={onClick} />}
                 </StyledTransferLeftDropdown>

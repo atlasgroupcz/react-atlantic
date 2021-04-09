@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import { wrap } from '../../../../utils';
+import { InnerTransferProvider, useTransferContext } from '../../context';
 import { useTransferOpenSides } from '../../hooks/useTransferOpenSides';
 import {
     TransferFooter,
@@ -15,12 +16,13 @@ const ControlledRightSide = wrap(TransferRightSide, useTransferRightSide);
 const ControlledFooter = wrap(TransferFooter, useTransferFooter);
 
 export const ShownTransfer: FC = () => {
+    const props = useTransferContext();
     const { isLeftSideOpen, isRightSideOpen } = useTransferOpenSides();
     return (
-        <>
+        <InnerTransferProvider {...props}>
             <ControlledLeftSide />
             {isRightSideOpen && <ControlledRightSide />}
             {(isLeftSideOpen || isRightSideOpen) && <ControlledFooter />}
-        </>
+        </InnerTransferProvider>
     );
 };

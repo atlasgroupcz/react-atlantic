@@ -3,9 +3,12 @@ import { TransferProps } from './Transfer';
 
 export type TransferContextProps = Omit<
     TransferProps,
-    'positionController' | 'HiddenTransferComponent'
+    'positionController' | 'HiddenTransferComponent' | 'innerTransferController'
 > & {
     position: Position;
+    innerTransferController: NonNullable<
+        TransferProps['innerTransferController']
+    >;
 };
 
 export type TransferContextState = TransferContextProps;

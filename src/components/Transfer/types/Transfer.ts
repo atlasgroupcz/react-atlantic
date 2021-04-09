@@ -6,6 +6,7 @@ import { Size } from '../../../types';
 import { IconProps } from '../../Icon';
 import { UseTransferPosition } from './UseTransferPositionProps';
 import { TransferPosition } from './TransferPosition';
+import { UseInnerTransfer } from './UseInnerTransfer';
 
 type SharedTransferProps<T extends OptionType = OptionType> = {
     options: T[];
@@ -19,6 +20,7 @@ type SharedTransferProps<T extends OptionType = OptionType> = {
     submitButtonProps?: PropsWithChildren<ButtonProps>;
     clearButtonProps?: PropsWithChildren<ButtonProps>;
     hiddenTransferComponent?: ReactNode;
+    innerTransferController?: UseInnerTransfer;
 };
 
 export type ControllerTransferProps<
