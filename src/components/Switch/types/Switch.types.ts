@@ -2,7 +2,6 @@ import {
     CommonHTMLProps,
     HorizontalPositionWithDocs,
     MouseEvents,
-    Size,
     Type,
 } from '../../../types';
 import { FC, PropsWithChildren, ReactElement } from 'react';
@@ -21,7 +20,6 @@ export type CommonSwitchProps = {
 };
 
 export type StyledSwitchProps = {
-    size?: Size;
     type?: Type;
 };
 

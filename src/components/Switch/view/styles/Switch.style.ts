@@ -39,7 +39,7 @@ export const StyledSwitcherWrap = styled.div<StyledSwitchProps>`
     display: flex;
     align-items: center;
     width: 200%;
-    transition: right 0.3s;
+    transition: all 0.3s ease-out;
 
     ${({ isChecked }) =>
         isChecked &&
@@ -52,19 +52,15 @@ export const StyledSwitcherWrap = styled.div<StyledSwitchProps>`
 export const StyledSwitcherTrue = styled.div<StyledSwitchProps>`
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     flex: 0 0 50%;
     height: 100%;
+    padding-left: ${({ theme }) => theme.padding.md};
     line-height: 1;
     user-select: none;
     color: ${({ theme }) => theme.color.text.alpha};
     background-color: ${({ theme }) => theme.color.border};
-    transition: background-color 0.3s ease, color 0.3s ease;
-
-    ${({ theme }) => css`
-        padding-left: ${theme.padding.md};
-        justify-content: flex-start;
-    `}
+    transition: all 0.3s ease-out;
 
     ${({ theme, isChecked, htmlType }) =>
         isChecked &&
@@ -95,7 +91,7 @@ export const StyledSwitcherToggler = styled.div<StyledSwitchProps>`
     margin: 3px;
     border-radius: 50%;
     background-color: ${({ theme }) => theme.color.background.delta};
-    transition: right 0.3s ease;
+    transition: all 0.3s ease-out;
 
     ${({ isChecked }) =>
         isChecked &&
@@ -120,7 +116,7 @@ export const StyledSwitcherFalse = styled.div<StyledSwitchProps>`
     user-select: none;
     color: ${({ theme }) => theme.color.text.alpha};
     background-color: ${({ theme }) => theme.color.border};
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: all 0.3s ease-out;
 
     ${({ theme, isChecked }) =>
         isChecked &&

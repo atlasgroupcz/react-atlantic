@@ -13,7 +13,6 @@ export const Switch: SwitchType = ({
     isDisabled,
     isChecked,
     className,
-    size = 'small',
     textOn,
     textOff,
     type = 'default',
