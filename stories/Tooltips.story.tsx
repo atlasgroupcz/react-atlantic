@@ -137,7 +137,6 @@ stories.add(
         info: { inline: true },
     }
 );
-//
 
 stories.add('Overflow Prevention', () => {
     return (
