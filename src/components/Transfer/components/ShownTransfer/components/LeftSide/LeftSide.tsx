@@ -15,6 +15,7 @@ export const TransferLeftSide: TransferLeftSideType = ({
     leftHeader,
     isValue,
 }) => {
+    //TODO: Martin Topolanek inestigate isValueExist, dis remove?
     return (
         <StyledTransferLeftSide
             position={position}
