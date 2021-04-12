@@ -15,7 +15,6 @@ export const TransferLeftSide: TransferLeftSideType = ({
     leftContainer,
     leftHeader,
 }) => {
-    console.log(leftContainer, leftHeader);
     return (
         <StyledTransferLeftSide
             position={position}

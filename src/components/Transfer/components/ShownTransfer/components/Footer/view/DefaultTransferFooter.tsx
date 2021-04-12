@@ -7,11 +7,12 @@ export type DefaultTransferFooterType = FC<DefaultTransferFooterProps>;
 export const DefaultTransferFooter: DefaultTransferFooterType = ({
     cancelComponent,
     submitComponent,
+    isVisible,
 }) => {
-    return (
+    return isVisible ? (
         <StyledTransferFooterContainer>
             {cancelComponent}
             {submitComponent}
         </StyledTransferFooterContainer>
-    );
+    ) : null;
 };

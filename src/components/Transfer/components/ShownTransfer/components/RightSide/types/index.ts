@@ -16,6 +16,7 @@ export type StyledTransformRightSideContainerProps = {
 
 export type FunctionalTransferRightSideProps = {
     onOptionClick?: any;
+    isVisible?: boolean;
 };
 
 export type TransferRightSideProps<

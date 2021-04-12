@@ -8,6 +8,7 @@ import { StyledTransferLeftSideNoResults } from '../../styles';
 export type LeftSideListType = FC<LeftSideProps>;
 
 const LeftList = wrap(TransferList, useLeftList);
+
 export const LeftSideList: LeftSideListType = ({
     options,
     size = 'medium',

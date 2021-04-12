@@ -1,7 +1,7 @@
-import { useInnerTransferContext, useTransferContext } from '../context';
-import { TransferOpenSides } from '../types';
-import { resolveLeftSideOpen } from '../utils/resolveLeftSideOpen';
-import { resolveRightSideOpen } from '../utils/resolveRightSideOpen';
+import { useInnerTransferContext, useTransferContext } from '../../context';
+import { TransferOpenSides } from '../../types';
+import { resolveLeftSideOpen } from '../../utils/resolveLeftSideOpen';
+import { resolveRightSideOpen } from '../../utils/resolveRightSideOpen';
 
 export const useTransferOpenSides = (): TransferOpenSides => {
     const { isOpen } = useTransferContext();
