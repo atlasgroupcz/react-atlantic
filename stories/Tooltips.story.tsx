@@ -58,6 +58,26 @@ export const TestComponent: TestComponentType = ({ position }) => {
     );
 };
 
+export const TextCustomDataTitleComponent: FC = () => {
+    const tooltip = useTooltip();
+
+    return (
+        <Text ref={tooltip} data-custom="Custom attributes!">
+            Custom attributes!
+        </Text>
+    );
+};
+
+export const TextCustomComponent: FC = () => {
+    const tooltip = useTooltip();
+
+    return (
+        <Text ref={tooltip} data-title="Custom transition!">
+            Custom transition!
+        </Text>
+    );
+};
+
 export const Component: ComponentType = () => {
     const [state] = useState<number>(1);
     const tooltip = useTooltip();
@@ -120,15 +140,11 @@ stories.add(
                 </Tooltips>
                 <br />
                 <Tooltips contentAttr="data-custom">
-                    <Text data-custom="Custom attributes!">
-                        Custom attributes!
-                    </Text>
+                    <TextCustomDataTitleComponent />
                 </Tooltips>
                 <br />
                 <Tooltips transition="opacity: 1;transition: all 1s; ">
-                    <Text data-title="Custom transition!">
-                        Custom transition!
-                    </Text>
+                    <TextCustomComponent />
                 </Tooltips>
             </div>
         );

@@ -35,6 +35,8 @@ export const Tooltips: FC<TooltipsProps> = ({
 
     const attachTooltip = useCallback(
         (e: Event) => {
+            console.log(`attaching tooltip`);
+
             const tooltipElement = tooltipRef.current;
             const currentTarget = e.currentTarget as HTMLElement & EventTarget;
 
