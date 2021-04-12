@@ -9,22 +9,19 @@ type StyledSwitchProps = {
     htmlType?: Type;
 };
 
-const togglerSizeNormal = '26px';
-
-const switchWidthNormal = '70px';
-
-const switchWidthNormalInt = parseInt(switchWidthNormal, 0);
-const togglerSizeNormalInt = parseInt(togglerSizeNormal, 0);
+const switchWidth = '54px';
+const switchHeight = '26px';
+const togglerSize = '20px';
 
 export const StyledSwitchLabel = styled.label<StyledSwitchProps>`
     overflow: hidden;
     position: relative;
     display: inline-block;
-    width: ${switchWidthNormal};
-    height: ${({ theme }) => theme.height.md};
-    border-radius: ${({ theme }) => theme.height.md};
+    width: ${switchWidth};
+    height: ${switchHeight};
+    border-radius: ${({ theme }) => theme.width.xs};
     font-family: ${({ theme }) => theme.font.family};
-    font-size: ${({ theme }) => theme.font.size.md};
+    font-size: ${({ theme }) => theme.font.size.sm};
     cursor: pointer;
 
     ${({ isDisabled }) =>
@@ -47,7 +44,7 @@ export const StyledSwitcherWrap = styled.div<StyledSwitchProps>`
     ${({ isChecked }) =>
         isChecked &&
         css`
-            right: -${switchWidthNormal}; ;
+            right: -${switchWidth}; ;
             ;
         `}
 `;
@@ -91,38 +88,25 @@ export const StyledSwitcherTrue = styled.div<StyledSwitchProps>`
 export const StyledSwitcherToggler = styled.div<StyledSwitchProps>`
     position: absolute;
     top: 0;
-    right: ${(props) =>
-        switchWidthNormalInt -
-        togglerSizeNormalInt -
-        2 * parseInt(props.theme.margin.sm, 0)}px;
+    right: 28px;
     bottom: 0;
-    width: ${togglerSizeNormalInt}px;
-    margin: ${({ theme }) => theme.margin.sm};
+    width: ${togglerSize};
+    height: ${togglerSize};
+    margin: 3px;
     border-radius: 50%;
     background-color: ${({ theme }) => theme.color.background.delta};
     transition: right 0.3s ease;
-    width: ${togglerSizeNormal};
-    right: ${switchWidthNormalInt -
-    togglerSizeNormalInt -
-    2 * parseInt(({ theme }) => theme.margin.sm, 0)}px;
-    font-size: ${({ theme }) => theme.font.size.md};
 
     ${({ isChecked }) =>
         isChecked &&
         css`
-            right: ${switchWidthNormal};
+            right: ${switchWidth};
         `}
 
     ${({ theme, isDisabled }) =>
         isDisabled &&
         css`
             background-color: ${theme.color.background.delta};
-        `}
-
-    ${({ isChecked }) =>
-        isChecked &&
-        css`
-            right: ${switchWidthNormal};
         `}
 `;
 
@@ -161,6 +145,5 @@ export const StyledSwitcherFalse = styled.div<StyledSwitchProps>`
 StyledSwitchLabel.displayName = 'StyledSwitchLabel';
 StyledSwitcherWrap.displayName = 'StyledSwitcherWrap';
 StyledSwitcherTrue.displayName = 'StyledSwitcherTrue';
-StyledSwitchLabel.displayName = 'StyledSwitchLabel';
 StyledSwitcherToggler.displayName = 'StyledSwitcherToggler';
 StyledSwitcherFalse.displayName = 'StyledSwitcherFalse';
