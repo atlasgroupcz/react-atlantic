@@ -1,14 +1,23 @@
 import { useCallback } from 'react';
+import { MouseEvents } from '../../../../types';
 import { useInnerTransferContext, useTransferContext } from '../../context';
 
 //TODO: add clear method props
-export const useInnerTransferClear = () => {
+export const useInnerTransferClear = (
+    handleClear?: MouseEvents<HTMLElement>['onClick']
+) => {
     const { isDisabled } = useTransferContext();
     const { setInnerValue } = useInnerTransferContext();
 
-    return useCallback(() => {
-        if (!isDisabled) {
-            setInnerValue?.([]);
-        }
-    }, [isDisabled, setInnerValue]);
+    return useCallback(
+        (e) => {
+            if (!isDisabled) {
+                if (handleClear) {
+                    handleClear(e);
+                }
+                setInnerValue?.([]);
+            }
+        },
+        [handleClear, isDisabled, setInnerValue]
+    );
 };
