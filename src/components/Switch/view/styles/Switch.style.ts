@@ -1,22 +1,17 @@
 import styled, { css } from 'styled-components';
-import { Size, Type } from '../../../../types';
+import { Type } from '../../../../types';
 
 type StyledSwitchProps = {
     isChecked?: boolean;
     isDisabled?: boolean;
     name?: string;
     position?: 'right' | 'left';
-    size?: Size;
     htmlType?: Type;
 };
 
-const togglerSizeLarge = '28px';
-const togglerSizeNormal = '24px';
-const togglerSizeSmall = '16px';
+const togglerSizeNormal = '26px';
 
-const switchWidthLarge = '80px';
 const switchWidthNormal = '70px';
-const switchWidthSmall = '50px';
 
 const switchWidthNormalInt = parseInt(switchWidthNormal, 0);
 const togglerSizeNormalInt = parseInt(togglerSizeNormal, 0);
@@ -32,31 +27,7 @@ export const StyledSwitchLabel = styled.label<StyledSwitchProps>`
     font-size: ${({ theme }) => theme.font.size.md};
     cursor: pointer;
 
-    ${({ theme, size }) =>
-        size === 'small' &&
-        css`
-            height: ${theme.height.sm};
-            width: ${switchWidthSmall};
-            font-size: ${theme.font.size.sm};
-        `}
-
-    ${({ theme, size }) =>
-        size === 'medium' &&
-        css`
-            height: ${theme.height.md};
-            width: ${switchWidthNormal};
-            font-size: ${theme.font.size.md};
-        `}
-        
-    ${({ theme, size }) =>
-        size === 'large' &&
-        css`
-            height: ${theme.height.lg};
-            width: ${switchWidthLarge};
-            font-size: ${theme.font.size.lg};
-        `}
-  
-   ${({ isDisabled }) =>
+    ${({ isDisabled }) =>
         isDisabled &&
         css`
             cursor: not-allowed;
@@ -73,27 +44,12 @@ export const StyledSwitcherWrap = styled.div<StyledSwitchProps>`
     width: 200%;
     transition: right 0.3s;
 
-    ${({ isChecked, size }) => {
-        if (isChecked) {
-            if (size === 'small') {
-                return css`
-                    right: -${switchWidthSmall};
-                `;
-            } else if (size === 'large') {
-                return css`
-                    right: -${switchWidthLarge};
-                `;
-            } else if (size === 'medium') {
-                return css`
-                    right: -${switchWidthNormal};
-                `;
-            }
-
-            return css`
-                right: -${switchWidthNormal};
-            `;
-        }
-    }}
+    ${({ isChecked }) =>
+        isChecked &&
+        css`
+            right: -${switchWidthNormal}; ;
+            ;
+        `}
 `;
 
 export const StyledSwitcherTrue = styled.div<StyledSwitchProps>`
@@ -145,6 +101,11 @@ export const StyledSwitcherToggler = styled.div<StyledSwitchProps>`
     border-radius: 50%;
     background-color: ${({ theme }) => theme.color.background.delta};
     transition: right 0.3s ease;
+    width: ${togglerSizeNormal};
+    right: ${switchWidthNormalInt -
+    togglerSizeNormalInt -
+    2 * parseInt(({ theme }) => theme.margin.sm, 0)}px;
+    font-size: ${({ theme }) => theme.font.size.md};
 
     ${({ isChecked }) =>
         isChecked &&
@@ -157,53 +118,8 @@ export const StyledSwitcherToggler = styled.div<StyledSwitchProps>`
         css`
             background-color: ${theme.color.background.delta};
         `}
- 
-  ${({ theme, size }) =>
-        size === 'small' &&
-        css`
-            width: ${togglerSizeSmall};
-            right: ${parseInt(switchWidthSmall, 0) -
-            parseInt(togglerSizeSmall, 0) -
-            2 * parseInt(theme.margin.sm, 0)}px;
-            font-size: ${theme.font.size.sm};
-        `}
-  
-   ${({ size, isChecked }) =>
-        size === 'small' &&
-        isChecked &&
-        css`
-            right: ${switchWidthSmall};
-        `}
-   
-   ${({ theme, size }) =>
-        size === 'large' &&
-        css`
-            width: ${togglerSizeLarge};
-            right: ${parseInt(switchWidthLarge, 0) -
-            parseInt(togglerSizeLarge, 0) -
-            2 * parseInt(theme.margin.sm, 0)}px;
-            font-size: ${theme.font.size.lg};
-        `}
-   
-   ${({ size, isChecked }) =>
-        size === 'large' &&
-        isChecked &&
-        css`
-            right: ${switchWidthLarge};
-        `}
-   
-   ${({ theme, size }) =>
-        size === 'medium' &&
-        css`
-            width: ${togglerSizeNormal};
-            right: ${switchWidthNormalInt -
-            togglerSizeNormalInt -
-            2 * parseInt(theme.margin.sm, 0)}px;
-            font-size: ${theme.font.size.md};
-        `}
 
-    ${({ size, isChecked }) =>
-        size === 'medium' &&
+    ${({ isChecked }) =>
         isChecked &&
         css`
             right: ${switchWidthNormal};

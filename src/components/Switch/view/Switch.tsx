@@ -20,31 +20,27 @@ export const Switch: SwitchType = ({
     ...props
 }) => (
     <StyledSwitchLabel
-        size={size}
         htmlType={type}
         isChecked={isChecked}
         isDisabled={isDisabled}
         className={className}
     >
         <HiddenCheckbox checked={isChecked} disabled={isDisabled} {...props} />
-        <StyledSwitcherWrap htmlType={type} isChecked={isChecked} size={size}>
+        <StyledSwitcherWrap htmlType={type} isChecked={isChecked}>
             <StyledSwitcherTrue
                 htmlType={type}
-                size={size}
                 isChecked={isChecked}
                 isDisabled={isDisabled}
             >
                 {textOn}
             </StyledSwitcherTrue>
             <StyledSwitcherToggler
-                size={size}
                 htmlType={type}
                 isChecked={isChecked}
                 isDisabled={isDisabled}
             />
             <StyledSwitcherFalse
                 htmlType={type}
-                size={size}
                 isChecked={isChecked}
                 isDisabled={isDisabled}
             >
