@@ -1,3 +1,3 @@
-import { UseInnerTransferValue } from './UseInnerTransfer';
+import { InnerTransferContextProps } from './TransferContext';
 
-export type InnerTransferContextState = UseInnerTransferValue;
+export type InnerTransferContextState = InnerTransferContextProps;

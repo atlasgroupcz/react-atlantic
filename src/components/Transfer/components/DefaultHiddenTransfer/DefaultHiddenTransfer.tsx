@@ -26,3 +26,13 @@ export const DefaultHiddenTransfer: FC = () => {
         />
     );
 };
+
+// <StyledTransfer
+// leftRight={leftRight}
+// position={position}
+// ref={refOnTransfer}
+// isLeftSideOpen={isLeftSideOpen}
+// isRightSideOpen={isRightSideOpen}
+// isFullWidth={isFullWidth}
+// customWidth={customWidth}
+// >

@@ -12,7 +12,6 @@ export type TransferLeftSideProps<T extends OptionType = OptionType> = {
     TransferProps,
     | 'options'
     | 'value'
-    | 'clearInputProps'
     | 'noResults'
     | 'size'
     | 'visibleRows'

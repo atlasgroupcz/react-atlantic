@@ -28,7 +28,6 @@ export const useTransfer = <T extends OptionType<string, string>>({
     };
 
     return {
-        ...props,
         options,
         value,
         onOptionClick,

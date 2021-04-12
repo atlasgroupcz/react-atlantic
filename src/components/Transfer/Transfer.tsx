@@ -2,10 +2,8 @@ import React, { forwardRef } from 'react';
 import { TransferProps } from './types';
 import { DefaultHiddenTransfer, ShownTransfer } from './components';
 import { TransferProvider } from './context';
-import { StyledTransfer, StyledTransferContainer } from './styles';
+import { StyledTransferContainer } from './styles';
 import { useTransferPosition } from './hooks';
-import { resolveLeftSideOpen } from './utils/resolveLeftSideOpen';
-import { resolveRightSideOpen } from './utils/resolveRightSideOpen';
 import { DEFAULT_WIDTHS_TRANSFER } from './constants';
 import { useInnerTransfer } from './hooks/useInnerTransfer';
 import { ControlledDefaultTransferFilterInput } from './components/ShownTransfer/components/FilterInput';
@@ -33,58 +31,32 @@ export const Transfer = forwardRef<HTMLDivElement, TransferProps>(
             footer = <ControlledTransferFooter />,
             noResults = <NoResults />,
             isSorted = true,
+            isOpen,
             ...props
         },
         ref
     ) => {
-        const isLeftSideOpen = resolveLeftSideOpen(!!props.isOpen, props.value);
-        const isRightSideOpen = resolveRightSideOpen(
-            !!props.isOpen,
-            props.value
-        );
-
-        const isHiddenTransfer = !isLeftSideOpen && !isRightSideOpen;
-        const { position, refOnTransfer, leftRight } = positionController({
-            customWidth: customWidth,
-            preferredPosition: preferredPosition,
-            isLeftSideOpen: !!isLeftSideOpen,
-            isRightSideOpen: !!isRightSideOpen,
-        });
-
         return (
             <TransferProvider
                 innerTransferController={innerTransferController}
-                position={position}
-                size={size}
-                customWidth={customWidth}
-                preferredPosition={preferredPosition}
-                isFullWidth={isFullWidth}
-                visibleRows={visibleRows}
-                isSorted={isSorted}
+                positionController={positionController}
                 leftHeader={leftHeader}
                 leftContainer={leftContainer}
                 rightHeader={rightHeader}
                 rightContainer={rightContainer}
                 footer={footer}
                 noResults={noResults}
+                preferredPosition={preferredPosition}
+                isOpen={isOpen}
+                size={size}
+                customWidth={customWidth}
+                visibleRows={visibleRows}
+                isFullWidth={isFullWidth}
+                isSorted={isSorted}
                 {...props}
             >
                 <StyledTransferContainer size={size} ref={ref}>
-                    <StyledTransfer
-                        leftRight={leftRight}
-                        position={position}
-                        ref={refOnTransfer}
-                        isLeftSideOpen={isLeftSideOpen}
-                        isRightSideOpen={isRightSideOpen}
-                        isFullWidth={isFullWidth}
-                        customWidth={customWidth}
-                    >
-                        {isHiddenTransfer ? (
-                            hiddenTransferComponent
-                        ) : (
-                            <ShownTransfer />
-                        )}
-                    </StyledTransfer>
+                    {!isOpen ? hiddenTransferComponent : <ShownTransfer />}
                 </StyledTransferContainer>
             </TransferProvider>
         );

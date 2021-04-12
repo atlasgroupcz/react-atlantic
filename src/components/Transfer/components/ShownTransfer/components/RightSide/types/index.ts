@@ -26,7 +26,6 @@ export type TransferRightSideProps<
     Pick<
         TransferProps,
         | 'label'
-        | 'clearButtonProps'
         | 'value'
         | 'size'
         | 'visibleRows'

@@ -1,15 +1,6 @@
 import { OptionType } from '../../Select';
-import { InputProps } from '../../Input';
-import { ButtonProps } from '../../Button';
-import {
-    Dispatch,
-    PropsWithChildren,
-    ReactNode,
-    RefObject,
-    SetStateAction,
-} from 'react';
+import { Dispatch, ReactNode, RefObject, SetStateAction } from 'react';
 import { Size } from '../../../types';
-import { IconProps } from '../../Icon';
 import { UseTransferPosition } from './UseTransferPositionProps';
 import { TransferPosition } from './TransferPosition';
 import { UseInnerTransfer } from './UseInnerTransfer';
@@ -19,17 +10,12 @@ type SharedTransferProps<T extends OptionType = OptionType> = {
     onOptionClick?: (option: T) => void;
     setValue?: Dispatch<SetStateAction<T[]>>;
     setOpen?: Dispatch<SetStateAction<boolean>>;
-    label?: ReactNode;
     isOpen?: boolean;
     isDisabled?: boolean;
     noResults?: ReactNode;
-    clearInputProps?: InputProps & Pick<IconProps, 'onClick'>;
-    cancelButtonProps?: PropsWithChildren<ButtonProps>;
-    submitButtonProps?: PropsWithChildren<ButtonProps>;
-    clearButtonProps?: PropsWithChildren<ButtonProps>;
+    label?: ReactNode;
     leftHeader?: ReactNode;
     leftContainer?: ReactNode;
-
     rightHeader?: ReactNode;
     rightContainer?: ReactNode;
     footer?: ReactNode;

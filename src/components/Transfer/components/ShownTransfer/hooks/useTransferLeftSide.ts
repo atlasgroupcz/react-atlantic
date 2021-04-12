@@ -1,5 +1,5 @@
-import { useTransferContext } from '../../../context';
-import { useTransferOpenSides } from '../../../hooks/useTransferOpenSides';
+import { useInnerTransferContext, useTransferContext } from '../../../context';
+import { useTransferOpenSides } from '../../../hooks/Inner/useTransferOpenSides';
 import { TransferLeftSideProps } from '../../../types';
 
 export const useTransferLeftSide = (_: {}): TransferLeftSideProps => {
@@ -12,18 +12,15 @@ export const useTransferLeftSide = (_: {}): TransferLeftSideProps => {
         isFullWidth,
         isDisabled,
         options,
-        clearInputProps,
         leftContainer,
         leftHeader,
-        position,
     } = useTransferContext();
+    const { position } = useInnerTransferContext();
     const { isLeftSideOpen, isRightSideOpen } = useTransferOpenSides();
 
     return {
         onOptionClick,
         options,
-        position,
-        clearInputProps,
         isDisabled,
         isFullWidth,
         isLeftSideOpen,
@@ -34,5 +31,6 @@ export const useTransferLeftSide = (_: {}): TransferLeftSideProps => {
         visibleRows,
         leftContainer,
         leftHeader,
+        position,
     };
 };

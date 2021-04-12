@@ -45,12 +45,3 @@ export const useInnerTransfer: UseInnerTransfer = ({
         onOptionClick: innerOptionClick,
     };
 };
-// const sortedOptions = sortTransferOptions(
-//     options?.filter((option) =>
-//         option.label
-//             .toLowerCase()
-//             .includes((inputProps.value as string)?.toLowerCase())
-//     ) || []
-// );
-
-//     const sortedValue = sortTransferOptions(value);

@@ -1,13 +1,12 @@
-import { useInnerTransferContext, useTransferContext } from '../../../context';
-import { useTransferOpenSides } from '../../../hooks';
+import { useInnerTransferContext } from '../../../context';
+import { useTransferOpenSides } from '../../../hooks/Inner/useTransferOpenSides';
 import { TransferRightSideProps } from '../components';
 
 export const useTransferRightSide = (_: {}): TransferRightSideProps<
     HTMLDivElement
 > => {
-    const { position } = useTransferContext();
     const { isRightSideOpen } = useTransferOpenSides();
-    const { ...props } = useInnerTransferContext();
+    const { position, ...props } = useInnerTransferContext();
     return {
         position,
         isVisible: isRightSideOpen,
