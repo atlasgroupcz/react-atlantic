@@ -5,6 +5,7 @@ import {
     ControlledDefaultTransferSubmitButton,
     DefaultTransferFooter,
 } from '../components/ShownTransfer/components';
+import { useInnerTransferContext } from '../context';
 import { useTransferOpenSides } from '../hooks/Inner/useTransferOpenSides';
 import { DefaultTransferFooterProps } from '../types/DefaultTransferFooterProps';
 
@@ -17,7 +18,11 @@ export const useDefaultTransferFooter = (
             >
         >
 ): DefaultTransferFooterProps => {
-    const { isRightSideOpen, isLeftSideOpen } = useTransferOpenSides();
+    const { innerValue } = useInnerTransferContext();
+    const { isRightSideOpen, isLeftSideOpen } = useTransferOpenSides(
+        innerValue
+    );
+
     return {
         isVisible: isRightSideOpen || isLeftSideOpen,
         submitComponent: (

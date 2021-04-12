@@ -5,8 +5,8 @@ import { TransferRightSideProps } from '../components';
 export const useTransferRightSide = (_: {}): TransferRightSideProps<
     HTMLDivElement
 > => {
-    const { isRightSideOpen } = useTransferOpenSides();
-    const { position, ...props } = useInnerTransferContext();
+    const { position, innerValue, ...props } = useInnerTransferContext();
+    const { isRightSideOpen } = useTransferOpenSides(innerValue);
     return {
         position,
         isVisible: isRightSideOpen,

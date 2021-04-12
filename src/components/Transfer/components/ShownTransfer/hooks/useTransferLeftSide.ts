@@ -11,8 +11,10 @@ export const useTransferLeftSide = (_: {}): TransferLeftSideProps => {
         leftContainer,
         leftHeader,
     } = useTransferContext();
-    const { position } = useInnerTransferContext();
-    const { isLeftSideOpen, isRightSideOpen } = useTransferOpenSides();
+    const { position, innerValue } = useInnerTransferContext();
+    const { isLeftSideOpen, isRightSideOpen } = useTransferOpenSides(
+        innerValue
+    );
 
     return {
         isValue: false,
