@@ -36,7 +36,6 @@ export const TestTransferComponent: FC<TestComponentProps> = ({
     const transferProps = useTransfer({
         options,
         defaultValue,
-        onSubmit: console.log,
     });
 
     return (
@@ -57,7 +56,6 @@ stories.add(
         const transferProps = useTransfer({
             options,
             defaultValue,
-            onSubmit: console.log,
         });
 
         return (

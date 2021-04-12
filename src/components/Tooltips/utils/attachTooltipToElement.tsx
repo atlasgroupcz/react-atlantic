@@ -17,7 +17,6 @@ export const attachTooltipToElement = (
         currentTarget.getAttribute(positionAttr) ?? DEFAULT_POSITION;
 
     const content = currentTarget.getAttribute(contentAttr);
-    console.log(content, contentAttr);
 
     if (content !== null) {
         tooltipElement.innerText = content;
