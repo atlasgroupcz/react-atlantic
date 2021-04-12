@@ -17,3 +17,5 @@ export type InnerTransferContextProps = UseInnerTransferValue & {
     position: Position;
     leftRight: HorizontalPosition;
 };
+
+export type InnerTransferContextState = InnerTransferContextProps;

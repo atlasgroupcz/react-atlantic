@@ -6,15 +6,12 @@ import { TransferProps } from './Transfer';
 export type TransferLeftSideProps<T extends OptionType = OptionType> = {
     isLeftSideOpen?: boolean;
     isRightSideOpen?: boolean;
-    onOptionClick: any;
     position: Position;
+    isValue?: boolean;
 } & Pick<
     TransferProps,
-    | 'options'
-    | 'value'
     | 'noResults'
     | 'size'
-    | 'visibleRows'
     | 'isDisabled'
     | 'isFullWidth'
     | 'leftHeader'

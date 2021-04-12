@@ -4,14 +4,10 @@ import { TransferLeftSideProps } from '../../../types';
 
 export const useTransferLeftSide = (_: {}): TransferLeftSideProps => {
     const {
-        onOptionClick,
-        value,
         size,
         noResults,
-        visibleRows,
         isFullWidth,
         isDisabled,
-        options,
         leftContainer,
         leftHeader,
     } = useTransferContext();
@@ -19,16 +15,13 @@ export const useTransferLeftSide = (_: {}): TransferLeftSideProps => {
     const { isLeftSideOpen, isRightSideOpen } = useTransferOpenSides();
 
     return {
-        onOptionClick,
-        options,
+        isValue: false,
         isDisabled,
         isFullWidth,
         isLeftSideOpen,
         isRightSideOpen,
         noResults,
         size,
-        value,
-        visibleRows,
         leftContainer,
         leftHeader,
         position,
