@@ -17,9 +17,9 @@ export const useDefaultTransferFooter = (
             >
         >
 ): DefaultTransferFooterProps => {
-    const { isRightSideOpen } = useTransferOpenSides();
+    const { isRightSideOpen, isLeftSideOpen } = useTransferOpenSides();
     return {
-        isVisible: isRightSideOpen,
+        isVisible: isRightSideOpen || isLeftSideOpen,
         submitComponent: (
             <ControlledDefaultTransferSubmitButton>
                 Potvrdit

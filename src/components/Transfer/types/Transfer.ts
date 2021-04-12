@@ -8,6 +8,7 @@ import { UseInnerTransfer } from './UseInnerTransfer';
 type SharedTransferProps<T extends OptionType = OptionType> = {
     options: T[];
     onOptionClick?: (option: T) => void;
+    value?: T[];
     setValue?: Dispatch<SetStateAction<T[]>>;
     setOpen?: Dispatch<SetStateAction<boolean>>;
     isOpen?: boolean;
@@ -20,15 +21,14 @@ type SharedTransferProps<T extends OptionType = OptionType> = {
     rightContainer?: ReactNode;
     footer?: ReactNode;
     hiddenTransferComponent?: ReactNode;
-    innerTransferController?: UseInnerTransfer;
     isSorted?: boolean;
+    innerTransferController?: UseInnerTransfer;
 };
 
 export type ControllerTransferProps<
     T extends OptionType = OptionType
 > = SharedTransferProps<T> & {
     defaultValue?: T[];
-    onSubmit?: (value: T[]) => void;
 };
 
 export type StyledComponentTransferProps = {
@@ -46,6 +46,5 @@ export type StyledComponentTransferProps = {
 export type TransferProps<
     T extends OptionType<string, string> = OptionType<string, string>
 > = SharedTransferProps<T> & {
-    value?: T[];
     ref: RefObject<HTMLDivElement>;
 } & StyledComponentTransferProps;

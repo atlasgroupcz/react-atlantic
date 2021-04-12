@@ -27,8 +27,6 @@ export const ShownTransfer: FC = () => {
         isRightSideOpen: !!isRightSideOpen,
     });
 
-    console.log(`showtransfer`, leftRight, position);
-
     return (
         <InnerTransferProvider
             {...innerRest}

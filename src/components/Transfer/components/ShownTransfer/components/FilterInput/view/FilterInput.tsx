@@ -43,6 +43,7 @@ export const useDefaultTransferFilterInput = ({
         isFullWidth: true,
         onChange: handleChange,
         value: filterValue,
+        placeholder: 'Vyberte...',
         ...props,
     };
 };

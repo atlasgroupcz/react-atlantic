@@ -4,7 +4,7 @@ import { useInnerTransferContext, useTransferContext } from '../../context';
 //TODO: add submit method props
 export const useInnerTransferSubmit = () => {
     const { isDisabled, setOpen, setValue } = useTransferContext();
-    const { value: innerValue } = useInnerTransferContext();
+    const { innerValue } = useInnerTransferContext();
 
     return useCallback(() => {
         if (!isDisabled) {
