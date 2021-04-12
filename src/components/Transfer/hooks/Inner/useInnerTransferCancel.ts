@@ -2,7 +2,6 @@ import { useCallback } from 'react';
 import { MouseEvents } from '../../../../types';
 import { useTransferContext } from '../../context';
 
-//TODO: add cancel method props
 export const useInnerTransferCancel = (
     handleCancel?: MouseEvents<HTMLElement>['onClick']
 ) => {

@@ -2,7 +2,6 @@ import { useCallback } from 'react';
 import { FormEvents } from '../../../../types';
 import { useInnerTransferContext, useTransferContext } from '../../context';
 
-//TODO: add submit method props
 export const useInnerTransferSubmit = (
     handleSubmit?: FormEvents<HTMLElement>['onSubmit']
 ) => {

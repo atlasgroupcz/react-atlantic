@@ -2,7 +2,6 @@ import { useCallback } from 'react';
 import { MouseEvents } from '../../../../types';
 import { useInnerTransferContext, useTransferContext } from '../../context';
 
-//TODO: add clear method props
 export const useInnerTransferClear = (
     handleClear?: MouseEvents<HTMLElement>['onClick']
 ) => {
