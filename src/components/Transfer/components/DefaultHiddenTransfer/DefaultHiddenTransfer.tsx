@@ -1,38 +1,33 @@
-import React, { FC } from 'react';
+import React from 'react';
+import { wrap } from '../../../../utils';
 import { Icon } from '../../../Icon';
-import { Input } from '../../../Input';
+import { Input, InputFixProps } from '../../../Input';
 import { useTransferContext } from '../../context';
 import { useHiddenInputValue } from '../../hooks/useHiddenInputValue';
 import { useHiddenTransfer } from '../../hooks/useHiddenTransfer';
 import { StyledTransferLeftDropdown } from '../ShownTransfer/components/LeftSide';
 
-export const DefaultHiddenTransfer: FC = () => {
+export const useDefaultHiddenTransfer = (
+    props: InputFixProps
+): InputFixProps => {
     const { isFullWidth, isDisabled, size } = useTransferContext();
     const onFocus = useHiddenTransfer();
     const value = useHiddenInputValue();
 
-    return (
-        <Input
-            suffix={
-                <StyledTransferLeftDropdown isIconVisible>
-                    <Icon name={`arrowDown`} />
-                </StyledTransferLeftDropdown>
-            }
-            isFullWidth={isFullWidth}
-            size={size}
-            isDisabled={isDisabled}
-            onFocus={onFocus}
-            value={value}
-        />
-    );
+    return {
+        suffix: (
+            <StyledTransferLeftDropdown isIconVisible>
+                <Icon name={`arrowDown`} />
+            </StyledTransferLeftDropdown>
+        ),
+        isFullWidth,
+        isDisabled,
+        size,
+        onFocus,
+        value,
+        placeholder: 'Vyberte...',
+        ...props,
+    };
 };
 
-// <StyledTransfer
-// leftRight={leftRight}
-// position={position}
-// ref={refOnTransfer}
-// isLeftSideOpen={isLeftSideOpen}
-// isRightSideOpen={isRightSideOpen}
-// isFullWidth={isFullWidth}
-// customWidth={customWidth}
-// >
+export const DefaultHiddenTransfer = wrap(Input, useDefaultHiddenTransfer);
