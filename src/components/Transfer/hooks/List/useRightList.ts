@@ -2,7 +2,9 @@ import { ControlledRightSideItem } from '../../components/ShownTransfer/componen
 import { useInnerTransferContext, useTransferContext } from '../../context';
 import { TransferListProps } from '../../types/TransferListProps';
 
-export const useRightList = (_: {}): TransferListProps => {
+export const useRightList = (
+    props: Partial<TransferListProps>
+): TransferListProps => {
     const { innerValue } = useInnerTransferContext();
     const { size, visibleRows } = useTransferContext();
     return {
@@ -11,5 +13,6 @@ export const useRightList = (_: {}): TransferListProps => {
         size,
         value: innerValue,
         visibleRows,
+        ...props,
     };
 };
