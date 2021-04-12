@@ -15,6 +15,7 @@ export const TransferList: FC<TransferListProps> = ({
         <StyledTransferList size={size} visibleRows={visibleRows}>
             {options?.map((option) => (
                 <Item
+                    key={option.value}
                     option={option}
                     size={size}
                     isChecked={selectedOptionsSet.has(option.value)}
