@@ -1,3 +1,9 @@
+## [1.8.11](https://github.com/atlasgroupcz/react-atlantic/compare/1.8.10...1.8.11) (2021-04-13)
+
+### Bug Fixes
+
+-   **checkbox:** 🐛 animation removed ([1369671](https://github.com/atlasgroupcz/react-atlantic/commit/136967182dfd8c1260e5f5ba47b3f61715f2e10b))
+
 ## [1.8.10](https://github.com/atlasgroupcz/react-atlantic/compare/1.8.7...1.8.10) (2021-04-07)
 
 ### Bug Fixes
