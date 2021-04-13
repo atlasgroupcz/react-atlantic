@@ -31,7 +31,7 @@ export const StyledSwitchLabel = styled.label<StyledSwitchProps>`
         `}
 `;
 
-export const StyledSwitcherWrap = styled.div<StyledSwitchProps>`
+export const StyledSwitcherContainer = styled.div<StyledSwitchProps>`
     position: absolute;
     top: 0;
     right: 0;
@@ -39,7 +39,7 @@ export const StyledSwitcherWrap = styled.div<StyledSwitchProps>`
     display: flex;
     align-items: center;
     width: 200%;
-    transition: all 0.3s ease-out;
+    transition: right 0.3s ease-out;
 
     ${({ isChecked }) =>
         isChecked &&
@@ -56,16 +56,14 @@ export const StyledSwitcherTrue = styled.div<StyledSwitchProps>`
     flex: 0 0 50%;
     height: 100%;
     padding-left: ${({ theme }) => theme.padding.md};
-    line-height: 1;
     user-select: none;
-    color: ${({ theme }) => theme.color.text.alpha};
+    color: ${({ theme }) => theme.color.text.gamma};
     background-color: ${({ theme }) => theme.color.border};
-    transition: all 0.3s ease-out;
+    transition: background-color 0.3s ease-out;
 
     ${({ theme, isChecked, htmlType }) =>
         isChecked &&
         css`
-            color: ${theme.color.text.gamma};
             background-color: ${theme.color[
                 htmlType === 'default' ? 'primary' : (htmlType as Type)
             ].alpha};
@@ -91,7 +89,7 @@ export const StyledSwitcherToggler = styled.div<StyledSwitchProps>`
     margin: 3px;
     border-radius: 50%;
     background-color: ${({ theme }) => theme.color.background.delta};
-    transition: all 0.3s ease-out;
+    transition: right 0.3s ease-out, background-color 0.3s ease-out;
 
     ${({ isChecked }) =>
         isChecked &&
@@ -112,34 +110,14 @@ export const StyledSwitcherFalse = styled.div<StyledSwitchProps>`
     justify-content: center;
     flex: 0 0 50%;
     height: 100%;
-    line-height: 1;
     user-select: none;
-    color: ${({ theme }) => theme.color.text.alpha};
+    color: ${({ theme }) => theme.color.text.beta};
     background-color: ${({ theme }) => theme.color.border};
-    transition: all 0.3s ease-out;
-
-    ${({ theme, isChecked }) =>
-        isChecked &&
-        css`
-            color: ${theme.color.text.gamma};
-        `}
-
-    ${({ theme, isDisabled }) =>
-        isDisabled &&
-        css`
-            color: ${theme.color.text.gamma};
-        `}
-   
-   ${({ theme, isDisabled, htmlType }) =>
-        isDisabled &&
-        htmlType &&
-        css`
-            color: ${theme.color.text.gamma};
-        `}
+    transition: background-color 0.3s ease-out;
 `;
 
 StyledSwitchLabel.displayName = 'StyledSwitchLabel';
-StyledSwitcherWrap.displayName = 'StyledSwitcherWrap';
+StyledSwitcherContainer.displayName = 'StyledSwitcherWrap';
 StyledSwitcherTrue.displayName = 'StyledSwitcherTrue';
 StyledSwitcherToggler.displayName = 'StyledSwitcherToggler';
 StyledSwitcherFalse.displayName = 'StyledSwitcherFalse';

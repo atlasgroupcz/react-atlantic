@@ -3,7 +3,7 @@ import {
     StyledSwitcherFalse,
     StyledSwitcherToggler,
     StyledSwitcherTrue,
-    StyledSwitcherWrap,
+    StyledSwitcherContainer,
     StyledSwitchLabel,
 } from './styles';
 import { HiddenCheckbox } from '../../Checkbox/view/alpha/styles';
@@ -25,7 +25,7 @@ export const Switch: SwitchType = ({
         className={className}
     >
         <HiddenCheckbox checked={isChecked} disabled={isDisabled} {...props} />
-        <StyledSwitcherWrap htmlType={type} isChecked={isChecked}>
+        <StyledSwitcherContainer htmlType={type} isChecked={isChecked}>
             <StyledSwitcherTrue
                 htmlType={type}
                 isChecked={isChecked}
@@ -45,6 +45,6 @@ export const Switch: SwitchType = ({
             >
                 {textOff}
             </StyledSwitcherFalse>
-        </StyledSwitcherWrap>
+        </StyledSwitcherContainer>
     </StyledSwitchLabel>
 );
