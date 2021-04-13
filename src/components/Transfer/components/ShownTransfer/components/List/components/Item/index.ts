@@ -1,3 +1,2 @@
 export * from './styles';
-export * from './types';
-export * from './Item';
+export * from './views';

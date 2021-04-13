@@ -5,6 +5,17 @@ import { UseTransferPosition } from './UseTransferPositionProps';
 import { TransferPosition } from './TransferPosition';
 import { UseInnerTransfer } from './UseInnerTransfer';
 
+export type TransferComponentsProps = {
+    hiddenTransferComponent?: ReactNode;
+    leftHeader?: ReactNode;
+    leftContainer?: ReactNode;
+    rightHeader?: ReactNode;
+    rightContainer?: ReactNode;
+    footer?: ReactNode;
+    noResults?: ReactNode;
+    label?: ReactNode;
+};
+
 type SharedTransferProps<T extends OptionType = OptionType> = {
     options: T[];
     onOptionClick?: (option: T) => void;
@@ -13,17 +24,9 @@ type SharedTransferProps<T extends OptionType = OptionType> = {
     setOpen?: Dispatch<SetStateAction<boolean>>;
     isOpen?: boolean;
     isDisabled?: boolean;
-    noResults?: ReactNode;
-    label?: ReactNode;
-    leftHeader?: ReactNode;
-    leftContainer?: ReactNode;
-    rightHeader?: ReactNode;
-    rightContainer?: ReactNode;
-    footer?: ReactNode;
-    hiddenTransferComponent?: ReactNode;
     isSorted?: boolean;
     innerTransferController?: UseInnerTransfer;
-};
+} & TransferComponentsProps;
 
 export type ControllerTransferProps<
     T extends OptionType = OptionType

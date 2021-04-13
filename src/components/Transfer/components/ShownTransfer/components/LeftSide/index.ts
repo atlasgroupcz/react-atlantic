@@ -1,2 +1,3 @@
-export * from './styles';
+export * from './hooks';
+export * from './views';
 export * from './LeftSide';

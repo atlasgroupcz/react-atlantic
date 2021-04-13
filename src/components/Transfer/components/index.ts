@@ -1,2 +1,2 @@
-export * from './DefaultHiddenTransfer';
+export * from './HiddenTransfer';
 export * from './ShownTransfer';

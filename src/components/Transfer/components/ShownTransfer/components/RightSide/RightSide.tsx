@@ -1,24 +1,8 @@
-import React, { FC } from 'react';
-import { StyledTransformRightSideContainer } from './style';
-import { TransferRightSideProps } from './types';
+import { wrap } from '../../../../../../utils';
+import { TransferDefaultRightSideView } from './views';
+import { useTransferRightSide } from './hooks';
 
-export type TransferRightSideType = FC<TransferRightSideProps<HTMLDivElement>>;
-
-export const TransferRightSide: TransferRightSideType = ({
-    label,
-    value,
-    onOptionClick,
-    size,
-    visibleRows,
-    rightHeader,
-    rightContainer,
-    isVisible,
-    ...props
-}) => {
-    return isVisible ? (
-        <StyledTransformRightSideContainer {...props}>
-            {rightHeader}
-            {rightContainer}
-        </StyledTransformRightSideContainer>
-    ) : null;
-};
+export const TransferDefaultRightSide = wrap(
+    TransferDefaultRightSideView,
+    useTransferRightSide
+);
