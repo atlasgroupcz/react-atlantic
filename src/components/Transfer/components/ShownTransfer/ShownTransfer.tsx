@@ -1,10 +1,12 @@
 import React, { FC } from 'react';
-import { ControlledLeftSide } from '../../containers/LeftSide';
-import { ControlledRightSide } from '../../containers/RightSide';
 import { InnerTransferProvider, useTransferContext } from '../../context';
 import { StyledTransfer } from '../../styles';
 import { resolveLeftSideOpen } from '../../utils/resolveLeftSideOpen';
 import { resolveRightSideOpen } from '../../utils/resolveRightSideOpen';
+import {
+    TransferDefaultLeftSide,
+    TransferDefaultRightSide,
+} from './components';
 
 export const ShownTransfer: FC = () => {
     const {
@@ -43,8 +45,8 @@ export const ShownTransfer: FC = () => {
                 isFullWidth={isFullWidth}
                 customWidth={customWidth}
             >
-                <ControlledLeftSide />
-                <ControlledRightSide />
+                <TransferDefaultLeftSide />
+                <TransferDefaultRightSide />
                 {footer}
             </StyledTransfer>
         </InnerTransferProvider>

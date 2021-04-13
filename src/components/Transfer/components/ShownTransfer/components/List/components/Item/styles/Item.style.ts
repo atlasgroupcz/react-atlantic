@@ -1,6 +1,8 @@
 import styled, { css } from 'styled-components';
 import { StyledCheckboxSpan } from '../../../../../../../../Checkbox/view/alpha/styles';
-import { StyledTransferListItemProps } from '../types';
+import { TransferLeftSideItemProps } from '../../../../../../../types/TransferItemProps';
+
+type StyledTransferListItemProps = Pick<TransferLeftSideItemProps, 'size'>;
 
 export const StyledTransferListItem = styled.li<StyledTransferListItemProps>`
     box-sizing: border-box;

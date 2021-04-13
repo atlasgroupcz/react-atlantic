@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components';
 import { HorizontalPosition } from '../../../types';
 import { StyledComponentTransferProps } from '../types';
 import { TransferPosition } from '../types/TransferPosition';
+import { StyledInputContainer } from '../../Input/view/composed/withFix/styles';
 
 type StyledTransferProps = {
     isLeftSideOpen?: boolean;
@@ -30,10 +31,10 @@ export const StyledTransfer = styled.div<StyledTransferProps>`
     ${({ leftRight }) =>
         leftRight === 'left'
             ? css`
-                  left: 0px;
+                  left: 0;
               `
             : css`
-                  right: 0px;
+                  right: 0;
               `}
 
 
@@ -65,6 +66,10 @@ export const StyledTransferContainer = styled.div<StyledComponentTransferProps>`
     box-sizing: border-box;
     position: relative;
     width: 100%;
+
+    ${StyledInputContainer} {
+        padding-right: 0;
+    }
 
     ${({ theme, size }) =>
         size === 'small' &&
