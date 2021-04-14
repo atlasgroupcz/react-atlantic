@@ -10,6 +10,9 @@ export const Pagination: PaginationType = ({
     total = 0,
     left,
     right,
+    className,
+    tabIndex,
+    ref,
     ...props
 }) => {
     const count = useMemo(() => getPaginationCount({ pageSize, total }), [
@@ -18,7 +21,11 @@ export const Pagination: PaginationType = ({
     ]);
 
     return (
-        <StyledPaginationContainer>
+        <StyledPaginationContainer
+            className={className}
+            ref={ref}
+            tabIndex={tabIndex}
+        >
             {showArrows || left || right ? (
                 <PaginationWithArrows
                     {...props}

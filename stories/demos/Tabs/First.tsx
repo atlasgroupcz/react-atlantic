@@ -16,7 +16,12 @@ export const TabsFirstDemo = () => {
 
     return (
         <>
-            <Tabs List={TabListDemo} activeKey={key} onClick={handleClick}>
+            <Tabs
+                List={TabListDemo}
+                tabIndex={1}
+                activeKey={key}
+                onClick={handleClick}
+            >
                 asdfasdf
             </Tabs>
 

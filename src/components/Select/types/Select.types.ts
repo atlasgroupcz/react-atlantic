@@ -1,13 +1,15 @@
 import { Size } from '../../../types';
-import { ReactNode, ReactText, RefObject } from 'react';
+import { ReactElement, ReactNode, ReactText, RefObject } from 'react';
 import { ElementProps } from '../../../types/utils';
 
-export interface OptionType<V = ReactText, L = ReactNode> {
+export interface OptionType<V = string, L = ReactElement | null | string> {
     value: V;
     label: L;
 }
 
-type SharedSelectProps<T extends OptionType = OptionType> = {
+type SharedSelectProps<
+    T extends OptionType<ReactText> = OptionType<ReactText>
+> = {
     options?: T[];
     onOptionClick?: (option: T) => void;
     isOpen?: boolean;
@@ -16,7 +18,7 @@ type SharedSelectProps<T extends OptionType = OptionType> = {
 };
 
 export type ControllerSelectProps<
-    T extends OptionType = OptionType
+    T extends OptionType<ReactText> = OptionType<ReactText>
 > = SharedSelectProps<T> & {
     defaultValue?: T;
 };
@@ -27,9 +29,9 @@ export type StyledComponentSelectProps = {
     isFullWidth?: boolean;
 };
 
-export type SelectProps<T extends OptionType = OptionType> = SharedSelectProps<
-    T
-> & {
+export type SelectProps<
+    T extends OptionType<ReactText> = OptionType<ReactText>
+> = SharedSelectProps<T> & {
     value?: T;
     placeholder?: T['label'];
     ref?: RefObject<HTMLDivElement>;

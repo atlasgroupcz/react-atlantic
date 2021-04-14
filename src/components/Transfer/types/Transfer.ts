@@ -1,6 +1,6 @@
 import { OptionType } from '../../Select';
 import { Dispatch, ReactNode, RefObject, SetStateAction } from 'react';
-import { Size } from '../../../types';
+import { CommonHTMLProps, Size } from '../../../types';
 import { UseTransferPosition } from './UseTransferPositionProps';
 import { TransferPosition } from './TransferPosition';
 import { UseInnerTransfer } from './UseInnerTransfer';
@@ -50,4 +50,5 @@ export type TransferProps<
     T extends OptionType<string, string> = OptionType<string, string>
 > = SharedTransferProps<T> & {
     ref: RefObject<HTMLDivElement>;
-} & StyledComponentTransferProps;
+} & StyledComponentTransferProps &
+    Omit<CommonHTMLProps, 'ref'>;
