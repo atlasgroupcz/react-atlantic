@@ -20,7 +20,7 @@ export const StyledTransfer = styled.div<StyledTransferProps>`
         isLeftSideOpen &&
         css`
             position: absolute;
-            width: ${customWidth?.leftSide ?? `300px`};
+            width: ${customWidth?.partiallyOpen ?? `300px`};
             z-index: 99;
             border: 1px solid ${theme.color.primary.alpha};
             border-radius: ${theme.radius};
@@ -57,7 +57,7 @@ export const StyledTransfer = styled.div<StyledTransferProps>`
             ${({ isRightSideOpen, customWidth, position }) =>
         isRightSideOpen && ['left', 'right'].includes(position)
             ? css`
-                  width: ${customWidth?.rightSide ?? `600px`};
+                  width: ${customWidth?.fullyOpen ?? `600px`};
               `
             : ``}
 `;

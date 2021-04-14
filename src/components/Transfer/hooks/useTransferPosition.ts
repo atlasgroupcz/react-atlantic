@@ -21,8 +21,8 @@ export const useTransferPosition: UseTransferPosition = ({
     const [leftRight, setLeftRight] = useState<HorizontalPosition>('left');
 
     useLayoutEffect(() => {
-        const componentFullWidth = parseInt(customWidth?.rightSide!);
-        const componentHalfWidth = parseInt(customWidth?.leftSide!);
+        const componentFullWidth = parseInt(customWidth?.fullyOpen!);
+        const componentHalfWidth = parseInt(customWidth?.partiallyOpen!);
         const rect = refOnTransfer.current?.getBoundingClientRect()!;
 
         if (!isRightSideOpen && !isLeftSideOpen) {
