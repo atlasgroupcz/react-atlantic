@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import { Size } from '../../../../../types';
 import { StyledIcon } from '../../../../Icon';
-import { getDefaultTypographyStyles } from '../../../../Typography/style';
+import { getDefaultTypographyStyles } from '../../../../Typography';
 
 type StyledCheckboxProps = {
     isChecked?: boolean;

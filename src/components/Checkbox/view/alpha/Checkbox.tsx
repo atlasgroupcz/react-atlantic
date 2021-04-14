@@ -5,7 +5,7 @@ import {
     StyledCheckboxLabel,
     StyledCheckboxMark,
     StyledCheckboxSpan,
-} from './style';
+} from './styles';
 import { CheckboxType } from '../../types';
 import { Icon } from '../../../Icon';
 
@@ -50,7 +50,7 @@ export const Checkbox: CheckboxType = ({
                 isChecked={isChecked}
                 isPartiallyChecked={isPartiallyChecked}
             >
-                <Icon name="checkSimple" />
+                <Icon name="check" />
             </StyledCheckboxMark>
         </StyledCheckboxInputShown>
 
