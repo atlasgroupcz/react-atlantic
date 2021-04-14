@@ -16,7 +16,6 @@ export const IconsMap = {
     edit: <Icons.Edit />,
     copy: <Icons.Copy />,
     check: <Icons.Check />,
-    checkSimple: <Icons.CheckSimple />,
     users: <Icons.Users />,
     user: <Icons.User />,
     upload: <Icons.Upload />,
