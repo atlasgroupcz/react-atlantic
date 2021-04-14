@@ -1,3 +1,28 @@
+# [2.0.0](https://github.com/atlasgroupcz/react-atlantic/compare/1.8.11...2.0.0) (2021-04-14)
+
+### Bug Fixes
+
+-   🐛 checkbox style file ([dc08fca](https://github.com/atlasgroupcz/react-atlantic/commit/dc08fcabfed2914d96bb8fb1b81088cc25d47da0))
+-   🐛 memo on context value ([0bf6db8](https://github.com/atlasgroupcz/react-atlantic/commit/0bf6db8a0977fa73557d6ab22d0200cb9ea6075d))
+-   🐛 ref on hidden transfer ([ff87923](https://github.com/atlasgroupcz/react-atlantic/commit/ff879233b8f8a07de2a801e67083dc7f8088ab86))
+-   **checkbox:** 🐛 animation removed ([57531cd](https://github.com/atlasgroupcz/react-atlantic/commit/57531cd2910ec0ad35881976b1d3acc762210471))
+-   **transform:** 🐛 removed empty folder ([30ba9f1](https://github.com/atlasgroupcz/react-atlantic/commit/30ba9f1ab0e726741eb618266568ec1a9f010405))
+-   🐛 list key ([2b95e91](https://github.com/atlasgroupcz/react-atlantic/commit/2b95e91892a42636a92ef33f51903a6bbe0789f1))
+-   🐛 tooltip story ([1241c41](https://github.com/atlasgroupcz/react-atlantic/commit/1241c410abafdd14bace1e9f5101951266a3f539))
+
+### Features
+
+-   ✨ creating inner context ([49fb4c2](https://github.com/atlasgroupcz/react-atlantic/commit/49fb4c2b702aa2e6617c84abb42d5852048fd2a3))
+-   ✨ default props ([095b3d4](https://github.com/atlasgroupcz/react-atlantic/commit/095b3d4a738cd357af9e3952601e62afbb134851))
+-   ✨ footer controller ([e26d8cb](https://github.com/atlasgroupcz/react-atlantic/commit/e26d8cbd6d5c2944476baecdc446a7ab733823ca))
+-   ✨ hook prop handler ([1cb25f7](https://github.com/atlasgroupcz/react-atlantic/commit/1cb25f7172d77065c421403a023442dcf709ed8a))
+-   ✨ inner transfer controller wip ([cdbff88](https://github.com/atlasgroupcz/react-atlantic/commit/cdbff88f0a263ae0309201f312581d369e2401d5))
+-   ✨ transfer with position controller ([6d9639c](https://github.com/atlasgroupcz/react-atlantic/commit/6d9639cffd1a7ce48d87a200ecb7905bc8216947))
+-   ✨ use default hidden transfer ([5bf7533](https://github.com/atlasgroupcz/react-atlantic/commit/5bf75330a10ad789bdb9b32ef0b1483be9b6cb6a))
+-   **radio-button:** ✨ add RadioButton component ([677ef58](https://github.com/atlasgroupcz/react-atlantic/commit/677ef585421fbd5806ccb58309de2f49f1324b0c))
+-   **radio-button:** ✨ styles imports ([e98aa6d](https://github.com/atlasgroupcz/react-atlantic/commit/e98aa6d63e368a5256d382d7f565805ef7e3254c))
+-   **switch:** ✨ init ([924f41b](https://github.com/atlasgroupcz/react-atlantic/commit/924f41b1624e9b1247b5f9ca2e2858bae6d61585))
+
 ## [1.8.11](https://github.com/atlasgroupcz/react-atlantic/compare/1.8.10...1.8.11) (2021-04-13)
 
 ### Bug Fixes
