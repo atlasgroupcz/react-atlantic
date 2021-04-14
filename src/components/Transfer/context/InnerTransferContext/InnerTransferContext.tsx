@@ -1,4 +1,4 @@
-import React, { createContext, useContext, FC } from 'react';
+import React, { createContext, useContext, FC, useMemo } from 'react';
 import {
     InnerTransferContextProps,
     InnerTransferContextState,
@@ -13,8 +13,9 @@ export const InnerTransferProvider: FC<InnerTransferContextProps> = ({
     children,
     ...value
 }) => {
+    const memoizedValue = useMemo(() => value, [value]);
     return (
-        <InnerTransferContext.Provider value={value}>
+        <InnerTransferContext.Provider value={memoizedValue}>
             {children}
         </InnerTransferContext.Provider>
     );
