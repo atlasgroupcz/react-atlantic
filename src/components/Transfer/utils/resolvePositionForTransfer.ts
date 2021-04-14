@@ -5,6 +5,8 @@ export const resolvePositionForTransfer = (
     rect: DOMRect,
     prefPosition: TransferProps['preferredPosition']
 ): TransferProps['preferredPosition'] => {
+    if (!rect) return prefPosition;
+
     const { left } = rect;
     const endX = left + componentWidth;
     const startX = left - componentWidth / 2;

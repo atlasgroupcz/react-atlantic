@@ -2,12 +2,13 @@ import styled, { css } from 'styled-components';
 import { HorizontalPosition } from '../../../types';
 import { StyledComponentTransferProps } from '../types';
 import { TransferPosition } from '../types/TransferPosition';
+import { StyledInputContainer } from '../../Input/view/composed/withFix/styles';
 
 type StyledTransferProps = {
     isLeftSideOpen?: boolean;
     isRightSideOpen?: boolean;
-    position: TransferPosition;
-    leftRight: HorizontalPosition;
+    position?: TransferPosition;
+    leftRight?: HorizontalPosition;
 } & StyledComponentTransferProps;
 
 export const StyledTransfer = styled.div<StyledTransferProps>`
@@ -19,7 +20,7 @@ export const StyledTransfer = styled.div<StyledTransferProps>`
         isLeftSideOpen &&
         css`
             position: absolute;
-            width: ${customWidth?.leftSide ?? `300px`};
+            width: ${customWidth?.partiallyOpen ?? `300px`};
             z-index: 99;
             border: 1px solid ${theme.color.primary.alpha};
             border-radius: ${theme.radius};
@@ -30,10 +31,10 @@ export const StyledTransfer = styled.div<StyledTransferProps>`
     ${({ leftRight }) =>
         leftRight === 'left'
             ? css`
-                  left: 0px;
+                  left: 0;
               `
             : css`
-                  right: 0px;
+                  right: 0;
               `}
 
 
@@ -53,10 +54,10 @@ export const StyledTransfer = styled.div<StyledTransferProps>`
             : ``}
 
 
-            ${({ isRightSideOpen, customWidth, position }) =>
+            ${({ isRightSideOpen, customWidth, position = 'right' }) =>
         isRightSideOpen && ['left', 'right'].includes(position)
             ? css`
-                  width: ${customWidth?.rightSide ?? `600px`};
+                  width: ${customWidth?.fullyOpen ?? `600px`};
               `
             : ``}
 `;
@@ -65,6 +66,10 @@ export const StyledTransferContainer = styled.div<StyledComponentTransferProps>`
     box-sizing: border-box;
     position: relative;
     width: 100%;
+
+    ${StyledInputContainer} {
+        padding-right: 0;
+    }
 
     ${({ theme, size }) =>
         size === 'small' &&
