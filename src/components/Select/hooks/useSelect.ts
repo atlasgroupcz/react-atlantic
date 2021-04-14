@@ -1,8 +1,10 @@
 import { ControllerSelectProps, OptionType, SelectProps } from '../types';
-import { useState } from 'react';
+import { ReactText, useState } from 'react';
 import { useOutsideClick } from '../../../hooks/useOutsideClick';
 
-export const useSelect = <T extends OptionType = OptionType>({
+export const useSelect = <
+    T extends OptionType<ReactText> = OptionType<ReactText>
+>({
     defaultValue,
     isDisabled,
     ...args

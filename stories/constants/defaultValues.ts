@@ -92,6 +92,7 @@ export const defaultValues = {
     index: 0,
     sortBy: `name`,
     order: 'asc',
+    firstValue: 'firstValue',
     dumbText:
         'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Donec iaculis gravida nulla. Maecenas aliquet accumsan leo. Etiam sapien elit, consequat eget, tristique non, venenatis quis, ante. Etiam dictum tincidunt diam. Integer tempor. Maecenas libero. Aliquam id dolor. Nulla non arcu lacinia neque faucibus fringilla. Aenean placerat. Fusce tellus. Donec vitae arcu. Mauris elementum mauris vitae tortor.\n' +
         '\n' +
