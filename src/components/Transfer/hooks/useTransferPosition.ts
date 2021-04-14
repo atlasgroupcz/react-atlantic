@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef, useState } from 'react';
+import { useLayoutEffect, useState } from 'react';
 import { HorizontalPosition } from '../../../types';
 import { TransferPosition } from '../types/TransferPosition';
 import { UseTransferPosition } from '../types/UseTransferPositionProps';
@@ -10,33 +10,28 @@ export const useTransferPosition: UseTransferPosition = ({
     isRightSideOpen,
     isLeftSideOpen,
     customWidth,
+    rectFromHiddenTransfer,
 }) => {
-    const refOnTransfer = useRef<HTMLDivElement | null>(null);
-    const rectWithoutRightSide = useRef<DOMRect | null>(null);
+    // const rectWithoutRightSide = useRef<DOMRect | null>(null);
     //TODO: Maybe ref?
     const [position, setPosition] = useState<TransferPosition>(
         preferredPosition
     );
-
     const [leftRight, setLeftRight] = useState<HorizontalPosition>('left');
 
     useLayoutEffect(() => {
         const componentFullWidth = parseInt(customWidth?.fullyOpen!);
         const componentHalfWidth = parseInt(customWidth?.partiallyOpen!);
-        const rect = refOnTransfer.current?.getBoundingClientRect()!;
-
-        if (!isRightSideOpen && !isLeftSideOpen) {
-            rectWithoutRightSide.current = rect;
-        }
+        const rect = rectFromHiddenTransfer?.current!;
 
         const newPosition = resolvePositionForTransfer(
             componentFullWidth,
-            rectWithoutRightSide.current!,
+            rect,
             preferredPosition
         );
         const newLeftRight = resolveLeftRightPosition(
             componentHalfWidth,
-            rectWithoutRightSide.current!,
+            rect,
             newPosition!
         );
 
@@ -44,7 +39,13 @@ export const useTransferPosition: UseTransferPosition = ({
         if (newPosition !== preferredPosition) {
             setPosition(newPosition!);
         }
-    }, [customWidth, isLeftSideOpen, isRightSideOpen, preferredPosition]);
+    }, [
+        customWidth,
+        isLeftSideOpen,
+        isRightSideOpen,
+        preferredPosition,
+        rectFromHiddenTransfer,
+    ]);
 
-    return { refOnTransfer, position, leftRight };
+    return { position, leftRight };
 };

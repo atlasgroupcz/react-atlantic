@@ -17,16 +17,19 @@ export const ShownTransfer: FC = () => {
         positionController,
         isOpen,
         isFullWidth,
+        rectFromHiddenTransfer,
         ...props
     } = useTransferContext();
     const { innerValue, ...innerRest } = innerTransferController(props);
     const isLeftSideOpen = resolveLeftSideOpen(!!isOpen, innerValue);
     const isRightSideOpen = resolveRightSideOpen(!!isOpen, innerValue);
-    const { position, refOnTransfer, leftRight } = positionController!({
+
+    const { position, leftRight } = positionController!({
         customWidth: customWidth,
         preferredPosition: preferredPosition,
         isLeftSideOpen: !!isLeftSideOpen,
         isRightSideOpen: !!isRightSideOpen,
+        rectFromHiddenTransfer,
     });
 
     return (
@@ -39,7 +42,6 @@ export const ShownTransfer: FC = () => {
             <StyledTransfer
                 leftRight={leftRight}
                 position={position}
-                ref={refOnTransfer}
                 isLeftSideOpen={isLeftSideOpen}
                 isRightSideOpen={isRightSideOpen}
                 isFullWidth={isFullWidth}

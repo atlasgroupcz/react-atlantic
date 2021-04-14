@@ -7,8 +7,8 @@ import { StyledInputContainer } from '../../Input/view/composed/withFix/styles';
 type StyledTransferProps = {
     isLeftSideOpen?: boolean;
     isRightSideOpen?: boolean;
-    position: TransferPosition;
-    leftRight: HorizontalPosition;
+    position?: TransferPosition;
+    leftRight?: HorizontalPosition;
 } & StyledComponentTransferProps;
 
 export const StyledTransfer = styled.div<StyledTransferProps>`
@@ -54,7 +54,7 @@ export const StyledTransfer = styled.div<StyledTransferProps>`
             : ``}
 
 
-            ${({ isRightSideOpen, customWidth, position }) =>
+            ${({ isRightSideOpen, customWidth, position = 'right' }) =>
         isRightSideOpen && ['left', 'right'].includes(position)
             ? css`
                   width: ${customWidth?.fullyOpen ?? `600px`};
