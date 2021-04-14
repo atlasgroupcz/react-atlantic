@@ -6,11 +6,15 @@ export const resolveLeftRightPosition = (
     rect: DOMRect,
     resolvedPosition: TransferPosition
 ): HorizontalPosition => {
+    let position: HorizontalPosition = 'left';
+    if (!rect) {
+        return position;
+    }
+
     const { left } = rect;
     const endX = left + componentLeftWidth;
     const windowWidth = window.innerWidth;
     const overflowedRight = endX > windowWidth;
-    let position: HorizontalPosition = 'left';
 
     if (!['left', 'right'].includes(resolvedPosition)) {
         if (overflowedRight) {
