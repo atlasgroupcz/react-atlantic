@@ -39,8 +39,8 @@ export type StyledComponentTransferProps = {
     visibleRows?: number;
     isFullWidth?: boolean;
     customWidth?: {
-        leftSide?: string;
-        rightSide?: string;
+        partiallyOpen?: string;
+        fullyOpen?: string;
     };
     preferredPosition?: TransferPosition;
     positionController?: UseTransferPosition;
