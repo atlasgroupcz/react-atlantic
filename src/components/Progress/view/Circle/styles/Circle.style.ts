@@ -1,4 +1,6 @@
 import styled, { css } from 'styled-components';
+import { StyledIcon } from '../../../../Icon';
+import { StyledText } from '../../../../Typography';
 
 interface StyledSVGCircleProps {
     color?: string;
@@ -54,13 +56,41 @@ export const StyledProgressCircleSVGColorful = styled.circle.withConfig({
 `;
 
 export const StyledProgressCircleText = styled.span`
-    font-family: ${(props) => props.theme.font.family};
-    font-size: 26px;
-    font-weight: 700;
     position: absolute;
     top: 50%;
     left: 50%;
+    font-family: ${(props) => props.theme.font.family};
+    font-size: 26px;
+    font-weight: 700;
     transform: translateX(-50%) translateY(-50%);
+
+    ${StyledIcon} {
+        color: ${(props) => props.theme.color.success.alpha};
+    }
+`;
+
+export const StyledProgressCircleContent = styled.div`
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 25%;
+    height: 25%;
+    transition: color 0.3s ease-out;
+
+    ${StyledIcon} {
+        height: 100%;
+        width: 100%;
+        color: ${(props) => props.theme.color.success.alpha};
+    }
+
+    ${StyledText} {
+        font-family: ${(props) => props.theme.font.family};
+        font-weight: 700;
+    }
 `;
 
 export const StyledProgressCircleTextContainer = styled.div.withConfig({
