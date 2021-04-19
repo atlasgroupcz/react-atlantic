@@ -1,5 +1,5 @@
 import React, { FC, useMemo } from 'react';
-
+import { Text } from '../../../Typography';
 import { ProgressCirleProps } from '../../types';
 import {
     interpolateTransition,
@@ -10,8 +10,9 @@ import {
     StyledProgressCircleSVG,
     StyledProgressCircleSVGBackground,
     StyledProgressCircleSVGColorful,
-    StyledProgressCircleTextContainer,
-    StyledProgressCircleText,
+    StyledProgressCircleContent,
+    StyledProgressCircleCheckSVG,
+    StyledProgressCircleCheckSVGColorful,
 } from './styles';
 
 export type ProgressCircleType = FC<ProgressCirleProps>;
@@ -55,11 +56,18 @@ export const ProgressCircle: ProgressCircleType = ({
                     dashArray={totalDashOffset}
                 />
             </StyledProgressCircleSVG>
-            <StyledProgressCircleTextContainer color={color}>
-                <StyledProgressCircleText key={value}>
-                    {`${value}%`}
-                </StyledProgressCircleText>
-            </StyledProgressCircleTextContainer>
+            <StyledProgressCircleContent>
+                {value === 100 ? (
+                    <StyledProgressCircleCheckSVG
+                        viewBox="0 0 130.2 130.2"
+                        fill="none"
+                    >
+                        <StyledProgressCircleCheckSVGColorful points="100.2,40.2 51.5,88.8 29.8,67.5" />
+                    </StyledProgressCircleCheckSVG>
+                ) : (
+                    <Text key={value}>{`${value}%`}</Text>
+                )}
+            </StyledProgressCircleContent>
         </StyledProgressCircle>
     );
 };

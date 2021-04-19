@@ -1,4 +1,6 @@
 import styled, { css } from 'styled-components';
+import { keyframes } from '../../../../../styled';
+import { StyledText } from '../../../../Typography';
 
 interface StyledSVGCircleProps {
     color?: string;
@@ -11,6 +13,15 @@ interface StyledProgressCircleProps {
     circleSize?: number;
     color?: string;
 }
+
+const dashCheck = keyframes` 
+    0% {
+        stroke-dashoffset: -100;
+    }
+    100% {
+        stroke-dashoffset: 900;
+    }
+`;
 
 export const StyledProgressCircle = styled.div.withConfig({
     shouldForwardProp: (prop) => !['color', 'circleSize'].includes(prop),
@@ -53,24 +64,31 @@ export const StyledProgressCircleSVGColorful = styled.circle.withConfig({
         `}
 `;
 
-export const StyledProgressCircleText = styled.span`
-    font-family: ${(props) => props.theme.font.family};
-    font-size: 26px;
-    font-weight: 700;
+export const StyledProgressCircleContent = styled.div`
     position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     top: 50%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
+
+    ${StyledText} {
+        font-family: ${(props) => props.theme.font.family};
+        font-weight: 700;
+        font-size: ${(props) => props.theme.font.size.md};
+    }
 `;
 
-export const StyledProgressCircleTextContainer = styled.div.withConfig({
-    shouldForwardProp: (prop) => !['color', 'circleSize'].includes(prop),
-})<StyledProgressCircleProps>`
-    transition: color 1s ease;
+export const StyledProgressCircleCheckSVG = styled.svg`
+    height: 100%;
+    width: 100%;
+`;
 
-    ${({ color }) =>
-        color &&
-        css`
-            background-color: ${color};
-        `}
+export const StyledProgressCircleCheckSVGColorful = styled.polyline`
+    stroke: ${(props) => props.theme.color.success.alpha};
+    stroke-width: 10;
+    stroke-linecap: round;
+    stroke-dasharray: 1000;
+    animation: ${dashCheck} 1s ease-in-out forwards;
 `;
