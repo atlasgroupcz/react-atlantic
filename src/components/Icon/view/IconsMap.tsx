@@ -187,6 +187,7 @@ export const IconsMap = {
     duotonePaste: <Icons.DuotonePaste />,
     minimizeSolid: <Icons.MinimizeSolid />,
     split: <Icons.Split />,
+    cookie: <Icons.Cookie />,
 };
 
 export type IconName = keyof typeof IconsMap;
