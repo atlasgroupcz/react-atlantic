@@ -7,14 +7,16 @@ import { StyledTransferListItem } from '../../../../../styles';
 export const StyledTransformRightSideListItem = styled(StyledTransferListItem)<
     StyledTransformRightSideProps
 >`
-    display: flex;
-    align-items: center;
     justify-content: space-between;
 
     &:hover {
         ${StyledIcon} {
             color: ${({ theme }) => theme.color.error.alpha};
         }
+    }
+
+    ${StyledIcon} {
+        flex-shrink: 0;
     }
 
     ${StyledText} {

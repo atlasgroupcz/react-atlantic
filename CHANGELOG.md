@@ -1,3 +1,12 @@
+## [2.0.1](https://github.com/atlasgroupcz/react-atlantic/compare/v2.0.0...v2.0.1) (2021-04-19)
+
+### Bug Fixes
+
+-   🐛 cr ([017c59a](https://github.com/atlasgroupcz/react-atlantic/commit/017c59a10acc866de7cba8ad1264f40030f197ef))
+-   🐛 remove unused import ([9da98ad](https://github.com/atlasgroupcz/react-atlantic/commit/9da98ada72e26a3b98bb07100b81a716b270f6cf))
+-   **checkbox:** 🐛 remove line-height ([9b772cc](https://github.com/atlasgroupcz/react-atlantic/commit/9b772ccca73ddd19233bc027af36712f403e2b49))
+-   **transfer:** 🐛 item flex, icon shrink ([9339abf](https://github.com/atlasgroupcz/react-atlantic/commit/9339abf603c28f77417bc85c1e2f42d252891a09))
+
 # [2.0.0](https://github.com/atlasgroupcz/react-atlantic/compare/1.8.11...2.0.0) (2021-04-14)
 
 ### Bug Fixes

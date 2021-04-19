@@ -151,7 +151,6 @@ export const StyledCheckboxSpan = styled.span.withConfig({
 })<StyledCheckboxProps>`
     padding: 0 ${(props) => props.theme.padding.md};
     user-select: none;
-    line-height: 1;
 
     ${(props) =>
         props.isDisabled &&

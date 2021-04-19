@@ -22,7 +22,8 @@ export const StyledIcon = styled.i.withConfig({
     text-align: center;
     text-transform: none;
 
-    svg {
+    svg,
+    img {
         vertical-align: top;
         width: 100%;
         height: 100%;
