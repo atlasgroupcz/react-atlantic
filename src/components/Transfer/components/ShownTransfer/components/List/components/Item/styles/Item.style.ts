@@ -5,6 +5,8 @@ import { TransferLeftSideItemProps } from '../../../../../../../types/TransferIt
 type StyledTransferListItemProps = Pick<TransferLeftSideItemProps, 'size'>;
 
 export const StyledTransferListItem = styled.li<StyledTransferListItemProps>`
+    display: flex;
+    align-items: center;
     box-sizing: border-box;
     width: 100%;
     padding: 0 ${({ theme }) => theme.padding.md};
