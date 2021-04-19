@@ -1,6 +1,5 @@
 import styled, { css } from 'styled-components';
 import { keyframes } from '../../../../../styled';
-import { StyledIcon } from '../../../../Icon';
 import { StyledText } from '../../../../Typography';
 
 interface StyledSVGCircleProps {
