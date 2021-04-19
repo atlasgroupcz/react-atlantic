@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { keyframes } from '../../../../../styled';
 import { StyledIcon } from '../../../../Icon';
 import { StyledText } from '../../../../Typography';
 
@@ -13,6 +14,14 @@ interface StyledProgressCircleProps {
     circleSize?: number;
     color?: string;
 }
+
+const dashCheck = keyframes` 
+0% {
+    stroke-dashoffset: -100;
+}
+100% {
+    stroke-dashoffset: 900;
+}`;
 
 export const StyledProgressCircle = styled.div.withConfig({
     shouldForwardProp: (prop) => !['color', 'circleSize'].includes(prop),
@@ -55,20 +64,6 @@ export const StyledProgressCircleSVGColorful = styled.circle.withConfig({
         `}
 `;
 
-export const StyledProgressCircleText = styled.span`
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    font-family: ${(props) => props.theme.font.family};
-    font-size: 26px;
-    font-weight: 700;
-    transform: translateX(-50%) translateY(-50%);
-
-    ${StyledIcon} {
-        color: ${(props) => props.theme.color.success.alpha};
-    }
-`;
-
 export const StyledProgressCircleContent = styled.div`
     position: absolute;
     display: flex;
@@ -77,18 +72,23 @@ export const StyledProgressCircleContent = styled.div`
     top: 50%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
-    width: 25%;
-    height: 25%;
-    transition: color 0.3s ease-out;
-
-    ${StyledIcon} {
-        height: 100%;
-        width: 100%;
-        color: ${(props) => props.theme.color.success.alpha};
-    }
 
     ${StyledText} {
         font-family: ${(props) => props.theme.font.family};
         font-weight: 700;
+        font-size: ${(props) => props.theme.font.size.md};
     }
+`;
+
+export const StyledProgressCircleCheckSVG = styled.svg`
+    height: 100%;
+    width: 100%;
+`;
+
+export const StyledProgressCircleCheckSVGColorful = styled.polyline`
+    stroke: ${(props) => props.theme.color.success.alpha};
+    stroke-width: 10;
+    stroke-linecap: round;
+    stroke-dasharray: 1000;
+    animation: ${dashCheck} 1s ease-in-out forwards;
 `;

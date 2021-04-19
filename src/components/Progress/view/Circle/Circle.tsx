@@ -1,5 +1,4 @@
 import React, { FC, useMemo } from 'react';
-import { Icon } from '../../../Icon';
 import { Text } from '../../../Typography';
 import { ProgressCirleProps } from '../../types';
 import {
@@ -12,6 +11,8 @@ import {
     StyledProgressCircleSVGBackground,
     StyledProgressCircleSVGColorful,
     StyledProgressCircleContent,
+    StyledProgressCircleCheckSVG,
+    StyledProgressCircleCheckSVGColorful,
 } from './styles';
 
 export type ProgressCircleType = FC<ProgressCirleProps>;
@@ -56,10 +57,15 @@ export const ProgressCircle: ProgressCircleType = ({
                 />
             </StyledProgressCircleSVG>
             <StyledProgressCircleContent>
-                {value !== 100 ? (
-                    <Text key={value}> {`${value}%`}</Text>
+                {value === 100 ? (
+                    <StyledProgressCircleCheckSVG
+                        viewBox="0 0 130.2 130.2"
+                        fill="none"
+                    >
+                        <StyledProgressCircleCheckSVGColorful points="100.2,40.2 51.5,88.8 29.8,67.5" />
+                    </StyledProgressCircleCheckSVG>
                 ) : (
-                    <Icon name="check" />
+                    <Text key={value}> {`${value}%`}</Text>
                 )}
             </StyledProgressCircleContent>
         </StyledProgressCircle>
