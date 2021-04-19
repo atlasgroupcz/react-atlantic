@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import { Type } from '../../../../types';
+import { StyledIcon } from '../../../Icon';
 
 type StyledSwitchProps = {
     isChecked?: boolean;
@@ -61,6 +62,10 @@ export const StyledSwitcherTrue = styled.div<StyledSwitchProps>`
     background-color: ${({ theme }) => theme.color.border};
     transition: background-color 0.3s ease-out;
 
+    ${StyledIcon} {
+        color: ${({ theme }) => theme.color.text.gamma};
+    }
+
     ${({ theme, isChecked, htmlType }) =>
         isChecked &&
         css`
@@ -114,6 +119,10 @@ export const StyledSwitcherFalse = styled.div<StyledSwitchProps>`
     color: ${({ theme }) => theme.color.text.beta};
     background-color: ${({ theme }) => theme.color.border};
     transition: background-color 0.3s ease-out;
+
+    ${StyledIcon} {
+        color: ${({ theme }) => theme.color.text.beta};
+    }
 `;
 
 StyledSwitchLabel.displayName = 'StyledSwitchLabel';
