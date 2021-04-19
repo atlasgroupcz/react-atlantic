@@ -65,7 +65,7 @@ export const ProgressCircle: ProgressCircleType = ({
                         <StyledProgressCircleCheckSVGColorful points="100.2,40.2 51.5,88.8 29.8,67.5" />
                     </StyledProgressCircleCheckSVG>
                 ) : (
-                    <Text key={value}> {`${value}%`}</Text>
+                    <Text key={value}>{`${value}%`}</Text>
                 )}
             </StyledProgressCircleContent>
         </StyledProgressCircle>

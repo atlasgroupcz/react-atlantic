@@ -15,12 +15,13 @@ interface StyledProgressCircleProps {
 }
 
 const dashCheck = keyframes` 
-0% {
-    stroke-dashoffset: -100;
-}
-100% {
-    stroke-dashoffset: 900;
-}`;
+    0% {
+        stroke-dashoffset: -100;
+    }
+    100% {
+        stroke-dashoffset: 900;
+    }
+`;
 
 export const StyledProgressCircle = styled.div.withConfig({
     shouldForwardProp: (prop) => !['color', 'circleSize'].includes(prop),
