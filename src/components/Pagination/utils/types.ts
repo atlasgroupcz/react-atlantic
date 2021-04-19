@@ -1,4 +1,10 @@
-export type StructureArrayArgs = { count: number; page: number };
+import { PaginationProps } from '../types';
+
+export type StructureArrayArgs = {
+    count: number;
+    page: number;
+    structureSize: PaginationProps['structureSize'];
+};
 export type StructureArray = (args: StructureArrayArgs) => number[];
 
 export type SameScenarioType = <

@@ -10,11 +10,12 @@ export const PaginationBase: FC<PaginationBaseProps> = ({
     onClick,
     as = PaginationButton,
     separator = <PaginationSeparator />,
+    structureSize,
 }) => {
-    const strucArr = useMemo(() => structureArray({ count, page }), [
-        count,
-        page,
-    ]);
+    const strucArr = useMemo(
+        () => structureArray({ count, page, structureSize }),
+        [count, page, structureSize]
+    );
 
     return (
         <>

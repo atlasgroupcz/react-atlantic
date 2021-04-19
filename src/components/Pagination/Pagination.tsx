@@ -8,6 +8,7 @@ export const Pagination: PaginationType = ({
     showArrows = true,
     pageSize = 20,
     total = 0,
+    structureSize = 3,
     left,
     right,
     className,
@@ -28,13 +29,18 @@ export const Pagination: PaginationType = ({
         >
             {showArrows || left || right ? (
                 <PaginationWithArrows
+                    structureSize={structureSize}
                     {...props}
                     count={count}
                     left={left}
                     right={right}
                 />
             ) : (
-                <PaginationBase {...props} count={count} />
+                <PaginationBase
+                    {...props}
+                    structureSize={structureSize}
+                    count={count}
+                />
             )}
         </StyledPaginationContainer>
     );

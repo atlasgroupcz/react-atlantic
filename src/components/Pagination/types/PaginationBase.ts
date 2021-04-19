@@ -10,4 +10,5 @@ export type PaginationBaseProps<
     as?: FC<T>;
     separator?: ReactNode;
     onClick?: (e: React.MouseEvent<S, MouseEvent>, page: number) => void;
+    structureSize?: number;
 };
