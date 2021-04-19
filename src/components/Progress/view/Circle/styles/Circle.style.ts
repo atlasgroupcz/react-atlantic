@@ -92,15 +92,3 @@ export const StyledProgressCircleContent = styled.div`
         font-weight: 700;
     }
 `;
-
-export const StyledProgressCircleTextContainer = styled.div.withConfig({
-    shouldForwardProp: (prop) => !['color', 'circleSize'].includes(prop),
-})<StyledProgressCircleProps>`
-    transition: color 1s ease;
-
-    ${({ color }) =>
-        color &&
-        css`
-            background-color: ${color};
-        `}
-`;
