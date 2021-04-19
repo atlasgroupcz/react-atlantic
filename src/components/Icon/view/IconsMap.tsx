@@ -180,8 +180,14 @@ export const IconsMap = {
     duotoneScreen: <Icons.DuotoneScreen />,
     duotoneFolders: <Icons.DuotoneFolders />,
     duotoneGlobe: <Icons.DuotoneGlobe />,
+    duotoneDigging: <Icons.DuotoneDigging />,
+    duotoneWorker: <Icons.DuotoneWorker />,
+    duotoneUserShield: <Icons.DuotoneUserShield />,
+    duotoneCarBuilding: <Icons.DuotoneCarBuilding />,
+    duotonePaste: <Icons.DuotonePaste />,
     minimizeSolid: <Icons.MinimizeSolid />,
     split: <Icons.Split />,
+    cookie: <Icons.Cookie />,
 };
 
 export type IconName = keyof typeof IconsMap;
