@@ -21,4 +21,3 @@ export * from './Message';
 export * from './TextArea';
 export * from './RadioButton';
 export * from './Switch';
-export * from './Transfer';
