@@ -1,9 +1,10 @@
 import styled, { css } from 'styled-components';
 
-const titleStyle = css`
+export const getDefaultTitleStyles = () => css`
     color: ${(props) => props.theme.color.text.alpha};
     font-weight: 600;
     font-family: ${(props) => props.theme.font.family};
+
     ::selection,
     ::-moz-selection {
         background: ${(props) => props.theme.color.primary.delta};
@@ -11,7 +12,7 @@ const titleStyle = css`
 `;
 
 export const StyledTitle1 = styled.h1`
-    ${titleStyle};
+    ${getDefaultTitleStyles()}
 
     font-size: 40px;
     line-height: 1.2;
@@ -23,7 +24,7 @@ export const StyledTitle1 = styled.h1`
 `;
 
 export const StyledTitle2 = styled.h2`
-    ${titleStyle};
+    ${getDefaultTitleStyles()}
 
     font-size: 32px;
     line-height: 1.3;
@@ -35,7 +36,7 @@ export const StyledTitle2 = styled.h2`
 `;
 
 export const StyledTitle3 = styled.h3`
-    ${titleStyle};
+    ${getDefaultTitleStyles()}
 
     font-size: 26px;
     line-height: 1.3;
@@ -47,7 +48,7 @@ export const StyledTitle3 = styled.h3`
 `;
 
 export const StyledTitle4 = styled.h4`
-    ${titleStyle};
+    ${getDefaultTitleStyles()}
 
     font-size: 18px;
     line-height: 1.4;
@@ -59,7 +60,7 @@ export const StyledTitle4 = styled.h4`
 `;
 
 export const StyledTitle5 = styled.h5`
-    ${titleStyle};
+    ${getDefaultTitleStyles()}
 
     font-size: 16px;
     line-height: 1.5;
