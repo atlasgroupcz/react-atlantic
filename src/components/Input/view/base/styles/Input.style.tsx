@@ -3,14 +3,7 @@ import styled from 'styled-components';
 import { InputProps } from '../types';
 import { css } from '../../../../../styled';
 
-export const StyledInput = styled(
-    forwardRef<HTMLInputElement, InputProps>(
-        (
-            { size, isRound, isFullWidth, isDisabled, htmlType, ...props },
-            ref
-        ) => <input {...props} ref={ref} type={htmlType} />
-    )
-)<InputProps>`
+export const getDefaultInputStyles = () => css`
     box-sizing: border-box;
     display: inline-block;
     margin: 0;
@@ -40,12 +33,40 @@ export const StyledInput = styled(
     &::-ms-clear {
         display: none;
     }
+`;
 
-    ${(props) =>
-        props.isFullWidth &&
-        css`
-            width: 100%;
-        `}
+export const getInputFullWidthStyles = (isFullWidth: boolean) => css`
+    ${isFullWidth &&
+    css`
+        width: 100%;
+    `}
+`;
+
+export const getInputDisabledStyles = (isDisabled: boolean) => css`
+    ${isDisabled &&
+    css`
+        color: ${(props) => props.theme.color.text.beta};
+        cursor: not-allowed;
+
+        ::placeholder {
+            color: ${(props) => props.theme.color.text.beta};
+        }
+    `}
+`;
+
+export const StyledInput = styled(
+    forwardRef<HTMLInputElement, InputProps>(
+        (
+            { size, isRound, isFullWidth, isDisabled, htmlType, ...props },
+            ref
+        ) => <input {...props} ref={ref} type={htmlType} />
+    )
+)<InputProps>`
+    ${getDefaultInputStyles()};
+
+    ${(props) => getInputFullWidthStyles(props.isFullWidth as boolean)}
+
+    ${(props) => getInputDisabledStyles(props.isDisabled as boolean)}
 
     ${(props) =>
         props.size === 'small' &&
@@ -72,17 +93,6 @@ export const StyledInput = styled(
             i + span,
             span + i {
                 margin-left: ${props.theme.margin.lg};
-            }
-        `}
-  
-  ${(props) =>
-        props.isDisabled &&
-        css`
-            color: ${props.theme.color.text.beta};
-            cursor: not-allowed;
-
-            ::placeholder {
-                color: ${props.theme.color.text.beta};
             }
         `}
 `;
