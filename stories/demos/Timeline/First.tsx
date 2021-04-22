@@ -3,7 +3,7 @@ import { Icon, IconProps, Text, TimelineItem, Timeline } from '../../../src';
 import {
     TimelineItemProps,
     TimelineOnClick,
-} from '../../../src/components/Timeline/view/Item/Item.types';
+} from '../../../src/components/Timeline/view/Default/components/Item/types/Item.types';
 
 export const FirstTimelineDemo = () => {
     const ref = useRef<HTMLLIElement | null>(null);

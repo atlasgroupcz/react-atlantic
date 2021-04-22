@@ -3,10 +3,13 @@ import { storiesOf } from '@storybook/react';
 import { number, select, text, withKnobs } from '@storybook/addon-knobs';
 import { Type } from '../src/types';
 import { defaultValues } from './constants';
-import { Timeline, TimelineItem } from '../src/components/Timeline/view';
+import {
+    DefaultTimeline,
+    TimelineItem,
+} from '../src/components/Timeline/view/Default';
 import { Icon } from '../src/components/Icon';
 import { Text } from '../src/components/Typography';
-import { TimelineItemProps } from '../src/components/Timeline/view/Item/Item.types';
+import { TimelineItemProps } from '../src/components/Timeline/view/Default/components/Item/types/Item.types';
 import { TimelineProps } from '../src/components/Timeline/types';
 import { FirstTimelineDemo } from './demos/Timeline';
 
@@ -59,14 +62,14 @@ stories.add(
         };
 
         return (
-            <Timeline {...timelineProps}>
+            <DefaultTimeline {...timelineProps}>
                 {[...Array(numberOfItems).keys()].map((_, i) => (
                     <TimelineItem
                         key={i}
                         {...timelineItemProps}
                     >{`item ${i}`}</TimelineItem>
                 ))}
-            </Timeline>
+            </DefaultTimeline>
         );
     },
     {

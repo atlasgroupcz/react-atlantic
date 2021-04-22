@@ -1,8 +1,8 @@
 import React, { forwardRef, PropsWithChildren } from 'react';
-import { Type, MouseEvents } from '../../../../../types';
-import { styled } from '../../../../../styled';
-import { TimelineItemProps } from '../Item.types';
-import { StyledIcon } from '../../../../Icon';
+import { Type, MouseEvents } from '../../../../../../../types';
+import { styled } from '../../../../../../../styled';
+import { TimelineItemProps } from '../types';
+import { StyledIcon } from '../../../../../../Icon';
 
 export interface StyledTimelineCircleProps {
     isActive?: Readonly<boolean>;

@@ -5,10 +5,10 @@ import {
     StyledTimelineItemCircleContainer,
     StyledTimelineItemContent,
     StyledTimelineItemContentContainer,
-} from './style';
-import { TimelineItemType } from './Item.types';
-import { Text } from '../../../Typography/Text';
-import { useTimelineContext } from '../../context';
+} from './styles';
+import { TimelineItemType } from './types';
+import { Text } from '../../../../../Typography/Text';
+import { useTimelineContext } from '../../../../context';
 
 export const TimelineItem: TimelineItemType = forwardRef(
     (

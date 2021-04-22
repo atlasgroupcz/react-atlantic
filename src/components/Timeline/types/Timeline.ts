@@ -1,4 +1,4 @@
-import { TimelineItem } from '../view/Item';
+import { TimelineItem } from '../view/Default/components/Item';
 import { CommonHTMLProps, HorizontalPosition } from '../../../types';
 import {
     PropsWithChildren,
