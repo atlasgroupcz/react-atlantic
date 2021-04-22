@@ -1,6 +1,7 @@
 import React, { forwardRef } from 'react';
 import styled from 'styled-components';
 import { css } from '../../../styled';
+import { getDefaultTypographyStyles } from '../../Typography';
 import { TextAreaProps } from '../types';
 
 export const StyledTextArea = styled(
@@ -10,6 +11,7 @@ export const StyledTextArea = styled(
         )
     )
 )<TextAreaProps>`
+    ${(props) => getDefaultTypographyStyles(props)};
     position: relative;
     display: inline-block;
     min-width: 150px;
@@ -22,9 +24,6 @@ export const StyledTextArea = styled(
     margin: 0;
 
     vertical-align: middle;
-    line-height: 1.5;
-    font-family: ${(props) => props.theme.font.family};
-    font-size: ${(props) => props.theme.font.size.md};
     font-weight: 400;
     overflow: auto;
     -webkit-appearance: none;
