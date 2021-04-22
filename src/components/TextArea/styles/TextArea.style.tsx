@@ -4,13 +4,7 @@ import { css } from '../../../styled';
 import { getDefaultTypographyStyles } from '../../Typography';
 import { TextAreaProps } from '../types';
 
-export const StyledTextArea = styled(
-    forwardRef<HTMLTextAreaElement, TextAreaProps>(
-        ({ size, isFullWidth, isDisabled, allowResize, ...props }, ref) => (
-            <textarea {...props} ref={ref} />
-        )
-    )
-)<TextAreaProps>`
+export const getDefaultTextAreaStyles = () => css`
     ${(props) => getDefaultTypographyStyles(props)};
     position: relative;
     display: inline-block;
@@ -40,51 +34,63 @@ export const StyledTextArea = styled(
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 
-    ::placeholder {
+    &::placeholder {
         color: ${(props) => props.theme.color.text.beta};
     }
 
-    :focus {
+    &:focus {
         border-color: ${(props) => props.theme.color.primary.alpha};
         outline-offset: -2px;
         box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.3);
-    }
-
-    ${(props) =>
-        props.isDisabled &&
-        css`
-            color: ${props.theme.color.text.beta};
-
-            ::placeholder {
-                color: ${props.theme.color.text.beta};
-            }
-
-            background-color: ${props.theme.color.default};
-            cursor: not-allowed;
-            outline: 0;
-
-            &:hover,
-            &:focus {
-                outline: 0;
-                box-shadow: none;
-                border: 1px solid ${props.theme.color.border};
-            }
-        `}
-
-    &::placeholder {
-        color: ${(props) => props.theme.color.text.beta};
     }
 
     // Hide IE clear button
     &::-ms-clear {
         display: none;
     }
+`;
 
-    ${(props) =>
-        props.isFullWidth &&
-        css`
-            width: 100%;
-        `}
+export const getDisabledTextAreaStyles = (isDisabled: boolean) => css`
+    ${isDisabled &&
+    css`
+        color: ${(props) => props.theme.color.text.beta};
+
+        ::placeholder {
+            color: ${(props) => props.theme.color.text.beta};
+        }
+
+        background-color: ${(props) => props.theme.color.default};
+        cursor: not-allowed;
+        outline: 0;
+
+        &:hover,
+        &:focus {
+            outline: 0;
+            box-shadow: none;
+            border: 1px solid ${(props) => props.theme.color.border};
+        }
+    `}
+`;
+
+export const getTextAreaFullWidthStyles = (isFullWidth: boolean) => css`
+    ${isFullWidth &&
+    css`
+        width: 100%;
+    `}
+`;
+
+export const StyledTextArea = styled(
+    forwardRef<HTMLTextAreaElement, TextAreaProps>(
+        ({ size, isFullWidth, isDisabled, allowResize, ...props }, ref) => (
+            <textarea {...props} ref={ref} />
+        )
+    )
+)<TextAreaProps>`
+    ${getDefaultTextAreaStyles()};
+
+    ${(props) => getDisabledTextAreaStyles(props.isDisabled as boolean)};
+
+    ${(props) => getTextAreaFullWidthStyles(props.isFullWidth as boolean)}
 
     ${(props) =>
         props.size === 'small' &&
