@@ -1,5 +1,5 @@
 import React, { FC, PropsWithChildren } from 'react';
-import { StyledParagraph } from './styles/Paragraph.style';
+import { StyledParagraph } from './styles';
 import { ParagraphProps } from './types';
 
 export const Paragraph: FC<PropsWithChildren<ParagraphProps>> = ({
