@@ -1,6 +1,6 @@
 import { css, styled } from '../../../styled';
 
-export const tooltipStyles = css<{ positionAttr: string }>`
+export const getDefaultTooltipStyles = () => css<{ positionAttr: string }>`
     opacity: 0;
     visibility: hidden;
     z-index: 1000;
@@ -18,7 +18,7 @@ export const tooltipStyles = css<{ positionAttr: string }>`
 `;
 
 export const StyledTooltip = styled.div<{ positionAttr: string }>`
-    ${tooltipStyles}
+    ${getDefaultTooltipStyles()}
 `;
 
 export const StyledTooltipContainer = styled.div`

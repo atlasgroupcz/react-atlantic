@@ -1,6 +1,5 @@
 import React, { FC, ReactNode } from 'react';
 import { StyledTooltip } from './styles';
-
 export interface TooltipProps {
     content: ReactNode;
     Component?: FC<any>;
