@@ -2,7 +2,7 @@ import { SameScenarioType } from './types';
 import { middleScenario } from './middleScenario';
 import { noMiddleScenario } from './noMiddleScenario';
 
-export const sameScenarion: SameScenarioType = (l, args) => {
+export const sameScenario: SameScenarioType = (l, args) => {
     if (args.count === 0) {
         l.push(0);
     } else {
