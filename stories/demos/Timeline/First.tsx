@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
-import { Icon, IconProps, Text, TimelineItem, Timeline } from '../../../src';
+import { Icon, IconProps, Text, Timeline } from '../../../src';
+import { TimelineItem } from '../../../src/components/Timeline/view/Default/components';
 import {
     TimelineItemProps,
     TimelineOnClick,
