@@ -8,6 +8,7 @@ export type PaginationBaseProps<
     count?: number;
     page?: number;
     as?: FC<T>;
-    separator?: ReactNode;
+    separatorLeft?: ReactNode;
+    separatorRight?: ReactNode;
     onClick?: (e: React.MouseEvent<S, MouseEvent>, page: number) => void;
 };

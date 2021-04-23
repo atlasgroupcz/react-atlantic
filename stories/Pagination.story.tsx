@@ -76,7 +76,7 @@ stories.add(
             separatorText = text('separatorText', 'prdel');
         }
 
-        const separator: PaginationProps['separator'] =
+        const separator: PaginationProps['separatorLeft'] =
             separatorType === 'text' ? (
                 <Title>{separatorText}</Title>
             ) : (
@@ -100,7 +100,8 @@ stories.add(
             pageSize,
             total,
             showArrows,
-            separator,
+            separatorLeft: separator,
+            separatorRight: separator,
             as,
             left,
             right,
