@@ -3,15 +3,13 @@ import { storiesOf } from '@storybook/react';
 import { number, select, text, withKnobs } from '@storybook/addon-knobs';
 import { Type } from '../src/types';
 import { defaultValues } from './constants';
-import {
-    DefaultTimeline,
-    TimelineItem,
-} from '../src/components/Timeline/view/Default';
+import { DefaultTimeline } from '../src/components/Timeline/view/Default';
 import { Icon } from '../src/components/Icon';
 import { Text } from '../src/components/Typography';
 import { TimelineItemProps } from '../src/components/Timeline/view/Default/components/Item/types/Item.types';
 import { TimelineProps } from '../src/components/Timeline/types';
 import { FirstTimelineDemo } from './demos/Timeline';
+import { TimelineItem } from '../src/components/Timeline/view/Default/components';
 
 const stories = storiesOf('Timeline', module);
 
