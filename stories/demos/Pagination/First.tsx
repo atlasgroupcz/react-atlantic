@@ -18,7 +18,8 @@ export const PaginationFirstDemo = () => {
                 pageSize={30}
                 onClick={handleClick}
                 showArrows={true}
-                separator={<div>FUCK</div>}
+                separatorLeft={<div>FUCK</div>}
+                separatorRight={<div>FUCK</div>}
                 left={() => <>left</>}
                 right={() => <>right</>}
             />
