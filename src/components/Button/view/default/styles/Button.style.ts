@@ -211,7 +211,7 @@ export const getButtonFullWidthStyles = (isFullWidth: boolean) => css`
     `}
 `;
 
-export const getDisabledButtonStyles = (isDisabled: boolean) =>
+export const getButtonDisabledStyles = (isDisabled: boolean) =>
     css`
         ${isDisabled &&
         css`
@@ -272,5 +272,5 @@ export const StyledButton = styled.button.withConfig({
     
     ${(props) => getButtonFullWidthStyles(props.isFullWidth as boolean)}
 
-    ${(props) => getDisabledButtonStyles(props.isDisabled as boolean)}
+    ${(props) => getButtonDisabledStyles(props.isDisabled as boolean)}
 ` as StyledComponent<FC<StyledButtonProps>, {}>;
