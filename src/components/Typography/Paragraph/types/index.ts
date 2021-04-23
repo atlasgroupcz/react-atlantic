@@ -1,1 +1,1 @@
-export * from './Typography.type';
+export * from './Paragraph.type';
