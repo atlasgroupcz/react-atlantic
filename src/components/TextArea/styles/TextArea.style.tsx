@@ -50,7 +50,7 @@ export const getDefaultTextAreaStyles = () => css`
     }
 `;
 
-export const getDisabledTextAreaStyles = (isDisabled: boolean) => css`
+export const getTextAreaDisabledStyles = (isDisabled: boolean) => css`
     ${isDisabled &&
     css`
         color: ${(props) => props.theme.color.text.beta};
@@ -79,21 +79,9 @@ export const getTextAreaFullWidthStyles = (isFullWidth: boolean) => css`
     `}
 `;
 
-export const StyledTextArea = styled(
-    forwardRef<HTMLTextAreaElement, TextAreaProps>(
-        ({ size, isFullWidth, isDisabled, allowResize, ...props }, ref) => (
-            <textarea {...props} ref={ref} />
-        )
-    )
-)<TextAreaProps>`
-    ${getDefaultTextAreaStyles()};
-
-    ${(props) => getDisabledTextAreaStyles(props.isDisabled as boolean)};
-
-    ${(props) => getTextAreaFullWidthStyles(props.isFullWidth as boolean)}
-
+export const getTextAreaSizeStyles = (size: TextAreaProps['size']) => css`
     ${(props) =>
-        props.size === 'small' &&
+        size === 'small' &&
         css`
             font-size: ${props.theme.font.size.sm};
 
@@ -102,15 +90,15 @@ export const StyledTextArea = styled(
                 margin-left: ${props.theme.margin.sm};
             }
         `}
-  
+
     ${(props) =>
-        props.size === 'medium' &&
+        size === 'medium' &&
         css`
             font-size: ${props.theme.font.size.md};
         `}
   
     ${(props) =>
-        props.size === 'large' &&
+        size === 'large' &&
         css`
             font-size: ${props.theme.font.size.lg};
 
@@ -119,6 +107,19 @@ export const StyledTextArea = styled(
                 margin-left: ${props.theme.margin.lg};
             }
         `}
+`;
+
+export const StyledTextArea = styled(
+    forwardRef<HTMLTextAreaElement, TextAreaProps>(
+        ({ size, isFullWidth, isDisabled, allowResize, ...props }, ref) => (
+            <textarea {...props} ref={ref} />
+        )
+    )
+)<TextAreaProps>`
+    ${getDefaultTextAreaStyles()}
+    ${(props) => getTextAreaDisabledStyles(props.isDisabled as boolean)}
+    ${(props) => getTextAreaFullWidthStyles(props.isFullWidth as boolean)}
+    ${(props) => getTextAreaSizeStyles(props.size as TextAreaProps['size'])}
 
     resize: ${({ allowResize = false }) => (allowResize ? `both` : `none`)};
 `;
