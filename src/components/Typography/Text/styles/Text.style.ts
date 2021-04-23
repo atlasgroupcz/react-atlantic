@@ -2,62 +2,48 @@ import styled, { css } from 'styled-components';
 import { TextProps } from '../types';
 import { getDefaultTypographyStyles } from '../../styles';
 
-export const StyledText = styled.span<TextProps>`
-    ${(props) => getDefaultTypographyStyles(props)};
+export const getTextColor = (type: TextProps['type']) => css`
+    ${(props) =>
+        type === 'default' &&
+        css`
+            color: ${props.theme.color.text.alpha};
+        `}
 
     ${(props) =>
-        props.type === 'primary' &&
+        type === 'primary' &&
         css`
             color: ${props.theme.color.primary.alpha};
         `}
 
     ${(props) =>
-        props.type === 'success' &&
+        type === 'success' &&
         css`
             color: ${props.theme.color.success.alpha};
         `}
   
   ${(props) =>
-        props.type === 'warning' &&
+        type === 'warning' &&
         css`
             color: ${props.theme.color.warning.alpha};
         `}
   
   ${(props) =>
-        props.type === 'error' &&
+        type === 'error' &&
         css`
             color: ${props.theme.color.error.alpha};
         `}
 `;
 
+export const StyledText = styled.span<TextProps>`
+    ${(props) => getDefaultTypographyStyles(props)};
+    ${(props) => getTextColor(props.type as TextProps['type'])};
+`;
+
 export const StyledStrongText = styled.strong<TextProps>`
     ${(props) => getDefaultTypographyStyles(props)};
+    ${(props) => getTextColor(props.type as TextProps['type'])};
 
     font-weight: 600;
-
-    ${(props) =>
-        props.type === 'primary' &&
-        css`
-            color: ${props.theme.color.primary.alpha};
-        `}
-
-    ${(props) =>
-        props.type === 'success' &&
-        css`
-            color: ${props.theme.color.success.alpha};
-        `}
-  
-  ${(props) =>
-        props.type === 'warning' &&
-        css`
-            color: ${props.theme.color.warning.alpha};
-        `}
-  
-  ${(props) =>
-        props.type === 'error' &&
-        css`
-            color: ${props.theme.color.error.alpha};
-        `}
 `;
 
 export const StyledMarkText = styled.mark<TextProps>`
