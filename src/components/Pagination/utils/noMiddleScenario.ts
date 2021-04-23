@@ -1,12 +1,8 @@
 import { NoMiddleScenarioType } from './types';
 
-export const noMiddleScenario: NoMiddleScenarioType = (
-    right,
-    l,
-    { count, page }
-) => {
+export const noMiddleScenario: NoMiddleScenarioType = (right, l, { count }) => {
     if (count > 6) {
-        if (right && true) {
+        if (right) {
             l.push(-1);
         }
         for (
@@ -16,8 +12,8 @@ export const noMiddleScenario: NoMiddleScenarioType = (
         ) {
             l.push(i);
         }
-        if (!right && true) {
-            l.push(-1);
+        if (!right) {
+            l.push(-2);
         }
     } else {
         for (let i = 2; i < count; i++) {

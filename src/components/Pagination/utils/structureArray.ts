@@ -1,8 +1,8 @@
-import { sameScenarion } from './sameScenario';
+import { sameScenario } from './sameScenario';
 import { StructureArray } from './types';
 
 export const structureArray: StructureArray = (args) => {
     const res: ReturnType<StructureArray> = [];
-    sameScenarion(res, args);
+    sameScenario(res, args);
     return res;
 };
