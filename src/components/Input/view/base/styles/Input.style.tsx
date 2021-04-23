@@ -54,22 +54,9 @@ export const getInputDisabledStyles = (isDisabled: boolean) => css`
     `}
 `;
 
-export const StyledInput = styled(
-    forwardRef<HTMLInputElement, InputProps>(
-        (
-            { size, isRound, isFullWidth, isDisabled, htmlType, ...props },
-            ref
-        ) => <input {...props} ref={ref} type={htmlType} />
-    )
-)<InputProps>`
-    ${getDefaultInputStyles()};
-
-    ${(props) => getInputFullWidthStyles(props.isFullWidth as boolean)}
-
-    ${(props) => getInputDisabledStyles(props.isDisabled as boolean)}
-
+export const getInputSizeStyles = (size: InputProps['size']) => css`
     ${(props) =>
-        props.size === 'small' &&
+        size === 'small' &&
         css`
             font-size: ${props.theme.font.size.sm};
 
@@ -78,15 +65,15 @@ export const StyledInput = styled(
                 margin-left: ${props.theme.margin.sm};
             }
         `}
-  
-  ${(props) =>
-        props.size === 'medium' &&
+
+    ${(props) =>
+        size === 'medium' &&
         css`
             font-size: ${props.theme.font.size.md};
         `}
   
   ${(props) =>
-        props.size === 'large' &&
+        size === 'large' &&
         css`
             font-size: ${props.theme.font.size.lg};
 
@@ -95,4 +82,18 @@ export const StyledInput = styled(
                 margin-left: ${props.theme.margin.lg};
             }
         `}
+`;
+
+export const StyledInput = styled(
+    forwardRef<HTMLInputElement, InputProps>(
+        (
+            { size, isRound, isFullWidth, isDisabled, htmlType, ...props },
+            ref
+        ) => <input {...props} ref={ref} type={htmlType} />
+    )
+)<InputProps>`
+    ${getDefaultInputStyles()}
+    ${(props) => getInputFullWidthStyles(props.isFullWidth as boolean)}
+    ${(props) => getInputDisabledStyles(props.isDisabled as boolean)}
+    ${(props) => getInputSizeStyles(props.size as InputProps['size'])}
 `;
