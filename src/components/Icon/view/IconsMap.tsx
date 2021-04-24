@@ -188,6 +188,7 @@ export const IconsMap = {
     minimizeSolid: <Icons.MinimizeSolid />,
     split: <Icons.Split />,
     cookie: <Icons.Cookie />,
+    cart: <Icons.Cart />,
 };
 
 export type IconName = keyof typeof IconsMap;
