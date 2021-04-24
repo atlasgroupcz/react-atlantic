@@ -4,6 +4,22 @@
 
 -   **pagination:** ✨ separator separated to left/right components ([9c2cc66](https://github.com/atlasgroupcz/react-atlantic/commit/9c2cc662d2bdc84ec08fdc9a282b99aba523769a))
 
+## [2.0.3](https://github.com/atlasgroupcz/react-atlantic/compare/2.0.1...2.0.3) (2021-04-24)
+
+### Bug Fixes
+
+-   **pagination:** 🐛 noMiddleScenario ([c87bdd9](https://github.com/atlasgroupcz/react-atlantic/commit/c87bdd93f62d777e5c269436309e9b042a8ba566))
+
+### Features
+
+-   **pagination:** ✨ separator separated to left/right components ([9c2cc66](https://github.com/atlasgroupcz/react-atlantic/commit/9c2cc662d2bdc84ec08fdc9a282b99aba523769a))
+
+## [2.0.2](https://github.com/atlasgroupcz/react-atlantic/compare/2.0.1...2.0.2) (2021-04-23)
+
+### Features
+
+-   **pagination:** ✨ separator separated to left/right components ([9c2cc66](https://github.com/atlasgroupcz/react-atlantic/commit/9c2cc662d2bdc84ec08fdc9a282b99aba523769a))
+
 ## [2.0.1](https://github.com/atlasgroupcz/react-atlantic/compare/v2.0.0...v2.0.1) (2021-04-19)
 
 ### Bug Fixes
