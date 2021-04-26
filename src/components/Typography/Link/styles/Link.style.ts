@@ -7,10 +7,10 @@ import {
     StyledTitle4,
     StyledTitle5,
 } from '../../Title';
-import { getDefaultTypographyStyles } from '../../styles';
+import { getTypographyDefaultStyles } from '../../styles';
 
-export const getDefaultLinkStyles = () => css`
-    ${(props) => getDefaultTypographyStyles(props)};
+export const getLinkDefaultStyles = () => css`
+    ${(props) => getTypographyDefaultStyles(props)};
     text-decoration: none;
     cursor: pointer;
     padding: 0;
@@ -27,5 +27,5 @@ export const getDefaultLinkStyles = () => css`
 `;
 
 export const StyledLink = styled.a`
-    ${getDefaultLinkStyles()}
+    ${getLinkDefaultStyles()}
 `;

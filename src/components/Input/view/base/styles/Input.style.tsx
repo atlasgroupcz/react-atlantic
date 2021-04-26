@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { InputProps } from '../types';
 import { css } from '../../../../../styled';
 
-export const getDefaultInputStyles = () => css`
+export const getInputDefaultStyles = () => css`
     box-sizing: border-box;
     display: inline-block;
     margin: 0;
@@ -92,7 +92,7 @@ export const StyledInput = styled(
         ) => <input {...props} ref={ref} type={htmlType} />
     )
 )<InputProps>`
-    ${getDefaultInputStyles()}
+    ${getInputDefaultStyles()}
     ${(props) => getInputFullWidthStyles(props.isFullWidth as boolean)}
     ${(props) => getInputDisabledStyles(props.isDisabled as boolean)}
     ${(props) => getInputSizeStyles(props.size as InputProps['size'])}

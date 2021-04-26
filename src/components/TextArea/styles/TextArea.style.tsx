@@ -1,11 +1,11 @@
 import React, { forwardRef } from 'react';
 import styled from 'styled-components';
 import { css } from '../../../styled';
-import { getDefaultTypographyStyles } from '../../Typography';
+import { getTypographyDefaultStyles } from '../../Typography';
 import { TextAreaProps } from '../types';
 
-export const getDefaultTextAreaStyles = () => css`
-    ${(props) => getDefaultTypographyStyles(props)};
+export const getTextAreaDefaultStyles = () => css`
+    ${(props) => getTypographyDefaultStyles(props)};
     position: relative;
     display: inline-block;
     min-width: 150px;
@@ -116,7 +116,7 @@ export const StyledTextArea = styled(
         )
     )
 )<TextAreaProps>`
-    ${getDefaultTextAreaStyles()}
+    ${getTextAreaDefaultStyles()}
     ${(props) => getTextAreaDisabledStyles(props.isDisabled as boolean)}
     ${(props) => getTextAreaFullWidthStyles(props.isFullWidth as boolean)}
     ${(props) => getTextAreaSizeStyles(props.size as TextAreaProps['size'])}

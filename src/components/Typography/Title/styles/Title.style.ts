@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-export const getDefaultTitleStyles = () => css`
+export const getTitleDefaultStyles = () => css`
     color: ${(props) => props.theme.color.text.alpha};
     font-weight: 600;
     font-family: ${(props) => props.theme.font.family};
@@ -12,7 +12,7 @@ export const getDefaultTitleStyles = () => css`
 `;
 
 export const StyledTitle1 = styled.h1`
-    ${getDefaultTitleStyles()}
+    ${getTitleDefaultStyles()}
 
     font-size: 40px;
     line-height: 1.2;
@@ -24,7 +24,7 @@ export const StyledTitle1 = styled.h1`
 `;
 
 export const StyledTitle2 = styled.h2`
-    ${getDefaultTitleStyles()}
+    ${getTitleDefaultStyles()}
 
     font-size: 32px;
     line-height: 1.3;
@@ -36,7 +36,7 @@ export const StyledTitle2 = styled.h2`
 `;
 
 export const StyledTitle3 = styled.h3`
-    ${getDefaultTitleStyles()}
+    ${getTitleDefaultStyles()}
 
     font-size: 26px;
     line-height: 1.3;
@@ -48,7 +48,7 @@ export const StyledTitle3 = styled.h3`
 `;
 
 export const StyledTitle4 = styled.h4`
-    ${getDefaultTitleStyles()}
+    ${getTitleDefaultStyles()}
 
     font-size: 18px;
     line-height: 1.4;
@@ -60,7 +60,7 @@ export const StyledTitle4 = styled.h4`
 `;
 
 export const StyledTitle5 = styled.h5`
-    ${getDefaultTitleStyles()}
+    ${getTitleDefaultStyles()}
 
     font-size: 16px;
     line-height: 1.5;

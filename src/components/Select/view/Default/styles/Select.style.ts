@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { getDefaultTypographyStyles } from '../../../../Typography/styles';
+import { getTypographyDefaultStyles } from '../../../../Typography/styles';
 import { StyledIcon } from '../../../../Icon/view/styles';
 import { SelectProps } from '../../../types';
 
@@ -151,7 +151,7 @@ export const StyledDefaultSelect = styled.div<StyledDefaultSelectProps>`
 export const StyledDefaultSelectContainer = styled.div<
     StyledDefaultSelectProps
 >`
-    ${(props) => getDefaultTypographyStyles(props)};
+    ${(props) => getTypographyDefaultStyles(props)};
     box-sizing: border-box;
     position: relative;
     margin: 0;

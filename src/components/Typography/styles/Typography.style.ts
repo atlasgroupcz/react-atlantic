@@ -1,7 +1,7 @@
 import { ThemeType } from '../../../theme';
 import { css } from 'styled-components';
 
-export const getDefaultTypographyStyles = (props: { theme: ThemeType }) => css`
+export const getTypographyDefaultStyles = (props: { theme: ThemeType }) => css`
     color: ${props.theme.color.text.alpha};
     font-size: ${props.theme.font.size.md};
     font-family: ${props.theme.font.family};

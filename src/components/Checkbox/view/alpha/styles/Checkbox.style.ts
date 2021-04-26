@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import { Size } from '../../../../../types';
 import { StyledIcon } from '../../../../Icon';
-import { getDefaultTypographyStyles } from '../../../../Typography';
+import { getTypographyDefaultStyles } from '../../../../Typography';
 
 type StyledCheckboxProps = {
     isChecked?: boolean;
@@ -48,7 +48,7 @@ export const StyledCheckboxInputShown = styled('div').withConfig({
 export const StyledCheckboxLabel = styled.label.withConfig({
     shouldForwardProp: (prop) => !['isDisabled', 'size'].includes(prop),
 })<StyledCheckboxProps>`
-    ${(props) => getDefaultTypographyStyles(props)};
+    ${(props) => getTypographyDefaultStyles(props)};
     position: relative;
     display: inline-flex;
     align-items: center;

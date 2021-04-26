@@ -29,7 +29,7 @@ const focusAnimation = keyframes`
     }
 `;
 
-export const getDefaultButtonStyles = () => css`
+export const getButtonDefaultStyles = () => css`
     position: relative;
     display: inline-block;
     padding: 0 ${(props) => props.theme.padding.md};
@@ -238,7 +238,7 @@ export const StyledButton = styled.button.withConfig({
             'atlanticType',
         ].includes(prop),
 })<StyledButtonProps>`
-    ${getDefaultButtonStyles()};
+    ${getButtonDefaultStyles()};
     ${(props) =>
         !props.isDisabled &&
         props.isTransparent &&
