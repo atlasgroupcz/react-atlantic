@@ -1,3 +1,17 @@
+## [2.0.4](https://github.com/atlasgroupcz/react-atlantic/compare/2.0.2...2.0.4) (2021-04-27)
+
+### Bug Fixes
+
+-   🐛 checkbox disabled ([f522eda](https://github.com/atlasgroupcz/react-atlantic/commit/f522edaded2b593f664d3d33673b0a59056e3780))
+-   🐛 isDisabled && isChecked checkbox ([ef0d330](https://github.com/atlasgroupcz/react-atlantic/commit/ef0d3302bbbaaa7a82bedfcdbc1483836cc8b449))
+-   **pagination:** 🐛 noMiddleScenario ([c87bdd9](https://github.com/atlasgroupcz/react-atlantic/commit/c87bdd93f62d777e5c269436309e9b042a8ba566))
+-   🐛 add components export ([eee14c9](https://github.com/atlasgroupcz/react-atlantic/commit/eee14c9ab265af3656d425e73ff35924ef8dfe37))
+-   🐛 remove export for transfer ([3ca9ea2](https://github.com/atlasgroupcz/react-atlantic/commit/3ca9ea2015931ee77073c3b0cdbbbf51acba4ad2))
+
+### Features
+
+-   **pagination:** ✨ separator separated to left/right components ([9c2cc66](https://github.com/atlasgroupcz/react-atlantic/commit/9c2cc662d2bdc84ec08fdc9a282b99aba523769a))
+
 ## [2.0.2](https://github.com/atlasgroupcz/react-atlantic/compare/2.0.1...2.0.2) (2021-04-23)
 
 ### Features
