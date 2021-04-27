@@ -140,10 +140,21 @@ export const StyledCheckboxMark = styled.div.withConfig({
             cursor: not-allowed;
 
             ${StyledIcon} {
-                opacity: 1;
-                color: ${(props) => props.theme.color.text.beta};
+                opacity: 0;
             }
         `};
+
+    ${(props) =>
+        props.isDisabled &&
+        props.isChecked &&
+        css`
+            background-color: ${props.theme.color.background.beta};
+            cursor: not-allowed;
+
+            ${StyledIcon} {
+                opacity: 1;
+            }
+        `}
 `;
 
 export const StyledCheckboxSpan = styled.span.withConfig({
