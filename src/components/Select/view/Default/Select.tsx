@@ -34,7 +34,7 @@ export const Select = forwardRef<HTMLDivElement, SelectProps<any>>(
             className={className}
         >
             <StyledDefaultSelect
-                onClick={onClick}
+                onClick={(e) => !isDisabled && onClick?.(e!)}
                 isOpen={isOpen}
                 size={size}
                 isDisabled={isDisabled}
