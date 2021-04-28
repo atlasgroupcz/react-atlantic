@@ -5,7 +5,7 @@ import { SelectProps } from '../../../types';
 
 type StyledDefaultSelectProps = Pick<
     SelectProps,
-    'isOpen' | 'isFullWidth' | 'size'
+    'isOpen' | 'isFullWidth' | 'size' | 'isDisabled'
 >;
 
 type StyledDefaultSelectValueProps = {
@@ -146,6 +146,17 @@ export const StyledDefaultSelect = styled.div<StyledDefaultSelectProps>`
             : css`
                   border-radius: ${theme.radius};
               `}
+    
+    ${({ theme, isDisabled }) =>
+        isDisabled &&
+        css`
+            background-color: ${theme.color.background.gamma};
+            cursor: not-allowed;
+
+            &:hover {
+                border-color: ${theme.color.border};
+            }
+        `}
 `;
 
 export const StyledDefaultSelectContainer = styled.div<
