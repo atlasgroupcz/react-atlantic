@@ -132,7 +132,7 @@ export const getButtonTypeStyles = (
             color: ${color};
             border: 1px ${borderType} ${borderColor};
 
-            ${StyledIcon}, ${StyledText} {
+            & > ${StyledIcon}, ${StyledText} {
                 color: ${color};
             }
 
