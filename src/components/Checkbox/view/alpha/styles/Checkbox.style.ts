@@ -153,6 +153,7 @@ export const StyledCheckboxMark = styled.div.withConfig({
 
             ${StyledIcon} {
                 opacity: 1;
+                color: ${props.theme.color.text.alpha};
             }
         `}
 `;
