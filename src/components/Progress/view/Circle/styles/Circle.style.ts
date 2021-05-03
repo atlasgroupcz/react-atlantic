@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import { keyframes } from '../../../../../styled';
+import { Icon } from '../../../../Icon';
 import { StyledText } from '../../../../Typography';
 
 interface StyledSVGCircleProps {
@@ -91,4 +92,8 @@ export const StyledProgressCircleCheckSVGColorful = styled.polyline`
     stroke-linecap: round;
     stroke-dasharray: 1000;
     animation: ${dashCheck} 1s ease-in-out forwards;
+`;
+
+export const StyledProgressCircleFailedIcon = styled(Icon)`
+    color: ${(props) => props.theme.color.error.alpha};
 `;
