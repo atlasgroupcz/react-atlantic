@@ -7,6 +7,7 @@ import {
     useDefaultInterpolateTransitionValues,
 } from '../../utils';
 import {
+    StyledProgressCircleContainer,
     StyledProgressCircle,
     StyledProgressCircleSVG,
     StyledProgressCircleSVGBackground,
@@ -47,44 +48,52 @@ export const ProgressCircle: ProgressCircleType = ({
     const currentDashOffset = totalDashOffset - value * (totalDashOffset / 100);
 
     return (
-        <StyledProgressCircle color={color} circleSize={circleSize} {...props}>
-            <StyledProgressCircleSVG>
-                <StyledProgressCircleSVGBackground
-                    cx={center}
-                    cy={center}
-                    r={radius}
-                    fill="none"
-                    strokeWidth={strokeWidth}
-                />
-                <StyledProgressCircleSVGColorful
-                    cx={center}
-                    cy={center}
-                    r={radius}
-                    fill="none"
-                    color={color}
-                    strokeWidth={strokeWidth}
-                    dashOffset={currentDashOffset}
-                    dashArray={totalDashOffset}
-                />
-            </StyledProgressCircleSVG>
-            <StyledProgressCircleContent>
-                {value === 100 ? (
-                    <>
-                        {failed ? (
-                            <StyledProgressCircleFailedIcon name={'close'} />
-                        ) : (
-                            <StyledProgressCircleCheckSVG
-                                viewBox="0 0 130.2 130.2"
-                                fill="none"
-                            >
-                                <StyledProgressCircleCheckSVGColorful points="100.2,40.2 51.5,88.8 29.8,67.5" />
-                            </StyledProgressCircleCheckSVG>
-                        )}
-                    </>
-                ) : (
-                    <Text key={value}>{`${value}%`}</Text>
-                )}
-            </StyledProgressCircleContent>
-        </StyledProgressCircle>
+        <StyledProgressCircleContainer>
+            <StyledProgressCircle
+                color={color}
+                circleSize={circleSize}
+                {...props}
+            >
+                <StyledProgressCircleSVG>
+                    <StyledProgressCircleSVGBackground
+                        cx={center}
+                        cy={center}
+                        r={radius}
+                        fill="none"
+                        strokeWidth={strokeWidth}
+                    />
+                    <StyledProgressCircleSVGColorful
+                        cx={center}
+                        cy={center}
+                        r={radius}
+                        fill="none"
+                        color={color}
+                        strokeWidth={strokeWidth}
+                        dashOffset={currentDashOffset}
+                        dashArray={totalDashOffset}
+                    />
+                </StyledProgressCircleSVG>
+                <StyledProgressCircleContent>
+                    {value === 100 ? (
+                        <>
+                            {failed ? (
+                                <StyledProgressCircleFailedIcon
+                                    name={'close'}
+                                />
+                            ) : (
+                                <StyledProgressCircleCheckSVG
+                                    viewBox="0 0 130.2 130.2"
+                                    fill="none"
+                                >
+                                    <StyledProgressCircleCheckSVGColorful points="100.2,40.2 51.5,88.8 29.8,67.5" />
+                                </StyledProgressCircleCheckSVG>
+                            )}
+                        </>
+                    ) : (
+                        <Text key={value}>{`${value}%`}</Text>
+                    )}
+                </StyledProgressCircleContent>
+            </StyledProgressCircle>
+        </StyledProgressCircleContainer>
     );
 };
