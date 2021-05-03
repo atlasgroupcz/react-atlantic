@@ -3316,3 +3316,43 @@ export const Cart = () => (
         />
     </svg>
 );
+
+export const FlagFrance = () => (
+    <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+        <g fillRule="nonzero" fill="none">
+            <path fill="#ED2939" d="M0 0h300v200H0z" />
+            <path fill="#FFF" d="M0 0h200v200H0z" />
+            <path fill="#002395" d="M0 0h100v200H0z" />
+        </g>
+    </svg>
+);
+
+export const FlagGermany = () => (
+    <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+        <g fillRule="nonzero" fill="none">
+            <path fill="#000" d="M0 0h300v200H0z" />
+            <path fill="#D00" d="M0 66.667h300V200H0z" />
+            <path fill="#FFCE00" d="M0 133.333h300V200H0z" />
+        </g>
+    </svg>
+);
+
+export const FlagGreatBritain = () => (
+    <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+        <g fillRule="nonzero" fill="none">
+            <path fill="#006" d="M0 0h300v200H0z" />
+            <path
+                d="M0 0v22.36L266.46 200H300v-22.36L33.54 0H0zm300 0v22.36L33.54 200H0v-22.36L266.46 0H300z"
+                fill="#FFF"
+            />
+            <path
+                d="M125 0v200h50V0h-50zM0 66.666v66.667h300V66.666H0z"
+                fill="#FFF"
+            />
+            <path
+                d="M0 80v40h300V80H0zM135 0v200h30V0h-30zM0 200l100-66.667h22.36l-100 66.666H0zM0 0l100 66.666H77.64L0 14.907V0zm177.64 66.666L277.64 0H300L200 66.666h-22.36zM300 200l-100-66.666h22.36l77.64 51.76v14.906z"
+                fill="#C00"
+            />
+        </g>
+    </svg>
+);

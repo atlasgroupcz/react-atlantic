@@ -189,6 +189,9 @@ export const IconsMap = {
     split: <Icons.Split />,
     cookie: <Icons.Cookie />,
     cart: <Icons.Cart />,
+    flagFrance: <Icons.FlagFrance />,
+    flagGermany: <Icons.FlagGermany />,
+    flagGreatBritain: <Icons.FlagGreatBritain />,
 };
 
 export type IconName = keyof typeof IconsMap;
