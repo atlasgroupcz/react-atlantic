@@ -9,7 +9,6 @@ interface StyledSVGCircleProps {
     strokeWidth?: number;
     dashArray?: number;
 }
-
 interface StyledProgressCircleProps {
     circleSize?: number;
     color?: string;
@@ -22,6 +21,10 @@ const dashCheck = keyframes`
     100% {
         stroke-dashoffset: 900;
     }
+`;
+
+export const StyledProgressCircleContainer = styled.div`
+    display: flex;
 `;
 
 export const StyledProgressCircle = styled.div.withConfig({
