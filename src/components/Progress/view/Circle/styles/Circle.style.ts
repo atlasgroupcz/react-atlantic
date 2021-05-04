@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import { keyframes } from '../../../../../styled';
+import { Icon } from '../../../../Icon';
 import { StyledText } from '../../../../Typography';
 
 interface StyledSVGCircleProps {
@@ -8,7 +9,6 @@ interface StyledSVGCircleProps {
     strokeWidth?: number;
     dashArray?: number;
 }
-
 interface StyledProgressCircleProps {
     circleSize?: number;
     color?: string;
@@ -21,6 +21,10 @@ const dashCheck = keyframes`
     100% {
         stroke-dashoffset: 900;
     }
+`;
+
+export const StyledProgressCircleContainer = styled.div`
+    display: flex;
 `;
 
 export const StyledProgressCircle = styled.div.withConfig({
@@ -91,4 +95,8 @@ export const StyledProgressCircleCheckSVGColorful = styled.polyline`
     stroke-linecap: round;
     stroke-dasharray: 1000;
     animation: ${dashCheck} 1s ease-in-out forwards;
+`;
+
+export const StyledProgressCircleFailedIcon = styled(Icon)`
+    color: ${(props) => props.theme.color.error.alpha};
 `;
