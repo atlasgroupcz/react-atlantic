@@ -1,3 +1,14 @@
+## [2.0.6](https://github.com/atlasgroupcz/react-atlantic/compare/2.0.5...2.0.6) (2021-05-04)
+
+### Bug Fixes
+
+-   🐛 add child selector ([dbeae41](https://github.com/atlasgroupcz/react-atlantic/commit/dbeae4154636faf4f5300d88081cda523eae7bcb))
+
+### Features
+
+-   ✨ isDisabled in onClick ([8ede806](https://github.com/atlasgroupcz/react-atlantic/commit/8ede806764e187c92bb6034a4cfc21556a8321c0))
+-   **progress-circle:** ✨ add failded prop ([31cef5e](https://github.com/atlasgroupcz/react-atlantic/commit/31cef5e983c0b2e8af88d6e8417bb499f5f41c12))
+
 ## [2.0.5](https://github.com/atlasgroupcz/react-atlantic/compare/2.0.3...2.0.5) (2021-05-03)
 
 ### Bug Fixes
