@@ -33,7 +33,12 @@ export const Select = forwardRef<HTMLDivElement, SelectProps<any>>(
             ref={ref}
             className={className}
         >
-            <StyledDefaultSelect onClick={onClick} isOpen={isOpen} size={size}>
+            <StyledDefaultSelect
+                onClick={(e) => !isDisabled && onClick?.(e!)}
+                isOpen={isOpen}
+                size={size}
+                isDisabled={isDisabled}
+            >
                 <StyledDefaultSelectValue isOptionSelected={!!value?.label}>
                     {value?.label || placeholder}
                 </StyledDefaultSelectValue>

@@ -3303,3 +3303,65 @@ export const Cookie = () => (
         />
     </svg>
 );
+
+export const Cart = () => (
+    <svg
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 576 512"
+    >
+        <path
+            fill="currentColor"
+            d="M528.12 301.319l47.273-208C578.806 78.301 567.391 64 551.99 64H159.208l-9.166-44.81C147.758 8.021 137.93 0 126.529 0H24C10.745 0 0 10.745 0 24v16c0 13.255 10.745 24 24 24h69.883l70.248 343.435C147.325 417.1 136 435.222 136 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-15.674-6.447-29.835-16.824-40h209.647C430.447 426.165 424 440.326 424 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-22.172-12.888-41.332-31.579-50.405l5.517-24.276c3.413-15.018-8.002-29.319-23.403-29.319H218.117l-6.545-32h293.145c11.206 0 20.92-7.754 23.403-18.681z"
+        />
+    </svg>
+);
+
+export const FlagFrance = () => (
+    <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+        <g fillRule="nonzero" fill="none">
+            <path fill="#ED2939" d="M0 0h300v200H0z" />
+            <path fill="#FFF" d="M0 0h200v200H0z" />
+            <path fill="#002395" d="M0 0h100v200H0z" />
+        </g>
+    </svg>
+);
+
+export const FlagGermany = () => (
+    <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+        <g fillRule="nonzero" fill="none">
+            <path fill="#000" d="M0 0h300v200H0z" />
+            <path fill="#D00" d="M0 66.667h300V200H0z" />
+            <path fill="#FFCE00" d="M0 133.333h300V200H0z" />
+        </g>
+    </svg>
+);
+
+export const FlagGreatBritain = () => (
+    <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+        <g fillRule="nonzero" fill="none">
+            <path fill="#006" d="M0 0h300v200H0z" />
+            <path
+                d="M0 0v22.36L266.46 200H300v-22.36L33.54 0H0zm300 0v22.36L33.54 200H0v-22.36L266.46 0H300z"
+                fill="#FFF"
+            />
+            <path
+                d="M125 0v200h50V0h-50zM0 66.666v66.667h300V66.666H0z"
+                fill="#FFF"
+            />
+            <path
+                d="M0 80v40h300V80H0zM135 0v200h30V0h-30zM0 200l100-66.667h22.36l-100 66.666H0zM0 0l100 66.666H77.64L0 14.907V0zm177.64 66.666L277.64 0H300L200 66.666h-22.36zM300 200l-100-66.666h22.36l77.64 51.76v14.906z"
+                fill="#C00"
+            />
+        </g>
+    </svg>
+);
+
+export const DnD = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+        <path
+            fill="currentColor"
+            d="M496 288H16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h480c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16zm0-128H16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h480c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16z"
+        />
+    </svg>
+);

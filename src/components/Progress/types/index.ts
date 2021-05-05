@@ -3,6 +3,7 @@ import { CommonHTMLProps, MouseEvents } from '../../../types';
 export type ProgressProps = {
     value: number;
     transitionColors?: string[];
+    failed?: boolean;
 } & CommonHTMLProps<HTMLDivElement> &
     MouseEvents<HTMLDivElement>;
 
