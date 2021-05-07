@@ -95,6 +95,15 @@ export const StyledSwitcherTrue = styled.div<StyledSwitchProps>`
                 htmlType === 'default' ? 'warning' : (htmlType as Type)
             ].alpha};
         `}
+    
+    ${({ theme, isDisabled, isPartiallyChecked, htmlType }) =>
+        isDisabled &&
+        isPartiallyChecked &&
+        css`
+            background-color: ${theme.color[
+                htmlType !== 'default' ? (htmlType as Type) : 'warning'
+            ].delta};
+        `}
 `;
 
 export const StyledSwitcherToggler = styled.div<StyledSwitchProps>`
@@ -149,6 +158,15 @@ export const StyledSwitcherFalse = styled.div<StyledSwitchProps>`
             background-color: ${theme.color[
                 htmlType === 'default' ? 'warning' : (htmlType as Type)
             ].alpha};
+        `}
+
+    ${({ theme, isDisabled, isPartiallyChecked, htmlType }) =>
+        isDisabled &&
+        isPartiallyChecked &&
+        css`
+            background-color: ${theme.color[
+                htmlType !== 'default' ? (htmlType as Type) : 'warning'
+            ].delta};
         `}
 `;
 
