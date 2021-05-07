@@ -8,7 +8,7 @@ type StyledSwitchProps = {
     isDisabled?: boolean;
     name?: string;
     position?: 'right' | 'left';
-    htmlType?: Type;
+    type?: Type;
 };
 
 const switchWidth = '54px';
@@ -71,37 +71,37 @@ export const StyledSwitcherTrue = styled.div<StyledSwitchProps>`
         color: ${({ theme }) => theme.color.text.gamma};
     }
 
-    ${({ theme, isChecked, htmlType }) =>
+    ${({ theme, isChecked, type }) =>
         isChecked &&
         css`
             background-color: ${theme.color[
-                htmlType === 'default' ? 'primary' : (htmlType as Type)
+                type === 'default' ? 'primary' : (type as Type)
             ].alpha};
         `}
 
-    ${({ theme, isDisabled, isChecked, htmlType }) =>
+    ${({ theme, isDisabled, isChecked, type }) =>
         isDisabled &&
         isChecked &&
         css`
             background-color: ${theme.color[
-                htmlType !== 'default' ? (htmlType as Type) : 'primary'
+                type !== 'default' ? (type as Type) : 'primary'
             ].delta};
         `}
 
-    ${({ theme, isPartiallyChecked, htmlType }) =>
+    ${({ theme, isPartiallyChecked, type }) =>
         isPartiallyChecked &&
         css`
             background-color: ${theme.color[
-                htmlType === 'default' ? 'warning' : (htmlType as Type)
+                type === 'default' ? 'warning' : (type as Type)
             ].alpha};
         `}
     
-    ${({ theme, isDisabled, isPartiallyChecked, htmlType }) =>
+    ${({ theme, isDisabled, isPartiallyChecked, type }) =>
         isDisabled &&
         isPartiallyChecked &&
         css`
             background-color: ${theme.color[
-                htmlType !== 'default' ? (htmlType as Type) : 'warning'
+                type !== 'default' ? (type as Type) : 'warning'
             ].delta};
         `}
 `;
@@ -152,20 +152,20 @@ export const StyledSwitcherFalse = styled.div<StyledSwitchProps>`
         color: ${({ theme }) => theme.color.text.beta};
     }
 
-    ${({ theme, isPartiallyChecked, htmlType }) =>
+    ${({ theme, isPartiallyChecked, type }) =>
         isPartiallyChecked &&
         css`
             background-color: ${theme.color[
-                htmlType === 'default' ? 'warning' : (htmlType as Type)
+                type === 'default' ? 'warning' : (type as Type)
             ].alpha};
         `}
 
-    ${({ theme, isDisabled, isPartiallyChecked, htmlType }) =>
+    ${({ theme, isDisabled, isPartiallyChecked, type }) =>
         isDisabled &&
         isPartiallyChecked &&
         css`
             background-color: ${theme.color[
-                htmlType !== 'default' ? (htmlType as Type) : 'warning'
+                type !== 'default' ? (type as Type) : 'warning'
             ].delta};
         `}
 `;
