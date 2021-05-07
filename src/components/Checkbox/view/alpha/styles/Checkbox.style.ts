@@ -46,7 +46,8 @@ export const StyledCheckboxInputShown = styled('div').withConfig({
 `;
 
 export const StyledCheckboxLabel = styled.label.withConfig({
-    shouldForwardProp: (prop) => !['isDisabled', 'size'].includes(prop),
+    shouldForwardProp: (prop) =>
+        !['isDisabled', 'size', 'isChecked'].includes(prop),
 })<StyledCheckboxProps>`
     ${(props) => getDefaultTypographyStyles(props)};
     position: relative;
