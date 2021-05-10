@@ -11,6 +11,7 @@ export type SwitchType = FC<PropsWithChildren<SwitchProps>>;
 export type UseSwitchArgs = {
     isDefaultChecked?: boolean;
     isDisabled?: boolean;
+    isPartiallyChecked?: boolean;
 };
 
 export type CommonSwitchProps = {
