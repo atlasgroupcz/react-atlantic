@@ -35,51 +35,55 @@ export const getInputDefaultStyles = () => css`
     }
 `;
 
-export const getInputFullWidthStyles = (isFullWidth: boolean) => css`
+export const getInputFullWidthStyles = (
+    isFullWidth: InputProps['isFullWidth']
+) => css`
     ${isFullWidth &&
     css`
         width: 100%;
     `}
 `;
 
-export const getInputDisabledStyles = (isDisabled: boolean) => css`
+export const getInputDisabledStyles = (
+    isDisabled: InputProps['isDisabled']
+) => css`
     ${isDisabled &&
     css`
         color: ${(props) => props.theme.color.text.beta};
         cursor: not-allowed;
 
-        ::placeholder {
+        &::placeholder {
             color: ${(props) => props.theme.color.text.beta};
         }
     `}
 `;
 
 export const getInputSizeStyles = (size: InputProps['size']) => css`
-    ${(props) =>
+    ${({ theme }) =>
         size === 'small' &&
         css`
-            font-size: ${props.theme.font.size.sm};
+            font-size: ${theme.font.size.sm};
 
             i + span,
             span + i {
-                margin-left: ${props.theme.margin.sm};
+                margin-left: ${theme.margin.sm};
             }
         `}
 
-    ${(props) =>
+    ${({ theme }) =>
         size === 'medium' &&
         css`
-            font-size: ${props.theme.font.size.md};
+            font-size: ${theme.font.size.md};
         `}
   
-  ${(props) =>
+    ${({ theme }) =>
         size === 'large' &&
         css`
-            font-size: ${props.theme.font.size.lg};
+            font-size: ${theme.font.size.lg};
 
             i + span,
             span + i {
-                margin-left: ${props.theme.margin.lg};
+                margin-left: ${theme.margin.lg};
             }
         `}
 `;
@@ -92,8 +96,10 @@ export const StyledInput = styled(
         ) => <input {...props} ref={ref} type={htmlType} />
     )
 )<InputProps>`
-    ${getInputDefaultStyles()}
-    ${(props) => getInputFullWidthStyles(props.isFullWidth as boolean)}
-    ${(props) => getInputDisabledStyles(props.isDisabled as boolean)}
-    ${(props) => getInputSizeStyles(props.size as InputProps['size'])}
+    ${({ isFullWidth, isDisabled, size }) => css`
+        ${getInputDefaultStyles()}
+        ${getInputFullWidthStyles(isFullWidth as InputProps['isFullWidth'])}
+        ${getInputDisabledStyles(isDisabled as InputProps['isDisabled'])}
+        ${getInputSizeStyles(size as InputProps['size'])}
+    `}
 `;
