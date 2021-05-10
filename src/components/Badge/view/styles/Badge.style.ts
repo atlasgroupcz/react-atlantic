@@ -11,7 +11,7 @@ export const getBadgeDefaultStyles = () => css`
     border-radius: ${(props) => props.theme.radius};
 `;
 
-export const getBadgeTypeStyles = (type: BadgeProps) => css`
+export const getBadgeDefaultTypeStyles = (type: BadgeProps) => css`
     ${(props) =>
         type === 'primary' &&
         css`
@@ -41,7 +41,7 @@ export const getBadgeTypeStyles = (type: BadgeProps) => css`
         `}
 `;
 
-export const getBadgeSizeStyles = (size: BadgeProps) => css`
+export const getBadgeDefaultSizeStyles = (size: BadgeProps) => css`
     ${(props) =>
         size === 'small' &&
         css`
@@ -70,9 +70,9 @@ export const getBadgeSizeStyles = (size: BadgeProps) => css`
 export const StyledBadge = styled.sup.withConfig({
     shouldForwardProp: (prop) => !['size', 'type', 'color'].includes(prop),
 })<BadgeProps>`
-    ${getBadgeDefaultStyles()};
-
-    ${(props) => getBadgeTypeStyles(props.type as BadgeProps)};
-
-    ${(props) => getBadgeSizeStyles(props.size as BadgeProps)};
+    ${({ type, size }) => css`
+        ${getBadgeDefaultStyles()};
+        ${getBadgeDefaultTypeStyles(type as BadgeProps)};
+        ${getBadgeDefaultSizeStyles(size as BadgeProps)};
+    `}
 `;
