@@ -1,3 +1,18 @@
+# [2.1.0](https://github.com/atlasgroupcz/react-atlantic/compare/2.0.5...2.1.0) (2021-05-10)
+
+### Bug Fixes
+
+-   🐛 changelog ([2ec55a6](https://github.com/atlasgroupcz/react-atlantic/commit/2ec55a61b653ca9e4a7a7a8fba0880eca2d149f1))
+-   🐛 type ([1f188cd](https://github.com/atlasgroupcz/react-atlantic/commit/1f188cd946862aeebd6a98a3579094572ffec5c8))
+-   **checkbox:** 🐛 exclude isChecked from prop forwarding ([4d0b1c1](https://github.com/atlasgroupcz/react-atlantic/commit/4d0b1c181967d502eb8fe8754c1b09b1556f21c5))
+-   🐛 add child selector ([dbeae41](https://github.com/atlasgroupcz/react-atlantic/commit/dbeae4154636faf4f5300d88081cda523eae7bcb))
+
+### Features
+
+-   ✨ add isPartiallyChecked to useSwitch ([c8a87a0](https://github.com/atlasgroupcz/react-atlantic/commit/c8a87a010e83200d4bc06bd18a37daa240aa26f3))
+-   ✨ isDisabled in onClick ([8ede806](https://github.com/atlasgroupcz/react-atlantic/commit/8ede806764e187c92bb6034a4cfc21556a8321c0))
+-   **progress-circle:** ✨ add failded prop ([31cef5e](https://github.com/atlasgroupcz/react-atlantic/commit/31cef5e983c0b2e8af88d6e8417bb499f5f41c12))
+
 ## [2.0.6](https://github.com/atlasgroupcz/react-atlantic/compare/2.0.5...2.0.6) (2021-05-10)
 
 ### Bug Fixes
