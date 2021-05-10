@@ -10,6 +10,7 @@ type UseSwitchType = (
 export const useSwitch: UseSwitchType = ({
     isDefaultChecked = false,
     onClick,
+    isPartiallyChecked,
     isDisabled,
 }) => {
     const [isChecked, setChecked] = useState<CommonSwitchProps['isChecked']>(
@@ -19,13 +20,15 @@ export const useSwitch: UseSwitchType = ({
     const handleClick: SwitchProps['onClick'] = useCallback(
         (e): void => {
             if (!isDisabled) {
-                const { checked } = e.currentTarget;
-                setChecked(checked);
+                if (!isPartiallyChecked) {
+                    const { checked } = e.currentTarget;
+                    setChecked(checked);
+                }
 
                 onClick?.(e);
             }
         },
-        [onClick, isDisabled]
+        [onClick, isPartiallyChecked, isDisabled]
     );
 
     return { isChecked, onClick: handleClick };

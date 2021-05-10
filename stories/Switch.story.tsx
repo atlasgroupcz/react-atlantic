@@ -13,6 +13,10 @@ stories.add(
     'Playground',
     () => {
         const isChecked = boolean(`isChecked:`, defaultValues.isChecked);
+        const isPartiallyChecked = boolean(
+            `isPartiallyChecked:`,
+            defaultValues.isPartiallyChecked
+        );
         const isDisabled = boolean(`isDisabled:`, defaultValues.isDisabled);
         const type = select(
             `type:`,
@@ -26,6 +30,7 @@ stories.add(
         return (
             <Switch
                 isChecked={isChecked}
+                isPartiallyChecked={isPartiallyChecked}
                 isDisabled={isDisabled}
                 type={type}
                 textOn={textOn}

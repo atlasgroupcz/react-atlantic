@@ -4,15 +4,20 @@ import { StyledIcon } from '../../../Icon';
 
 type StyledSwitchProps = {
     isChecked?: boolean;
+    isPartiallyChecked?: boolean;
     isDisabled?: boolean;
     name?: string;
     position?: 'right' | 'left';
-    htmlType?: Type;
+    type?: Type;
 };
 
 const switchWidth = '54px';
 const switchHeight = '26px';
 const togglerSize = '20px';
+
+export const StyledSwitchContainer = styled.div`
+    display: flex;
+`;
 
 export const StyledSwitchLabel = styled.label<StyledSwitchProps>`
     overflow: hidden;
@@ -66,20 +71,37 @@ export const StyledSwitcherTrue = styled.div<StyledSwitchProps>`
         color: ${({ theme }) => theme.color.text.gamma};
     }
 
-    ${({ theme, isChecked, htmlType }) =>
+    ${({ theme, isChecked, type }) =>
         isChecked &&
         css`
             background-color: ${theme.color[
-                htmlType === 'default' ? 'primary' : (htmlType as Type)
+                type === 'default' ? 'primary' : (type as Type)
             ].alpha};
         `}
 
-    ${({ theme, isDisabled, isChecked, htmlType }) =>
+    ${({ theme, isDisabled, isChecked, type }) =>
         isDisabled &&
         isChecked &&
         css`
             background-color: ${theme.color[
-                htmlType !== 'default' ? (htmlType as Type) : 'primary'
+                type !== 'default' ? (type as Type) : 'primary'
+            ].delta};
+        `}
+
+    ${({ theme, isPartiallyChecked, type }) =>
+        isPartiallyChecked &&
+        css`
+            background-color: ${theme.color[
+                type === 'default' ? 'warning' : (type as Type)
+            ].alpha};
+        `}
+    
+    ${({ theme, isDisabled, isPartiallyChecked, type }) =>
+        isDisabled &&
+        isPartiallyChecked &&
+        css`
+            background-color: ${theme.color[
+                type !== 'default' ? (type as Type) : 'warning'
             ].delta};
         `}
 `;
@@ -100,6 +122,12 @@ export const StyledSwitcherToggler = styled.div<StyledSwitchProps>`
         isChecked &&
         css`
             right: ${switchWidth};
+        `}
+
+    ${({ isPartiallyChecked }) =>
+        isPartiallyChecked &&
+        css`
+            right: calc(${switchWidth} / 4);
         `}
 
     ${({ theme, isDisabled }) =>
@@ -123,6 +151,23 @@ export const StyledSwitcherFalse = styled.div<StyledSwitchProps>`
     ${StyledIcon} {
         color: ${({ theme }) => theme.color.text.beta};
     }
+
+    ${({ theme, isPartiallyChecked, type }) =>
+        isPartiallyChecked &&
+        css`
+            background-color: ${theme.color[
+                type === 'default' ? 'warning' : (type as Type)
+            ].alpha};
+        `}
+
+    ${({ theme, isDisabled, isPartiallyChecked, type }) =>
+        isDisabled &&
+        isPartiallyChecked &&
+        css`
+            background-color: ${theme.color[
+                type !== 'default' ? (type as Type) : 'warning'
+            ].delta};
+        `}
 `;
 
 StyledSwitchLabel.displayName = 'StyledSwitchLabel';
