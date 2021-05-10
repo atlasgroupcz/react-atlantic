@@ -85,7 +85,7 @@ export const getButtonDefaultStyles = () => css`
     }
 `;
 
-export const getButtonTypeStyles = (
+export const getButtonDefaultTypeStyles = (
     type: ButtonStyleType,
     isTransparent: boolean
 ) => css`
@@ -149,14 +149,14 @@ export const getButtonTypeStyles = (
     }}
 `;
 
-export const getButtonRoundStyles = (isRound: boolean) => css`
+export const getButtonDefaultRoundStyles = (isRound: boolean) => css`
     ${isRound &&
     css`
         border-radius: ${(props) => props.theme.rounded};
     `}
 `;
 
-export const getButtonSizeStyles = (size: Size) => css`
+export const getButtonDefaultSizeStyles = (size: Size) => css`
     ${(props) =>
         size === 'small' &&
         css`
@@ -204,14 +204,14 @@ export const getButtonSizeStyles = (size: Size) => css`
         `}
 `;
 
-export const getButtonFullWidthStyles = (isFullWidth: boolean) => css`
+export const getButtonDefaultFullWidthStyles = (isFullWidth: boolean) => css`
     ${isFullWidth &&
     css`
         width: 100%;
     `}
 `;
 
-export const getButtonDisabledStyles = (isDisabled: boolean) =>
+export const getButtonDefaultDisabledStyles = (isDisabled: boolean) =>
     css`
         ${isDisabled &&
         css`
@@ -238,10 +238,27 @@ export const StyledButton = styled.button.withConfig({
             'atlanticType',
         ].includes(prop),
 })<StyledButtonProps>`
-    ${getButtonDefaultStyles()};
-    ${(props) =>
-        !props.isDisabled &&
-        props.isTransparent &&
+    ${({
+        theme,
+        atlanticType,
+        isTransparent,
+        isRound,
+        size,
+        isFullWidth,
+        isDisabled,
+    }) => css`
+        ${getButtonDefaultStyles()};
+        ${getButtonDefaultTypeStyles(
+            atlanticType as ButtonStyleType,
+            isTransparent as boolean
+        )};
+        ${getButtonDefaultRoundStyles(isRound as boolean)}
+        ${getButtonDefaultSizeStyles(size as Size)}
+        ${getButtonDefaultFullWidthStyles(isFullWidth as boolean)}
+        ${getButtonDefaultDisabledStyles(isDisabled as boolean)}
+        
+        ${!isDisabled &&
+        isTransparent &&
         css`
             &:after {
                 content: '';
@@ -251,26 +268,11 @@ export const StyledButton = styled.button.withConfig({
                 right: -3px;
                 bottom: -3px;
                 z-index: -1;
-                border-radius: ${props.isRound
-                    ? props.theme.rounded
-                    : props.theme.radius};
-                background: ${props.theme.color.background.gamma};
+                border-radius: ${isRound ? theme.rounded : theme.radius};
+                background: ${theme.color.background.gamma};
                 border: 1px solid ${(props) => props.theme.color.border};
                 animation: ${focusAnimation} 0.4s ease-in-out;
             }
         `}
-
-    ${(props) =>
-        getButtonTypeStyles(
-            props.atlanticType as ButtonStyleType,
-            props.isTransparent as boolean
-        )}
-    
-    ${(props) => getButtonRoundStyles(props.isRound as boolean)}
-    
-    ${(props) => getButtonSizeStyles(props.size as Size)}
-    
-    ${(props) => getButtonFullWidthStyles(props.isFullWidth as boolean)}
-
-    ${(props) => getButtonDisabledStyles(props.isDisabled as boolean)}
+    `}
 ` as StyledComponent<FC<StyledButtonProps>, {}>;
