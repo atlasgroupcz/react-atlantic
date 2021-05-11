@@ -6,33 +6,27 @@ import { TextAreaProps } from '../types';
 
 export const getTextAreaDefaultStyles = () => css`
     ${getTypographyDefaultStyles()};
+    box-sizing: border-box;
+    overflow: auto;
     position: relative;
     display: inline-block;
+    vertical-align: middle;
     min-width: 150px;
-    user-select: text;
     max-width: 100%;
     height: auto;
     min-height: ${({ theme }) => theme.height.md};
     padding: ${({ theme }) => theme.padding.sm}
         ${({ theme }) => theme.padding.md};
     margin: 0;
-
-    vertical-align: middle;
-    font-weight: 400;
-    overflow: auto;
-    -webkit-appearance: none;
-    touch-action: manipulation;
-
     background-color: ${({ theme }) => theme.color.background.alpha};
+    font-weight: 400;
     color: ${({ theme }) => theme.color.text.alpha};
     border: 1px solid ${({ theme }) => theme.color.border};
     border-radius: ${({ theme }) => theme.radius};
     outline: 0;
-    list-style: none;
-
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+    user-select: text;
+    -webkit-appearance: none;
+    touch-action: manipulation;
 
     &::placeholder {
         color: ${({ theme }) => theme.color.text.beta};
@@ -55,15 +49,14 @@ export const getTextAreaDisabledStyles = (
 ) => css`
     ${isDisabled &&
     css`
-        color: ${({ theme }) => theme.color.text.beta};
-
-        ::placeholder {
-            color: ${({ theme }) => theme.color.text.beta};
-        }
-
-        background-color: ${({ theme }) => theme.color.default};
         cursor: not-allowed;
         outline: 0;
+        color: ${({ theme }) => theme.color.text.beta};
+        background-color: ${({ theme }) => theme.color.default};
+
+        &::placeholder {
+            color: ${({ theme }) => theme.color.text.beta};
+        }
 
         &:hover,
         &:focus {

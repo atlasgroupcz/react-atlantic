@@ -4,9 +4,9 @@ import { BadgeProps } from '../../types';
 export const getBadgeDefaultStyles = () => css`
     display: inline-block;
     text-align: center;
-    color: ${({ theme }) => theme.color.text.alpha};
     font-family: ${({ theme }) => theme.font.family};
     font-weight: 400;
+    color: ${({ theme }) => theme.color.text.alpha};
     background-color: ${({ theme }) => theme.color.default};
     border-radius: ${({ theme }) => theme.radius};
 `;
@@ -46,7 +46,6 @@ export const getBadgeDefaultSizeStyles = (size: BadgeProps['size']) => css`
         size === 'small' &&
         css`
             padding: 2px ${theme.padding.sm};
-
             font-size: ${theme.font.size.sm};
         `}
 

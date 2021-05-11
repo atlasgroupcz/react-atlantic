@@ -20,8 +20,3 @@ export const getDefaultTooltipStyles = () => css<{ positionAttr: string }>`
 export const StyledTooltip = styled.div<{ positionAttr: string }>`
     ${getDefaultTooltipStyles()}
 `;
-
-export const StyledTooltipContainer = styled.div`
-    position: relative;
-    display: inline-block;
-`;

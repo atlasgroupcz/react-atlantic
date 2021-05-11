@@ -36,25 +36,25 @@ const focusAnimation = keyframes`
 export const getButtonDefaultStyles = () => css`
     position: relative;
     display: inline-block;
-    padding: 0 ${({ theme }) => theme.padding.md};
-    height: ${({ theme }) => theme.height.md};
-    line-height: 1;
-    background-image: none;
-    color: ${({ theme }) => theme.color.text.alpha};
-    outline: 0;
-    cursor: pointer;
-    font-size: ${({ theme }) => theme.font.size.md};
-    font-family: ${({ theme }) => theme.font.family};
-    font-weight: 400;
-    vertical-align: middle;
-    white-space: nowrap;
     text-align: center;
+    vertical-align: middle;
+    height: ${({ theme }) => theme.height.md};
+    padding: 0 ${({ theme }) => theme.padding.md};
+    line-height: 1;
+    cursor: pointer;
+    white-space: nowrap;
     user-select: none;
     touch-action: manipulation;
     transition: background-color 0.1s ease;
     box-shadow: ${({ theme }) => theme.boxShadow.sm};
+    background-image: none;
+    outline: 0;
     border: 1px solid ${({ theme }) => theme.color.border};
     border-radius: ${({ theme }) => theme.radius};
+    color: ${({ theme }) => theme.color.text.alpha};
+    font-size: ${({ theme }) => theme.font.size.md};
+    font-family: ${({ theme }) => theme.font.family};
+    font-weight: 400;
 
     & > span {
         display: inline-block;
