@@ -1,23 +1,23 @@
 import { IconProps } from '../../types';
 import { css, keyframes, styled } from '../../../../styled';
 
-export const spin = () => {
-    return keyframes`
-  100% {
-      -webkit-transform: rotate(360deg);
-      transform: rotate(360deg);
-  }`;
-};
+export const spin = keyframes`
+  from {
+      transform: rotate(0);
+  }
 
-export const StyledIcon = styled.i.withConfig({
-    shouldForwardProp: (prop) => !['isRotating', 'name'].includes(prop),
-})<IconProps>`
+  to {
+      transform: rotate(360deg);
+  }
+`;
+
+export const getIconDefaultStyles = (onClick: IconProps['onClick']) => css`
     display: inline-block;
-    cursor: ${(props) => (props.onClick ? 'pointer' : 'inherit')};
+    cursor: ${!!onClick ? 'pointer' : 'auto'};
     line-height: 0;
-    height: ${(props) => props.theme.font.size.md};
-    width: ${(props) => props.theme.font.size.md};
-    color: ${(props) => props.theme.color.text.alpha};
+    height: ${({ theme }) => theme.font.size.md};
+    width: ${({ theme }) => theme.font.size.md};
+    color: ${({ theme }) => theme.color.text.alpha};
     font-style: normal;
     text-align: center;
     text-transform: none;
@@ -29,14 +29,24 @@ export const StyledIcon = styled.i.withConfig({
         height: 100%;
         font-size: inherit;
     }
+`;
 
-    ${(props) =>
-        props.isRotating &&
-        css`
-            -webkit-animation: ${spin} 4s linear infinite;
-            -moz-animation: ${spin} 4s linear infinite;
-            animation: ${spin} 4s linear infinite;
-        `}
+export const getIconDefaultRotatingStyles = (
+    isRotating: IconProps['isRotating']
+) => css`
+    ${isRotating &&
+    css`
+        animation: ${spin} 4s linear infinite;
+    `}
+`;
+
+export const StyledIcon = styled.i.withConfig({
+    shouldForwardProp: (prop) => !['isRotating', 'name'].includes(prop),
+})<IconProps>`
+    ${({ onClick, isRotating }) => css`
+        ${getIconDefaultStyles(onClick as IconProps['onClick'])};
+        ${getIconDefaultRotatingStyles(isRotating as IconProps['isRotating'])};
+    `}
 `;
 
 StyledIcon.displayName = 'StyledIcon';
