@@ -15,15 +15,19 @@ const focusAnimation = keyframes`
     0%    {
       opacity: 0; 
     }
+
     25%   { 
       opacity: 0.5; 
     }
+
     50%   { 
       opacity: 1; 
     }
+
     75%   { 
       opacity: 0.5; 
     }
+
     100%  { 
       opacity: 0; 
     }
@@ -32,15 +36,15 @@ const focusAnimation = keyframes`
 export const getButtonDefaultStyles = () => css`
     position: relative;
     display: inline-block;
-    padding: 0 ${(props) => props.theme.padding.md};
-    height: ${(props) => props.theme.height.md};
+    padding: 0 ${({ theme }) => theme.padding.md};
+    height: ${({ theme }) => theme.height.md};
     line-height: 1;
     background-image: none;
-    color: ${(props) => props.theme.color.text.alpha};
+    color: ${({ theme }) => theme.color.text.alpha};
     outline: 0;
     cursor: pointer;
-    font-size: ${(props) => props.theme.font.size.md};
-    font-family: ${(props) => props.theme.font.family};
+    font-size: ${({ theme }) => theme.font.size.md};
+    font-family: ${({ theme }) => theme.font.family};
     font-weight: 400;
     vertical-align: middle;
     white-space: nowrap;
@@ -48,11 +52,11 @@ export const getButtonDefaultStyles = () => css`
     user-select: none;
     touch-action: manipulation;
     transition: background-color 0.1s ease;
-    box-shadow: ${(props) => props.theme.boxShadow.sm};
-    border: 1px solid ${(props) => props.theme.color.border};
-    border-radius: ${(props) => props.theme.radius};
+    box-shadow: ${({ theme }) => theme.boxShadow.sm};
+    border: 1px solid ${({ theme }) => theme.color.border};
+    border-radius: ${({ theme }) => theme.radius};
 
-    > span {
+    & > span {
         display: inline-block;
         vertical-align: top;
         height: 14px;
@@ -71,7 +75,7 @@ export const getButtonDefaultStyles = () => css`
 
     i + span,
     span + i {
-        margin-left: ${(props) => props.theme.margin.sm};
+        margin-left: ${({ theme }) => theme.margin.sm};
     }
 
     i {
@@ -86,35 +90,35 @@ export const getButtonDefaultStyles = () => css`
 `;
 
 export const getButtonDefaultTypeStyles = (
-    type: ButtonStyleType,
-    isTransparent: boolean
+    type: StyledButtonProps['atlanticType'],
+    isTransparent: StyledButtonProps['isTransparent']
 ) => css`
-    ${(props) => {
-        let color = props.theme.color.text.alpha;
-        let hoverBgColor = props.theme.color.background.alpha;
-        let bgColor = props.theme.color.default;
-        let borderColor = props.theme.color.border;
+    ${({ theme }) => {
+        let color = theme.color.text.alpha;
+        let hoverBgColor = theme.color.background.alpha;
+        let bgColor = theme.color.default;
+        let borderColor = theme.color.border;
         let borderType = `solid`;
 
         if (type === 'primary') {
-            bgColor = props.theme.color.primary.alpha;
-            hoverBgColor = props.theme.color.primary.beta;
-            color = props.theme.color.text.gamma;
+            bgColor = theme.color.primary.alpha;
+            hoverBgColor = theme.color.primary.beta;
+            color = theme.color.text.gamma;
             borderColor = bgColor;
         } else if (type === 'success') {
-            bgColor = props.theme.color.success.alpha;
-            hoverBgColor = props.theme.color.success.beta;
-            color = props.theme.color.text.gamma;
+            bgColor = theme.color.success.alpha;
+            hoverBgColor = theme.color.success.beta;
+            color = theme.color.text.gamma;
             borderColor = bgColor;
         } else if (type === 'warning') {
-            bgColor = props.theme.color.warning.alpha;
-            hoverBgColor = props.theme.color.warning.beta;
-            color = props.theme.color.text.gamma;
+            bgColor = theme.color.warning.alpha;
+            hoverBgColor = theme.color.warning.beta;
+            color = theme.color.text.gamma;
             borderColor = bgColor;
         } else if (type === 'error') {
-            bgColor = props.theme.color.error.alpha;
-            hoverBgColor = props.theme.color.error.beta;
-            color = props.theme.color.text.gamma;
+            bgColor = theme.color.error.alpha;
+            hoverBgColor = theme.color.error.beta;
+            color = theme.color.text.gamma;
             borderColor = bgColor;
         } else if (type === 'dashed') {
             borderType = `dashed`;
@@ -149,80 +153,88 @@ export const getButtonDefaultTypeStyles = (
     }}
 `;
 
-export const getButtonDefaultRoundStyles = (isRound: boolean) => css`
+export const getButtonDefaultRoundStyles = (
+    isRound: StyledButtonProps['isRound']
+) => css`
     ${isRound &&
     css`
-        border-radius: ${(props) => props.theme.rounded};
+        border-radius: ${({ theme }) => theme.rounded};
     `}
 `;
 
-export const getButtonDefaultSizeStyles = (size: Size) => css`
-    ${(props) =>
+export const getButtonDefaultSizeStyles = (
+    size: StyledButtonProps['size']
+) => css`
+    ${({ theme }) =>
         size === 'small' &&
         css`
-            padding: 0 ${props.theme.padding.sm};
-            height: ${props.theme.height.sm};
-            font-size: ${props.theme.font.size.sm};
+            padding: 0 ${theme.padding.sm};
+            height: ${theme.height.sm};
+            font-size: ${theme.font.size.sm};
 
             > span,
             > i {
-                font-size: ${props.theme.font.size.sm};
-                height: ${props.theme.font.size.sm};
+                font-size: ${theme.font.size.sm};
+                height: ${theme.font.size.sm};
             }
 
             > i {
-                width: ${props.theme.font.size.sm};
+                width: ${theme.font.size.sm};
             }
 
             i + span,
             span + i {
-                margin-left: ${props.theme.margin.sm};
+                margin-left: ${theme.margin.sm};
             }
         `}
 
-    ${(props) =>
+    ${({ theme }) =>
         size === 'large' &&
         css`
-            padding: 0 ${props.theme.padding.lg};
-            height: ${props.theme.height.lg};
-            font-size: ${props.theme.font.size.lg};
+            padding: 0 ${theme.padding.lg};
+            height: ${theme.height.lg};
+            font-size: ${theme.font.size.lg};
 
-            > span,
-            > i {
-                font-size: ${props.theme.font.size.lg};
-                height: ${props.theme.font.size.lg};
+            & > span,
+            & > i {
+                font-size: ${theme.font.size.lg};
+                height: ${theme.font.size.lg};
             }
 
-            > i {
-                width: ${props.theme.font.size.lg};
+            & > i {
+                width: ${theme.font.size.lg};
             }
 
             i + span,
             span + i {
-                margin-left: ${props.theme.margin.md};
+                margin-left: ${theme.margin.md};
             }
         `}
 `;
 
-export const getButtonDefaultFullWidthStyles = (isFullWidth: boolean) => css`
+export const getButtonDefaultFullWidthStyles = (
+    isFullWidth: StyledButtonProps['isFullWidth']
+) => css`
     ${isFullWidth &&
     css`
         width: 100%;
     `}
 `;
 
-export const getButtonDefaultDisabledStyles = (isDisabled: boolean) =>
+export const getButtonDefaultDisabledStyles = (
+    isDisabled: StyledButtonProps['isDisabled']
+) =>
     css`
         ${isDisabled &&
         css`
-            background-color: ${(props) => props.theme.color.background.gamma};
-            border: 1px solid ${(props) => props.theme.color.border};
-            color: ${(props) => props.theme.color.text.alpha};
+            background-color: ${({ theme }) => theme.color.background.gamma};
+            border: 1px solid ${({ theme }) => theme.color.border};
+            color: ${({ theme }) => theme.color.text.alpha};
             opacity: 0.6;
             cursor: not-allowed;
 
             &:hover {
-                background: ${(props) => props.theme.color.background.gamma};
+                background: ${({ theme }) => theme.color.background.gamma};
             }
         `}
     `;
@@ -248,14 +260,11 @@ export const StyledButton = styled.button.withConfig({
         isDisabled,
     }) => css`
         ${getButtonDefaultStyles()};
-        ${getButtonDefaultTypeStyles(
-            atlanticType as ButtonStyleType,
-            isTransparent as boolean
-        )};
-        ${getButtonDefaultRoundStyles(isRound as boolean)}
-        ${getButtonDefaultSizeStyles(size as Size)}
-        ${getButtonDefaultFullWidthStyles(isFullWidth as boolean)}
-        ${getButtonDefaultDisabledStyles(isDisabled as boolean)}
+        ${getButtonDefaultTypeStyles(atlanticType, isTransparent)};
+        ${getButtonDefaultRoundStyles(isRound)}
+        ${getButtonDefaultSizeStyles(size)}
+        ${getButtonDefaultFullWidthStyles(isFullWidth)}
+        ${getButtonDefaultDisabledStyles(isDisabled)}
         
         ${!isDisabled &&
         isTransparent &&
@@ -270,7 +279,7 @@ export const StyledButton = styled.button.withConfig({
                 z-index: -1;
                 border-radius: ${isRound ? theme.rounded : theme.radius};
                 background: ${theme.color.background.gamma};
-                border: 1px solid ${(props) => props.theme.color.border};
+                border: 1px solid ${({ theme }) => theme.color.border};
                 animation: ${focusAnimation} 0.4s ease-in-out;
             }
         `}

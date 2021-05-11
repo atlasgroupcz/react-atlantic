@@ -2,81 +2,81 @@ import styled, { css } from 'styled-components';
 import { SimpleButtonProps } from '../../../types';
 import { Button } from '../../default';
 
+export const getButtonSimpleStyles = (
+    isAlternative: SimpleButtonProps['isAlternative']
+) => css`
+    background: none;
+    box-shadow: none;
+    border: none;
+
+    &:hover {
+        background: ${({ theme }) => theme.color.background.beta};
+    }
+
+    ${({ theme }) =>
+        isAlternative &&
+        css`
+            &:hover {
+                background: ${theme.color.background.alpha};
+            }
+        `}
+`;
+
+export const getButtonSimpleTypeStyles = (
+    type: SimpleButtonProps['type']
+) => css`
+    ${({ theme }) =>
+        type === 'primary' &&
+        css`
+            background: ${theme.color.primary.alpha};
+
+            &:hover {
+                background: ${theme.color.primary.beta};
+            }
+        `}
+
+    ${({ theme }) =>
+        type === 'success' &&
+        css`
+            background: ${theme.color.success.alpha};
+
+            &:hover {
+                background: ${theme.color.success.beta};
+            }
+        `}
+    
+    ${({ theme }) =>
+        type === 'warning' &&
+        css`
+            background: ${theme.color.warning.alpha};
+
+            &:hover {
+                background: ${theme.color.warning.beta};
+            }
+        `}
+    
+    ${({ theme }) =>
+        type === 'error' &&
+        css`
+            background: ${theme.color.error.alpha};
+
+            &:hover {
+                background: ${theme.color.error.beta};
+            }
+        `}
+    
+    ${({ theme }) =>
+        type === 'dashed' &&
+        css`
+            border: 1px dashed ${theme.color.border};
+        `}
+`;
+
 export const StyledSimpleButton = styled(Button).withConfig({
     shouldForwardProp: (prop) => !['isAlternative'].includes(prop),
 })<SimpleButtonProps>`
-    && {
-        background: none;
-        box-shadow: none;
-        border: none;
-
-        &:hover {
-            background: ${(props) => props.theme.color.background.beta};
-        }
-
-        ${({ isAlternative = false, ...props }) =>
-            isAlternative
-                ? css`
-                      background: none;
-
-                      &:hover {
-                          background: ${props.theme.color.background.alpha};
-                      }
-                  `
-                : ``}
-
-        ${({ type = 'default', ...props }) =>
-            type
-                ? css`
-                      ${type === 'primary'
-                          ? css`
-                                background: ${props.theme.color.primary.alpha};
-
-                                &:hover {
-                                    background: ${props.theme.color.primary
-                                        .beta};
-                                }
-                            `
-                          : ``}
-
-                      ${type === 'success'
-                          ? css`
-                                background: ${props.theme.color.success.alpha};
-
-                                &:hover {
-                                    background: ${props.theme.color.success
-                                        .beta};
-                                }
-                            `
-                          : ``}
-          
-          ${type === 'warning'
-                          ? css`
-                                background: ${props.theme.color.warning.alpha};
-
-                                &:hover {
-                                    background: ${props.theme.color.warning
-                                        .beta};
-                                }
-                            `
-                          : ``}
-          
-          ${type === 'error'
-                          ? css`
-                                background: ${props.theme.color.error.alpha};
-
-                                &:hover {
-                                    background: ${props.theme.color.error.beta};
-                                }
-                            `
-                          : ``}
-          
-          ${type === 'dashed'
-                          ? css`
-                                border: 1px dashed ${props.theme.color.border};
-                            `
-                          : ``}
-                  `
-                : ``}
-    }
+    ${({ isAlternative = false, type = 'default' }) => css`
+        ${getButtonSimpleStyles(isAlternative)};
+        ${getButtonSimpleTypeStyles(type)}
+    `}
 `;

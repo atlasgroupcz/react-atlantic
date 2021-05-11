@@ -5,16 +5,16 @@ import { getTypographyDefaultStyles } from '../../Typography';
 import { TextAreaProps } from '../types';
 
 export const getTextAreaDefaultStyles = () => css`
-    ${(props) => getTypographyDefaultStyles(props)};
+    ${getTypographyDefaultStyles()};
     position: relative;
     display: inline-block;
     min-width: 150px;
     user-select: text;
     max-width: 100%;
     height: auto;
-    min-height: ${(props) => props.theme.height.md};
-    padding: ${(props) => props.theme.padding.sm}
-        ${(props) => props.theme.padding.md};
+    min-height: ${({ theme }) => theme.height.md};
+    padding: ${({ theme }) => theme.padding.sm}
+        ${({ theme }) => theme.padding.md};
     margin: 0;
 
     vertical-align: middle;
@@ -23,10 +23,10 @@ export const getTextAreaDefaultStyles = () => css`
     -webkit-appearance: none;
     touch-action: manipulation;
 
-    background-color: ${(props) => props.theme.color.background.alpha};
-    color: ${(props) => props.theme.color.text.alpha};
-    border: 1px solid ${(props) => props.theme.color.border};
-    border-radius: ${(props) => props.theme.radius};
+    background-color: ${({ theme }) => theme.color.background.alpha};
+    color: ${({ theme }) => theme.color.text.alpha};
+    border: 1px solid ${({ theme }) => theme.color.border};
+    border-radius: ${({ theme }) => theme.radius};
     outline: 0;
     list-style: none;
 
@@ -35,11 +35,11 @@ export const getTextAreaDefaultStyles = () => css`
     box-sizing: border-box;
 
     &::placeholder {
-        color: ${(props) => props.theme.color.text.beta};
+        color: ${({ theme }) => theme.color.text.beta};
     }
 
     &:focus {
-        border-color: ${(props) => props.theme.color.primary.alpha};
+        border-color: ${({ theme }) => theme.color.primary.alpha};
         outline-offset: -2px;
         box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.3);
     }
@@ -50,16 +50,18 @@ export const getTextAreaDefaultStyles = () => css`
     }
 `;
 
-export const getTextAreaDisabledStyles = (isDisabled: boolean) => css`
+export const getTextAreaDisabledStyles = (
+    isDisabled: TextAreaProps['isDisabled']
+) => css`
     ${isDisabled &&
     css`
-        color: ${(props) => props.theme.color.text.beta};
+        color: ${({ theme }) => theme.color.text.beta};
 
         ::placeholder {
-            color: ${(props) => props.theme.color.text.beta};
+            color: ${({ theme }) => theme.color.text.beta};
         }
 
-        background-color: ${(props) => props.theme.color.default};
+        background-color: ${({ theme }) => theme.color.default};
         cursor: not-allowed;
         outline: 0;
 
@@ -67,12 +69,14 @@ export const getTextAreaDisabledStyles = (isDisabled: boolean) => css`
         &:focus {
             outline: 0;
             box-shadow: none;
-            border: 1px solid ${(props) => props.theme.color.border};
+            border: 1px solid ${({ theme }) => theme.color.border};
         }
     `}
 `;
 
-export const getTextAreaFullWidthStyles = (isFullWidth: boolean) => css`
+export const getTextAreaFullWidthStyles = (
+    isFullWidth: TextAreaProps['isFullWidth']
+) => css`
     ${isFullWidth &&
     css`
         width: 100%;
@@ -80,31 +84,31 @@ export const getTextAreaFullWidthStyles = (isFullWidth: boolean) => css`
 `;
 
 export const getTextAreaSizeStyles = (size: TextAreaProps['size']) => css`
-    ${(props) =>
+    ${({ theme }) =>
         size === 'small' &&
         css`
-            font-size: ${props.theme.font.size.sm};
+            font-size: ${theme.font.size.sm};
 
             i + span,
             span + i {
-                margin-left: ${props.theme.margin.sm};
+                margin-left: ${theme.margin.sm};
             }
         `}
 
-    ${(props) =>
+    ${({ theme }) =>
         size === 'medium' &&
         css`
-            font-size: ${props.theme.font.size.md};
+            font-size: ${theme.font.size.md};
         `}
   
-    ${(props) =>
+    ${({ theme }) =>
         size === 'large' &&
         css`
-            font-size: ${props.theme.font.size.lg};
+            font-size: ${theme.font.size.lg};
 
             i + span,
             span + i {
-                margin-left: ${props.theme.margin.lg};
+                margin-left: ${theme.margin.lg};
             }
         `}
 `;
@@ -116,10 +120,11 @@ export const StyledTextArea = styled(
         )
     )
 )<TextAreaProps>`
-    ${getTextAreaDefaultStyles()}
-    ${(props) => getTextAreaDisabledStyles(props.isDisabled as boolean)}
-    ${(props) => getTextAreaFullWidthStyles(props.isFullWidth as boolean)}
-    ${(props) => getTextAreaSizeStyles(props.size as TextAreaProps['size'])}
-
-    resize: ${({ allowResize = false }) => (allowResize ? `both` : `none`)};
+    ${({ isDisabled, isFullWidth, size, allowResize = false }) => css`
+        ${getTextAreaDefaultStyles()}
+        ${getTextAreaDisabledStyles(isDisabled)};
+        ${getTextAreaFullWidthStyles(isFullWidth)};
+        ${getTextAreaSizeStyles(size)};
+        resize: ${allowResize ? `both` : `none`};
+    `}
 `;

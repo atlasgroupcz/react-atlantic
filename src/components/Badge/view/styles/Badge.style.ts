@@ -4,66 +4,64 @@ import { BadgeProps } from '../../types';
 export const getBadgeDefaultStyles = () => css`
     display: inline-block;
     text-align: center;
-    color: ${(props) => props.theme.color.text.alpha};
-    font-family: ${(props) => props.theme.font.family};
+    color: ${({ theme }) => theme.color.text.alpha};
+    font-family: ${({ theme }) => theme.font.family};
     font-weight: 400;
-    background-color: ${(props) => props.theme.color.default};
-    border-radius: ${(props) => props.theme.radius};
+    background-color: ${({ theme }) => theme.color.default};
+    border-radius: ${({ theme }) => theme.radius};
 `;
 
-export const getBadgeDefaultTypeStyles = (type: BadgeProps) => css`
-    ${(props) =>
+export const getBadgeDefaultTypeStyles = (type: BadgeProps['type']) => css`
+    ${({ theme }) =>
         type === 'primary' &&
         css`
-            background-color: ${props.theme.color.primary.alpha};
-            color: ${props.theme.color.text.gamma};
+            background-color: ${theme.color.primary.alpha};
+            color: ${theme.color.text.gamma};
         `}
 
-    ${(props) =>
+    ${({ theme }) =>
         type === 'success' &&
         css`
-            background-color: ${props.theme.color.success.alpha};
-            color: ${props.theme.color.text.gamma};
+            background-color: ${theme.color.success.alpha};
+            color: ${theme.color.text.gamma};
         `}
 
-    ${(props) =>
+    ${({ theme }) =>
         type === 'warning' &&
         css`
-            background-color: ${props.theme.color.warning.alpha};
-            color: ${props.theme.color.text.gamma};
+            background-color: ${theme.color.warning.alpha};
+            color: ${theme.color.text.gamma};
         `}
 
-    ${(props) =>
+    ${({ theme }) =>
         type === 'error' &&
         css`
-            background-color: ${props.theme.color.error.alpha};
-            color: ${props.theme.color.text.gamma};
+            background-color: ${theme.color.error.alpha};
+            color: ${theme.color.text.gamma};
         `}
 `;
 
-export const getBadgeDefaultSizeStyles = (size: BadgeProps) => css`
-    ${(props) =>
+export const getBadgeDefaultSizeStyles = (size: BadgeProps['size']) => css`
+    ${({ theme }) =>
         size === 'small' &&
         css`
-            padding: 2px ${props.theme.padding.sm};
+            padding: 2px ${theme.padding.sm};
 
-            font-size: ${props.theme.font.size.sm};
+            font-size: ${theme.font.size.sm};
         `}
 
-    ${(props) =>
+    ${({ theme }) =>
         size === 'medium' &&
         css`
-            padding: ${props.theme.padding.sm}
-                ${parseInt(props.theme.padding.md, 0) - 2}px;
-            font-size: ${props.theme.font.size.md};
+            padding: ${theme.padding.sm} ${parseInt(theme.padding.md, 0) - 2}px;
+            font-size: ${theme.font.size.md};
         `}
     
-    ${(props) =>
+    ${({ theme }) =>
         size === 'large' &&
         css`
-            padding: ${props.theme.padding.md}
-                ${parseInt(props.theme.padding.lg, 0) - 2}px;
-            font-size: ${props.theme.font.size.lg};
+            padding: ${theme.padding.md} ${parseInt(theme.padding.lg, 0) - 2}px;
+            font-size: ${theme.font.size.lg};
         `}
 `;
 
@@ -72,7 +70,7 @@ export const StyledBadge = styled.sup.withConfig({
 })<BadgeProps>`
     ${({ type, size }) => css`
         ${getBadgeDefaultStyles()};
-        ${getBadgeDefaultTypeStyles(type as BadgeProps)};
-        ${getBadgeDefaultSizeStyles(size as BadgeProps)};
+        ${getBadgeDefaultTypeStyles(type)};
+        ${getBadgeDefaultSizeStyles(size)};
     `}
 `;

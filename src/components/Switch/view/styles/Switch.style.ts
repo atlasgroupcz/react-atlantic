@@ -45,8 +45,7 @@ export const StyledSwitcherContainer = styled.div<StyledSwitchProps>`
     ${({ isChecked }) =>
         isChecked &&
         css`
-            right: -${switchWidth}; ;
-            ;
+            right: -${switchWidth};
         `}
 `;
 

@@ -964,29 +964,29 @@ export const StyledReactDatePickerContainer = styled.div<{
     }
 
     .react-datepicker-popper {
-        margin-top: ${(props) => props.theme.margin.md};
+        margin-top: ${({ theme }) => theme.margin.md};
         z-index: 90;
 
         &[data-placement^='bottom'] .react-datepicker__triangle {
-            border-bottom-color: ${(props) => props.theme.color.primary.alpha};
+            border-bottom-color: ${({ theme }) => theme.color.primary.alpha};
 
             &:before {
-                border-bottom-color: ${(props) =>
-                    props.theme.color.primary.alpha};
+                border-bottom-color: ${({ theme }) =>
+                    theme.color.primary.alpha};
             }
         }
 
         &[data-placement^='top'] .react-datepicker__triangle {
-            border-top-color: ${(props) => props.theme.color.background.alpha};
+            border-top-color: ${({ theme }) => theme.color.background.alpha};
         }
     }
 
     .react-datepicker {
-        font-size: ${(props) => props.theme.font.size.md};
-        font-family: ${(props) => props.theme.font.family};
-        background-color: ${(props) => props.theme.color.background.alpha};
-        border: 1px solid ${(props) => props.theme.color.border};
-        box-shadow: ${(props) => props.theme.boxShadow.md};
+        font-size: ${({ theme }) => theme.font.size.md};
+        font-family: ${({ theme }) => theme.font.family};
+        background-color: ${({ theme }) => theme.color.background.alpha};
+        border: 1px solid ${({ theme }) => theme.color.border};
+        box-shadow: ${({ theme }) => theme.boxShadow.md};
 
         &__header {
             margin: 0;
@@ -999,52 +999,51 @@ export const StyledReactDatePickerContainer = styled.div<{
         }
 
         &__month {
-            margin: ${(props) => props.theme.margin.sm} 0;
+            margin: ${({ theme }) => theme.margin.sm} 0;
         }
 
         &__day-names,
         &__week {
             display: flex;
             align-items: center;
-            padding: 0 ${(props) => props.theme.margin.sm};
-            color: ${(props) => props.theme.color.text.alpha};
+            padding: 0 ${({ theme }) => theme.margin.sm};
+            color: ${({ theme }) => theme.color.text.alpha};
         }
 
         &__day,
         &__day-name {
             flex: 1;
             margin: 0;
-            padding: ${(props) => props.theme.padding.md} 0;
-            border-radius: ${(props) => props.theme.radius};
+            padding: ${({ theme }) => theme.padding.md} 0;
+            border-radius: ${({ theme }) => theme.radius};
             line-height: 1rem;
             cursor: pointer;
             outline: none;
 
             &--outside-month {
-                color: ${(props) => props.theme.color.text.beta};
+                color: ${({ theme }) => theme.color.text.beta};
             }
 
             &--today {
                 font-weight: 400;
-                background-color: ${(props) =>
-                    props.theme.color.background.beta};
+                background-color: ${({ theme }) => theme.color.background.beta};
             }
 
             &--selected,
             &--keyboard-selected {
-                background-color: ${(props) => props.theme.color.primary.alpha};
-                color: ${(props) => props.theme.color.text.gamma};
+                background-color: ${({ theme }) => theme.color.primary.alpha};
+                color: ${({ theme }) => theme.color.text.gamma};
 
                 &:hover {
-                    background-color: ${(props) =>
-                        props.theme.color.primary.beta};
+                    background-color: ${({ theme }) =>
+                        theme.color.primary.beta};
                 }
             }
         }
 
         &__day-names {
-            border-bottom: 1px solid ${(props) => props.theme.color.border};
-            background-color: ${(props) => props.theme.color.background.beta};
+            border-bottom: 1px solid ${({ theme }) => theme.color.border};
+            background-color: ${({ theme }) => theme.color.background.beta};
         }
     }
 `;

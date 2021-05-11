@@ -3,68 +3,71 @@ import { TextProps } from '../types';
 import { getTypographyDefaultStyles } from '../../styles';
 
 export const getTextColor = (type: TextProps['type']) => css`
-    ${(props) =>
+    ${({ theme }) =>
         type === 'default' &&
         css`
-            color: ${props.theme.color.text.alpha};
+            color: ${theme.color.text.alpha};
         `}
 
-    ${(props) =>
+    ${({ theme }) =>
         type === 'primary' &&
         css`
-            color: ${props.theme.color.primary.alpha};
+            color: ${theme.color.primary.alpha};
         `}
 
-    ${(props) =>
+    ${({ theme }) =>
         type === 'success' &&
         css`
-            color: ${props.theme.color.success.alpha};
+            color: ${theme.color.success.alpha};
         `}
   
-  ${(props) =>
+  ${({ theme }) =>
         type === 'warning' &&
         css`
-            color: ${props.theme.color.warning.alpha};
+            color: ${theme.color.warning.alpha};
         `}
   
-  ${(props) =>
+  ${({ theme }) =>
         type === 'error' &&
         css`
-            color: ${props.theme.color.error.alpha};
+            color: ${theme.color.error.alpha};
         `}
 `;
 
 export const StyledText = styled.span<TextProps>`
-    ${(props) => getTypographyDefaultStyles(props)};
-    ${(props) => getTextColor(props.type as TextProps['type'])};
+    ${({ type }) => css`
+        ${getTypographyDefaultStyles()};
+        ${getTextColor(type)};
+    `}
 `;
 
 export const StyledStrongText = styled.strong<TextProps>`
-    ${(props) => getTypographyDefaultStyles(props)};
-    ${(props) => getTextColor(props.type as TextProps['type'])};
-
-    font-weight: 600;
+    ${({ type }) => css`
+        ${getTypographyDefaultStyles()};
+        ${getTextColor(type)};
+        font-weight: 600;
+    `}
 `;
 
 export const StyledMarkText = styled.mark<TextProps>`
-    ${(props) => getTypographyDefaultStyles(props)};
-    padding: 0 ${(props) => props.theme.padding.xs};
-    background-color: ${(props) => props.theme.color.warning.gamma};
+    ${getTypographyDefaultStyles()};
+    padding: 0 ${({ theme }) => theme.padding.xs};
+    background-color: ${({ theme }) => theme.color.warning.gamma};
 `;
 
 export const StyledCodeText = styled.code<TextProps>`
-    ${(props) => getTypographyDefaultStyles(props)};
-    margin: 0 ${(props) => props.theme.margin.sm};
-    font-size: ${(props) => props.theme.font.size.sm};
-    background: ${(props) => props.theme.color.default};
-    border: 1px solid ${(props) => props.theme.color.border};
-    border-radius: ${(props) => parseInt(props.theme.radius, 0) - 2}px;
-    padding: ${(props) => props.theme.padding.xs}
-        ${(props) => props.theme.padding.md};
+    ${getTypographyDefaultStyles()};
+    margin: 0 ${({ theme }) => theme.margin.sm};
+    font-size: ${({ theme }) => theme.font.size.sm};
+    background: ${({ theme }) => theme.color.default};
+    border: 1px solid ${({ theme }) => theme.color.border};
+    border-radius: ${({ theme }) => parseInt(theme.radius, 0) - 2}px;
+    padding: ${({ theme }) => theme.padding.xs}
+        ${({ theme }) => theme.padding.md};
 `;
 
 export const StyledDelText = styled.del<TextProps>`
-    ${(props) => getTypographyDefaultStyles(props)};
-    padding: 0 ${(props) => props.theme.padding.xs};
-    background-color: ${(props) => props.theme.color.error.gamma};
+    ${getTypographyDefaultStyles()};
+    padding: 0 ${({ theme }) => theme.padding.xs};
+    background-color: ${({ theme }) => theme.color.error.gamma};
 `;

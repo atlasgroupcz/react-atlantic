@@ -10,7 +10,7 @@ import {
 import { getTypographyDefaultStyles } from '../../styles';
 
 export const getLinkDefaultStyles = () => css`
-    ${(props) => getTypographyDefaultStyles(props)};
+    ${getTypographyDefaultStyles()};
     text-decoration: none;
     cursor: pointer;
     padding: 0;
@@ -22,7 +22,7 @@ export const getLinkDefaultStyles = () => css`
     }
 
     ${StyledText},${StyledTitle1},${StyledTitle2},${StyledTitle3},${StyledTitle4},${StyledTitle5} {
-        color: ${(props) => props.theme.color.primary.alpha};
+        color: ${({ theme }) => theme.color.primary.alpha};
     }
 `;
 

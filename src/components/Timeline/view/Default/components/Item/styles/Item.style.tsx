@@ -26,8 +26,8 @@ export const StyledTimelineItemCircle = styled.div<StyledTimelineCircleProps>`
     z-index: 1;
     cursor: pointer;
     border-radius: 50%;
-    border: 2px solid ${(props) => props.theme.color.border};
-    background-color: ${(props) => props.theme.color.background.alpha};
+    border: 2px solid ${({ theme }) => theme.color.border};
+    background-color: ${({ theme }) => theme.color.background.alpha};
 `;
 
 export const StyledTimelineItemCircleContainer = styled.div`
@@ -37,7 +37,7 @@ export const StyledTimelineItemCircleContainer = styled.div`
     align-items: center;
     width: ${circleSize};
     padding: ${itemVerticalGap} 0;
-    margin: 0 ${(props) => props.theme.margin.sm};
+    margin: 0 ${({ theme }) => theme.margin.sm};
 
     &:after {
         content: '';
@@ -46,7 +46,7 @@ export const StyledTimelineItemCircleContainer = styled.div`
         bottom: 0;
         left: 50%;
         transform: translateX(-1px);
-        border-left: 2px solid ${(props) => props.theme.color.border};
+        border-left: 2px solid ${({ theme }) => theme.color.border};
     }
 
     ${StyledIcon} {
@@ -56,9 +56,9 @@ export const StyledTimelineItemCircleContainer = styled.div`
 
 export const StyledTimelineItemContent = styled.div`
     box-sizing: border-box;
-    padding: ${(props) => props.theme.padding.sm};
-    border-radius: ${(props) => props.theme.radius};
-    background-color: ${(props) => props.theme.color.background.beta};
+    padding: ${({ theme }) => theme.padding.sm};
+    border-radius: ${({ theme }) => theme.radius};
+    background-color: ${({ theme }) => theme.color.background.beta};
 `;
 
 export const StyledTimelineItemContentContainer = styled.div`

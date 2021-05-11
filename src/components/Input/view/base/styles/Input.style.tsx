@@ -15,14 +15,14 @@ export const getInputDefaultStyles = () => css`
     -webkit-appearance: none;
     touch-action: manipulation;
     outline: 0;
-    color: ${(props) => props.theme.color.text.alpha};
-    font-family: ${(props) => props.theme.font.family};
+    color: ${({ theme }) => theme.color.text.alpha};
+    font-family: ${({ theme }) => theme.font.family};
     font-weight: 400;
     border: none;
     background-color: transparent;
 
     &::placeholder {
-        color: ${(props) => props.theme.color.text.beta};
+        color: ${({ theme }) => theme.color.text.beta};
     }
 
     &::-moz-placeholder {
@@ -49,11 +49,11 @@ export const getInputDisabledStyles = (
 ) => css`
     ${isDisabled &&
     css`
-        color: ${(props) => props.theme.color.text.beta};
+        color: ${({ theme }) => theme.color.text.beta};
         cursor: not-allowed;
 
         &::placeholder {
-            color: ${(props) => props.theme.color.text.beta};
+            color: ${({ theme }) => theme.color.text.beta};
         }
     `}
 `;

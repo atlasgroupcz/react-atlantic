@@ -32,15 +32,15 @@ export const StyledCheckboxInputShown = styled('div').withConfig({
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: ${(props) => parseInt(props.theme.padding.xs, 0) - 1}px;
-    background: ${(props) => props.theme.color.background.alpha};
-    border-radius: ${(props) => parseInt(props.theme.radius, 0) - 1}px;
-    border: 1px solid ${(props) => props.theme.color.border};
+    padding: ${({ theme }) => parseInt(theme.padding.xs, 0) - 1}px;
+    background: ${({ theme }) => theme.color.background.alpha};
+    border-radius: ${({ theme }) => parseInt(theme.radius, 0) - 1}px;
+    border: 1px solid ${({ theme }) => theme.color.border};
 
-    ${(props) =>
-        props.isDisabled &&
+    ${({ theme, isDisabled }) =>
+        isDisabled &&
         css`
-            background-color: ${props.theme.color.default};
+            background-color: ${theme.color.default};
             cursor: not-allowed;
         `}
 `;
@@ -48,44 +48,44 @@ export const StyledCheckboxInputShown = styled('div').withConfig({
 export const StyledCheckboxLabel = styled.label.withConfig({
     shouldForwardProp: (prop) => !['isDisabled', 'size'].includes(prop),
 })<StyledCheckboxProps>`
-    ${(props) => getTypographyDefaultStyles(props)};
+    ${getTypographyDefaultStyles()};
     position: relative;
     display: inline-flex;
     align-items: center;
     cursor: pointer;
 
-    ${(props) =>
-        !props.isDisabled &&
+    ${({ theme, isDisabled }) =>
+        !isDisabled &&
         css`
             &:hover {
                 ${StyledCheckboxInputShown} {
-                    border: 1px solid ${props.theme.color.primary.alpha};
+                    border: 1px solid ${theme.color.primary.alpha};
                 }
             }
         `};
 
-    ${(props) =>
-        props.isDisabled &&
+    ${({ isDisabled }) =>
+        isDisabled &&
         css`
             cursor: not-allowed;
         `};
 
-    ${(props) =>
-        props.size === 'small' &&
+    ${({ theme, size }) =>
+        size === 'small' &&
         css`
-            height: ${props.theme.height.sm};
+            height: ${theme.height.sm};
         `}
 
-    ${(props) =>
-        props.size === 'medium' &&
+    ${({ theme, size }) =>
+        size === 'medium' &&
         css`
-            height: ${props.theme.height.md};
+            height: ${theme.height.md};
         `}
     
-    ${(props) =>
-        props.size === 'large' &&
+    ${({ theme, size }) =>
+        size === 'large' &&
         css`
-            height: ${props.theme.height.lg};
+            height: ${theme.height.lg};
         `}
 `;
 
@@ -97,9 +97,9 @@ export const StyledCheckboxMark = styled.div.withConfig({
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    width: ${(props) => props.theme.width.xs};
-    height: ${(props) => props.theme.width.xs};
-    border-radius: ${(props) => parseInt(props.theme.radius, 0) - 2}px;
+    width: ${({ theme }) => theme.width.xs};
+    height: ${({ theme }) => theme.width.xs};
+    border-radius: ${({ theme }) => parseInt(theme.radius, 0) - 2}px;
     transition: all 0.5s cubic-bezier(0.4, 0, 0.23, 1);
 
     ${StyledIcon} {
@@ -107,36 +107,36 @@ export const StyledCheckboxMark = styled.div.withConfig({
         opacity: 0;
     }
 
-    ${(props) =>
-        (props.isChecked || props.isPartiallyChecked) &&
+    ${({ theme, isChecked, isPartiallyChecked }) =>
+        (isChecked || isPartiallyChecked) &&
         css`
-            background-color: ${props.theme.color.primary.alpha};
+            background-color: ${theme.color.primary.alpha};
 
             ${StyledIcon} {
                 opacity: 1;
             }
         `}
 
-    ${(props) =>
-        props.isChecked &&
+    ${({ theme, isChecked }) =>
+        isChecked &&
         css`
             ${StyledIcon} {
-                color: ${(props) => props.theme.color.text.gamma};
+                color: ${theme.color.text.gamma};
             }
         `}
 
-    ${(props) =>
-        props.isPartiallyChecked &&
+    ${({ isPartiallyChecked }) =>
+        isPartiallyChecked &&
         css`
             ${StyledIcon} {
                 color: transparent;
             }
         `}
 
-    ${(props) =>
-        props.isDisabled &&
+    ${({ theme, isDisabled }) =>
+        isDisabled &&
         css`
-            background-color: ${props.theme.color.background.beta};
+            background-color: ${theme.color.background.beta};
             cursor: not-allowed;
 
             ${StyledIcon} {
@@ -144,16 +144,16 @@ export const StyledCheckboxMark = styled.div.withConfig({
             }
         `};
 
-    ${(props) =>
-        props.isDisabled &&
-        props.isChecked &&
+    ${({ theme, isDisabled, isChecked }) =>
+        isDisabled &&
+        isChecked &&
         css`
-            background-color: ${props.theme.color.background.beta};
+            background-color: ${theme.color.background.beta};
             cursor: not-allowed;
 
             ${StyledIcon} {
                 opacity: 1;
-                color: ${props.theme.color.text.alpha};
+                color: ${theme.color.text.alpha};
             }
         `}
 `;
@@ -161,31 +161,31 @@ export const StyledCheckboxMark = styled.div.withConfig({
 export const StyledCheckboxSpan = styled.span.withConfig({
     shouldForwardProp: (prop) => !['isDisabled', 'size'].includes(prop),
 })<StyledCheckboxProps>`
-    padding: 0 ${(props) => props.theme.padding.md};
+    padding: 0 ${({ theme }) => theme.padding.md};
     user-select: none;
 
-    ${(props) =>
-        props.isDisabled &&
+    ${({ isDisabled }) =>
+        isDisabled &&
         css`
             cursor: not-allowed;
         `}
 
-    ${(props) =>
-        props.size === 'small' &&
+    ${({ theme, size }) =>
+        size === 'small' &&
         css`
-            font-size: ${props.theme.font.size.sm};
+            font-size: ${theme.font.size.sm};
         `}
     
-    ${(props) =>
-        props.size === 'medium' &&
+    ${({ theme, size }) =>
+        size === 'medium' &&
         css`
-            font-size: ${props.theme.font.size.md};
+            font-size: ${theme.font.size.md};
         `}
     
-    ${(props) =>
-        props.size === 'large' &&
+    ${({ theme, size }) =>
+        size === 'large' &&
         css`
-            font-size: ${props.theme.font.size.lg};
+            font-size: ${theme.font.size.lg};
         `}
 `;
 
