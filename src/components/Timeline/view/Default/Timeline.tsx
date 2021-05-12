@@ -1,15 +1,15 @@
 import React, { forwardRef, useMemo, useRef } from 'react';
 import { StyledTimelineContainer } from './styles';
-import { TimelineItem } from './Item';
+import { TimelineItem } from './components';
 import {
     defaultTimelineContextValue,
     TimelineProvider,
     TimelineContextState,
-} from '../context';
+} from '../../context';
 import { mapChild } from './utils';
-import { TimelineType } from '../types';
+import { TimelineType } from '../../types';
 
-export const Timeline: TimelineType = forwardRef(
+export const DefaultTimeline: TimelineType = forwardRef(
     ({ children, className, align = 'right', ...props }, ref) => {
         const isOppositeContent = useRef<TimelineContextState>(
             defaultTimelineContextValue
@@ -37,5 +37,5 @@ export const Timeline: TimelineType = forwardRef(
     }
 );
 
-Timeline.displayName = 'Timeline';
-Timeline.Item = TimelineItem;
+DefaultTimeline.displayName = 'Timeline';
+DefaultTimeline.Item = TimelineItem;

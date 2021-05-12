@@ -12,18 +12,18 @@ export const StyledPaginationContainer = styled.ul`
     li {
         display: inline-block;
         list-style: none;
-        margin: 0 ${(props) => props.theme.margin.xs};
+        margin: 0 ${({ theme }) => theme.margin.xs};
     }
 
     && {
         > div,
         > span {
             display: inline-block;
-            margin: 0 0 0 ${(props) => props.theme.margin.md};
+            margin: 0 0 0 ${({ theme }) => theme.margin.md};
         }
 
         span + span {
-            margin-left: ${(props) => props.theme.margin.sm};
+            margin-left: ${({ theme }) => theme.margin.sm};
         }
     }
 `;

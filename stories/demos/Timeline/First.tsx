@@ -1,9 +1,10 @@
 import React, { useRef } from 'react';
-import { Icon, IconProps, Text, TimelineItem, Timeline } from '../../../src';
+import { Icon, IconProps, Text, Timeline } from '../../../src';
+import { TimelineItem } from '../../../src/components/Timeline/view/Default/components';
 import {
     TimelineItemProps,
     TimelineOnClick,
-} from '../../../src/components/Timeline/view/Item/Item.types';
+} from '../../../src/components/Timeline/view/Default/components/Item/types/Item.types';
 
 export const FirstTimelineDemo = () => {
     const ref = useRef<HTMLLIElement | null>(null);

@@ -16,7 +16,7 @@ export const StyledPanelHeader = styled.div`
     &:hover {
         ${StyledCollapseIconContainer} {
             ${StyledIcon} {
-                color: ${(props) => props.theme.color.primary.alpha};
+                color: ${({ theme }) => theme.color.primary.alpha};
             }
         }
     }

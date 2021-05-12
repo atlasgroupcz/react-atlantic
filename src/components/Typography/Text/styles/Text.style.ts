@@ -1,84 +1,73 @@
 import styled, { css } from 'styled-components';
 import { TextProps } from '../types';
-import { getDefaultTypographyStyles } from '../../styles';
+import { getTypographyDefaultStyles } from '../../styles';
+
+export const getTextColor = (type: TextProps['type']) => css`
+    ${({ theme }) =>
+        type === 'default' &&
+        css`
+            color: ${theme.color.text.alpha};
+        `}
+
+    ${({ theme }) =>
+        type === 'primary' &&
+        css`
+            color: ${theme.color.primary.alpha};
+        `}
+
+    ${({ theme }) =>
+        type === 'success' &&
+        css`
+            color: ${theme.color.success.alpha};
+        `}
+  
+  ${({ theme }) =>
+        type === 'warning' &&
+        css`
+            color: ${theme.color.warning.alpha};
+        `}
+  
+  ${({ theme }) =>
+        type === 'error' &&
+        css`
+            color: ${theme.color.error.alpha};
+        `}
+`;
 
 export const StyledText = styled.span<TextProps>`
-    ${(props) => getDefaultTypographyStyles(props)};
-
-    ${(props) =>
-        props.type === 'primary' &&
-        css`
-            color: ${props.theme.color.primary.alpha};
-        `}
-
-    ${(props) =>
-        props.type === 'success' &&
-        css`
-            color: ${props.theme.color.success.alpha};
-        `}
-  
-  ${(props) =>
-        props.type === 'warning' &&
-        css`
-            color: ${props.theme.color.warning.alpha};
-        `}
-  
-  ${(props) =>
-        props.type === 'error' &&
-        css`
-            color: ${props.theme.color.error.alpha};
-        `}
+    ${({ type }) => css`
+        ${getTypographyDefaultStyles()};
+        ${getTextColor(type)};
+    `}
 `;
 
 export const StyledStrongText = styled.strong<TextProps>`
-    ${(props) => getDefaultTypographyStyles(props)};
-
-    font-weight: 600;
-
-    ${(props) =>
-        props.type === 'primary' &&
-        css`
-            color: ${props.theme.color.primary.alpha};
-        `}
-
-    ${(props) =>
-        props.type === 'success' &&
-        css`
-            color: ${props.theme.color.success.alpha};
-        `}
-  
-  ${(props) =>
-        props.type === 'warning' &&
-        css`
-            color: ${props.theme.color.warning.alpha};
-        `}
-  
-  ${(props) =>
-        props.type === 'error' &&
-        css`
-            color: ${props.theme.color.error.alpha};
-        `}
+    ${({ type }) => css`
+        ${getTypographyDefaultStyles()};
+        ${getTextColor(type)};
+        font-weight: 600;
+    `}
 `;
 
 export const StyledMarkText = styled.mark<TextProps>`
-    ${(props) => getDefaultTypographyStyles(props)};
-    padding: 0 ${(props) => props.theme.padding.xs};
-    background-color: ${(props) => props.theme.color.warning.gamma};
+    ${getTypographyDefaultStyles()};
+    padding: 0 ${({ theme }) => theme.padding.xs};
+    background-color: ${({ theme }) => theme.color.warning.gamma};
 `;
 
 export const StyledCodeText = styled.code<TextProps>`
-    ${(props) => getDefaultTypographyStyles(props)};
-    margin: 0 ${(props) => props.theme.margin.sm};
-    font-size: ${(props) => props.theme.font.size.sm};
-    background: ${(props) => props.theme.color.default};
-    border: 1px solid ${(props) => props.theme.color.border};
-    border-radius: ${(props) => parseInt(props.theme.radius, 0) - 2}px;
-    padding: ${(props) => props.theme.padding.xs}
-        ${(props) => props.theme.padding.md};
+    ${getTypographyDefaultStyles()};
+    margin: 0 ${({ theme }) => theme.margin.sm};
+    font-size: ${({ theme }) => theme.font.size.sm};
+    background: ${({ theme }) => theme.color.default};
+    border: 1px solid ${({ theme }) => theme.color.border};
+    border-radius: ${({ theme }) => parseInt(theme.radius, 0) - 2}px;
+    padding: ${({ theme }) => theme.padding.xs}
+        ${({ theme }) => theme.padding.md};
 `;
 
 export const StyledDelText = styled.del<TextProps>`
-    ${(props) => getDefaultTypographyStyles(props)};
-    padding: 0 ${(props) => props.theme.padding.xs};
-    background-color: ${(props) => props.theme.color.error.gamma};
+    ${getTypographyDefaultStyles()};
+    padding: 0 ${({ theme }) => theme.padding.xs};
+    background-color: ${({ theme }) => theme.color.error.gamma};
 `;

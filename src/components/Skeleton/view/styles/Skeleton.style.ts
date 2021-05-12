@@ -1,37 +1,103 @@
-import styled, { css, FlattenSimpleInterpolation } from 'styled-components';
-import { Size } from '../../../../types';
-import { ThemeType } from '../../../../theme';
+import styled, { css } from 'styled-components';
 import { StyledSkeletonProps } from '../../types';
+import { keyframes } from '../../../../styled';
 
-const sizeFactory = <T extends ThemeType<any>>(
-    size: Size,
-    theme: T
-): FlattenSimpleInterpolation => {
-    switch (size) {
-        case 'small':
-            return css`
-                height: ${theme.height.sm};
-            `;
-        case 'medium':
-            return css`
-                height: ${theme.height.md};
-            `;
-        case 'large':
-            return css`
-                height: ${theme.width.lg};
-            `;
+export const skeletonShineAnimation = keyframes`
+    from {
+        background-position: 100% 50%;
     }
-};
+  
+    to {
+        background-position: 0 50%;
+    }
+`;
 
-const parseWidth = (width: number | string): FlattenSimpleInterpolation => {
-    return typeof width === 'string'
-        ? css`
-              width: ${width};
-          `
-        : css`
-              width: ${width}px;
-          `;
-};
+export const getSkeletonDefaultStyles = () => css`
+    height: 100%;
+    width: 100%;
+    position: relative;
+    margin: ${({ theme }) => theme.margin.sm} 0px;
+    border-radius: ${({ theme }) => theme.radius};
+    animation: ${skeletonShineAnimation} 1.6s ease infinite;
+`;
+
+export const getSkeletonDefaultBackgroundStyles = (
+    animationColors: StyledSkeletonProps['animationColors'],
+    bgColor: StyledSkeletonProps['bgColor']
+) => css`
+    background: linear-gradient(
+        90deg,
+        ${({ theme }) =>
+                animationColors
+                    ? animationColors.alpha
+                    : theme.color.background.beta}
+            25%,
+        ${({ theme }) =>
+                animationColors ? animationColors.beta : theme.color.border}
+            37%,
+        ${({ theme }) =>
+                animationColors
+                    ? animationColors.gamma
+                    : theme.color.background.beta}
+            63%
+    );
+    background-color: ${({ theme }) => bgColor || theme.color.default};
+    background-size: 400% 100%;
+`;
+
+export const getSkeletonDefaultSizeStyles = (
+    size: StyledSkeletonProps['size']
+) => css`
+    ${({ theme }) =>
+        size === 'small' &&
+        css`
+            height: ${theme.height.sm};
+        `}
+
+    ${({ theme }) =>
+        size === 'medium' &&
+        css`
+            height: ${theme.height.md};
+        `}
+    
+    ${({ theme }) =>
+        size === 'large' &&
+        css`
+            height: ${theme.height.lg};
+        `}
+`;
+
+export const getSkeletonDefaultWidthStyles = (
+    width: StyledSkeletonProps['width']
+) => css`
+    ${typeof width === 'string' &&
+    css`
+        width: ${width};
+    `}
+
+    ${typeof width === 'number' &&
+    css`
+        width: ${width}px;
+    `}
+`;
+
+export const getSkeletonDefaultHeightStyles = (
+    height: StyledSkeletonProps['height']
+) => css`
+    ${!!height &&
+    css`
+        height: ${height}px;
+    `}
+`;
+
+export const getSkeletonDefaultShapeStyles = (
+    shape: StyledSkeletonProps['shape']
+) => css`
+    ${shape === 'circle' &&
+    css`
+        border-radius: 100%;
+    `}
+`;
 
 export const StyledSkeleton = styled.div.withConfig({
     shouldForwardProp: (prop) =>
@@ -44,83 +110,17 @@ export const StyledSkeleton = styled.div.withConfig({
             'animationColors',
         ].includes(prop),
 })<StyledSkeletonProps>`
-    height: 100%;
-    width: 100%;
-    position: relative;
-    background-color: ${(props) => props.bgColor || props.theme.color.default};
-    margin: ${(props) => props.theme.margin.sm} 0px;
-    border-radius: ${(props) => props.theme.radius};
-
-    background: -webkit-gradient(
-        linear,
-        left top,
-        right top,
-        color-stop(
-            25%,
-            ${(props) =>
-                props.animationColors
-                    ? props.animationColors.alpha
-                    : props.theme.color.background.beta}
-        ),
-        color-stop(
-            37%,
-            ${(props) =>
-                props.animationColors
-                    ? props.animationColors.beta
-                    : props.theme.color.border}
-        ),
-        color-stop(
-            63%,
-            ${(props) =>
-                props.animationColors
-                    ? props.animationColors.gamma
-                    : props.theme.color.background.beta}
-        )
-    );
-    background: linear-gradient(
-        90deg,
-        ${(props) =>
-                props.animationColors
-                    ? props.animationColors.alpha
-                    : props.theme.color.background.beta}
-            25%,
-        ${(props) =>
-                props.animationColors
-                    ? props.animationColors.beta
-                    : props.theme.color.border}
-            37%,
-        ${(props) =>
-                props.animationColors
-                    ? props.animationColors.gamma
-                    : props.theme.color.background.beta}
-            63%
-    );
-    background-size: 400% 100%;
-    -webkit-animation: shine 1.6s ease infinite;
-    animation: shine 1.6s ease infinite;
-
-    @keyframes shine {
-        0% {
-            background-position: 100% 50%;
-        }
-        100% {
-            background-position: 0 50%;
-        }
-    }
-
-    ${(props) => props.size && sizeFactory(props.size, props.theme)}
-
-    ${(props) => props.width && parseWidth(props.width)}
-  
-${(props) =>
-        props.height &&
-        css`
-            height: ${props.height}px;
-        `}
-  
-${(props) =>
-        props.shape === `circle` &&
-        css`
-            border-radius: 100%;
-        `}
+    ${({ bgColor, animationColors, size, width, height, shape }) => css`
+        ${getSkeletonDefaultStyles()};
+        ${getSkeletonDefaultSizeStyles(size as StyledSkeletonProps['size'])};
+        ${getSkeletonDefaultWidthStyles(width as StyledSkeletonProps['width'])};
+        ${getSkeletonDefaultHeightStyles(
+            height as StyledSkeletonProps['height']
+        )};
+        ${getSkeletonDefaultBackgroundStyles(
+            animationColors as StyledSkeletonProps['animationColors'],
+            bgColor as StyledSkeletonProps['bgColor']
+        )};
+        ${getSkeletonDefaultShapeStyles(shape as StyledSkeletonProps['shape'])};
+    `}
 `;

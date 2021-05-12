@@ -30,8 +30,8 @@ export const StyledProgressCircleContainer = styled.div`
 export const StyledProgressCircle = styled.div.withConfig({
     shouldForwardProp: (prop) => !['color', 'circleSize'].includes(prop),
 })<StyledProgressCircleProps>`
-    height: ${(props) => props.circleSize}px;
-    width: ${(props) => props.circleSize}px;
+    height: ${({ circleSize }) => circleSize}px;
+    width: ${({ circleSize }) => circleSize}px;
     position: relative;
 `;
 
@@ -46,17 +46,17 @@ export const StyledProgressCircleSVGBackground = styled.circle.withConfig({
     shouldForwardProp: (prop) =>
         !['color', 'dashOffset', 'strokeWidth', 'dashArray'].includes(prop),
 })<StyledSVGCircleProps>`
-    stroke: ${(props) => props.theme.color.border};
-    stroke-width: ${(props) => props.strokeWidth};
+    stroke: ${({ theme }) => theme.color.border};
+    stroke-width: ${({ strokeWidth }) => strokeWidth};
 `;
 
 export const StyledProgressCircleSVGColorful = styled.circle.withConfig({
     shouldForwardProp: (prop) =>
         !['color', 'dashOffset', 'strokeWidth', 'dashArray'].includes(prop),
 })<StyledSVGCircleProps>`
-    stroke-width: ${(props) => props.strokeWidth};
-    stroke-dasharray: ${(props) => props.dashArray};
-    stroke-dashoffset: ${(props) => props.dashOffset};
+    stroke-width: ${({ strokeWidth }) => strokeWidth};
+    stroke-dasharray: ${({ dashArray }) => dashArray};
+    stroke-dashoffset: ${({ dashOffset }) => dashOffset};
     transform-origin: 50% 50%;
     transform: rotate(-90deg);
     transition: stroke 1s ease, stroke-dashoffset 1s ease;
@@ -78,9 +78,9 @@ export const StyledProgressCircleContent = styled.div`
     transform: translateX(-50%) translateY(-50%);
 
     ${StyledText} {
-        font-family: ${(props) => props.theme.font.family};
+        font-family: ${({ theme }) => theme.font.family};
         font-weight: 700;
-        font-size: ${(props) => props.theme.font.size.md};
+        font-size: ${({ theme }) => theme.font.size.md};
     }
 `;
 
@@ -90,7 +90,7 @@ export const StyledProgressCircleCheckSVG = styled.svg`
 `;
 
 export const StyledProgressCircleCheckSVGColorful = styled.polyline`
-    stroke: ${(props) => props.theme.color.success.alpha};
+    stroke: ${({ theme }) => theme.color.success.alpha};
     stroke-width: 10;
     stroke-linecap: round;
     stroke-dasharray: 1000;
@@ -98,5 +98,5 @@ export const StyledProgressCircleCheckSVGColorful = styled.polyline`
 `;
 
 export const StyledProgressCircleFailedIcon = styled(Icon)`
-    color: ${(props) => props.theme.color.error.alpha};
+    color: ${({ theme }) => theme.color.error.alpha};
 `;

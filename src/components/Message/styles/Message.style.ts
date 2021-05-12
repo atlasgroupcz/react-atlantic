@@ -8,104 +8,104 @@ export const StyledMessageContainer = styled.div.withConfig({
 })<StyledMessageProps>`
     display: inline-flex;
     align-items: center;
-    padding: ${(props) => props.theme.padding.md};
-    margin-bottom: ${(props) => props.theme.padding.sm};
-    box-shadow: ${(props) => props.theme.boxShadow.md};
-    border-radius: ${(props) => props.theme.radius};
+    padding: ${({ theme }) => theme.padding.md};
+    margin-bottom: ${({ theme }) => theme.padding.sm};
+    box-shadow: ${({ theme }) => theme.boxShadow.md};
+    border-radius: ${({ theme }) => theme.radius};
     cursor: default;
 
     ${StyledText} {
         margin: 0;
-        color: ${(props) => props.theme.color.text.gamma};
+        color: ${({ theme }) => theme.color.text.gamma};
     }
 
-    ${(props) =>
-        props.type === 'default' &&
+    ${({ theme, type }) =>
+        type === 'default' &&
         css`
-            background-color: ${props.theme.color.background.alpha};
+            background-color: ${theme.color.background.alpha};
 
             ${StyledText} {
-                color: ${props.theme.color.text.alpha};
+                color: ${theme.color.text.alpha};
             }
         `}
 
-    ${(props) =>
-        props.type === 'primary' &&
+    ${({ theme, type }) =>
+        type === 'primary' &&
         css`
-            background-color: ${props.theme.color.primary.alpha};
+            background-color: ${theme.color.primary.alpha};
         `}
 
-    ${(props) =>
-        props.type === 'success' &&
+    ${({ theme, type }) =>
+        type === 'success' &&
         css`
-            background-color: ${props.theme.color.success.alpha};
+            background-color: ${theme.color.success.alpha};
         `}
   
-  ${(props) =>
-        props.type === 'warning' &&
+    ${({ theme, type }) =>
+        type === 'warning' &&
         css`
-            background-color: ${props.theme.color.warning.alpha};
+            background-color: ${theme.color.warning.alpha};
         `}
 
-  ${(props) =>
-        props.type === 'error' &&
+    ${({ theme, type }) =>
+        type === 'error' &&
         css`
-            background-color: ${props.theme.color.error.alpha};
+            background-color: ${theme.color.error.alpha};
         `}
 
-    ${(props) =>
-        props.isTransparent &&
+    ${({ theme, isTransparent }) =>
+        isTransparent &&
         css`
-            background-color: ${props.theme.color.background.alpha};
+            background-color: ${theme.color.background.alpha};
 
             ${StyledText} {
-                color: ${(props) => props.theme.color.text.alpha};
+                color: ${theme.color.text.alpha};
             }
         `}
 `;
 export const StyledMessageIcon = styled(Icon).withConfig({
     shouldForwardProp: (prop) => !['isTransparent'].includes(prop),
 })<StyledMessageProps>`
-    margin-right: ${(props) => props.theme.padding.md};
+    margin-right: ${({ theme }) => theme.padding.md};
 
-    ${(props) =>
-        !props.isTransparent &&
+    ${({ theme, isTransparent }) =>
+        !isTransparent &&
         css`
-            color: ${props.theme.color.text.gamma};
-        `}
-
-    ${(props) =>
-        props.type === 'default' &&
-        css`
-            color: ${props.theme.color.text.alpha};
+            color: ${theme.color.text.gamma};
         `}
 
-    ${(props) =>
-        props.type === 'primary' &&
-        props.isTransparent &&
+    ${({ theme, type }) =>
+        type === 'default' &&
         css`
-            color: ${props.theme.color.primary.alpha};
+            color: ${theme.color.text.alpha};
+        `}
+
+    ${({ theme, type, isTransparent }) =>
+        type === 'primary' &&
+        isTransparent &&
+        css`
+            color: ${theme.color.primary.alpha};
         `}
   
-  ${(props) =>
-        props.type === 'success' &&
-        props.isTransparent &&
+    ${({ theme, type, isTransparent }) =>
+        type === 'success' &&
+        isTransparent &&
         css`
-            color: ${props.theme.color.success.alpha};
+            color: ${theme.color.success.alpha};
         `}
   
-  ${(props) =>
-        props.type === 'warning' &&
-        props.isTransparent &&
+    ${({ theme, type, isTransparent }) =>
+        type === 'warning' &&
+        isTransparent &&
         css`
-            color: ${props.theme.color.warning.alpha};
+            color: ${theme.color.warning.alpha};
         `}
   
-  ${(props) =>
-        props.type === 'error' &&
-        props.isTransparent &&
+    ${({ theme, type, isTransparent }) =>
+        type === 'error' &&
+        isTransparent &&
         css`
-            color: ${props.theme.color.error.alpha};
+            color: ${theme.color.error.alpha};
         `}
 `;
 

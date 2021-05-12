@@ -6,17 +6,15 @@ import React, {
     useMemo,
     useRef,
 } from 'react';
-import { TooltipContextType } from './types/TooltipContextType';
-import { TooltipsProps } from './types/TooltipsProps';
+import { TooltipsProps, TooltipContextType } from './types';
 import { StyledTooltip } from './styles';
 import {
     attachTooltipToElement,
     cleanupTooltipElement,
     createTransition,
+    isTooltipAttached,
 } from './utils';
-import { isTooltipAttached } from './utils/isTooltipAttached';
-import { BORDER_PADDING } from './constants/PADDING';
-import { MARGIN_TOOLTIP } from './constants/MARGIN';
+import { BORDER_PADDING, MARGIN_TOOLTIP } from './constants';
 
 export const TooltipContext = createContext<TooltipContextType>({} as any);
 
