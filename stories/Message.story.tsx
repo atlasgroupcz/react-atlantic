@@ -14,7 +14,7 @@ stories.add(
     () => {
         const type = select(
             `type:`,
-            ['default', 'primary', 'success', 'warning', 'error'],
+            ['default', 'primary', 'success', 'warning', 'error', 'info'],
             'default'
         );
 
