@@ -66,6 +66,16 @@ export const getButtonSimpleTypeStyles = (
         `}
     
     ${({ theme }) =>
+        type === 'info' &&
+        css`
+            background: ${theme.color.info.alpha};
+
+            &:hover {
+                background: ${theme.color.info.beta};
+            }
+        `}
+    
+    ${({ theme }) =>
         type === 'dashed' &&
         css`
             border: 1px dashed ${theme.color.border};

@@ -120,6 +120,11 @@ export const getButtonDefaultTypeStyles = (
             hoverBgColor = theme.color.error.beta;
             color = theme.color.text.gamma;
             borderColor = bgColor;
+        } else if (type === 'info') {
+            bgColor = theme.color.info.alpha;
+            hoverBgColor = theme.color.info.beta;
+            color = theme.color.text.gamma;
+            borderColor = bgColor;
         } else if (type === 'dashed') {
             borderType = `dashed`;
         }

@@ -39,6 +39,13 @@ export const getBadgeDefaultTypeStyles = (type: BadgeProps['type']) => css`
             background-color: ${theme.color.error.alpha};
             color: ${theme.color.text.gamma};
         `}
+
+    ${({ theme }) =>
+        type === 'info' &&
+        css`
+            background-color: ${theme.color.info.alpha};
+            color: ${theme.color.text.gamma};
+        `}
 `;
 
 export const getBadgeDefaultSizeStyles = (size: BadgeProps['size']) => css`

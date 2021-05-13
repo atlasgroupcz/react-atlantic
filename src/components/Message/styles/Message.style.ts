@@ -53,6 +53,12 @@ export const StyledMessageContainer = styled.div.withConfig({
             background-color: ${theme.color.error.alpha};
         `}
 
+    ${({ theme, type }) =>
+        type === 'info' &&
+        css`
+            background-color: ${theme.color.info.alpha};
+        `}
+
     ${({ theme, isTransparent }) =>
         isTransparent &&
         css`
