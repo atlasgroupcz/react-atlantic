@@ -29,6 +29,13 @@ export type ColorType = {
         delta: string;
         epsilon: string;
     };
+    info: {
+        alpha: string;
+        beta: string;
+        gamma: string;
+        delta: string;
+        epsilon: string;
+    };
     text: {
         alpha: string;
         beta: string;
@@ -75,6 +82,13 @@ export const defaultColor: ColorType = {
         gamma: `#E87075`,
         delta: `#F0A0A3`,
         epsilon: `#F8CFD1`,
+    },
+    info: {
+        alpha: `#1990EA`,
+        beta: `#47A6EE`,
+        gamma: `#75BCF2`,
+        delta: `#A3D2F7`,
+        epsilon: `#D1E9FB`,
     },
     text: {
         alpha: `#000000`,
