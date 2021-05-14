@@ -20,6 +20,10 @@ stories.add(
 
         return (
             <>
+                <Message type={type} isTransparent>
+                    Hello world!
+                </Message>
+                <br />
                 <Message type={type}>Hello world!</Message>
                 <br />
                 <LightMessage type={type}>Hello world!</LightMessage>

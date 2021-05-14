@@ -118,7 +118,7 @@ export const StyledMessageIcon = styled(Icon).withConfig({
         type === 'info' &&
         isTransparent &&
         css`
-            color: ${theme.color.error.info};
+            color: ${theme.color.info.alpha};
         `}
 `;
 
