@@ -10,7 +10,7 @@ export const defaultIconFromType = (type?: Type, isTransparent?: boolean) => {
                 <StyledLightMessageIcon
                     name="checkCircle"
                     type={type}
-                    isTransparent={isTransparent}
+                    isReversedColor={isTransparent}
                 />
             );
         case 'error':
@@ -18,7 +18,7 @@ export const defaultIconFromType = (type?: Type, isTransparent?: boolean) => {
                 <StyledLightMessageIcon
                     name="error"
                     type={type}
-                    isTransparent={isTransparent}
+                    isReversedColor={isTransparent}
                 />
             );
         case 'warning':
@@ -26,7 +26,7 @@ export const defaultIconFromType = (type?: Type, isTransparent?: boolean) => {
                 <StyledLightMessageIcon
                     name="warning"
                     type={type}
-                    isTransparent={isTransparent}
+                    isReversedColor={isTransparent}
                 />
             );
         case 'primary':
@@ -34,7 +34,7 @@ export const defaultIconFromType = (type?: Type, isTransparent?: boolean) => {
                 <StyledLightMessageIcon
                     name="info"
                     type={type}
-                    isTransparent={isTransparent}
+                    isReversedColor={isTransparent}
                 />
             );
         case 'info':
@@ -42,7 +42,7 @@ export const defaultIconFromType = (type?: Type, isTransparent?: boolean) => {
                 <StyledLightMessageIcon
                     name="info"
                     type={type}
-                    isTransparent={isTransparent}
+                    isReversedColor={isTransparent}
                 />
             );
         case 'default':
@@ -50,7 +50,7 @@ export const defaultIconFromType = (type?: Type, isTransparent?: boolean) => {
                 <StyledLightMessageIcon
                     name="info"
                     type={type}
-                    isTransparent={isTransparent}
+                    isReversedColor={isTransparent}
                 />
             );
         default:
@@ -58,7 +58,7 @@ export const defaultIconFromType = (type?: Type, isTransparent?: boolean) => {
                 <StyledLightMessageIcon
                     name="info"
                     type={type}
-                    isTransparent={isTransparent}
+                    isReversedColor={isTransparent}
                 />
             );
     }

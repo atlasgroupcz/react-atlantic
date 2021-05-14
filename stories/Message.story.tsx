@@ -20,7 +20,7 @@ stories.add(
 
         return (
             <>
-                <Message type={type} isTransparent>
+                <Message type={type} isReversedColor>
                     Hello world!
                 </Message>
                 <br />

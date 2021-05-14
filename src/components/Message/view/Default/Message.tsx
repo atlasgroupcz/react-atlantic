@@ -16,8 +16,8 @@ export const Message: MessageType = ({
     className,
     type,
     innerRef,
-    isTransparent,
-    Icon = defaultIconFromType(type, isTransparent),
+    isReversedColor,
+    Icon = defaultIconFromType(type, isReversedColor),
     ...ContainerProps
 }) => {
     return (
@@ -25,7 +25,7 @@ export const Message: MessageType = ({
             className={className}
             ref={innerRef}
             type={type}
-            isTransparent={isTransparent}
+            isReversedColor={isReversedColor}
             {...ContainerProps}
         >
             {Icon}
