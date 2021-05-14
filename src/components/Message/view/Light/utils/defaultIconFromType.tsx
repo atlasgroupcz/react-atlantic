@@ -1,13 +1,13 @@
 import React from 'react';
 import { Type } from '../../../../../types';
-import { StyledLightMessageIcon } from '../styles';
+import { StyledMessageLightIcon } from '../styles';
 
 export const defaultIconFromType = (type?: Type, isTransparent?: boolean) => {
     //* On modern browsers, switch is actually as fast as a lookup table, kimda wierd
     switch (type) {
         case 'success':
             return (
-                <StyledLightMessageIcon
+                <StyledMessageLightIcon
                     name="checkCircle"
                     type={type}
                     isReversedColor={isTransparent}
@@ -15,7 +15,7 @@ export const defaultIconFromType = (type?: Type, isTransparent?: boolean) => {
             );
         case 'error':
             return (
-                <StyledLightMessageIcon
+                <StyledMessageLightIcon
                     name="error"
                     type={type}
                     isReversedColor={isTransparent}
@@ -23,7 +23,7 @@ export const defaultIconFromType = (type?: Type, isTransparent?: boolean) => {
             );
         case 'warning':
             return (
-                <StyledLightMessageIcon
+                <StyledMessageLightIcon
                     name="warning"
                     type={type}
                     isReversedColor={isTransparent}
@@ -31,7 +31,7 @@ export const defaultIconFromType = (type?: Type, isTransparent?: boolean) => {
             );
         case 'primary':
             return (
-                <StyledLightMessageIcon
+                <StyledMessageLightIcon
                     name="info"
                     type={type}
                     isReversedColor={isTransparent}
@@ -39,7 +39,7 @@ export const defaultIconFromType = (type?: Type, isTransparent?: boolean) => {
             );
         case 'info':
             return (
-                <StyledLightMessageIcon
+                <StyledMessageLightIcon
                     name="info"
                     type={type}
                     isReversedColor={isTransparent}
@@ -47,7 +47,7 @@ export const defaultIconFromType = (type?: Type, isTransparent?: boolean) => {
             );
         case 'default':
             return (
-                <StyledLightMessageIcon
+                <StyledMessageLightIcon
                     name="info"
                     type={type}
                     isReversedColor={isTransparent}
@@ -55,7 +55,7 @@ export const defaultIconFromType = (type?: Type, isTransparent?: boolean) => {
             );
         default:
             return (
-                <StyledLightMessageIcon
+                <StyledMessageLightIcon
                     name="info"
                     type={type}
                     isReversedColor={isTransparent}

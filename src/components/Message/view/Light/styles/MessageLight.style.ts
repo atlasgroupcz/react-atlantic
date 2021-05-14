@@ -3,11 +3,11 @@ import { Icon } from '../../../../Icon';
 import { StyledText } from '../../../../Typography';
 import { StyledMessageProps } from '../../../types';
 
-export const StyledLightMessageIcon = styled(Icon)<StyledMessageProps>`
+export const StyledMessageLightIcon = styled(Icon)<StyledMessageProps>`
     margin-right: ${({ theme }) => theme.padding.md};
 `;
 
-export const StyledLightMessageContainer = styled.div<StyledMessageProps>`
+export const StyledMessageLightContainer = styled.div<StyledMessageProps>`
     display: inline-flex;
     align-items: center;
     padding: ${({ theme }) => theme.padding.md};
@@ -33,7 +33,7 @@ export const StyledLightMessageContainer = styled.div<StyledMessageProps>`
             background-color: ${theme.color.primary.delta};
             border: 1px solid ${theme.color.primary.alpha};
 
-            ${StyledLightMessageIcon} {
+            ${StyledMessageLightIcon} {
                 color: ${theme.color.primary.alpha};
             }
         `}
@@ -44,7 +44,7 @@ export const StyledLightMessageContainer = styled.div<StyledMessageProps>`
             background-color: ${theme.color.success.delta};
             border: 1px solid ${theme.color.success.alpha};
 
-            ${StyledLightMessageIcon} {
+            ${StyledMessageLightIcon} {
                 color: ${theme.color.success.alpha};
             }
         `}
@@ -55,7 +55,7 @@ export const StyledLightMessageContainer = styled.div<StyledMessageProps>`
             background-color: ${theme.color.warning.delta};
             border: 1px solid ${theme.color.warning.alpha};
 
-            ${StyledLightMessageIcon} {
+            ${StyledMessageLightIcon} {
                 color: ${theme.color.warning.alpha};
             }
         `}
@@ -66,7 +66,7 @@ export const StyledLightMessageContainer = styled.div<StyledMessageProps>`
             background-color: ${theme.color.error.delta};
             border: 1px solid ${theme.color.error.alpha};
 
-            ${StyledLightMessageIcon} {
+            ${StyledMessageLightIcon} {
                 color: ${theme.color.error.alpha};
             }
         `}
@@ -77,11 +77,11 @@ export const StyledLightMessageContainer = styled.div<StyledMessageProps>`
             background-color: ${theme.color.info.delta};
             border: 1px solid ${theme.color.info.alpha};
 
-            ${StyledLightMessageIcon} {
+            ${StyledMessageLightIcon} {
                 color: ${theme.color.info.alpha};
             }
         `}
 `;
 
-StyledLightMessageContainer.displayName = 'StyledLightMessageContainer';
-StyledLightMessageIcon.displayName = 'StyledLightMessageIcon';
+StyledMessageLightContainer.displayName = 'StyledLightMessageContainer';
+StyledMessageLightIcon.displayName = 'StyledLightMessageIcon';

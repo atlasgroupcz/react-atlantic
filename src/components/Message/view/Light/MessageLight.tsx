@@ -1,17 +1,17 @@
 import React, { FC, ReactElement } from 'react';
-import { defaultIconFromType } from '../Light/utils';
-import { StyledLightMessageContainer } from './styles';
+import { defaultIconFromType } from './utils';
+import { StyledMessageLightContainer } from './styles';
 import { StyledMessageProps } from '../../types';
 import { InnerRef } from '../../../../types/utils/InnerRef';
 import { Text } from '../../../Typography';
 
-export interface LightMessageProps extends InnerRef<StyledMessageProps> {
+export interface MessageLightProps extends InnerRef<StyledMessageProps> {
     Icon?: ReactElement;
 }
 
-type LightMessageType = FC<LightMessageProps>;
+type MessageLightType = FC<MessageLightProps>;
 
-export const LightMessage: LightMessageType = ({
+export const MessageLight: MessageLightType = ({
     children,
     className,
     type,
@@ -20,7 +20,7 @@ export const LightMessage: LightMessageType = ({
     ...ContainerProps
 }) => {
     return (
-        <StyledLightMessageContainer
+        <StyledMessageLightContainer
             className={className}
             ref={innerRef}
             type={type}
@@ -28,10 +28,10 @@ export const LightMessage: LightMessageType = ({
         >
             {Icon}
             <Text>{children}</Text>
-        </StyledLightMessageContainer>
+        </StyledMessageLightContainer>
     );
 };
 
-LightMessage.defaultProps = {
+MessageLight.defaultProps = {
     type: 'default',
 };

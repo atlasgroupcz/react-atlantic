@@ -1,1 +1,1 @@
-export * from './LightMessage';
+export * from './MessageLight';

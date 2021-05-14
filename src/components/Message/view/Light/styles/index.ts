@@ -1,1 +1,1 @@
-export * from './LightMessage.style';
+export * from './MessageLight.style';
