@@ -1,8 +1,10 @@
 import React, { FC, ReactElement } from 'react';
 import { defaultIconFromType } from './utils';
 import { StyledMessageContainer } from './styles';
-import { StyledMessageProps } from './types';
-import { InnerRef } from '../../types/utils/InnerRef';
+import { StyledMessageProps } from '../../types';
+import { InnerRef } from '../../../../types/utils/InnerRef';
+import { Text } from '../../../Typography';
+
 export interface MessageProps extends InnerRef<StyledMessageProps> {
     Icon?: ReactElement;
 }
@@ -12,10 +14,10 @@ type MessageType = FC<MessageProps>;
 export const Message: MessageType = ({
     children,
     className,
-    type,
+    type = 'default',
     innerRef,
-    isTransparent,
-    Icon = defaultIconFromType(type, isTransparent),
+    isReversedColor,
+    Icon = defaultIconFromType(type, isReversedColor),
     ...ContainerProps
 }) => {
     return (
@@ -23,15 +25,11 @@ export const Message: MessageType = ({
             className={className}
             ref={innerRef}
             type={type}
-            isTransparent={isTransparent}
+            isReversedColor={isReversedColor}
             {...ContainerProps}
         >
             {Icon}
-            {children}
+            <Text>{children}</Text>
         </StyledMessageContainer>
     );
-};
-
-Message.defaultProps = {
-    type: 'default',
 };

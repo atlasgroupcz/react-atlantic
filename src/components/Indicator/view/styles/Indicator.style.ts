@@ -32,6 +32,12 @@ export const getIndicatorDefaultTypeStyles = (
         css`
             background-color: ${theme.color.error.alpha};
         `}
+
+  ${({ theme }) =>
+        type === 'info' &&
+        css`
+            background-color: ${theme.color.info.alpha};
+        `}
 `;
 
 export const getIndicatorDefaultSizeStyles = (

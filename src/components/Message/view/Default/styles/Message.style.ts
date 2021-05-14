@@ -1,10 +1,10 @@
 import styled, { css } from 'styled-components';
-import { Icon } from '../../Icon';
-import { StyledText } from '../../Typography';
-import { StyledMessageProps } from '../types/Message.types';
+import { Icon } from '../../../../Icon';
+import { StyledText } from '../../../../Typography';
+import { StyledMessageProps } from '../../../types/Message.types';
 
 export const StyledMessageContainer = styled.div.withConfig({
-    shouldForwardProp: (prop) => !['isTransparent'].includes(prop),
+    shouldForwardProp: (prop) => !['isReversedColor'].includes(prop),
 })<StyledMessageProps>`
     display: inline-flex;
     align-items: center;
@@ -53,8 +53,14 @@ export const StyledMessageContainer = styled.div.withConfig({
             background-color: ${theme.color.error.alpha};
         `}
 
-    ${({ theme, isTransparent }) =>
-        isTransparent &&
+    ${({ theme, type }) =>
+        type === 'info' &&
+        css`
+            background-color: ${theme.color.info.alpha};
+        `}
+
+    ${({ theme, isReversedColor }) =>
+        isReversedColor &&
         css`
             background-color: ${theme.color.background.alpha};
 
@@ -64,12 +70,12 @@ export const StyledMessageContainer = styled.div.withConfig({
         `}
 `;
 export const StyledMessageIcon = styled(Icon).withConfig({
-    shouldForwardProp: (prop) => !['isTransparent'].includes(prop),
+    shouldForwardProp: (prop) => !['isReversedColor'].includes(prop),
 })<StyledMessageProps>`
     margin-right: ${({ theme }) => theme.padding.md};
 
-    ${({ theme, isTransparent }) =>
-        !isTransparent &&
+    ${({ theme, isReversedColor }) =>
+        !isReversedColor &&
         css`
             color: ${theme.color.text.gamma};
         `}
@@ -80,32 +86,39 @@ export const StyledMessageIcon = styled(Icon).withConfig({
             color: ${theme.color.text.alpha};
         `}
 
-    ${({ theme, type, isTransparent }) =>
+    ${({ theme, type, isReversedColor }) =>
         type === 'primary' &&
-        isTransparent &&
+        isReversedColor &&
         css`
             color: ${theme.color.primary.alpha};
         `}
   
-    ${({ theme, type, isTransparent }) =>
+    ${({ theme, type, isReversedColor }) =>
         type === 'success' &&
-        isTransparent &&
+        isReversedColor &&
         css`
             color: ${theme.color.success.alpha};
         `}
   
-    ${({ theme, type, isTransparent }) =>
+    ${({ theme, type, isReversedColor }) =>
         type === 'warning' &&
-        isTransparent &&
+        isReversedColor &&
         css`
             color: ${theme.color.warning.alpha};
         `}
   
-    ${({ theme, type, isTransparent }) =>
+    ${({ theme, type, isReversedColor }) =>
         type === 'error' &&
-        isTransparent &&
+        isReversedColor &&
         css`
             color: ${theme.color.error.alpha};
+        `}
+    
+    ${({ theme, type, isReversedColor }) =>
+        type === 'info' &&
+        isReversedColor &&
+        css`
+            color: ${theme.color.info.alpha};
         `}
 `;
 
