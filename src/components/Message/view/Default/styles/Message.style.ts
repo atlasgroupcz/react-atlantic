@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
-import { Icon } from '../../Icon';
-import { StyledText } from '../../Typography';
-import { StyledMessageProps } from '../types/Message.types';
+import { Icon } from '../../../../Icon';
+import { StyledText } from '../../../../Typography';
+import { StyledMessageProps } from '../../../types/Message.types';
 
 export const StyledMessageContainer = styled.div.withConfig({
     shouldForwardProp: (prop) => !['isTransparent'].includes(prop),

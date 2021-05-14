@@ -17,7 +17,7 @@ export * from './DatePicker';
 export * from './Progress';
 export * from './Select';
 export * from './Progress';
-export * from './Message';
+export * from './Message/view/Default';
 export * from './TextArea';
 export * from './RadioButton';
 export * from './Switch';
