@@ -14,7 +14,7 @@ type MessageType = FC<MessageProps>;
 export const Message: MessageType = ({
     children,
     className,
-    type,
+    type = 'default',
     innerRef,
     isReversedColor,
     Icon = defaultIconFromType(type, isReversedColor),
@@ -32,8 +32,4 @@ export const Message: MessageType = ({
             <Text>{children}</Text>
         </StyledMessageContainer>
     );
-};
-
-Message.defaultProps = {
-    type: 'default',
 };

@@ -4,7 +4,6 @@ import { StyledMessageLightContainer } from './styles';
 import { StyledMessageProps } from '../../types';
 import { InnerRef } from '../../../../types/utils/InnerRef';
 import { Text } from '../../../Typography';
-
 export interface MessageLightProps extends InnerRef<StyledMessageProps> {
     Icon?: ReactElement;
 }
@@ -14,7 +13,7 @@ type MessageLightType = FC<MessageLightProps>;
 export const MessageLight: MessageLightType = ({
     children,
     className,
-    type,
+    type = 'default',
     innerRef,
     Icon = defaultIconFromType(type),
     ...ContainerProps
@@ -30,8 +29,4 @@ export const MessageLight: MessageLightType = ({
             <Text>{children}</Text>
         </StyledMessageLightContainer>
     );
-};
-
-MessageLight.defaultProps = {
-    type: 'default',
 };
