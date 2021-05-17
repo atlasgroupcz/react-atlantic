@@ -12,7 +12,16 @@ import {
 
 type InputElementExtraProps = Pick<
     ElementProps<HTMLInputElement>,
-    'placeholder'
+    | 'placeholder'
+    | 'autoComplete'
+    | 'autoCorrect'
+    | 'minLength'
+    | 'maxLength'
+    | 'autoFocus'
+    | 'inputMode'
+    | 'name'
+    | 'readOnly'
+    | 'required'
 >;
 
 export type StyledInputProps = {
