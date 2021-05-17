@@ -3,14 +3,7 @@ import styled from 'styled-components';
 import { InputProps } from '../types';
 import { css } from '../../../../../styled';
 
-export const StyledInput = styled(
-    forwardRef<HTMLInputElement, InputProps>(
-        (
-            { size, isRound, isFullWidth, isDisabled, htmlType, ...props },
-            ref
-        ) => <input {...props} ref={ref} type={htmlType} />
-    )
-)<InputProps>`
+export const getInputDefaultStyles = () => css`
     box-sizing: border-box;
     display: inline-block;
     margin: 0;
@@ -22,14 +15,14 @@ export const StyledInput = styled(
     -webkit-appearance: none;
     touch-action: manipulation;
     outline: 0;
-    color: ${(props) => props.theme.color.text.alpha};
-    font-family: ${(props) => props.theme.font.family};
+    color: ${({ theme }) => theme.color.text.alpha};
+    font-family: ${({ theme }) => theme.font.family};
     font-weight: 400;
     border: none;
     background-color: transparent;
 
     &::placeholder {
-        color: ${(props) => props.theme.color.text.beta};
+        color: ${({ theme }) => theme.color.text.beta};
     }
 
     &::-moz-placeholder {
@@ -40,49 +33,73 @@ export const StyledInput = styled(
     &::-ms-clear {
         display: none;
     }
+`;
 
-    ${(props) =>
-        props.isFullWidth &&
-        css`
-            width: 100%;
-        `}
+export const getInputFullWidthStyles = (
+    isFullWidth: InputProps['isFullWidth']
+) => css`
+    ${isFullWidth &&
+    css`
+        width: 100%;
+    `}
+`;
 
-    ${(props) =>
-        props.size === 'small' &&
+export const getInputDisabledStyles = (
+    isDisabled: InputProps['isDisabled']
+) => css`
+    ${isDisabled &&
+    css`
+        color: ${({ theme }) => theme.color.text.beta};
+        cursor: not-allowed;
+
+        &::placeholder {
+            color: ${({ theme }) => theme.color.text.beta};
+        }
+    `}
+`;
+
+export const getInputSizeStyles = (size: InputProps['size']) => css`
+    ${({ theme }) =>
+        size === 'small' &&
         css`
-            font-size: ${props.theme.font.size.sm};
+            font-size: ${theme.font.size.sm};
 
             i + span,
             span + i {
-                margin-left: ${props.theme.margin.sm};
+                margin-left: ${theme.margin.sm};
             }
         `}
-  
-  ${(props) =>
-        props.size === 'medium' &&
+
+    ${({ theme }) =>
+        size === 'medium' &&
         css`
-            font-size: ${props.theme.font.size.md};
+            font-size: ${theme.font.size.md};
         `}
   
-  ${(props) =>
-        props.size === 'large' &&
+    ${({ theme }) =>
+        size === 'large' &&
         css`
-            font-size: ${props.theme.font.size.lg};
+            font-size: ${theme.font.size.lg};
 
             i + span,
             span + i {
-                margin-left: ${props.theme.margin.lg};
+                margin-left: ${theme.margin.lg};
             }
         `}
-  
-  ${(props) =>
-        props.isDisabled &&
-        css`
-            color: ${props.theme.color.text.beta};
-            cursor: not-allowed;
+`;
 
-            ::placeholder {
-                color: ${props.theme.color.text.beta};
-            }
-        `}
+export const StyledInput = styled(
+    forwardRef<HTMLInputElement, InputProps>(
+        (
+            { size, isRound, isFullWidth, isDisabled, htmlType, ...props },
+            ref
+        ) => <input {...props} ref={ref} type={htmlType} />
+    )
+)<InputProps>`
+    ${({ isFullWidth, isDisabled, size }) => css`
+        ${getInputDefaultStyles()}
+        ${getInputFullWidthStyles(isFullWidth as InputProps['isFullWidth'])}
+        ${getInputDisabledStyles(isDisabled as InputProps['isDisabled'])}
+        ${getInputSizeStyles(size as InputProps['size'])}
+    `}
 `;

@@ -28,8 +28,8 @@ export const StyledProgressBarLine = styled.div<StyledProgressBarProps>`
     width: 100%;
     height: 10px;
     position: relative;
-    background: ${(props) => props.theme.color.background.gamma};
-    border-radius: ${(props) => props.theme.radius};
+    background: ${({ theme }) => theme.color.background.gamma};
+    border-radius: ${({ theme }) => theme.radius};
 `;
 
 export const StyledProgressBarFillContainer = styled.div<
@@ -48,7 +48,7 @@ export const StyledProgressBarFill = styled.span<StyledProgressBarProps>`
     overflow: hidden;
     box-sizing: border-box;
     margin: 0;
-    border-radius: ${(props) => props.theme.radius};
+    border-radius: ${({ theme }) => theme.radius};
     will-change: width;
     contain: strict;
     transition: background-color 0.5s;

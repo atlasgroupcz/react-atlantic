@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import { TimelineItemProps } from '../../Item/Item.types';
+import { TimelineItemProps } from '../../components/Item/types/Item.types';
 import { getModifiedOnClick } from '../getModified/onClick';
 import { getModifiedAlign } from '../getModified/align';
 import { MapChild } from './mapChild.types';

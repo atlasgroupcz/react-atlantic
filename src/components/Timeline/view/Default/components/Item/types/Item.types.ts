@@ -10,7 +10,7 @@ import {
     HorizontalPosition,
     MouseEvents,
     Type,
-} from '../../../../types';
+} from '../../../../../../../types';
 
 export type TimelineItemEventProps = Omit<
     MouseEvents<HTMLLIElement>,

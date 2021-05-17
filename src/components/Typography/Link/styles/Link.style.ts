@@ -7,10 +7,10 @@ import {
     StyledTitle4,
     StyledTitle5,
 } from '../../Title';
-import { getDefaultTypographyStyles } from '../../styles';
+import { getTypographyDefaultStyles } from '../../styles';
 
-export const getDefaultLinkStyles = () => css`
-    ${(props) => getDefaultTypographyStyles(props)};
+export const getLinkDefaultStyles = () => css`
+    ${getTypographyDefaultStyles()};
     text-decoration: none;
     cursor: pointer;
     padding: 0;
@@ -22,10 +22,10 @@ export const getDefaultLinkStyles = () => css`
     }
 
     ${StyledText},${StyledTitle1},${StyledTitle2},${StyledTitle3},${StyledTitle4},${StyledTitle5} {
-        color: ${(props) => props.theme.color.primary.alpha};
+        color: ${({ theme }) => theme.color.primary.alpha};
     }
 `;
 
 export const StyledLink = styled.a`
-    ${getDefaultLinkStyles()}
+    ${getLinkDefaultStyles()}
 `;

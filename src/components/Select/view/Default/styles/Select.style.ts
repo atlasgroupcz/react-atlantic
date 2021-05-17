@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { getDefaultTypographyStyles } from '../../../../Typography/styles';
+import { getTypographyDefaultStyles } from '../../../../Typography/styles';
 import { StyledIcon } from '../../../../Icon/view/styles';
 import { SelectProps } from '../../../types';
 
@@ -111,7 +111,6 @@ export const StyledDefaultSelect = styled.div<StyledDefaultSelectProps>`
     border: 1px solid ${({ theme }) => theme.color.border};
     border-radius: ${({ theme }) => theme.radius};
     cursor: pointer;
-
     height: ${({ theme }) => theme.height.md};
 
     &:hover {
@@ -162,7 +161,7 @@ export const StyledDefaultSelect = styled.div<StyledDefaultSelectProps>`
 export const StyledDefaultSelectContainer = styled.div<
     StyledDefaultSelectProps
 >`
-    ${(props) => getDefaultTypographyStyles(props)};
+    ${getTypographyDefaultStyles()};
     box-sizing: border-box;
     position: relative;
     margin: 0;

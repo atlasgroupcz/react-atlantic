@@ -38,20 +38,19 @@ export const StyledSwitchLabel = styled.label<StyledSwitchProps>`
 `;
 
 export const StyledSwitcherContainer = styled.div<StyledSwitchProps>`
+    display: flex;
+    align-items: center;
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
-    display: flex;
-    align-items: center;
     width: 200%;
     transition: right 0.3s ease-out;
 
     ${({ isChecked }) =>
         isChecked &&
         css`
-            right: -${switchWidth}; ;
-            ;
+            right: -${switchWidth};
         `}
 `;
 

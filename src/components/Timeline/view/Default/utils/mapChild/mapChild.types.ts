@@ -1,6 +1,6 @@
 import React, { MutableRefObject } from 'react';
-import { TimelineContextState } from '../../../context/types';
-import { TimelineProps } from '../../../types';
+import { TimelineContextState } from '../../../../context/types/Context.type';
+import { TimelineProps } from '../../../../types';
 
 export type MapChild = (
     parentAlign: TimelineProps['align'],

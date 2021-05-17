@@ -1,9 +1,10 @@
 import React from 'react';
-import { Timeline, TimelineItem } from '../../../src/components/Timeline';
+import { Timeline } from '../../../src/components/Timeline';
 import { toBeDefinedTest, mountTest } from '../../shared';
-import { TimelineItemProps } from '../../../src/components/Timeline/view/Item/Item.types';
 import { mountWithTheme } from '../../utils/mountWithTheme';
 import { TimelineProps } from '../../../src/components/Timeline/types';
+import { TimelineItem } from '../../../src/components/Timeline/view/Default/components';
+import { TimelineItemProps } from '../../../src/components/Timeline/view/Default/components/Item/types';
 
 const mockItemProps: TimelineItemProps = {
     dot: 'dot',

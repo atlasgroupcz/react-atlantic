@@ -44,7 +44,15 @@ stories.add(
         ) as Size;
         const type: Type = select(
             `type:`,
-            ['default', 'primary', 'success', 'warning', 'error', 'dashed'],
+            [
+                'default',
+                'primary',
+                'success',
+                'warning',
+                'error',
+                'info',
+                'dashed',
+            ],
             defaultValues.type
         ) as Type;
         const children = text(`text:`, defaultValues.value);

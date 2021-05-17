@@ -1,56 +1,64 @@
 import React from 'react';
-import { Type } from '../../../types';
-import { StyledMessageIcon } from '../styles';
+import { Type } from '../../../../../types';
+import { StyledMessageLightIcon } from '../styles';
 
 export const defaultIconFromType = (type?: Type, isTransparent?: boolean) => {
     //* On modern browsers, switch is actually as fast as a lookup table, kimda wierd
     switch (type) {
         case 'success':
             return (
-                <StyledMessageIcon
+                <StyledMessageLightIcon
                     name="checkCircle"
                     type={type}
-                    isTransparent={isTransparent}
+                    isReversedColor={isTransparent}
                 />
             );
         case 'error':
             return (
-                <StyledMessageIcon
+                <StyledMessageLightIcon
                     name="error"
                     type={type}
-                    isTransparent={isTransparent}
+                    isReversedColor={isTransparent}
                 />
             );
         case 'warning':
             return (
-                <StyledMessageIcon
+                <StyledMessageLightIcon
                     name="warning"
                     type={type}
-                    isTransparent={isTransparent}
+                    isReversedColor={isTransparent}
                 />
             );
         case 'primary':
             return (
-                <StyledMessageIcon
+                <StyledMessageLightIcon
                     name="info"
                     type={type}
-                    isTransparent={isTransparent}
+                    isReversedColor={isTransparent}
+                />
+            );
+        case 'info':
+            return (
+                <StyledMessageLightIcon
+                    name="info"
+                    type={type}
+                    isReversedColor={isTransparent}
                 />
             );
         case 'default':
             return (
-                <StyledMessageIcon
+                <StyledMessageLightIcon
                     name="info"
                     type={type}
-                    isTransparent={isTransparent}
+                    isReversedColor={isTransparent}
                 />
             );
         default:
             return (
-                <StyledMessageIcon
+                <StyledMessageLightIcon
                     name="info"
                     type={type}
-                    isTransparent={isTransparent}
+                    isReversedColor={isTransparent}
                 />
             );
     }
