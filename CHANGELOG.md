@@ -1,3 +1,22 @@
+## [2.1.2](https://github.com/atlasgroupcz/react-atlantic/compare/2.0.6...2.1.2) (2021-05-17)
+
+### Bug Fixes
+
+-   🐛 export ([73406b3](https://github.com/atlasgroupcz/react-atlantic/commit/73406b3df84b944325dda756c83b41185b55997c))
+-   🐛 info transparent message ([76e16ea](https://github.com/atlasgroupcz/react-atlantic/commit/76e16ea76f55d1748aa88b344f25afffba467879))
+-   **radio-button:** 🐛 fixes function name ([700b3e2](https://github.com/atlasgroupcz/react-atlantic/commit/700b3e22ea08b3de74ed71b3023fe525c99fbcc4))
+-   🐛 changelog ([2ec55a6](https://github.com/atlasgroupcz/react-atlantic/commit/2ec55a61b653ca9e4a7a7a8fba0880eca2d149f1))
+-   🐛 import ([f925ae2](https://github.com/atlasgroupcz/react-atlantic/commit/f925ae201178a12b9d28757eb72ddb65f5ed03f5))
+-   🐛 type ([1f188cd](https://github.com/atlasgroupcz/react-atlantic/commit/1f188cd946862aeebd6a98a3579094572ffec5c8))
+-   **checkbox:** 🐛 exclude isChecked from prop forwarding ([4d0b1c1](https://github.com/atlasgroupcz/react-atlantic/commit/4d0b1c181967d502eb8fe8754c1b09b1556f21c5))
+-   🐛 import ([68298ee](https://github.com/atlasgroupcz/react-atlantic/commit/68298eef47e80f1080624bce13d108c2a8d6f784))
+-   🐛 imports ([8a7cd86](https://github.com/atlasgroupcz/react-atlantic/commit/8a7cd863bb46ea6a41b637c3343b46cdac7e5992))
+
+### Features
+
+-   ✨ add isPartiallyChecked to useSwitch ([c8a87a0](https://github.com/atlasgroupcz/react-atlantic/commit/c8a87a010e83200d4bc06bd18a37daa240aa26f3))
+-   ✨ add LightMessage to message view ([6a38d51](https://github.com/atlasgroupcz/react-atlantic/commit/6a38d51107109b3b0a711b30678ff207e7158fb6))
+
 ## [2.1.1](https://github.com/atlasgroupcz/react-atlantic/compare/v2.1.0...v2.1.1) (2021-05-11)
 
 # [2.1.0](https://github.com/atlasgroupcz/react-atlantic/compare/2.0.5...2.1.0) (2021-05-10)
