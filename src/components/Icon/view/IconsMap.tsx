@@ -193,6 +193,9 @@ export const IconsMap = {
     flagGermany: <Icons.FlagGermany />,
     flagGreatBritain: <Icons.FlagGreatBritain />,
     dnd: <Icons.DnD />,
+    checkInCircle: <Icons.CheckInCircle />,
+    crossInCircle: <Icons.CrossInCircle />,
+    checkInIncompleteCircle: <Icons.CheckInIncompleteCircle />,
 };
 
 export type IconName = keyof typeof IconsMap;
