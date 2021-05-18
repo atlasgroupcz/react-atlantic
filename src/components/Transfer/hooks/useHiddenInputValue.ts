@@ -1,4 +1,4 @@
-import { InputProps } from '../../Input';
+import { InputProps } from '../../Input/types';
 import { useTransferContext } from '../context';
 import { createInputPlaceholder } from '../utils';
 

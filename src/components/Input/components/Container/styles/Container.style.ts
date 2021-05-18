@@ -1,6 +1,8 @@
-import { css, styled } from '../../../../../../styled';
-import { InputProps } from '../../../base/types';
-import { StyledInput } from '../../../base/styles';
+import { InputProps } from '../../../types';
+import { css, styled } from '../../../../../styled';
+import { StyledInput } from '../../Base';
+import { StyledInputPrefix } from '../../Prefix';
+import { StyledInputSuffix } from '../../Suffix';
 
 type StyledInputContainerProps = {
     isPrefix?: boolean;
@@ -23,11 +25,11 @@ export const getInputContainerWithFixStyles = () => css`
         border-color: ${({ theme }) => theme.color.primary.alpha};
     }
 
-    ${StyledInputAbstractFix} + ${StyledInput} {
+    ${StyledInputPrefix} + ${StyledInput} {
         margin-left: ${({ theme }) => theme.margin.sm};
     }
 
-    ${StyledInput} + ${StyledInputAbstractFix} {
+    ${StyledInput} + ${StyledInputSuffix} {
         margin-left: ${({ theme }) => theme.margin.sm};
     }
 `;
@@ -92,14 +94,6 @@ export const getInputContainerWithFixRoundStyles = (
             border-radius: ${theme.rounded};
         `}
 `;
-
-export const StyledInputAbstractFix = styled.span`
-    font-size: 0;
-`;
-
-export const StyledInputPrefix = styled(StyledInputAbstractFix)``;
-
-export const StyledInputSuffix = styled(StyledInputAbstractFix)``;
 
 export const StyledInputContainer = styled.span<StyledInputContainerProps>`
     ${({ size, isFullWidth, isDisabled, isRound }) => css`

@@ -1,5 +1,5 @@
 import { ReactDatePickerProps } from 'react-datepicker';
-import { InputProps } from '../../Input/views/base/types';
+import { InputProps } from '../../Input';
 
 export type DatePickerProps = {} & ReactDatePickerProps &
     Pick<InputProps, 'isFullWidth'>;

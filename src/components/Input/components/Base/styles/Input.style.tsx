@@ -1,7 +1,6 @@
 import React, { forwardRef } from 'react';
-import styled from 'styled-components';
-import { InputProps } from '../types';
-import { css } from '../../../../../styled';
+import { InputProps } from '../../../types';
+import { css, styled } from '../../../../../styled';
 
 export const getInputDefaultStyles = () => css`
     box-sizing: border-box;

@@ -8,7 +8,7 @@ import {
     ControllerInputProps,
     InputProps,
     StyledInputProps,
-} from '../src/components/Input/views/base/types';
+} from '../src/components/Input/types';
 
 const stories = storiesOf('Input', module);
 

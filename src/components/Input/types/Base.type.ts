@@ -1,4 +1,4 @@
-import { ElementProps } from '../../../../../types/utils';
+import { ElementProps } from '../../../types/utils';
 import {
     CommonHTMLProps,
     FocusEvents,
@@ -8,7 +8,7 @@ import {
     KeyboardEvents,
     PropsWithoutChildren,
     SizeWithDocs,
-} from '../../../../../types';
+} from '../../../types';
 
 type InputElementExtraProps = Pick<
     ElementProps<HTMLInputElement>,

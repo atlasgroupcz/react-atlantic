@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from 'react';
-import { InputFixProps } from '../../../../../../Input';
+import { InputDefaultProps } from '../../../../../../Input';
 import {
     useInnerTransferContext,
     useTransferContext,
@@ -10,7 +10,7 @@ import { Icon } from '../../../../../../Icon';
 
 export const useTransferDefaultFilterInput = ({
     ...props
-}: InputFixProps): InputFixProps => {
+}: InputDefaultProps): InputDefaultProps => {
     const { options } = useTransferContext();
     const { setInnerOptions } = useInnerTransferContext();
     const [filterValue, setFilterValue] = useState<string>(``);
@@ -20,7 +20,9 @@ export const useTransferDefaultFilterInput = ({
         setInnerOptions(options);
     }, [options, setInnerOptions]);
 
-    const handleChange = useCallback<NonNullable<InputFixProps['onChange']>>(
+    const handleChange = useCallback<
+        NonNullable<InputDefaultProps['onChange']>
+    >(
         (e) => {
             const { value } = e.currentTarget;
             setFilterValue(value);

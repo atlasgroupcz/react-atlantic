@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import { HorizontalPosition } from '../../../types';
 import { StyledComponentTransferProps } from '../types';
 import { TransferPosition } from '../types/TransferPosition';
-import { StyledInputContainer } from '../../Input/views/composed/withFix/styles';
+import { StyledInputContainer } from '../../Input';
 
 type StyledTransferProps = {
     isLeftSideOpen?: boolean;

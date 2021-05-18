@@ -1,6 +1,6 @@
 import React, { FC, forwardRef } from 'react';
 import { StyledInput } from './styles';
-import { InputProps } from './types';
+import { InputProps } from '../../types';
 
 export type InputBaseType = FC<InputProps>;
 
