@@ -1,8 +1,8 @@
 import React from 'react';
-import { InputBase } from '../../../src/components/Input/view/base';
-import { InputWrapper } from '../../../src/components/Input/view/composed/withFix';
-import { InputFixProps } from '../../../src/components/Input/view/composed/withFix/types';
-import { InputProps } from '../../../src/components/Input/view/base/types';
+import { InputBase } from '../../../src/components/Input/views/base';
+import { InputWrapper } from '../../../src/components/Input/views/composed/withFix';
+import { InputFixProps } from '../../../src/components/Input/views/composed/withFix/types';
+import { InputProps } from '../../../src/components/Input/views/base/types';
 import { shallow } from '../../utils';
 import { mockPropsCheckTest } from '../../shared';
 

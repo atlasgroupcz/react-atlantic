@@ -6,7 +6,7 @@ import {
     ControllerInputProps,
     StyledInputProps,
     InputProps,
-} from '../view';
+} from '../views';
 
 type UseInputChangeType = (
     args: HTMLInputDefaultElementProps &

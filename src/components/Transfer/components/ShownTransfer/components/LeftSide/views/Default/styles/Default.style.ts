@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import { StyledCheckboxLabel } from '../../../../../../../../Checkbox/view/alpha/styles';
 import { StyledText } from '../../../../../../../../Typography';
 import { TransferProps } from '../../../../../../../types';
-import { StyledInputContainer } from '../../../../../../../../Input/view/composed/withFix/styles';
+import { StyledInputContainer } from '../../../../../../../../Input/views/composed/withFix/styles';
 import { StyledIcon } from '../../../../../../../../Icon';
 import { Position } from '../../../../../../../../../types';
 
