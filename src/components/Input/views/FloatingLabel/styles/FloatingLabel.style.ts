@@ -31,6 +31,13 @@ export const StyledInputFloatingLabelInput = styled(InputBase)`
     }
 
     &:focus,
+    &:hover {
+        & + ${StyledInputFloatingLabelLabel} {
+            color: ${({ theme }) => theme.color.primary.alpha};
+        }
+    }
+
+    &:focus,
     &:not(:placeholder-shown) {
         &::placeholder {
             opacity: 1;
@@ -42,7 +49,6 @@ export const StyledInputFloatingLabelInput = styled(InputBase)`
             font-size: ${({ theme }) => theme.font.size.sm};
             background: ${({ theme }) => theme.color.background.alpha};
             left: -${inputFloatingLabelLabelHorizontalPadding};
-            color: ${({ theme }) => theme.color.primary.alpha};
 
             ${({ size }) =>
                 size === 'small' &&
