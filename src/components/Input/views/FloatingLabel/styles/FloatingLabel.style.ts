@@ -80,9 +80,14 @@ export const StyledInputFloatingLabelInputContainer = styled.span`
 export const StyledInputFloatingLabelContainer = styled(InputContainer)`
     position: relative;
 
-    &:focus-within,
-    &:hover {
+    &:focus-within {
         ${StyledInputFloatingLabelLabel} {
+            color: ${({ theme }) => theme.color.primary.alpha};
+        }
+    }
+
+    &:hover {
+        ${StyledInputFloatingLabelInput}:not(:placeholder-shown) + ${StyledInputFloatingLabelLabel} {
             color: ${({ theme }) => theme.color.primary.alpha};
         }
     }
