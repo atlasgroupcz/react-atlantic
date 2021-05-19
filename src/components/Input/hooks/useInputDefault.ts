@@ -1,14 +1,14 @@
 import { MutableRefObject, useCallback, useRef } from 'react';
-import { handleParentRef } from '../../../../../utils';
+import { handleParentRef } from '../../../utils';
 
-type UseInputDefaultProps = {
+export type UseInputDefaultProps = {
     ref:
         | MutableRefObject<HTMLInputElement | null>
         | ((instance: HTMLInputElement | null) => void)
         | null;
 };
 
-type UseInputDefault = (
+export type UseInputDefault = (
     props: UseInputDefaultProps
 ) => {
     setInputFocus: () => void;
