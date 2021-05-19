@@ -1,10 +1,15 @@
 import React from 'react';
-import { Input, InputBase } from '../../../src/components/Input';
+import {
+    Input,
+    InputBase,
+    InputFloatingLabel,
+    StyledInputFloatingLabelInput,
+} from '../../../src/components/Input';
 import {
     InputProps,
     InputDefaultProps,
 } from '../../../src/components/Input/types';
-import { shallow } from '../../utils';
+import { mountWithTheme, shallow } from '../../utils';
 import { mockPropsCheckTest } from '../../shared';
 
 const mockBaseProps: InputProps = {
@@ -37,4 +42,15 @@ describe('Input', () => {
     });
 
     mockPropsCheckTest(others, Input, InputBase);
+});
+
+describe('InputFloatingLabel ', () => {
+    it('should render with correct placeholder', () => {
+        const wrapper = mountWithTheme(<InputFloatingLabel />);
+        const input = wrapper.find(StyledInputFloatingLabelInput).getDOMNode();
+        const placeholder = input.getAttribute(`placeholder`);
+        expect(typeof placeholder).toBe(`string`);
+    });
+
+    mockPropsCheckTest(mockBaseProps, InputFloatingLabel);
 });
