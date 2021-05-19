@@ -1,8 +1,9 @@
 import React from 'react';
-import { InputBase } from '../../../src/components/Input/view/base';
-import { InputWrapper } from '../../../src/components/Input/view/composed/withFix';
-import { InputFixProps } from '../../../src/components/Input/view/composed/withFix/types';
-import { InputProps } from '../../../src/components/Input/view/base/types';
+import { Input, InputBase } from '../../../src/components/Input';
+import {
+    InputProps,
+    InputDefaultProps,
+} from '../../../src/components/Input/types';
 import { shallow } from '../../utils';
 import { mockPropsCheckTest } from '../../shared';
 
@@ -13,7 +14,7 @@ const mockBaseProps: InputProps = {
     isDisabled: true,
 };
 
-const mockComposedProps: InputFixProps = {
+const mockComposedProps: InputDefaultProps = {
     ...mockBaseProps,
     prefix: <div>one</div>,
     suffix: <div>two</div>,
@@ -28,12 +29,12 @@ describe('InputBase', () => {
     mockPropsCheckTest(mockBaseProps, InputBase);
 });
 
-describe('InputWrapper', () => {
+describe('Input', () => {
     const { prefix, suffix, ...others } = mockComposedProps;
-    it('should render InputWrapper', () => {
-        const inputWrapper = shallow(<InputWrapper />);
-        expect(inputWrapper).toBeDefined();
+    it('should render Input', () => {
+        const input = shallow(<Input />);
+        expect(input).toBeDefined();
     });
 
-    mockPropsCheckTest(others, InputWrapper, InputBase);
+    mockPropsCheckTest(others, Input, InputBase);
 });

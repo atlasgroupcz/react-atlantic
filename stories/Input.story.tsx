@@ -3,12 +3,12 @@ import { action } from '@storybook/addon-actions';
 import { boolean, select, text, withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import { defaultValues } from './constants';
-import { Icon, Input, Size } from '../src';
+import { Icon, Input, InputFloatingLabel, Size } from '../src';
 import {
     ControllerInputProps,
     InputProps,
     StyledInputProps,
-} from '../src/components/Input/view/base/types';
+} from '../src/components/Input/types';
 
 const stories = storiesOf('Input', module);
 
@@ -29,6 +29,33 @@ stories.add(
                 size={'large'}
                 prefix={<Icon name={'user'} />}
                 htmlType="password"
+            />
+            <br />
+            <br />
+            <br />
+            <InputFloatingLabel
+                prefix={<Icon name={'user'} />}
+                suffix={<Icon name={'checkCircle'} />}
+                label={'Small'}
+                placeholder={'Placeholder'}
+                isRound
+                size={'small'}
+            />
+            <InputFloatingLabel
+                prefix={<Icon name={'user'} />}
+                suffix={<Icon name={'checkCircle'} />}
+                label={'Medium'}
+                placeholder={'Placeholder'}
+                isRound
+                size={'medium'}
+            />
+            <InputFloatingLabel
+                prefix={<Icon name={'user'} />}
+                suffix={<Icon name={'checkCircle'} />}
+                label={'Large'}
+                placeholder={'Placeholder'}
+                isRound
+                size={'large'}
             />
         </>
     ),
