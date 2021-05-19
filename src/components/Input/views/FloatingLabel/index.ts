@@ -1,2 +1,2 @@
-export * from './Default';
+export * from './styles';
 export * from './FloatingLabel';
