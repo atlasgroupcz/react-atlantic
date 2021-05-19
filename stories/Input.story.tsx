@@ -53,7 +53,6 @@ stories.add(
                 prefix={<Icon name={'user'} />}
                 suffix={<Icon name={'checkCircle'} />}
                 label={'Large'}
-                placeholder={'Placeholder'}
                 isRound
                 size={'large'}
             />

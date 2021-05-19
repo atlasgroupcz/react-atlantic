@@ -1,3 +1,9 @@
+## [2.2.1](https://github.com/atlasgroupcz/react-atlantic/compare/v2.2.0...v2.2.1) (2021-05-19)
+
+### Bug Fixes
+
+-   **input:** 🐛 fixes floating label when placeholder is not set ([0ac9e54](https://github.com/atlasgroupcz/react-atlantic/commit/0ac9e548546de697cfd007876646a7fe56a373ae))
+
 # [2.2.0](https://github.com/atlasgroupcz/react-atlantic/compare/2.0.6...2.2.0) (2021-05-19)
 
 ### Bug Fixes
