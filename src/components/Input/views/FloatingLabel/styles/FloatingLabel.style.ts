@@ -36,13 +36,6 @@ export const StyledInputFloatingLabelInput = styled(InputBase)`
     }
 
     &:focus,
-    &:hover {
-        & + ${StyledInputFloatingLabelLabel} {
-            color: ${({ theme }) => theme.color.primary.alpha};
-        }
-    }
-
-    &:focus,
     &:not(:placeholder-shown) {
         &::placeholder {
             opacity: 1;
@@ -86,4 +79,11 @@ export const StyledInputFloatingLabelInputContainer = styled.span`
 
 export const StyledInputFloatingLabelContainer = styled(InputContainer)`
     position: relative;
+
+    &:focus-within,
+    &:hover {
+        ${StyledInputFloatingLabelLabel} {
+            color: ${({ theme }) => theme.color.primary.alpha};
+        }
+    }
 `;
