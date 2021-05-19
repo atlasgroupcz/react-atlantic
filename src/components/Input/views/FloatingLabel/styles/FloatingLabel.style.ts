@@ -11,16 +11,21 @@ export const inputFloatingLabelLabelHorizontalPadding = theme.padding.sm;
 
 export const StyledInputFloatingLabelLabel = styled.label`
     ${getTypographyDefaultStyles};
+    box-sizing: border-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
     left: 0;
+    transform: translateY(-50%);
+    max-width: 100%;
     margin: 0;
     line-height: normal;
     cursor: text;
     transition: all 300ms;
     user-select: none;
     color: ${({ theme }) => theme.color.text.beta};
+    white-space: nowrap;
 `;
 
 export const StyledInputFloatingLabelInput = styled(InputBase)`
@@ -48,7 +53,6 @@ export const StyledInputFloatingLabelInput = styled(InputBase)`
             padding: 0 ${inputFloatingLabelLabelHorizontalPadding};
             font-size: ${({ theme }) => theme.font.size.sm};
             background: ${({ theme }) => theme.color.background.alpha};
-            left: -${inputFloatingLabelLabelHorizontalPadding};
 
             ${({ size }) =>
                 size === 'small' &&
@@ -73,6 +77,7 @@ export const StyledInputFloatingLabelInput = styled(InputBase)`
 
 export const StyledInputFloatingLabelInputContainer = styled.span`
     ${getInputDefaultSideGaps()};
+    box-sizing: border-box;
     display: block;
     position: relative;
     flex: 1;
