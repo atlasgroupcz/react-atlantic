@@ -23,7 +23,10 @@ export const InputFloatingLabelView = forwardRef<
             <StyledInputFloatingLabelContainer
                 className={className}
                 onClick={setInputFocus}
-                {...props}
+                size={props.size}
+                isFullWidth={props.isFullWidth}
+                isDisabled={props.isDisabled}
+                isRound={props.isRound}
             >
                 {prefix && <InputPrefix>{prefix}</InputPrefix>}
                 <StyledInputFloatingLabelInputContainer>
