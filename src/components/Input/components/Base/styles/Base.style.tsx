@@ -1,6 +1,18 @@
 import React, { forwardRef } from 'react';
 import { InputProps } from '../../../types';
 import { css, styled } from '../../../../../styled';
+import { StyledInputPrefix } from '../../Prefix';
+import { StyledInputSuffix } from '../../Suffix';
+
+export const getInputDefaultSideGaps = () => css`
+    ${StyledInputPrefix} + & {
+        margin-left: ${({ theme }) => theme.margin.sm};
+    }
+
+    & + ${StyledInputSuffix} {
+        margin-left: ${({ theme }) => theme.margin.sm};
+    }
+`;
 
 export const getInputDefaultStyles = () => css`
     box-sizing: border-box;
@@ -97,6 +109,7 @@ export const StyledInput = styled(
 )<InputProps>`
     ${({ isFullWidth, isDisabled, size }) => css`
         ${getInputDefaultStyles()}
+        ${getInputDefaultSideGaps()}
         ${getInputFullWidthStyles(isFullWidth as InputProps['isFullWidth'])}
         ${getInputDisabledStyles(isDisabled as InputProps['isDisabled'])}
         ${getInputSizeStyles(size as InputProps['size'])}

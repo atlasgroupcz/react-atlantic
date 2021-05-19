@@ -3,18 +3,21 @@ import { css, styled } from '../../../../../styled';
 import { StyledInput } from '../../Base';
 import { StyledInputPrefix } from '../../Prefix';
 import { StyledInputSuffix } from '../../Suffix';
+import { theme } from '../../../../../theme';
 
-type StyledInputContainerProps = {
-    isPrefix?: boolean;
-    isSuffix?: boolean;
-} & Pick<InputProps, 'isFullWidth' | 'size' | 'isDisabled' | 'isRound'>;
+type StyledInputContainerProps = Pick<
+    InputProps,
+    'isFullWidth' | 'size' | 'isDisabled' | 'isRound'
+>;
+
+export const inputVerticalPadding = theme.padding.sm;
+export const inputHorizontalPadding = theme.padding.md;
 
 export const getInputContainerWithFixStyles = () => css`
     box-sizing: border-box;
     display: inline-flex;
     align-items: center;
-    padding: ${({ theme }) => theme.padding.sm}
-        ${({ theme }) => theme.padding.md};
+    padding: ${inputVerticalPadding} ${inputHorizontalPadding};
     border-radius: ${({ theme }) => theme.radius};
     border: 1px solid ${({ theme }) => theme.color.border};
     background-color: ${({ theme }) => theme.color.background.alpha};
@@ -23,14 +26,6 @@ export const getInputContainerWithFixStyles = () => css`
     &:hover,
     &:focus-within {
         border-color: ${({ theme }) => theme.color.primary.alpha};
-    }
-
-    ${StyledInputPrefix} + ${StyledInput} {
-        margin-left: ${({ theme }) => theme.margin.sm};
-    }
-
-    ${StyledInput} + ${StyledInputSuffix} {
-        margin-left: ${({ theme }) => theme.margin.sm};
     }
 `;
 
