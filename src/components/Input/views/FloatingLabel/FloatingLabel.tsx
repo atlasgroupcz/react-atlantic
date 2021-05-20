@@ -14,7 +14,15 @@ export const InputFloatingLabelView = forwardRef<
     InputFloatingLabelProps
 >(
     (
-        { className, value, label, prefix, suffix, placeholder = '', ...props },
+        {
+            className,
+            value,
+            label,
+            prefix,
+            suffix,
+            placeholder = ' ',
+            ...props
+        },
         ref
     ) => {
         const { setInputFocus, handleSetRef } = useInputFloatingLabel({ ref });
