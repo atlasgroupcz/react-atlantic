@@ -6,8 +6,38 @@ import {
 } from '../../../components';
 import { getTypographyDefaultStyles } from '../../../../Typography';
 import { theme } from '../../../../../theme';
+import { InputFloatingLabelProps } from '../../../types';
 
 export const inputFloatingLabelLabelHorizontalPadding = theme.padding.sm;
+export const getInputFloatingLabelFocusStyles = (
+    size: InputFloatingLabelProps['size']
+) => css`
+    &::placeholder {
+        opacity: 1;
+    }
+
+    & + ${StyledInputFloatingLabelLabel} {
+        transform: none;
+        padding: 0 ${inputFloatingLabelLabelHorizontalPadding};
+        font-size: ${({ theme }) => theme.font.size.sm};
+        background: ${({ theme }) => theme.color.background.alpha};
+
+        ${size === 'small' &&
+        css`
+            top: -13px;
+        `}
+
+        ${size === 'medium' &&
+        css`
+            top: -15px;
+        `}
+
+        ${size === 'large' &&
+        css`
+            top: -17px;
+        `}
+    }
+`;
 
 export const StyledInputFloatingLabelLabel = styled.label`
     ${getTypographyDefaultStyles};
@@ -35,36 +65,17 @@ export const StyledInputFloatingLabelInput = styled(InputBase)`
         opacity: 0;
     }
 
+    &:-ms-input-placeholder {
+        opacity: 0;
+    }
+
     &:focus,
     &:not(:placeholder-shown) {
-        &::placeholder {
-            opacity: 1;
-        }
+        ${({ size }) => getInputFloatingLabelFocusStyles(size)};
+    }
 
-        & + ${StyledInputFloatingLabelLabel} {
-            transform: none;
-            padding: 0 ${inputFloatingLabelLabelHorizontalPadding};
-            font-size: ${({ theme }) => theme.font.size.sm};
-            background: ${({ theme }) => theme.color.background.alpha};
-
-            ${({ size }) =>
-                size === 'small' &&
-                css`
-                    top: -13px;
-                `}
-
-            ${({ size }) =>
-                size === 'medium' &&
-                css`
-                    top: -15px;
-                `}
-
-            ${({ size }) =>
-                size === 'large' &&
-                css`
-                    top: -17px;
-                `}
-        }
+    &:not(:-ms-input-placeholder) {
+        ${({ size }) => getInputFloatingLabelFocusStyles(size)};
     }
 `;
 

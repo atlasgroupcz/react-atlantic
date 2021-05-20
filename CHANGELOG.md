@@ -1,3 +1,9 @@
+## [2.2.2](https://github.com/atlasgroupcz/react-atlantic/compare/v2.2.1...v2.2.2) (2021-05-20)
+
+### Bug Fixes
+
+-   **input:** 🐛 fixes InputFloatingLabel for browsers running on Chromium, MS cores ([6fab092](https://github.com/atlasgroupcz/react-atlantic/commit/6fab092b7322cb6dcce7afd010b12add8f5989d3))
+
 ## [2.2.1](https://github.com/atlasgroupcz/react-atlantic/compare/v2.2.0...v2.2.1) (2021-05-19)
 
 ### Bug Fixes
