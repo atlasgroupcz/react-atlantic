@@ -13,7 +13,7 @@ export const spin = keyframes`
 
 export const getIconDefaultStyles = (onClick: IconProps['onClick']) => css`
     display: inline-block;
-    cursor: ${!!onClick ? 'pointer' : 'auto'};
+    cursor: ${!!onClick ? 'pointer' : 'inherit'};
     line-height: 0;
     height: ${({ theme }) => theme.font.size.md};
     width: ${({ theme }) => theme.font.size.md};
