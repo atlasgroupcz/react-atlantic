@@ -1,8 +1,5 @@
 import { InputProps } from '../../../types';
 import { css, styled } from '../../../../../styled';
-import { StyledInput } from '../../Base';
-import { StyledInputPrefix } from '../../Prefix';
-import { StyledInputSuffix } from '../../Suffix';
 import { theme } from '../../../../../theme';
 
 type StyledInputContainerProps = Pick<
