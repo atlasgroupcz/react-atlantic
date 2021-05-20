@@ -13,6 +13,10 @@ type StyledInputContainerProps = Pick<
 export const inputVerticalPadding = theme.padding.sm;
 export const inputHorizontalPadding = theme.padding.md;
 
+const getInputContainerWithFixHoverStyles = () => css`
+    border-color: ${({ theme }) => theme.color.primary.alpha};
+`;
+
 export const getInputContainerWithFixStyles = () => css`
     box-sizing: border-box;
     display: inline-flex;
@@ -23,9 +27,14 @@ export const getInputContainerWithFixStyles = () => css`
     background-color: ${({ theme }) => theme.color.background.alpha};
     transition: 0.3s border-color;
 
-    &:hover,
+    // Need to be separate because :focus-within does not work on IE
+    // so IE will not apply styles for pseudoselectors :focus-within and so :hover
+    &:hover {
+        ${getInputContainerWithFixHoverStyles()}
+    }
+
     &:focus-within {
-        border-color: ${({ theme }) => theme.color.primary.alpha};
+        ${getInputContainerWithFixHoverStyles()}
     }
 `;
 
