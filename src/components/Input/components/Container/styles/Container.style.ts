@@ -10,11 +10,11 @@ type StyledInputContainerProps = Pick<
 export const inputVerticalPadding = theme.padding.sm;
 export const inputHorizontalPadding = theme.padding.md;
 
-const getInputContainerWithFixHoverStyles = () => css`
+const getInputContainerDefaultHoverStyles = () => css`
     border-color: ${({ theme }) => theme.color.primary.alpha};
 `;
 
-export const getInputContainerWithFixStyles = () => css`
+export const getInputContainerDefaultStyles = () => css`
     box-sizing: border-box;
     display: inline-flex;
     align-items: center;
@@ -27,15 +27,15 @@ export const getInputContainerWithFixStyles = () => css`
     // Need to be separate because :focus-within does not work on IE
     // so IE will not apply styles for pseudoselectors :focus-within and so :hover
     &:hover {
-        ${getInputContainerWithFixHoverStyles()}
+        ${getInputContainerDefaultHoverStyles()}
     }
 
     &:focus-within {
-        ${getInputContainerWithFixHoverStyles()}
+        ${getInputContainerDefaultHoverStyles()}
     }
 `;
 
-export const getInputContainerWithFixSizeStyles = (
+export const getInputContainerDefaultSizeStyles = (
     size: StyledInputContainerProps['size']
 ) => css`
     ${({ theme }) =>
@@ -60,7 +60,7 @@ export const getInputContainerWithFixSizeStyles = (
         `}
 `;
 
-export const getInputContainerWithFixFullWidthStyles = (
+export const getInputContainerDefaultFullWidthStyles = (
     isFullWidth: StyledInputContainerProps['isFullWidth']
 ) => css`
     ${isFullWidth &&
@@ -69,7 +69,7 @@ export const getInputContainerWithFixFullWidthStyles = (
     `}
 `;
 
-export const getInputContainerWithFixDisabledStyles = (
+export const getInputContainerDefaultDisabledStyles = (
     isDisabled: StyledInputContainerProps['isDisabled']
 ) => css`
     ${({ theme }) =>
@@ -86,7 +86,7 @@ export const getInputContainerWithFixDisabledStyles = (
         `}
 `;
 
-export const getInputContainerWithFixRoundStyles = (
+export const getInputContainerDefaultRoundStyles = (
     isRound: StyledInputContainerProps['isRound']
 ) => css`
     ${({ theme }) =>
@@ -98,17 +98,17 @@ export const getInputContainerWithFixRoundStyles = (
 
 export const StyledInputContainer = styled.span<StyledInputContainerProps>`
     ${({ size, isFullWidth, isDisabled, isRound }) => css`
-        ${getInputContainerWithFixStyles()};
-        ${getInputContainerWithFixSizeStyles(
+        ${getInputContainerDefaultStyles()};
+        ${getInputContainerDefaultSizeStyles(
             size as StyledInputContainerProps['size']
         )};
-        ${getInputContainerWithFixFullWidthStyles(
+        ${getInputContainerDefaultFullWidthStyles(
             isFullWidth as StyledInputContainerProps['isFullWidth']
         )};
-        ${getInputContainerWithFixDisabledStyles(
+        ${getInputContainerDefaultDisabledStyles(
             isDisabled as StyledInputContainerProps['isDisabled']
         )};
-        ${getInputContainerWithFixRoundStyles(
+        ${getInputContainerDefaultRoundStyles(
             isRound as StyledInputContainerProps['isRound']
         )}
     `}
