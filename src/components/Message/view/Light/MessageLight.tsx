@@ -1,10 +1,10 @@
 import React, { FC, ReactElement } from 'react';
 import { defaultIconFromType } from './utils';
 import { StyledMessageLightContainer } from './styles';
-import { StyledMessageProps } from '../../types';
+import { MessageProps } from '../../types';
 import { InnerRef } from '../../../../types/utils/InnerRef';
 import { Text } from '../../../Typography';
-export interface MessageLightProps extends InnerRef<StyledMessageProps> {
+export type MessageLightProps extends InnerRef<MessageProps> {
     Icon?: ReactElement;
 }
 
