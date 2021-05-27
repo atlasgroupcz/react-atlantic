@@ -4,6 +4,7 @@ import { StyledText } from '../../../../Typography';
 import { StyledMessageProps } from '../../../types';
 
 export const StyledMessageLightIcon = styled(Icon)<StyledMessageProps>`
+    flex-shrink: 0;
     margin-right: ${({ theme }) => theme.padding.md};
 `;
 
