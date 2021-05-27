@@ -4,13 +4,13 @@ import { StyledMessageLightContainer } from './styles';
 import { StyledMessageProps } from '../../types';
 import { InnerRef } from '../../../../types/utils/InnerRef';
 import { Text } from '../../../Typography';
-export interface MessageLightProps extends InnerRef<StyledMessageProps> {
+export interface MessageLightViewProps extends InnerRef<StyledMessageProps> {
     Icon?: ReactElement;
 }
 
-type MessageLightType = FC<MessageLightProps>;
+type MessageLightViewType = FC<MessageLightViewProps>;
 
-export const MessageLight: MessageLightType = ({
+export const MessageLightView: MessageLightViewType = ({
     children,
     className,
     type = 'default',
