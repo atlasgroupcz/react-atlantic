@@ -3,7 +3,7 @@ import { select, withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 import { MessageLight } from '../src/components/Message';
-import { Message } from '../src/components/Message/view/Default';
+import { Message } from '../src/components/Message/views/Default';
 
 const stories = storiesOf('Message', module);
 
