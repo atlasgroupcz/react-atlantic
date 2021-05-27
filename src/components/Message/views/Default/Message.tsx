@@ -5,13 +5,13 @@ import { StyledMessageProps } from '../../types';
 import { InnerRef } from '../../../../types/utils/InnerRef';
 import { Text } from '../../../Typography';
 
-export interface MessageProps extends InnerRef<StyledMessageProps> {
+export interface MessageViewProps extends InnerRef<StyledMessageProps> {
     Icon?: ReactElement;
 }
 
-type MessageType = FC<MessageProps>;
+export type MessageViewType = FC<MessageViewProps>;
 
-export const Message: MessageType = ({
+export const MessageView: MessageViewType = ({
     children,
     className,
     type = 'default',
