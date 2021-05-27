@@ -10,7 +10,8 @@ export const StyledMessageLightIcon = styled(Icon)<StyledMessageProps>`
 export const StyledMessageLightContainer = styled.div<StyledMessageProps>`
     display: inline-flex;
     align-items: center;
-    padding: ${({ theme }) => theme.padding.md};
+    padding: ${({ theme }) => theme.padding.sm}
+        ${({ theme }) => theme.padding.md};
     margin-bottom: ${({ theme }) => theme.padding.sm};
     box-shadow: ${({ theme }) => theme.boxShadow.md};
     border-radius: ${({ theme }) => theme.radius};
@@ -30,7 +31,7 @@ export const StyledMessageLightContainer = styled.div<StyledMessageProps>`
     ${({ theme, type }) =>
         type === 'primary' &&
         css`
-            background-color: ${theme.color.primary.delta};
+            background-color: ${theme.color.primary.epsilon};
             border: 1px solid ${theme.color.primary.alpha};
 
             ${StyledMessageLightIcon} {
@@ -41,7 +42,7 @@ export const StyledMessageLightContainer = styled.div<StyledMessageProps>`
     ${({ theme, type }) =>
         type === 'success' &&
         css`
-            background-color: ${theme.color.success.delta};
+            background-color: ${theme.color.success.epsilon};
             border: 1px solid ${theme.color.success.alpha};
 
             ${StyledMessageLightIcon} {
@@ -52,7 +53,7 @@ export const StyledMessageLightContainer = styled.div<StyledMessageProps>`
     ${({ theme, type }) =>
         type === 'warning' &&
         css`
-            background-color: ${theme.color.warning.delta};
+            background-color: ${theme.color.warning.epsilon};
             border: 1px solid ${theme.color.warning.alpha};
 
             ${StyledMessageLightIcon} {
@@ -63,7 +64,7 @@ export const StyledMessageLightContainer = styled.div<StyledMessageProps>`
     ${({ theme, type }) =>
         type === 'error' &&
         css`
-            background-color: ${theme.color.error.delta};
+            background-color: ${theme.color.error.epsilon};
             border: 1px solid ${theme.color.error.alpha};
 
             ${StyledMessageLightIcon} {
@@ -74,7 +75,7 @@ export const StyledMessageLightContainer = styled.div<StyledMessageProps>`
     ${({ theme, type }) =>
         type === 'info' &&
         css`
-            background-color: ${theme.color.info.delta};
+            background-color: ${theme.color.info.epsilon};
             border: 1px solid ${theme.color.info.alpha};
 
             ${StyledMessageLightIcon} {
