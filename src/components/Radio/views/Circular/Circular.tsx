@@ -1,9 +1,9 @@
 import React, { Fragment } from 'react';
 import { Text } from '../../../Typography';
-import { RadioType } from '../../types/Radio.type';
-import { StyledRadioButtonsInputHidden } from '../Buttons/styles';
+import { RadioType } from '../../types';
 import {
     StyledRadioCircularContainer,
+    StyledRadioCircularInputHidden,
     StyledRadioCircularLabel,
     StyledRadioCircularRadio,
     StyledRadioCircularRadioMark,
@@ -28,7 +28,7 @@ export const RadioCircular: RadioType = ({
                                 isChecked={isChecked}
                             />
                         </StyledRadioCircularRadio>
-                        <StyledRadioButtonsInputHidden
+                        <StyledRadioCircularInputHidden
                             name={groupName}
                             checked={isChecked}
                             onChange={onChange}

@@ -1,34 +1,19 @@
 import { css, styled } from '../../../../../styled';
 import { StyledRadioProps } from '../../../types/Radio.type';
+import { StyledRadioButtonsInputHidden } from '../../Buttons/styles';
 
 const radioSize = 20;
+
+export const StyledRadioCircularInputHidden = styled(
+    StyledRadioButtonsInputHidden
+)``;
 
 export const StyledRadioCircularLabel = styled.label<StyledRadioProps>`
     display: flex;
     align-items: center;
     gap: ${({ theme }) => theme.padding.md};
     width: 100%;
-    border-radius: ${({ theme }) => theme.radius};
-    background: ${({ theme }) => theme.color.background.gamma};
-    padding: ${({ theme }) => theme.padding.sm}
-        ${({ theme }) => theme.padding.md};
     cursor: pointer;
-`;
-
-export const StyledRadioCircularContainer = styled.div<StyledRadioProps>`
-    display: flex;
-    flex-direction: column;
-    gap: ${({ theme }) => theme.padding.sm};
-
-    ${({ isFullWidth }) =>
-        isFullWidth &&
-        css`
-            width: 100%;
-
-            ${StyledRadioCircularLabel} {
-                width: 100%;
-            }
-        `}
 `;
 
 export const StyledRadioCircularRadio = styled.div<{
@@ -40,6 +25,7 @@ export const StyledRadioCircularRadio = styled.div<{
     flex-shrink: 0;
     height: ${radioSize}px;
     width: ${radioSize}px;
+    box-sizing: border-box;
     border-radius: 50%;
     background: ${({ theme }) => theme.color.background.alpha};
     border: 1px solid ${({ theme }) => theme.color.border};
@@ -61,5 +47,21 @@ export const StyledRadioCircularRadioMark = styled.div<{
         isChecked &&
         css`
             background-color: ${theme.color.primary.alpha};
+        `}
+`;
+
+export const StyledRadioCircularContainer = styled.div<StyledRadioProps>`
+    display: flex;
+    flex-direction: column;
+    gap: ${({ theme }) => theme.padding.sm};
+
+    ${({ isFullWidth }) =>
+        isFullWidth &&
+        css`
+            width: 100%;
+
+            ${StyledRadioCircularLabel} {
+                width: 100%;
+            }
         `}
 `;
