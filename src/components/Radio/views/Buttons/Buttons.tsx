@@ -1,28 +1,28 @@
 import React, { Fragment } from 'react';
-import { Text } from '../../Typography';
+import { Text } from '../../../Typography';
 import {
-    StyledRadioButtonLabel,
-    StyledRadioButtonContainer,
-    StyledRadioButtonInputHidden,
-} from '../styles';
-import { RadioButtonType } from '../types';
+    StyledRadioButtonsLabel,
+    StyledRadioButtonsContainer,
+    StyledRadioButtonsInputHidden,
+} from './styles';
+import { RadioType } from '../../types';
 
-export const RadioButton: RadioButtonType = ({
+export const RadioButtons: RadioType = ({
     onChange,
     values,
     value: currentValue,
     groupName,
     isFullWidth,
 }) => (
-    <StyledRadioButtonContainer isFullWidth={isFullWidth}>
+    <StyledRadioButtonsContainer isFullWidth={isFullWidth}>
         {values?.map(({ value, label }) => {
             const isChecked = value === currentValue;
             const type = isChecked ? `primary` : `default`;
 
             return (
                 <Fragment key={value}>
-                    <StyledRadioButtonLabel htmlFor={value} type={type}>
-                        <StyledRadioButtonInputHidden
+                    <StyledRadioButtonsLabel htmlFor={value} type={type}>
+                        <StyledRadioButtonsInputHidden
                             name={groupName}
                             checked={isChecked}
                             onChange={onChange}
@@ -30,9 +30,9 @@ export const RadioButton: RadioButtonType = ({
                             value={value}
                         />
                         <Text>{label}</Text>
-                    </StyledRadioButtonLabel>
+                    </StyledRadioButtonsLabel>
                 </Fragment>
             );
         })}
-    </StyledRadioButtonContainer>
+    </StyledRadioButtonsContainer>
 );

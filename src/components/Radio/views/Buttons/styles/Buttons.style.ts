@@ -1,11 +1,11 @@
-import { css, styled } from '../../../styled';
+import { css, styled } from '../../../../../styled';
 import {
     getButtonDefaultTypeStyles,
     getButtonDefaultStyles,
-} from '../../Button/view/default/styles';
-import { StyledRadioButtonProps } from '../types';
+} from '../../../../Button/view/default/styles';
+import { StyledRadioProps } from '../../../types/Radio.type';
 
-export const StyledRadioButtonInputHidden = styled.input.attrs({
+export const StyledRadioButtonsInputHidden = styled.input.attrs({
     type: 'radio',
 })`
     position: absolute;
@@ -17,7 +17,7 @@ export const StyledRadioButtonInputHidden = styled.input.attrs({
     margin: 0;
 `;
 
-export const StyledRadioButtonLabel = styled.label<StyledRadioButtonProps>`
+export const StyledRadioButtonsLabel = styled.label<StyledRadioProps>`
     ${getButtonDefaultStyles()};
     ${({ type }) => getButtonDefaultTypeStyles(type!, false)};
     display: inline-flex;
@@ -26,15 +26,15 @@ export const StyledRadioButtonLabel = styled.label<StyledRadioButtonProps>`
     border-radius: 0;
 `;
 
-export const StyledRadioButtonContainer = styled.div<StyledRadioButtonProps>`
+export const StyledRadioButtonsContainer = styled.div<StyledRadioProps>`
     display: flex;
 
-    ${StyledRadioButtonLabel}:first-of-type {
+    ${StyledRadioButtonsLabel}:first-of-type {
         border-top-left-radius: ${({ theme }) => theme.radius};
         border-bottom-left-radius: ${({ theme }) => theme.radius};
     }
 
-    ${StyledRadioButtonLabel}:last-of-type {
+    ${StyledRadioButtonsLabel}:last-of-type {
         border-top-right-radius: ${({ theme }) => theme.radius};
         border-bottom-right-radius: ${({ theme }) => theme.radius};
     }
@@ -44,7 +44,7 @@ export const StyledRadioButtonContainer = styled.div<StyledRadioButtonProps>`
         css`
             width: 100%;
 
-            ${StyledRadioButtonLabel} {
+            ${StyledRadioButtonsLabel} {
                 width: 100%;
             }
         `}
