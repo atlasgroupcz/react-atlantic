@@ -3,7 +3,7 @@ import {
     getButtonDefaultTypeStyles,
     getButtonDefaultStyles,
 } from '../../../../Button/view/default/styles';
-import { StyledRadioProps } from '../../../types/Radio.type';
+import { StyledRadioProps } from '../../../types';
 
 export const StyledRadioButtonsInputHidden = styled.input.attrs({
     type: 'radio',
