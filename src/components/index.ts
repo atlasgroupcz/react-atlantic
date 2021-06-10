@@ -19,5 +19,5 @@ export * from './Select';
 export * from './Progress';
 export * from './Message';
 export * from './TextArea';
-export * from './RadioButton';
+export * from './Radio';
 export * from './Switch';

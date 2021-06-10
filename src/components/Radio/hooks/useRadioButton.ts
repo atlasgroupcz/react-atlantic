@@ -1,8 +1,8 @@
-import { UseRadioButtonArgs } from '../types';
+import { UseRadioArgs } from '../types/Radio.type';
 
 export type UseRadioButtonValue = {} & UseRadioButtonProps;
 
-type UseRadioButtonProps = {} & UseRadioButtonArgs;
+type UseRadioButtonProps = {} & UseRadioArgs;
 
 export type UseRadioButtonType = (
     props: UseRadioButtonProps

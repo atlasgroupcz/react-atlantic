@@ -2,9 +2,9 @@ import { CommonHTMLProps, Type } from '../../../types';
 import { FC, FormEvent, PropsWithChildren } from 'react';
 import { OptionType } from '../../Select';
 
-export type RadioButtonType = FC<PropsWithChildren<RadioButtonProps>>;
+export type RadioType = FC<PropsWithChildren<RadioButtonProps>>;
 
-export type UseRadioButtonArgs = {
+export type UseRadioArgs = {
     values: Array<OptionType>;
     groupName: string;
     onChange: (event: FormEvent<HTMLInputElement>) => void;
@@ -12,13 +12,13 @@ export type UseRadioButtonArgs = {
     isFullWidth?: boolean;
 };
 
-export type CommonRadioButtonProps = {};
+export type CommonRadioProps = {};
 
-export type StyledRadioButtonProps = {
+export type StyledRadioProps = {
     type?: Type;
-} & Pick<UseRadioButtonArgs, 'isFullWidth'>;
+} & Pick<UseRadioArgs, 'isFullWidth'>;
 
-export type RadioButtonProps = CommonRadioButtonProps &
-    StyledRadioButtonProps &
-    UseRadioButtonArgs &
+export type RadioButtonProps = CommonRadioProps &
+    StyledRadioProps &
+    UseRadioArgs &
     CommonHTMLProps<HTMLDivElement>;
