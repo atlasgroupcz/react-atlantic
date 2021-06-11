@@ -1,10 +1,8 @@
-import { css, keyframes, StyledComponent } from 'styled-components';
+import { css, keyframes } from 'styled-components';
 import { StyledIcon } from '../../../../Icon/view/styles';
-import { ButtonProps, ButtonStyleType } from '../../../types';
+import { ButtonProps } from '../../../types';
 import { StyledText } from '../../../../Typography/Text';
 import { styled } from '../../../../../styled';
-import { FC } from 'react';
-import { Size } from '../../../../../types';
 
 type StyledButtonProps = Omit<ButtonProps, 'type' | 'htmlType'> & {
     atlanticType: ButtonProps['type'];
@@ -289,4 +287,4 @@ export const StyledButton = styled.button.withConfig({
             }
         `}
     `}
-` as StyledComponent<FC<StyledButtonProps>, {}>;
+`;
