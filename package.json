@@ -1,6 +1,6 @@
 {
     "name": "@atlasgroup/react-atlantic",
-    "version": "2.2.2",
+    "version": "2.3.0",
     "homepage": "https://atlasgroupcz.github.io/react-atlantic",
     "private": false,
     "main": "lib/index.js",
@@ -39,8 +39,7 @@
         "hooks": {
             "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
             "pre-commit": "pretty-quick --staged",
-            "prepare-commit-msg": "devmoji -e --lint",
-            "post-commit": "yarn depsTree"
+            "prepare-commit-msg": "devmoji -e --lint"
         }
     },
     "devDependencies": {

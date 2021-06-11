@@ -1,3 +1,31 @@
+# [2.3.0](https://github.com/atlasgroupcz/react-atlantic/compare/2.0.6...2.3.0) (2021-06-11)
+
+### Bug Fixes
+
+-   **button:** 🐛 unnecassary typedefs removed ([a3c3f40](https://github.com/atlasgroupcz/react-atlantic/commit/a3c3f40f822c68faa5812892b450f542100ae8f6))
+-   🐛 cr ([8d44646](https://github.com/atlasgroupcz/react-atlantic/commit/8d44646009839f3ca981ab988db0ca8476c3ad66))
+-   🐛 remove isChecked for Radio ([909202e](https://github.com/atlasgroupcz/react-atlantic/commit/909202ec3f740ca6c7ce7aeaab92a2469d2cbc41))
+-   **checkbox:** 🐛 exclude isChecked from prop forwarding ([4d0b1c1](https://github.com/atlasgroupcz/react-atlantic/commit/4d0b1c181967d502eb8fe8754c1b09b1556f21c5))
+-   **input:** 🐛 fixes floating label when placeholder is not set ([0ac9e54](https://github.com/atlasgroupcz/react-atlantic/commit/0ac9e548546de697cfd007876646a7fe56a373ae))
+-   **input:** 🐛 fixes InputFloatingLabel for browsers running on Chromium, MS cores ([6fab092](https://github.com/atlasgroupcz/react-atlantic/commit/6fab092b7322cb6dcce7afd010b12add8f5989d3))
+-   **input:** 🐛 pass size to InputContainer ([ad2532b](https://github.com/atlasgroupcz/react-atlantic/commit/ad2532bd1ab3a48242da24786c3b2f27777cc297))
+-   🐛 changelog ([2ec55a6](https://github.com/atlasgroupcz/react-atlantic/commit/2ec55a61b653ca9e4a7a7a8fba0880eca2d149f1))
+-   🐛 export ([73406b3](https://github.com/atlasgroupcz/react-atlantic/commit/73406b3df84b944325dda756c83b41185b55997c))
+-   🐛 import ([68298ee](https://github.com/atlasgroupcz/react-atlantic/commit/68298eef47e80f1080624bce13d108c2a8d6f784))
+-   🐛 import ([f925ae2](https://github.com/atlasgroupcz/react-atlantic/commit/f925ae201178a12b9d28757eb72ddb65f5ed03f5))
+-   🐛 imports ([8a7cd86](https://github.com/atlasgroupcz/react-atlantic/commit/8a7cd863bb46ea6a41b637c3343b46cdac7e5992))
+-   🐛 info transparent message ([76e16ea](https://github.com/atlasgroupcz/react-atlantic/commit/76e16ea76f55d1748aa88b344f25afffba467879))
+-   **radio-button:** 🐛 fixes function name ([700b3e2](https://github.com/atlasgroupcz/react-atlantic/commit/700b3e22ea08b3de74ed71b3023fe525c99fbcc4))
+-   🐛 type ([1f188cd](https://github.com/atlasgroupcz/react-atlantic/commit/1f188cd946862aeebd6a98a3579094572ffec5c8))
+
+### Features
+
+-   ✨ add RadioCircle to stories ([72ab43d](https://github.com/atlasgroupcz/react-atlantic/commit/72ab43d54af6e12969cc85c31358bf6f19c28162))
+-   ✨ create radio components with Button and Circular views ([4ce8441](https://github.com/atlasgroupcz/react-atlantic/commit/4ce8441828be88b9d53239a1f4113b0347f17d33))
+-   **input:** ✨ added InputFloatingLabel view ([1a58b52](https://github.com/atlasgroupcz/react-atlantic/commit/1a58b52e4578f48f86a965412e93b58a51fe82de))
+-   ✨ add isPartiallyChecked to useSwitch ([c8a87a0](https://github.com/atlasgroupcz/react-atlantic/commit/c8a87a010e83200d4bc06bd18a37daa240aa26f3))
+-   ✨ add LightMessage to message view ([6a38d51](https://github.com/atlasgroupcz/react-atlantic/commit/6a38d51107109b3b0a711b30678ff207e7158fb6))
+
 ## [2.2.2](https://github.com/atlasgroupcz/react-atlantic/compare/v2.2.1...v2.2.2) (2021-05-20)
 
 ### Bug Fixes

@@ -1,35 +1,32 @@
 import React, { FC, ReactElement } from 'react';
 import { defaultIconFromType } from './utils';
-import { StyledMessageContainer } from './styles';
+import { StyledMessageLightContainer } from './styles';
 import { StyledMessageProps } from '../../types';
 import { InnerRef } from '../../../../types/utils/InnerRef';
 import { Text } from '../../../Typography';
-
-export interface MessageProps extends InnerRef<StyledMessageProps> {
+export interface MessageLightViewProps extends InnerRef<StyledMessageProps> {
     Icon?: ReactElement;
 }
 
-type MessageType = FC<MessageProps>;
+type MessageLightViewType = FC<MessageLightViewProps>;
 
-export const Message: MessageType = ({
+export const MessageLightView: MessageLightViewType = ({
     children,
     className,
     type = 'default',
     innerRef,
-    isReversedColor,
-    Icon = defaultIconFromType(type, isReversedColor),
+    Icon = defaultIconFromType(type),
     ...ContainerProps
 }) => {
     return (
-        <StyledMessageContainer
+        <StyledMessageLightContainer
             className={className}
             ref={innerRef}
             type={type}
-            isReversedColor={isReversedColor}
             {...ContainerProps}
         >
             {Icon}
             <Text>{children}</Text>
-        </StyledMessageContainer>
+        </StyledMessageLightContainer>
     );
 };
