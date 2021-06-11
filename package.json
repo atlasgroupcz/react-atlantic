@@ -39,8 +39,7 @@
         "hooks": {
             "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
             "pre-commit": "pretty-quick --staged",
-            "prepare-commit-msg": "devmoji -e --lint",
-            "post-commit": "yarn depsTree"
+            "prepare-commit-msg": "devmoji -e --lint"
         }
     },
     "devDependencies": {
