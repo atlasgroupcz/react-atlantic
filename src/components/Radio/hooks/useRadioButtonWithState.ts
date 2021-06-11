@@ -1,12 +1,12 @@
 import { useCallback, useEffect, useState } from 'react';
-import { UseRadioButtonArgs } from '../types';
+import { UseRadioArgs } from '../types/Radio.type';
 
 export type UseRadioButtonWithStateValue = {} & UseRadioButtonWithStateProps &
-    UseRadioButtonArgs;
+    UseRadioArgs;
 
 export type UseRadioButtonWithStateProps = {
     defaultValue?: string;
-} & Omit<UseRadioButtonArgs, 'value'>;
+} & Omit<UseRadioArgs, 'value'>;
 
 export type UseRadioButtonWithStateType = (
     props: UseRadioButtonWithStateProps

@@ -1,4 +1,3 @@
-export * from './view';
+export * from './views';
 export * from './types';
 export * from './hooks';
-export * from './styles';
