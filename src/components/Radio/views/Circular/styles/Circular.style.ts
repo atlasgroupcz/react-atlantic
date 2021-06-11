@@ -11,20 +11,18 @@ export const StyledRadioCircularInputHidden = styled(
 export const StyledRadioCircularLabel = styled.label<StyledRadioProps>`
     display: flex;
     align-items: center;
-    gap: ${({ theme }) => theme.padding.md};
     width: 100%;
     cursor: pointer;
 `;
 
-export const StyledRadioCircularRadio = styled.div<{
-    isChecked: boolean;
-}>`
+export const StyledRadioCircularRadio = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
     height: ${radioSize}px;
     width: ${radioSize}px;
+    margin-right: ${({ theme }) => theme.margin.md};
     box-sizing: border-box;
     border-radius: 50%;
     background: ${({ theme }) => theme.color.background.alpha};
@@ -37,7 +35,6 @@ export const StyledRadioCircularRadioMark = styled.div<{
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-shrink: 0;
     width: calc(${radioSize}px / 2);
     height: calc(${radioSize}px / 2);
     border-radius: 50%;
@@ -53,7 +50,6 @@ export const StyledRadioCircularRadioMark = styled.div<{
 export const StyledRadioCircularContainer = styled.div<StyledRadioProps>`
     display: flex;
     flex-direction: column;
-    gap: ${({ theme }) => theme.padding.sm};
 
     ${({ isFullWidth }) =>
         isFullWidth &&
