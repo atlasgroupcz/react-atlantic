@@ -23,7 +23,7 @@ export const RadioCircular: RadioType = ({
             return (
                 <Fragment key={value}>
                     <StyledRadioCircularLabel htmlFor={value}>
-                        <StyledRadioCircularRadio isChecked={isChecked}>
+                        <StyledRadioCircularRadio>
                             <StyledRadioCircularRadioMark
                                 isChecked={isChecked}
                             />
