@@ -1,6 +1,6 @@
 {
     "name": "@atlasgroup/react-atlantic",
-    "version": "2.2.2",
+    "version": "2.3.0",
     "homepage": "https://atlasgroupcz.github.io/react-atlantic",
     "private": false,
     "main": "lib/index.js",
