@@ -1,14 +1,13 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, MouseEvent } from 'react';
 import { SelectProps } from '../../types';
 import {
-    StyledDefaultSelect,
-    StyledDefaultSelectContainer,
-    StyledDefaultSelectIconContainer,
-    StyledDefaultSelectList,
-    StyledDefaultSelectListItem,
-    StyledDefaultSelectValue,
+    StyledSelectDefaultContainer,
+    StyledSelectDefaultInput,
+    StyledSelectDefaultInputIcon,
+    StyledSelectDefaultInputValue,
+    StyledSelectDefaultList,
+    StyledSelectDefaultListItem,
 } from './styles';
-import { Icon } from '../../../Icon/view';
 
 export const Select = forwardRef<HTMLDivElement, SelectProps<any>>(
     (
@@ -23,44 +22,51 @@ export const Select = forwardRef<HTMLDivElement, SelectProps<any>>(
             isFullWidth,
             size = 'medium',
             className,
+            isOptionSelected,
             ...rest
         },
         ref
     ) => (
-        <StyledDefaultSelectContainer
+        <StyledSelectDefaultContainer
             {...rest}
             isFullWidth={isFullWidth}
             ref={ref}
             className={className}
         >
-            <StyledDefaultSelect
-                onClick={(e) => !isDisabled && onClick?.(e!)}
+            <StyledSelectDefaultInput
+                onClick={(e: MouseEvent<HTMLDivElement>) =>
+                    !isDisabled && onClick?.(e!)
+                }
                 isOpen={isOpen}
                 size={size}
                 isDisabled={isDisabled}
             >
-                <StyledDefaultSelectValue isOptionSelected={!!value?.label}>
-                    {value?.label || placeholder}
-                </StyledDefaultSelectValue>
-                <StyledDefaultSelectIconContainer>
-                    <Icon name={isOpen ? 'arrowUp' : 'arrowDown'} />
-                </StyledDefaultSelectIconContainer>
-            </StyledDefaultSelect>
+                <StyledSelectDefaultInputValue
+                    size={size}
+                    isOptionSelected={isOptionSelected}
+                >
+                    {isOptionSelected ? value.label : placeholder}
+                </StyledSelectDefaultInputValue>
+                <StyledSelectDefaultInputIcon
+                    size={size}
+                    name={isOpen ? 'arrowUp' : 'arrowDown'}
+                />
+            </StyledSelectDefaultInput>
 
             {isOpen && !!options?.length && (
-                <StyledDefaultSelectList>
+                <StyledSelectDefaultList>
                     {options.map((option) => (
-                        <StyledDefaultSelectListItem
+                        <StyledSelectDefaultListItem
                             key={`${option.value}`}
                             size={size}
                             onClick={() => onOptionClick?.(option)}
                         >
                             {option.label}
-                        </StyledDefaultSelectListItem>
+                        </StyledSelectDefaultListItem>
                     ))}
-                </StyledDefaultSelectList>
+                </StyledSelectDefaultList>
             )}
-        </StyledDefaultSelectContainer>
+        </StyledSelectDefaultContainer>
     )
 );
 
