@@ -1,16 +1,18 @@
-import React from 'react';
+import React, { ReactText } from 'react';
 import { storiesOf } from '@storybook/react';
 import {
     ControllerSelectProps,
     Icon,
     OptionType,
     Select,
+    SelectMulti,
     SelectProps,
     Size,
     useSelect,
 } from '../src';
 import { boolean, select, withKnobs } from '@storybook/addon-knobs';
 import { defaultValues } from './constants';
+import { useSelectMulti } from '../src/components/Select/hooks/useSelectMulti';
 
 const stories = storiesOf('Select', module);
 
@@ -54,10 +56,34 @@ stories.add(
             ],
         });
 
+        const multiSelectHandlers = useSelectMulti<OptionType<ReactText>>({
+            options: [
+                {
+                    value: 1,
+                    label: 'Česká Republika',
+                },
+                {
+                    value: 2,
+                    label: 'Slovenská Republika',
+                },
+                {
+                    value: 3,
+                    label: 'Evropa',
+                },
+            ],
+            onOptionClick: (option) => console.log(option.label),
+            onValueClick: (option) => console.log(option.label),
+        });
+
         return (
             <>
                 <Select isFullWidth size={'large'} {...iconHandlers} />
                 <Select {...textHandlers} />
+                <SelectMulti
+                    size={'large'}
+                    isFullWidth
+                    {...multiSelectHandlers}
+                />
             </>
         );
     },

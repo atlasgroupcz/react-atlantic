@@ -19,9 +19,7 @@ export const useSelect = <
         }
     };
 
-    const onOptionClick: ControllerSelectProps<T>['onOptionClick'] = (
-        option
-    ) => {
+    const onOptionClick: SelectProps<T>['onOptionClick'] = (option) => {
         if (!isDisabled) {
             setValue(option);
             args.onOptionClick?.(option);
@@ -37,6 +35,7 @@ export const useSelect = <
         isOpen,
         isDisabled,
         ref,
+        isOptionSelected: !!value,
         placeholder: `Vyberte...`,
     };
 };
