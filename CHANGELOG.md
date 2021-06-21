@@ -1,3 +1,16 @@
+## [2.3.1](https://github.com/atlasgroupcz/react-atlantic/compare/2.2.2...2.3.1) (2021-06-21)
+
+### Bug Fixes
+
+-   **button:** 🐛 unnecassary typedefs removed ([7fd762d](https://github.com/atlasgroupcz/react-atlantic/commit/7fd762de2e5df3b064e487a35147016bfe8eb4d0))
+-   🐛 cr ([8acbab4](https://github.com/atlasgroupcz/react-atlantic/commit/8acbab43e5a53e6ae504e1272eea0d63e90f5d52))
+-   🐛 remove isChecked for Radio ([30b43e2](https://github.com/atlasgroupcz/react-atlantic/commit/30b43e22457bed5b909e28d89bb964828ff59271))
+
+### Features
+
+-   ✨ add RadioCircle to stories ([320efd7](https://github.com/atlasgroupcz/react-atlantic/commit/320efd70c374a6634ee7c847a96621e6ab26e7a6))
+-   ✨ create radio components with Button and Circular views ([38c8b91](https://github.com/atlasgroupcz/react-atlantic/commit/38c8b9135fcca8ae35ef6ee36bf79270804d4e68))
+
 # [2.3.0](https://github.com/atlasgroupcz/react-atlantic/compare/2.0.6...2.3.0) (2021-06-11)
 
 ### Bug Fixes
