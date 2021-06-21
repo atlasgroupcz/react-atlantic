@@ -1,8 +1,8 @@
 import { css, styled } from '../../../../../../../styled';
 import { StyledIcon } from '../../../../../../Icon';
-import { SelectInputIconProps } from '../Icon';
+import { StyledSelectProps } from '../../../../../types';
 
-type StyledSelectInputIconContainerProps = Pick<SelectInputIconProps, 'size'>;
+type StyledSelectInputIconContainerProps = Pick<StyledSelectProps, 'size'>;
 
 export const StyledSelectInputIconContainer = styled.div<
     StyledSelectInputIconContainerProps
