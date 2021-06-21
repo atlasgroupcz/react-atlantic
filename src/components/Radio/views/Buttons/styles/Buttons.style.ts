@@ -24,6 +24,15 @@ export const StyledRadioButtonsLabel = styled.label<StyledRadioProps>`
     align-items: center;
     justify-content: center;
     border-radius: 0;
+
+    ${({ theme, isDisabled }) => css`
+        ${isDisabled &&
+        css`
+            color: ${theme.color.text.alpha};
+            opacity: 0.6;
+            cursor: not-allowed;
+        `}
+    `}
 `;
 
 export const StyledRadioButtonsContainer = styled.div<StyledRadioProps>`

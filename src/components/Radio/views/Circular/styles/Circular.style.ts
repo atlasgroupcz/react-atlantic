@@ -13,6 +13,21 @@ export const StyledRadioCircularLabel = styled.label<StyledRadioProps>`
     align-items: center;
     width: 100%;
     cursor: pointer;
+
+    ${({ theme, isDisabled, isChecked }) => css`
+        ${isDisabled &&
+        css`
+            color: ${theme.color.text.alpha};
+            opacity: 0.6;
+            cursor: not-allowed;
+
+            ${StyledRadioCircularRadioMark} {
+                background-color: ${isChecked
+                    ? theme.color.border
+                    : `transparent`};
+            }
+        `}
+    `}
 `;
 
 export const StyledRadioCircularRadio = styled.div`

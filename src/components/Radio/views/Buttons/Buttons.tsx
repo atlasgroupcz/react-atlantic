@@ -15,13 +15,17 @@ export const RadioButtons: RadioType = ({
     isFullWidth,
 }) => (
     <StyledRadioButtonsContainer isFullWidth={isFullWidth}>
-        {values?.map(({ value, label }) => {
+        {values?.map(({ value, label, isDisabled }) => {
             const isChecked = value === currentValue;
-            const type = isChecked ? `primary` : `default`;
+            const type = isChecked && !isDisabled ? `primary` : `default`;
 
             return (
                 <Fragment key={value}>
-                    <StyledRadioButtonsLabel htmlFor={value} type={type}>
+                    <StyledRadioButtonsLabel
+                        htmlFor={value}
+                        type={type}
+                        isDisabled={isDisabled}
+                    >
                         <StyledRadioButtonsInputHidden
                             name={groupName}
                             checked={isChecked}

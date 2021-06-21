@@ -4,8 +4,10 @@ import { OptionType } from '../../Select';
 
 export type RadioType = FC<PropsWithChildren<RadioButtonProps>>;
 
+export type RadioOptionType = OptionType & { isDisabled?: boolean };
+
 export type UseRadioArgs = {
-    values: Array<OptionType>;
+    values: Array<RadioOptionType>;
     groupName: string;
     onChange: (event: FormEvent<HTMLInputElement>) => void;
     value: string;
@@ -16,6 +18,8 @@ export type CommonRadioProps = {};
 
 export type StyledRadioProps = {
     type?: Type;
+    isDisabled?: boolean;
+    isChecked?: boolean;
 } & Pick<UseRadioArgs, 'isFullWidth'>;
 
 export type RadioButtonProps = CommonRadioProps &
