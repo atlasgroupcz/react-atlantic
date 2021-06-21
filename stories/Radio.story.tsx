@@ -5,6 +5,7 @@ import { boolean, select, withKnobs } from '@storybook/addon-knobs';
 import { RadioButtons, RadioCircular } from '../src/components/Radio';
 import { useRadioButtonWithState } from '../src/components/Radio';
 import { defaultValues } from './constants';
+import { useState } from '@storybook/addons';
 
 const stories = storiesOf('Radio', module);
 
@@ -23,7 +24,7 @@ stories.add(
 
         const demoRadioHandlers = useRadioButtonWithState({
             values: [
-                { value: 'firstValue', label: 'Label 1' },
+                { value: 'firstValue', label: 'Label 1', isDisabled: true },
                 { value: 'secondValue', label: 'Label 2' },
             ],
             groupName: 'firstGroup',

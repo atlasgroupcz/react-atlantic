@@ -22,7 +22,11 @@ export const useRadioButtonWithState: UseRadioButtonWithStateType = ({
     );
 
     useEffect(() => {
-        if (typeof defaultValue !== 'undefined') {
+        const isDisabled = rest.values.find(
+            (item) => item.value === defaultValue
+        )?.isDisabled;
+
+        if (typeof defaultValue !== 'undefined' && !isDisabled) {
             setValue(defaultValue);
         }
     }, []);
@@ -30,8 +34,11 @@ export const useRadioButtonWithState: UseRadioButtonWithStateType = ({
     const onChange = useCallback<UseRadioButtonWithStateProps['onChange']>(
         (event) => {
             const newValue = event.currentTarget.value;
+            const isDisabled = rest.values.find(
+                (item) => item.value === event.currentTarget.value
+            )?.isDisabled;
 
-            if (newValue !== value) {
+            if (newValue !== value && !isDisabled) {
                 setValue(newValue);
                 PropsOnChange?.(event);
             }
