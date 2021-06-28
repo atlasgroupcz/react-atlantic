@@ -1,3 +1,9 @@
+## [2.3.2](https://github.com/atlasgroupcz/react-atlantic/compare/2.3.1...2.3.2) (2021-06-28)
+
+### Bug Fixes
+
+-   **input:** 🐛 floating label value ([7beaf77](https://github.com/atlasgroupcz/react-atlantic/commit/7beaf770b5a1d144de0795771c0b821e14eb828f))
+
 ## [2.3.1](https://github.com/atlasgroupcz/react-atlantic/compare/2.2.2...2.3.1) (2021-06-21)
 
 ### Bug Fixes
