@@ -2,7 +2,7 @@
 import { select, withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
-import { Message, MessageLight } from '../src/components/Message';
+import { Message, MessageLight, Notification } from '../src/components/Message';
 
 const stories = storiesOf('Message', module);
 
@@ -26,6 +26,8 @@ stories.add(
                 <Message type={type}>Hello world!</Message>
                 <br />
                 <MessageLight type={type}>Hello world!</MessageLight>
+                <br />
+                <Notification type={type}>Hello world!</Notification>
             </>
         );
     },
