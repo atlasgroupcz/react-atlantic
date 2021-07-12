@@ -196,6 +196,7 @@ export const IconsMap = {
     checkInCircle: <Icons.CheckInCircle />,
     crossInCircle: <Icons.CrossInCircle />,
     checkInIncompleteCircle: <Icons.CheckInIncompleteCircle />,
+    chartLineSolid: <Icons.ChartLineSolid />,
 };
 
 export type IconName = keyof typeof IconsMap;
