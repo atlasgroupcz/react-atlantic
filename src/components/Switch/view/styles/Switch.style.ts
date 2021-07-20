@@ -34,6 +34,7 @@ export const StyledSwitchLabel = styled.label<StyledSwitchProps>`
         isDisabled &&
         css`
             cursor: not-allowed;
+            opacity: 0.6;
         `}
 `;
 
