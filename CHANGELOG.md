@@ -1,3 +1,14 @@
+# [2.4.0](https://github.com/atlasgroupcz/react-atlantic/compare/2.3.0...2.4.0) (2021-07-21)
+
+### Bug Fixes
+
+-   **select:** 🐛 removed circular dependency ([64b983b](https://github.com/atlasgroupcz/react-atlantic/commit/64b983b56b9d23ecdb5309395ceedd0fa4347de4))
+-   🐛 disabled switch opacity ([7bf7bcf](https://github.com/atlasgroupcz/react-atlantic/commit/7bf7bcf60ed59ad6e32fd0478cfe33fc891b2f42))
+
+### Features
+
+-   **select:** ✨ added SelectMulti view ([04d585e](https://github.com/atlasgroupcz/react-atlantic/commit/04d585e03211b2ce6babf43b75edc87988a01b7f))
+
 ## [2.3.2](https://github.com/atlasgroupcz/react-atlantic/compare/2.3.1...2.3.2) (2021-06-28)
 
 ### Bug Fixes
