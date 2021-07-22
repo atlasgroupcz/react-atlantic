@@ -6,6 +6,7 @@ import React from 'react';
  * @param useController A controller hook, can be parametrized with a object parameter
  *
  * Any paramaters passed to controller will be passed as props to the resulting component
+ * @deprecated
  */
 export const wrap = <
     V extends FC<any>,
