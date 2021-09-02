@@ -197,6 +197,12 @@ export const IconsMap = {
     crossInCircle: <Icons.CrossInCircle />,
     checkInIncompleteCircle: <Icons.CheckInIncompleteCircle />,
     chartLineSolid: <Icons.ChartLineSolid />,
+    doubleBubbles: <Icons.DoubleBubbles />,
+    paragraph: <Icons.Paragraph />,
+    flag: <Icons.Flag />,
+    fileContract: <Icons.FileContract />,
+    expand: <Icons.Expand />,
+    collapse: <Icons.Collapse />,
 };
 
 export type IconName = keyof typeof IconsMap;

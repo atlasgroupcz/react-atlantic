@@ -1,9 +1,6 @@
-import React, { FC } from 'react';
 import { StyledLink } from './styles';
 import { CommonHTMLProps, MouseEvents } from '../../../types';
 import { ElementProps } from '../../../types/utils';
-
-export type LinkType = FC<Readonly<LinkProps>>;
 
 type AnchorProps = Pick<
     ElementProps<HTMLAnchorElement>,
@@ -14,4 +11,4 @@ export type LinkProps = CommonHTMLProps<HTMLAnchorElement> &
     MouseEvents<HTMLAnchorElement> &
     AnchorProps;
 
-export const Link: LinkType = (props) => <StyledLink {...props} />;
+export const Link = StyledLink;
