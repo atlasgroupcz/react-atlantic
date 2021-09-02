@@ -1,3 +1,16 @@
+## [2.4.1](https://github.com/atlasgroupcz/react-atlantic/compare/2.3.2...2.4.1) (2021-09-02)
+
+### Bug Fixes
+
+-   **link:** 🐛 fixes passing ref to Link component ([894595b](https://github.com/atlasgroupcz/react-atlantic/commit/894595bfb2f499e2968a2d1cb707fd3a32d4bc56))
+-   🐛 disabled switch opacity ([2a550f6](https://github.com/atlasgroupcz/react-atlantic/commit/2a550f6efb4cc5ebe7cb51a82673a31d48213e5c))
+-   🐛 fixes weird error ([0c3dd26](https://github.com/atlasgroupcz/react-atlantic/commit/0c3dd26c5658e2235e08e6c581260f104ef2d597))
+-   **select:** 🐛 removed circular dependency ([cd7b178](https://github.com/atlasgroupcz/react-atlantic/commit/cd7b178746062163a68d2df1fe0ca342afc9b8b0))
+
+### Features
+
+-   **select:** ✨ added SelectMulti view ([01c19ff](https://github.com/atlasgroupcz/react-atlantic/commit/01c19ff0cc55f9d358974ce7dbf1277c9c61fbf9))
+
 # [2.4.0](https://github.com/atlasgroupcz/react-atlantic/compare/2.3.0...2.4.0) (2021-07-21)
 
 ### Bug Fixes
