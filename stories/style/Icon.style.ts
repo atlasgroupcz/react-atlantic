@@ -1,11 +1,17 @@
 import { styled } from '../../src/styled';
 import { StyledText } from '../../src/components/Typography/Text/styles';
+import { StyledIcon } from '../../lib';
 
 export const StyledIconImage = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
     padding: ${({ theme }) => theme.padding.xl};
+
+    ${StyledIcon} {
+        width: 24px;
+        height: 24px;
+    }
 `;
 
 export const StyledIconName = styled.div`
