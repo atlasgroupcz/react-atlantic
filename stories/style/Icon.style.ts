@@ -1,6 +1,6 @@
 import { styled } from '../../src/styled';
 import { StyledText } from '../../src/components/Typography/Text/styles';
-import { StyledIcon } from '../../lib';
+import { StyledIcon } from '../../src';
 
 export const StyledIconImage = styled.div`
     display: flex;
