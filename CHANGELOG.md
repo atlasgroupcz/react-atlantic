@@ -1,3 +1,10 @@
+## [2.4.2](https://github.com/atlasgroupcz/react-atlantic/compare/v2.4.1...v2.4.2) (2021-09-03)
+
+### Bug Fixes
+
+-   **icons:** 🐛 fixes import path ([0807d53](https://github.com/atlasgroupcz/react-atlantic/commit/0807d538e1c0437330c0404c8405c5ea362a61b7))
+-   **typography:** 🐛 Title can pass refs, added MouseEvents on Typography components ([8e28a9c](https://github.com/atlasgroupcz/react-atlantic/commit/8e28a9c8d978a8651a29a01ff57e6c2029fa7764))
+
 ## [2.4.1](https://github.com/atlasgroupcz/react-atlantic/compare/2.3.2...2.4.1) (2021-09-02)
 
 ### Bug Fixes

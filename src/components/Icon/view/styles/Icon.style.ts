@@ -15,8 +15,8 @@ export const getIconDefaultStyles = (onClick: IconProps['onClick']) => css`
     display: inline-block;
     cursor: ${!!onClick ? 'pointer' : 'inherit'};
     line-height: 0;
-    width: 24px;
-    height: 24px;
+    width: 14px;
+    height: 14px;
     color: ${({ theme }) => theme.color.text.alpha};
     font-style: normal;
     text-align: center;
