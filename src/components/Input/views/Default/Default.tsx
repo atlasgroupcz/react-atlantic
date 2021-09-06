@@ -9,20 +9,20 @@ import {
 import { useInputDefault } from '../../hooks';
 
 export const InputDefaultView = forwardRef<HTMLInputElement, InputDefaultProps>(
-    ({ className, prefix, suffix, ...props }, ref) => {
+    ({ className, prefix, suffix, size = 'medium', ...props }, ref) => {
         const { setInputFocus, handleSetRef } = useInputDefault({ ref });
 
         return (
             <InputContainer
                 className={className}
                 onClick={setInputFocus}
-                size={props.size}
+                size={size}
                 isFullWidth={props.isFullWidth}
                 isDisabled={props.isDisabled}
                 isRound={props.isRound}
             >
                 {prefix && <InputPrefix>{prefix}</InputPrefix>}
-                <InputBase {...props} ref={handleSetRef} />
+                <InputBase {...props} size={size} ref={handleSetRef} />
                 {suffix && <InputSuffix>{suffix}</InputSuffix>}
             </InputContainer>
         );
