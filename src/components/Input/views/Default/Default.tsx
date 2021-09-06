@@ -22,7 +22,7 @@ export const InputDefaultView = forwardRef<HTMLInputElement, InputDefaultProps>(
                 isRound={props.isRound}
             >
                 {prefix && <InputPrefix>{prefix}</InputPrefix>}
-                <InputBase {...props} ref={handleSetRef} />
+                <InputBase {...props} size={size} ref={handleSetRef} />
                 {suffix && <InputSuffix>{suffix}</InputSuffix>}
             </InputContainer>
         );
