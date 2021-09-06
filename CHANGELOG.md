@@ -1,3 +1,5 @@
+## [2.4.4](https://github.com/atlasgroupcz/react-atlantic/compare/v2.4.3...v2.4.4) (2021-09-06)
+
 ## [2.4.3](https://github.com/atlasgroupcz/react-atlantic/compare/v2.4.2...v2.4.3) (2021-09-06)
 
 ### Bug Fixes
