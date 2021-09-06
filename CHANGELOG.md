@@ -1,3 +1,10 @@
+## [2.4.3](https://github.com/atlasgroupcz/react-atlantic/compare/v2.4.2...v2.4.3) (2021-09-06)
+
+### Bug Fixes
+
+-   **input:** 🐛 pass size prop to InputBase ([9e47549](https://github.com/atlasgroupcz/react-atlantic/commit/9e475493932baf28b4315892c443fe2ff786c507))
+-   **title:** 🐛 fixes Title type (unknown required css property) ([36222a4](https://github.com/atlasgroupcz/react-atlantic/commit/36222a48003295b324ed9ca7aff33f1bb4b5b77f))
+
 ## [2.4.2](https://github.com/atlasgroupcz/react-atlantic/compare/v2.4.1...v2.4.2) (2021-09-03)
 
 ### Bug Fixes
