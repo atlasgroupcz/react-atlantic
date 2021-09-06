@@ -203,6 +203,7 @@ export const IconsMap = {
     fileContract: <Icons.FileContract />,
     expand: <Icons.Expand />,
     collapse: <Icons.Collapse />,
+    share: <Icons.Share />,
 };
 
 export type IconName = keyof typeof IconsMap;
