@@ -5,7 +5,14 @@ module.exports = {
     ],
     addons: [
         '@storybook/addon-links',
-        '@storybook/addon-essentials',
+        {
+            name: '@storybook/addon-essentials',
+            options: {
+                actions: false,
+                controls: false,
+            },
+        },
         '@storybook/preset-create-react-app',
+        '@storybook/addon-storysource',
     ],
 };

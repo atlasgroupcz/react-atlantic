@@ -4,7 +4,7 @@ import agrpdev from './themes/agrpdev';
 addons.setConfig({
     isFullscreen: false,
     showNav: true,
-    showPanel: false,
+    showPanel: true,
     panelPosition: 'bottom',
     enableShortcuts: true,
     isToolshown: false,

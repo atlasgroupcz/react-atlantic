@@ -6,6 +6,7 @@
     "main": "lib/index.js",
     "dependencies": {
         "@babel/runtime": "^7.15.4",
+        "@storybook/addon-storysource": "^6.3.8",
         "@types/lodash.debounce": "^4.0.6",
         "@types/react-datepicker": "^3.1.1",
         "@types/styled-components": "^5.1.14",
