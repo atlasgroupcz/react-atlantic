@@ -1,3 +1,16 @@
+## [2.4.5](https://github.com/atlasgroupcz/react-atlantic/compare/2.4.1...2.4.5) (2021-09-23)
+
+### Bug Fixes
+
+-   **icons:** 🐛 fixes import path ([0807d53](https://github.com/atlasgroupcz/react-atlantic/commit/0807d538e1c0437330c0404c8405c5ea362a61b7))
+-   **input:** 🐛 pass size prop to InputBase ([9e47549](https://github.com/atlasgroupcz/react-atlantic/commit/9e475493932baf28b4315892c443fe2ff786c507))
+-   **title:** 🐛 fixes Title type (unknown required css property) ([36222a4](https://github.com/atlasgroupcz/react-atlantic/commit/36222a48003295b324ed9ca7aff33f1bb4b5b77f))
+-   **typography:** 🐛 Title can pass refs, added MouseEvents on Typography components ([8e28a9c](https://github.com/atlasgroupcz/react-atlantic/commit/8e28a9c8d978a8651a29a01ff57e6c2029fa7764))
+
+### Features
+
+-   **icons:** ✨ ban, hourGlass ([d91fc4c](https://github.com/atlasgroupcz/react-atlantic/commit/d91fc4c926435e058e74fa869ec45803d525d739))
+
 ## [2.4.4](https://github.com/atlasgroupcz/react-atlantic/compare/v2.4.3...v2.4.4) (2021-09-06)
 
 ## [2.4.3](https://github.com/atlasgroupcz/react-atlantic/compare/v2.4.2...v2.4.3) (2021-09-06)
