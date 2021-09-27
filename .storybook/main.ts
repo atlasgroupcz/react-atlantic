@@ -9,7 +9,6 @@ module.exports = {
             name: '@storybook/addon-essentials',
             options: {
                 actions: false,
-                controls: false,
             },
         },
         '@storybook/preset-create-react-app',
