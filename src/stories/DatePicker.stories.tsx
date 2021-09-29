@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { DatePicker, DatePickerProps } from '..';
 
 export default {
@@ -12,10 +12,15 @@ export default {
     },
 };
 
-export const Overview = ({ isFullWidth }: DatePickerProps) => (
-    <DatePicker
-        isFullWidth={isFullWidth}
-        locale="cs"
-        onChange={function noRefCheck() {}}
-    />
-);
+export const Overview = ({ isFullWidth }: DatePickerProps) => {
+    const [value, setValue] = useState<Date | [Date, Date] | null>(null);
+
+    return (
+        <DatePicker
+            isFullWidth={isFullWidth}
+            locale="cs"
+            onChange={(val) => setValue(val)}
+            value={value === null ? '' : value.toString()}
+        />
+    );
+};

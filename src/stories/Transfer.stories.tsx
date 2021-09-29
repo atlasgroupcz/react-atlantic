@@ -1,5 +1,4 @@
 import React from 'react';
-import {} from '..';
 import { Transfer, TransferProps } from '../components/Transfer';
 import { crossOut, disableOnEvent } from './disableOnEvent';
 
@@ -9,12 +8,12 @@ export default {
     argTypes: {
         isOpen: { name: 'isOpen', defaultValue: true },
         isSorted: { name: 'isSorted', defaultValue: false },
+        isFullWidth: { name: 'isFullWidth', defaultValue: false },
         innerTransferController: crossOut,
         positionController: crossOut,
         size: crossOut,
         customWidth: crossOut,
         preferredPosition: crossOut,
-        isFullWidth: crossOut,
         visibleRows: crossOut,
         hiddenTransferComponent: crossOut,
         leftHeader: crossOut,
@@ -77,11 +76,12 @@ const options = [
     },
 ];
 
-export const Overview = ({ isOpen, isSorted }: TransferProps) => (
+export const Overview = ({ isOpen, isSorted, isFullWidth }: TransferProps) => (
     <Transfer
         options={options}
         value={[options[0]]}
         isOpen={isOpen}
         isSorted={isSorted}
+        isFullWidth={isFullWidth}
     />
 );

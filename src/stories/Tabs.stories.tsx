@@ -1,16 +1,18 @@
 import React, { FC, MouseEvent, useCallback } from 'react';
 import { TabListProps, Tabs } from '..';
-import { disableOnEvent } from './disableOnEvent';
+import { crossOut, disableOnEvent } from './disableOnEvent';
 
 export default {
     title: 'Tabs',
     component: Tabs,
     argTypes: {
+        List: crossOut,
+        activeKey: crossOut,
         ...disableOnEvent,
     },
 };
 
-const Tab: FC<TabListProps> = ({ onClick, id, activeKey }) => {
+const Tab: FC<TabListProps> = ({ onClick, id }) => {
     const handleClick = useCallback(
         (e: MouseEvent<HTMLDivElement>) => {
             onClick(e, id!);
@@ -22,11 +24,11 @@ const Tab: FC<TabListProps> = ({ onClick, id, activeKey }) => {
 };
 
 export const Overview = () => (
-    <Tabs List={Tab} activeKey="1">
-        <div>1</div>
-        <div>2</div>
-        <div>3</div>
-        <div>4</div>
-        <div>5</div>
+    <Tabs List={Tab} activeKey="x">
+        <div key="a">1</div>
+        <div key="b">2</div>
+        <div key="c">3</div>
+        <div key="x">4</div>
+        <div key="z">5</div>
     </Tabs>
 );

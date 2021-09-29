@@ -1,6 +1,9 @@
 import React from 'react';
-import { Switch, SwitchProps, useSwitch, wrap } from '..';
-import { disableOnEvent, crossOut } from './disableOnEvent';
+import { Switch as SwitchView, SwitchProps, useSwitch } from '..';
+import { disableOnEvent, crossOut, disable } from './disableOnEvent';
+import { wrap } from '@atlasgroup/react-wrap';
+
+const Switch = wrap(SwitchView, useSwitch);
 
 export default {
     title: 'Switch',
@@ -8,29 +11,23 @@ export default {
     argTypes: {
         isDisabled: {
             name: 'isDisabled',
+            control: { type: 'boolean' },
             defaultValue: false,
         },
         isPartiallyChecked: {
             name: 'isPartiallyChecked',
+            control: { type: 'boolean' },
             defaultValue: false,
         },
-        type: crossOut,
-        isChecked: crossOut,
-        textOn: crossOut,
-        textOff: crossOut,
-        horizontalPosition: crossOut,
+        type: disable,
+        isChecked: disable,
+        textOn: disable,
+        textOff: disable,
+        horizontalPosition: disable,
         ...disableOnEvent,
     },
 };
 
-export const Overview = ({ isDisabled, isPartiallyChecked }: SwitchProps) => {
-    // you have to wrap checkbox with useCheckbox hook, react-wrap is recommended for this
-    const WrappedSwitch = wrap(Switch, useSwitch);
-
-    return (
-        <WrappedSwitch
-            isDisabled={isDisabled}
-            isPartiallyChecked={isPartiallyChecked}
-        />
-    );
-};
+export const Overview = ({ isDisabled, isPartiallyChecked }: SwitchProps) => (
+    <Switch isDisabled={isDisabled} isPartiallyChecked={isPartiallyChecked} />
+);

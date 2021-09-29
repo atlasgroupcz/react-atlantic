@@ -1,10 +1,19 @@
-import React from 'react';
-import { RadioButtons, RadioCircular, RadioButtonProps } from '..';
+import { wrap } from '@atlasgroup/react-wrap';
+import React, { useMemo } from 'react';
+import {
+    RadioButtons as RadioButtonsView,
+    RadioCircular as RadioCircularView,
+    RadioButtonProps,
+    useRadioButton,
+} from '..';
 import { crossOut, disableOnEvent } from './disableOnEvent';
+
+const RadioButtons = wrap(RadioButtonsView, useRadioButton);
+const RadioCircular = wrap(RadioCircularView, useRadioButton);
 
 export default {
     title: 'Radio',
-    component: RadioButtons,
+    component: RadioButtonsView,
     argTypes: {
         size: crossOut,
         type: crossOut,
@@ -22,21 +31,24 @@ export default {
 };
 
 export const Overview = ({ isFullWidth }: RadioButtonProps) => {
-    const values = [
-        {
-            isDisabled: true,
-            label: 'Label 1',
-            value: 'firstValue',
-        },
-        {
-            label: 'Label 2',
-            value: 'secondValue',
-        },
-        {
-            label: 'Label 3',
-            value: 'thirdValue',
-        },
-    ];
+    const values = useMemo(
+        () => [
+            {
+                isDisabled: true,
+                label: 'Label 1',
+                value: 'firstValue',
+            },
+            {
+                label: 'Label 2',
+                value: 'secondValue',
+            },
+            {
+                label: 'Label 3',
+                value: 'thirdValue',
+            },
+        ],
+        []
+    );
 
     return (
         <>

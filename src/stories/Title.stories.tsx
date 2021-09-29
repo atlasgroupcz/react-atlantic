@@ -1,9 +1,14 @@
 import React from 'react';
-import { Title, TitleProps } from '..';
+import styled from 'styled-components';
+import { Title as NotStyledTitle, TitleProps } from '..';
 import { disableOnEvent } from './disableOnEvent';
 
+const Title = styled(NotStyledTitle)`
+    color: ${({ theme }) => theme.color.text.gamma};
+`;
+
 export default {
-    title: 'Typography',
+    title: 'Typography - Title',
     component: Title,
     argTypes: {
         level: {
@@ -19,6 +24,6 @@ export default {
     },
 };
 
-export const TitleOverview = ({ level }: TitleProps) => (
+export const Overview = ({ level }: TitleProps) => (
     <Title level={level}>Title</Title>
 );

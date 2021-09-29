@@ -3,7 +3,7 @@ import { ProgressBar, ProgressBarProps } from '..';
 import { crossOut, disableOnEvent } from './disableOnEvent';
 
 export default {
-    title: 'ProgressBar',
+    title: 'Progress - Bar',
     component: ProgressBar,
     argTypes: {
         value: {

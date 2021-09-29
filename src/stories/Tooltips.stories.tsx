@@ -1,6 +1,11 @@
 import React from 'react';
-import { Tooltips } from '..';
+import styled from 'styled-components';
+import { Tooltips, Text as NotStyledText } from '..';
 import { crossOut, disableOnEvent } from './disableOnEvent';
+
+const Text = styled(NotStyledText)`
+    color: ${({ theme }) => theme.color.text.gamma};
+`;
 
 export default {
     title: 'Tooltips',
@@ -18,13 +23,7 @@ export default {
 };
 
 export const Overview = () => (
-    <>
-        <Tooltips>
-            <p style={{ color: 'white' }}>Text 1</p>
-        </Tooltips>
-        <br />
-        <Tooltips transition="opacity: 1;transition: all 1s; ">
-            <p style={{ color: 'white' }}>Text 2</p>
-        </Tooltips>
-    </>
+    <Tooltips>
+        <Text>Tooltip</Text>
+    </Tooltips>
 );

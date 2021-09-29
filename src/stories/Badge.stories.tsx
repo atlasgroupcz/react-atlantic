@@ -1,6 +1,6 @@
 import React from 'react';
 import { Badge, BadgeProps } from '..';
-import { crossOut } from './disableOnEvent';
+import { disableOnEvent } from './disableOnEvent';
 
 export default {
     title: 'Badge',
@@ -15,7 +15,7 @@ export default {
                 type: 'select',
             },
         },
-        ref: crossOut,
+        ...disableOnEvent,
     },
 };
 

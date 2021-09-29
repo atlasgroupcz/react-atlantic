@@ -3,7 +3,7 @@ import { ProgressCircle, ProgressCirleProps } from '..';
 import { crossOut, disableOnEvent } from './disableOnEvent';
 
 export default {
-    title: 'ProgressCircle',
+    title: 'Progress - Circle',
     component: ProgressCircle,
     argTypes: {
         value: {

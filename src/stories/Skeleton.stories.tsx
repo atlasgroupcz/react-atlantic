@@ -1,6 +1,6 @@
 import React from 'react';
 import { Skeleton, SkeletonProps } from '..';
-import { disableOnEvent, crossOut } from './disableOnEvent';
+import { disableOnEvent, crossOut, disable } from './disableOnEvent';
 
 export default {
     title: 'Skeleton',
@@ -21,8 +21,8 @@ export default {
             defaultValue: 30,
         },
         shape: { name: 'shape', control: { type: 'select' } },
-        size: crossOut,
-        className: crossOut,
+        size: disable,
+        className: disable,
         bgColor: { name: 'bgColor' },
         animationColors: crossOut,
         ...disableOnEvent,

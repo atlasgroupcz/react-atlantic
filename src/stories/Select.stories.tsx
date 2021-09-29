@@ -1,7 +1,7 @@
 import { wrap } from '@atlasgroup/react-wrap';
 import React, { useMemo } from 'react';
 import { Select as SelectView, SelectProps, useSelect } from '..';
-import { disableOnEvent, crossOut } from './disableOnEvent';
+import { disableOnEvent, crossOut, disable } from './disableOnEvent';
 
 const Select = wrap(SelectView, useSelect);
 
@@ -9,27 +9,15 @@ export default {
     title: 'Select',
     component: SelectView,
     argTypes: {
-        placeholder: crossOut,
-        size: {
-            name: 'size',
-            defaultValue: 'medium',
-            control: {
-                type: 'select',
-            },
-        },
         isDisabled: {
             name: 'isDisabled',
             defaultValue: false,
         },
-        isFullWidth: {
-            name: 'isFullWidth',
-            defaultValue: false,
-        },
+        isOpen: disable,
+        placeholder: crossOut,
+        size: disable,
+        isFullWidth: disable,
         value: crossOut,
-        isOpen: {
-            name: 'isOpen',
-            defaultValue: false,
-        },
         onOptionClick: crossOut,
         options: crossOut,
         isOptionSelected: crossOut,
@@ -38,12 +26,7 @@ export default {
     },
 };
 
-export const Overview = ({
-    size,
-    isDisabled,
-    isFullWidth,
-    isOpen,
-}: SelectProps) => {
+export const Overview = ({ isDisabled }: SelectProps) => {
     const options = useMemo(
         () => [
             {
@@ -62,5 +45,5 @@ export const Overview = ({
         []
     );
 
-    return <Select options={options} isDisabled={isDisabled} isOpen={isOpen} />;
+    return <Select options={options} isDisabled={isDisabled} />;
 };

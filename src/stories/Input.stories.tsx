@@ -42,5 +42,6 @@ export const Overview = ({
         isRound={isRound}
         isDisabled={isDisabled}
         isFullWidth={isFullWidth}
+        htmlType="text"
     />
 );

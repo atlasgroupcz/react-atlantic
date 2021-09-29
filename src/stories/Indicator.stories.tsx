@@ -11,12 +11,14 @@ export default {
             control: {
                 type: 'select',
             },
+            defaultValue: 'small',
         },
         type: {
             name: 'type',
             control: {
                 type: 'select',
             },
+            defaultValue: 'default',
         },
         ...disableOnEvent,
     },

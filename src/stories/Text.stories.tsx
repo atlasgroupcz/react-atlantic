@@ -1,30 +1,26 @@
 import React from 'react';
-import { Text, TextProps } from '..';
-import { crossOut, disableOnEvent } from './disableOnEvent';
+import { styled, Text as NotStyledText, TextProps } from '..';
+import { disable, disableOnEvent } from './disableOnEvent';
+
+const Text = styled(NotStyledText)`
+    color: ${({ theme }) => theme.color.text.gamma};
+`;
 
 export default {
-    title: 'Typography',
+    title: 'Typography - Text',
     component: Text,
     argTypes: {
         element: { name: 'element', control: { type: 'select' } },
-        level: {
-            name: 'level',
-            control: {
-                type: 'number',
-                min: 1,
-                max: 5,
-            },
-            defaultValue: 1,
-        },
-        theme: crossOut,
-        as: crossOut,
-        forwardedAs: crossOut,
-        type: crossOut,
+        type: { name: 'type', control: { type: 'select' } },
+        level: disable,
+        theme: disable,
+        as: disable,
+        forwardedAs: disable,
         ...disableOnEvent,
     },
 };
 
-export const TextOverview = ({ element, type }: TextProps) => (
+export const Overview = ({ element, type }: TextProps) => (
     <Text element={element} type={type}>
         Text
     </Text>

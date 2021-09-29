@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, PureButton, SimpleButton, ButtonProps } from '..';
-import { disableOnEvent, crossOut } from './disableOnEvent';
+import { disableOnEvent } from './disableOnEvent';
 
 export default {
     title: 'Button',
@@ -40,7 +40,12 @@ export default {
                 type: 'select',
             },
         },
-        as: crossOut,
+        as: {
+            name: 'as',
+            control: {
+                type: 'text',
+            },
+        },
         ...disableOnEvent,
     },
 };
@@ -53,6 +58,7 @@ export const Overview = ({
     size,
     type,
     htmlType,
+    as,
 }: ButtonProps) => (
     <>
         <Button
@@ -63,6 +69,7 @@ export const Overview = ({
             size={size}
             type={type}
             htmlType={htmlType}
+            as={as}
         >
             Click me!
         </Button>
@@ -74,6 +81,7 @@ export const Overview = ({
             size={size}
             type={type}
             htmlType={htmlType}
+            as={as}
         >
             Click me!
         </PureButton>
@@ -85,6 +93,7 @@ export const Overview = ({
             size={size}
             type={type}
             htmlType={htmlType}
+            as={as}
         >
             Click me!
         </SimpleButton>

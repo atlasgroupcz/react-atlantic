@@ -42,6 +42,6 @@ export const Overview = ({
         isReversedColor={isReversedColor}
         Icon={IconName && <Icon name={IconName} />}
     >
-        {type}
+        {type ?? 'Message'}
     </Message>
 );
