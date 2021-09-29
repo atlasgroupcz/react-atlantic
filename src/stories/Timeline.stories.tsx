@@ -19,13 +19,13 @@ export default {
 export const Overview = () => (
     <>
         <Timeline>
-            <TimelineItem>
+            <TimelineItem type="success">
                 <p>1</p>
             </TimelineItem>
-            <TimelineItem oppositeContent={<>-2</>}>
+            <TimelineItem type="info" oppositeContent={<>-2</>}>
                 <p>2</p>
             </TimelineItem>
-            <TimelineItem>
+            <TimelineItem type="primary">
                 <p>3</p>
             </TimelineItem>
         </Timeline>

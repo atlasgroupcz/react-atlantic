@@ -1,6 +1,30 @@
-import React from 'react';
-import { Pagination } from '..';
+import React, { useCallback } from 'react';
+import { wrap } from '@atlasgroup/react-wrap';
+import { Pagination as PaginationView, PaginationProps } from '..';
 import { crossOut, disable } from './disableOnEvent';
+
+const usePagination = ({
+    onClick,
+    ...props
+}: Partial<PaginationProps>): PaginationProps => {
+    const [page, setPage] = React.useState(1);
+
+    const handleChange = useCallback<NonNullable<PaginationProps['onClick']>>(
+        (e, page) => {
+            setPage(page);
+            onClick && onClick(e, page);
+        },
+        [onClick]
+    );
+
+    return {
+        page,
+        onClick: handleChange,
+        ...props,
+    };
+};
+
+const Pagination = wrap(PaginationView, usePagination);
 
 export default {
     title: 'Pagination',
@@ -22,11 +46,9 @@ export default {
 
 export const Overview = () => (
     <Pagination
-        page={1}
         pageSize={30}
         separatorLeft={<div>{'<'}</div>}
         separatorRight={<div>{'>'}</div>}
         showArrows
-        total={300}
     />
 );

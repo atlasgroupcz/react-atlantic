@@ -1,10 +1,13 @@
-import React from 'react';
-import { Select, SelectProps } from '..';
+import { wrap } from '@atlasgroup/react-wrap';
+import React, { useMemo } from 'react';
+import { Select as SelectView, SelectProps, useSelect } from '..';
 import { disableOnEvent, crossOut } from './disableOnEvent';
+
+const Select = wrap(SelectView, useSelect);
 
 export default {
     title: 'Select',
-    component: Select,
+    component: SelectView,
     argTypes: {
         placeholder: crossOut,
         size: {
@@ -41,29 +44,23 @@ export const Overview = ({
     isFullWidth,
     isOpen,
 }: SelectProps) => {
-    const options = [
-        {
-            label: 'Česká Republika',
-            value: 1,
-        },
-        {
-            label: 'Slovenská Republika',
-            value: 2,
-        },
-        {
-            label: 'Evropa',
-            value: 3,
-        },
-    ];
-
-    return (
-        <Select
-            options={options}
-            placeholder="Vyberte..."
-            size={size}
-            isDisabled={isDisabled}
-            isFullWidth={isFullWidth}
-            isOpen={isOpen}
-        />
+    const options = useMemo(
+        () => [
+            {
+                label: 'Česká Republika',
+                value: 1,
+            },
+            {
+                label: 'Slovenská Republika',
+                value: 2,
+            },
+            {
+                label: 'Evropa',
+                value: 3,
+            },
+        ],
+        []
     );
+
+    return <Select options={options} isDisabled={isDisabled} isOpen={isOpen} />;
 };

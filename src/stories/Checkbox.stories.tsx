@@ -1,6 +1,9 @@
 import React from 'react';
-import { Checkbox, CheckboxProps, useCheckbox, wrap } from '..';
+import { Checkbox as CheckboxView, CheckboxProps, useCheckbox } from '..';
 import { crossOut, disableOnEvent } from './disableOnEvent';
+import { wrap } from '@atlasgroup/react-wrap';
+
+const Checkbox = wrap(CheckboxView, useCheckbox);
 
 export default {
     title: 'Checkbox',
@@ -19,10 +22,5 @@ export default {
 };
 
 export const Overview = ({ isDisabled }: CheckboxProps) => {
-    // you have to wrap checkbox with useCheckbox hook, react-wrap is recommended for this
-    const WrappedCheckbox = wrap(Checkbox, useCheckbox);
-
-    return (
-        <WrappedCheckbox isDisabled={isDisabled}>Change me!</WrappedCheckbox>
-    );
+    return <Checkbox isDisabled={isDisabled}>Change me!</Checkbox>;
 };

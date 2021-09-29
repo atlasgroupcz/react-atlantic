@@ -16,7 +16,6 @@ const darkTheme: ThemeType = {
         ...theme.color,
         text: {
             ...theme.color.text,
-            alpha: '#FFF',
         },
     },
 };

@@ -15,10 +15,10 @@ export const Pagination: PaginationType = ({
     ref,
     ...props
 }) => {
-    const count = useMemo(() => getPaginationCount({ pageSize, total }), [
-        total,
-        pageSize,
-    ]);
+    const count = useMemo(
+        () => getPaginationCount({ pageSize, total }),
+        [total, pageSize]
+    );
 
     return (
         <StyledPaginationContainer
