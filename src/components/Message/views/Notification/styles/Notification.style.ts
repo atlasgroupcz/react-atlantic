@@ -1,12 +1,13 @@
 import styled, { css } from 'styled-components';
 import { StyledIcon } from '../../../../Icon';
 import { MessageProps } from '../../../types';
+import { StyledText, StyledStrongText } from '../../../../Typography';
+import { StyledLink } from '../../../../Typography/Link';
 
 export const StyledNotificationIconContainer = styled.div`
     display: flex;
     align-items: center;
-    padding: ${({ theme }) => theme.padding.lg}
-        ${({ theme }) => theme.padding.md};
+    padding: ${({ theme }) => theme.padding.md};
 
     ${StyledIcon} {
         color: ${({ theme }) => theme.color.text.gamma};
@@ -15,73 +16,85 @@ export const StyledNotificationIconContainer = styled.div`
 
 export const StyledNotificationTextContainer = styled.div`
     display: flex;
-    align-items: center;
-    padding: ${({ theme }) => theme.padding.md};
-    background-color: ${({ theme }) => theme.color.background.alpha};
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+
+    ${StyledStrongText} {
+        margin: 0;
+    }
+
+    ${StyledText} {
+        margin: 0;
+        font-size: ${({ theme }) => theme.font.size.sm};
+        color: ${({ theme }) => theme.color.text.beta};
+    }
 `;
 
-export const StyledNotificationContainer = styled.div<MessageProps>`
+export const StyledNotificationMainContainer = styled.div`
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: ${({ theme }) => theme.padding.md};
+    background-color: ${({ theme }) => theme.color.background.alpha};
+
+    ${StyledLink} {
+        margin-left: ${({ theme }) => theme.margin.xl};
+    }
+`;
+
+export const StyledNotification = styled.div<MessageProps>`
     overflow: hidden;
     display: inline-flex;
-    margin-bottom: ${({ theme }) => theme.padding.sm};
+    min-height: 50px;
+    min-width: 300px;
     background-color: ${({ theme }) => theme.color.background.alpha};
     box-shadow: ${({ theme }) => theme.boxShadow.md};
     border-radius: ${({ theme }) => theme.radius};
     cursor: default;
 
-    ${({ theme, type }) =>
-        type === 'default' &&
-        css`
-            ${StyledNotificationIconContainer} {
-                background-color: ${theme.color.default};
-            }
+    ${({ theme, type }) => {
+        switch (type) {
+            case 'default': {
+                return css`
+                    ${StyledNotificationIconContainer} {
+                        background-color: ${theme.color.default};
+                    }
 
-            ${StyledIcon} {
-                color: ${({ theme }) => theme.color.text.alpha};
+                    ${StyledIcon} {
+                        color: ${theme.color.text.alpha};
+                    }
+                `;
             }
-        `}
+            case 'primary': {
+                return css`
+                    ${StyledNotificationIconContainer} {
+                        background-color: ${theme.color.info.alpha};
+                    }
 
-    ${({ theme, type }) =>
-        type === 'primary' &&
-        css`
-            ${StyledNotificationIconContainer} {
-                background-color: ${theme.color.primary.alpha};
+                    ${StyledLink} {
+                        color: ${theme.color.info.alpha};
+                    }
+                `;
             }
-        `}
+            case 'success':
+            case 'error':
+            case 'warning':
+            case 'info': {
+                return css`
+                    ${StyledNotificationIconContainer} {
+                        background-color: ${theme.color[type].alpha};
+                    }
 
-    ${({ theme, type }) =>
-        type === 'success' &&
-        css`
-            ${StyledNotificationIconContainer} {
-                background-color: ${theme.color.success.alpha};
+                    ${StyledLink} {
+                        color: ${theme.color[type].alpha};
+                    }
+                `;
             }
-        `}
-  
-    ${({ theme, type }) =>
-        type === 'warning' &&
-        css`
-            ${StyledNotificationIconContainer} {
-                background-color: ${theme.color.warning.alpha};
-            }
-        `}
-
-    ${({ theme, type }) =>
-        type === 'error' &&
-        css`
-            ${StyledNotificationIconContainer} {
-                background-color: ${theme.color.error.alpha};
-            }
-        `}
-
-    ${({ theme, type }) =>
-        type === 'info' &&
-        css`
-            ${StyledNotificationIconContainer} {
-                background-color: ${theme.color.info.alpha};
-            }
-        `}
+        }
+    }}
 `;
 
-StyledNotificationContainer.displayName = 'StyledNotificationContainer';
+StyledNotification.displayName = 'StyledNotificationContainer';
 StyledNotificationIconContainer.displayName = 'StyledNotificationIconContainer';
 StyledNotificationTextContainer.displayName = 'StyledNotificationTextContainer';
