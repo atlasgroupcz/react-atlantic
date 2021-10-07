@@ -21,3 +21,4 @@ export * from './Message';
 export * from './TextArea';
 export * from './Radio';
 export * from './Switch';
+export * from './Notification';

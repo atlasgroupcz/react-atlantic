@@ -1,11 +1,11 @@
 import React, { FC, ReactElement } from 'react';
 import { defaultIconFromType } from './utils';
 import { StyledMessageContainer } from './styles';
-import { StyledMessageProps } from '../../types';
+import { MessageProps } from '../../types';
 import { InnerRef } from '../../../../types/utils/InnerRef';
 import { Text } from '../../../Typography';
 
-export interface MessageViewProps extends InnerRef<StyledMessageProps> {
+export interface MessageViewProps extends InnerRef<MessageProps> {
     Icon?: ReactElement;
 }
 
