@@ -1,14 +1,14 @@
 import styled, { css } from 'styled-components';
 import { Icon } from '../../../../Icon';
 import { StyledText } from '../../../../Typography';
-import { StyledMessageProps } from '../../../types';
+import { MessageProps } from '../../../types';
 
-export const StyledMessageLightIcon = styled(Icon)<StyledMessageProps>`
+export const StyledMessageLightIcon = styled(Icon)<MessageProps>`
     flex-shrink: 0;
     margin-right: ${({ theme }) => theme.padding.md};
 `;
 
-export const StyledMessageLightContainer = styled.div<StyledMessageProps>`
+export const StyledMessageLightContainer = styled.div<MessageProps>`
     display: inline-flex;
     align-items: center;
     padding: ${({ theme }) => theme.padding.sm}

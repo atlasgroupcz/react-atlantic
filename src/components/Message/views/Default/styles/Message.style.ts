@@ -1,11 +1,11 @@
 import styled, { css } from 'styled-components';
 import { Icon } from '../../../../Icon';
 import { StyledText } from '../../../../Typography';
-import { StyledMessageProps } from '../../../types/Message.types';
+import { MessageProps } from '../../../types/Message.types';
 
 export const StyledMessageContainer = styled.div.withConfig({
     shouldForwardProp: (prop) => !['isReversedColor'].includes(prop),
-})<StyledMessageProps>`
+})<MessageProps>`
     display: inline-flex;
     align-items: center;
     padding: ${({ theme }) => theme.padding.md};
@@ -71,7 +71,7 @@ export const StyledMessageContainer = styled.div.withConfig({
 `;
 export const StyledMessageIcon = styled(Icon).withConfig({
     shouldForwardProp: (prop) => !['isReversedColor'].includes(prop),
-})<StyledMessageProps>`
+})<MessageProps>`
     margin-right: ${({ theme }) => theme.padding.md};
 
     ${({ theme, isReversedColor }) =>

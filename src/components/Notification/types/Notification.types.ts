@@ -1,7 +1,6 @@
 import { CommonHTMLProps, MouseEvents, Type } from '../../../types';
 
-export type MessageProps = CommonHTMLProps<HTMLDivElement> &
+export type NotificationProps = CommonHTMLProps<HTMLDivElement> &
     MouseEvents<HTMLDivElement> & {
         type?: Type;
-        isReversedColor?: boolean;
     };

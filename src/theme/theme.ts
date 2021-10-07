@@ -18,6 +18,7 @@ export type DefaultThemeType = {
     readonly color: ColorType;
     readonly padding: SpacingType;
     readonly margin: SpacingType;
+    readonly gap: SpacingType;
     readonly radius: string;
     readonly rounded: string;
     readonly font: {
@@ -34,6 +35,7 @@ export const theme: ThemeType = {
     color: defaultColor,
     padding: defaultSpacing,
     margin: defaultSpacing,
+    gap: defaultSpacing,
     radius: defaultRadius,
     rounded: defaultRounded,
     font: {
