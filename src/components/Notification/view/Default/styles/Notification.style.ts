@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
+import { NotificationProps } from '../../../types';
 import { StyledIcon } from '../../../../Icon';
-import { MessageProps } from '../../../types';
 import { StyledText, StyledStrongText } from '../../../../Typography';
 import { StyledLink } from '../../../../Typography/Link';
 
@@ -46,7 +46,7 @@ export const StyledNotificationMainContainer = styled.div`
     }
 `;
 
-export const StyledNotification = styled.div<MessageProps>`
+export const StyledNotification = styled.div<NotificationProps>`
     overflow: hidden;
     display: inline-flex;
     width: 350px;

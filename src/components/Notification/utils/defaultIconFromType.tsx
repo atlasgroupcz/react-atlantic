@@ -1,6 +1,6 @@
 import React from 'react';
-import { Type } from '../../../../../types';
-import { Icon } from '../../../../Icon';
+import { Type } from '../../../types';
+import { Icon } from '../../Icon';
 
 export const defaultIconFromType = (type?: Type) => {
     switch (type) {

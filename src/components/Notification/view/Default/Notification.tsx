@@ -1,5 +1,5 @@
-import React, { FC, ReactElement } from 'react';
-import { defaultIconFromType } from './utils';
+import React, { FC, ReactElement, ReactChild } from 'react';
+import { defaultIconFromType } from '../../utils';
 import {
     StyledNotification,
     StyledNotificationMainContainer,
@@ -8,34 +8,27 @@ import {
 } from './styles';
 import { InnerRef } from '../../../../types/utils/InnerRef';
 import { Text } from '../../../Typography';
-import { MessageProps } from '../../types';
-import { Link } from '../../../Typography/Link';
+import { NotificationProps } from '../../types';
 
 export type NotificationViewProps = {
     Icon?: ReactElement;
+    MoreLink?: ReactChild;
     description?: String;
-    link?: String;
-} & InnerRef<MessageProps>;
+} & InnerRef<NotificationProps>;
 
 export type NotificationViewType = FC<NotificationViewProps>;
 
 export const NotificationView: NotificationViewType = ({
     children,
-    className,
     type = 'default',
     innerRef,
     Icon = defaultIconFromType(type),
     description,
-    link,
+    MoreLink,
     ...ContainerProps
 }) => {
     return (
-        <StyledNotification
-            className={className}
-            ref={innerRef}
-            type={type}
-            {...ContainerProps}
-        >
+        <StyledNotification ref={innerRef} type={type} {...ContainerProps}>
             <StyledNotificationIconContainer>
                 {Icon}
             </StyledNotificationIconContainer>
@@ -44,15 +37,7 @@ export const NotificationView: NotificationViewType = ({
                     <Text element="strong">{children}</Text>
                     {description && <Text>{description}</Text>}
                 </StyledNotificationTextContainer>
-                {link && (
-                    <Link
-                        href={`${link}`}
-                        target={'_blank'}
-                        rel={'noopener noreferrer'}
-                    >
-                        Více
-                    </Link>
-                )}
+                {MoreLink}
             </StyledNotificationMainContainer>
         </StyledNotification>
     );
