@@ -11,9 +11,7 @@ export const defaultIconFromType = (type?: Type) => {
         case 'warning':
             return <Icon name="warning" />;
         case 'primary':
-            return <Icon name="info" />;
         case 'info':
-            return <Icon name="info" />;
         case 'default':
             return <Icon name="info" />;
         default:

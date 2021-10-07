@@ -69,17 +69,7 @@ export const StyledNotification = styled.div<MessageProps>`
                     }
                 `;
             }
-            case 'primary': {
-                return css`
-                    ${StyledNotificationIconContainer} {
-                        background-color: ${theme.color.info.alpha};
-                    }
-
-                    ${StyledLink} {
-                        color: ${theme.color.info.alpha};
-                    }
-                `;
-            }
+            case 'primary':
             case 'success':
             case 'error':
             case 'warning':
