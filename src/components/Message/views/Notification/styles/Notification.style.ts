@@ -19,6 +19,7 @@ export const StyledNotificationTextContainer = styled.div`
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
+    word-break: break-word;
 
     ${StyledStrongText} {
         margin: 0;
@@ -33,6 +34,7 @@ export const StyledNotificationTextContainer = styled.div`
 
 export const StyledNotificationMainContainer = styled.div`
     display: flex;
+    align-items: center;
     justify-content: space-between;
     width: 100%;
     padding: ${({ theme }) => theme.padding.md};
@@ -40,14 +42,15 @@ export const StyledNotificationMainContainer = styled.div`
 
     ${StyledLink} {
         margin-left: ${({ theme }) => theme.margin.xl};
+        font-size: ${({ theme }) => theme.font.size.sm};
     }
 `;
 
 export const StyledNotification = styled.div<MessageProps>`
     overflow: hidden;
     display: inline-flex;
+    width: 350px;
     min-height: 50px;
-    min-width: 300px;
     background-color: ${({ theme }) => theme.color.background.alpha};
     box-shadow: ${({ theme }) => theme.boxShadow.md};
     border-radius: ${({ theme }) => theme.radius};
