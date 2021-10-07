@@ -1,3 +1,4 @@
+
 # [2.5.0](https://github.com/atlasgroupcz/react-atlantic/compare/2.4.4...2.5.0) (2021-10-07)
 
 ### Features
