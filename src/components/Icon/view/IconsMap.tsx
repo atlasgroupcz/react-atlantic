@@ -206,6 +206,8 @@ export const IconsMap = {
     share: <Icons.Share />,
     ban: <Icons.Ban />,
     hourGlass: <Icons.HourGlass />,
+    minusSquare: <Icons.MinusSquare />,
+    zoomToFit: <Icons.ZoomToFit />,
 };
 
 export type IconName = keyof typeof IconsMap;

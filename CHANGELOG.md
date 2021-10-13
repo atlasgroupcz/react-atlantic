@@ -1,3 +1,10 @@
+## [2.5.1](https://github.com/atlasgroupcz/react-atlantic/compare/2.4.5...2.5.1) (2021-10-13)
+
+### Features
+
+-   ✨ notification as separate component ([94a7b6c](https://github.com/atlasgroupcz/react-atlantic/commit/94a7b6c2ed04dbe55466e45969719737adef6d27))
+-   **icons:** ✨ ban, hourGlass ([d91fc4c](https://github.com/atlasgroupcz/react-atlantic/commit/d91fc4c926435e058e74fa869ec45803d525d739))
+-   notification message view ([243cebf](https://github.com/atlasgroupcz/react-atlantic/commit/243cebf085832eee1dc7bb91c85b512844caff3b))
 
 # [2.5.0](https://github.com/atlasgroupcz/react-atlantic/compare/2.4.4...2.5.0) (2021-10-07)
 
