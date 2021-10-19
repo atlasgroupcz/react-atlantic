@@ -208,6 +208,11 @@ export const IconsMap = {
     hourGlass: <Icons.HourGlass />,
     minusSquare: <Icons.MinusSquare />,
     zoomToFit: <Icons.ZoomToFit />,
+    mapSigns: <Icons.MapSigns />,
+    repeat: <Icons.Repeat />,
+    shareSolid: <Icons.ShareSolid />,
+    shieldCheck: <Icons.ShieldCheck />,
+    timesOctagon: <Icons.TimesOctagon />,
 };
 
 export type IconName = keyof typeof IconsMap;
