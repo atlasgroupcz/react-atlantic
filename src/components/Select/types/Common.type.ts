@@ -24,4 +24,5 @@ export type StyledSelectProps = {
     size?: Size;
     visibleRows?: number;
     isFullWidth?: boolean;
+    isSelected?: boolean;
 };

@@ -86,6 +86,7 @@ export const SelectMulti = forwardRef<HTMLDivElement, SelectMultiProps>(
                         {options.map((option) => (
                             <>
                                 <StyledSelectMultiListItem
+                                    isSelected={option.isSelected}
                                     key={`${option.value}`}
                                     size={size}
                                     onClick={(event) =>
