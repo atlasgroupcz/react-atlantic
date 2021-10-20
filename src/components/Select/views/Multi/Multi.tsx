@@ -1,4 +1,4 @@
-import React, { forwardRef, MouseEvent } from 'react';
+import React, { forwardRef, MouseEvent, useRef } from 'react';
 import { SelectMultiProps } from '../../types';
 import { SelectMultiOption } from './components';
 import {
@@ -8,7 +8,10 @@ import {
     StyledSelectMultiInputValue,
     StyledSelectMultiList,
     StyledSelectMultiListItem,
+    StyledSelectMultiInputOverflowNumber,
 } from './styles';
+import { Icon } from '../../../Icon';
+import { calculateItemVisibility } from '../../utils/calculateItemVisibility';
 
 export const SelectMulti = forwardRef<HTMLDivElement, SelectMultiProps>(
     (
@@ -26,10 +29,17 @@ export const SelectMulti = forwardRef<HTMLDivElement, SelectMultiProps>(
             onValueClick,
             isOptionSelected,
             SelectedOption = SelectMultiOption,
+            onClear,
             ...props
         },
         ref
     ) => {
+        const valueContainerRef = useRef<HTMLDivElement | null>(null);
+        const { hiddenItemsNumber, visibleItems } = calculateItemVisibility(
+            valueContainerRef,
+            values
+        );
+
         return (
             <StyledSelectMultiContainer
                 isFullWidth={isFullWidth}
@@ -46,11 +56,12 @@ export const SelectMulti = forwardRef<HTMLDivElement, SelectMultiProps>(
                     isDisabled={isDisabled}
                 >
                     <StyledSelectMultiInputValue
+                        ref={valueContainerRef}
                         size={size}
                         isOptionSelected={isOptionSelected}
                     >
-                        {isOptionSelected && values
-                            ? values.map((value) => (
+                        {isOptionSelected && visibleItems
+                            ? visibleItems.map((value) => (
                                   <SelectedOption
                                       size={size}
                                       value={value.label}
@@ -60,6 +71,9 @@ export const SelectMulti = forwardRef<HTMLDivElement, SelectMultiProps>(
                                   />
                               ))
                             : placeholder}
+                        {!!hiddenItemsNumber && (
+                            <StyledSelectMultiInputOverflowNumber>{`+${hiddenItemsNumber}`}</StyledSelectMultiInputOverflowNumber>
+                        )}
                     </StyledSelectMultiInputValue>
                     <StyledSelectMultiInputIcon
                         size={size}
@@ -70,13 +84,20 @@ export const SelectMulti = forwardRef<HTMLDivElement, SelectMultiProps>(
                 {isOpen && options && (
                     <StyledSelectMultiList>
                         {options.map((option) => (
-                            <StyledSelectMultiListItem
-                                key={`${option.value}`}
-                                size={size}
-                                onClick={() => onOptionClick?.(option)}
-                            >
-                                {option.label}
-                            </StyledSelectMultiListItem>
+                            <>
+                                <StyledSelectMultiListItem
+                                    key={`${option.value}`}
+                                    size={size}
+                                    onClick={(event) =>
+                                        onOptionClick?.(option, event)
+                                    }
+                                >
+                                    {option?.isSelected && (
+                                        <Icon name="check" />
+                                    )}
+                                    {option.label}
+                                </StyledSelectMultiListItem>
+                            </>
                         ))}
                     </StyledSelectMultiList>
                 )}

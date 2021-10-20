@@ -6,6 +6,7 @@ import {
     OptionType,
     Select,
     SelectMulti,
+    SelectMultiOptionOptionType,
     SelectProps,
     Size,
     useSelect,
@@ -56,7 +57,30 @@ stories.add(
             ],
         });
 
-        const multiSelectHandlers = useSelectMulti<OptionType<ReactText>>({
+        const multiSelectHandlers = useSelectMulti<SelectMultiOptionOptionType>(
+            {
+                options: [
+                    {
+                        value: 1,
+                        label: 'Česká Republika',
+                    },
+                    {
+                        value: 2,
+                        label: 'Slovenská Republika',
+                    },
+                    {
+                        value: 3,
+                        label: 'Evropa',
+                    },
+                ],
+                onOptionClick: (option) => console.log(option.label),
+                onValueClick: (option) => console.log(option.label),
+            }
+        );
+
+        const multiSelectHandlers2 = useSelectMulti<
+            SelectMultiOptionOptionType
+        >({
             options: [
                 {
                     value: 1,
@@ -68,7 +92,15 @@ stories.add(
                 },
                 {
                     value: 3,
-                    label: 'Evropa',
+                    label: 'UK',
+                },
+                {
+                    value: 4,
+                    label: 'USA',
+                },
+                {
+                    value: 5,
+                    label: 'Čína',
                 },
             ],
             onOptionClick: (option) => console.log(option.label),
@@ -84,6 +116,13 @@ stories.add(
                     isFullWidth
                     {...multiSelectHandlers}
                 />
+                <div style={{ maxWidth: 500 }}>
+                    <SelectMulti
+                        size={'large'}
+                        isFullWidth
+                        {...multiSelectHandlers2}
+                    />
+                </div>
             </>
         );
     },

@@ -2,6 +2,7 @@ import { css, styled } from '../../../../../../../styled';
 import { Icon } from '../../../../../../Icon';
 import { StyledText } from '../../../../../../Typography';
 import { SelectMultiOptionProps } from '../../../../../types';
+import { SELECT_OPTION_WIDTH } from '../../../../../utils';
 
 type StyledSelectMultiOptionContainerProps = Pick<
     SelectMultiOptionProps,
@@ -9,7 +10,10 @@ type StyledSelectMultiOptionContainerProps = Pick<
 >;
 
 export const StyledSelectMultiOptionValue = styled.div`
-    font-size: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: ${({ theme }) => theme.color.primary.beta};
 
     ${StyledText} {
         color: ${({ theme }) => theme.color.primary.beta};
@@ -33,12 +37,14 @@ export const StyledSelectMultiOptionContainer = styled.div<
     box-sizing: border-box;
     display: inline-flex;
     vertical-align: middle;
+    justify-content: space-between;
     align-items: center;
     padding: ${({ theme }) => theme.padding.xs}
         ${({ theme }) => theme.padding.md};
     margin: ${({ theme }) => theme.margin.xs};
     border-radius: ${({ theme }) => theme.radius};
     background: ${({ theme }) => theme.color.primary.epsilon};
+    width: ${SELECT_OPTION_WIDTH}px;
 
     &:hover {
         ${StyledSelectMultiOptionIcon} {
