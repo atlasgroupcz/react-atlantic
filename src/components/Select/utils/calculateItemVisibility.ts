@@ -13,36 +13,28 @@ export const useCalculateItemVisibility = (
     ref: RefObject<HTMLDivElement>,
     values: SelectMultiProps['values']
 ): CalculateItemVisibilityValue => {
-    const [hiddenItemsNumber, setHiddenItemsNumber] = useState(0);
+    const forceRerender = useState<boolean>(false)[1];
     const numberOfValues = values?.length;
     const element = ref?.current;
+
     const valueContainerWidth = assertNumber(
         element?.getBoundingClientRect()?.width
     );
+    const visibleItems = values?.slice(
+        0,
+        Math.floor(
+            (valueContainerWidth - OVERFLOW_NUMBER_OFFSET) / SELECT_OPTION_WIDTH
+        )
+    );
+    const hiddenItemsNumber =
+        assertNumber(values?.length) - assertNumber(visibleItems?.length);
 
-    const getVisibleItems = (valueContainerWidth: number) =>
-        values?.slice(
-            0,
-            Math.floor(
-                (valueContainerWidth - OVERFLOW_NUMBER_OFFSET) /
-                    SELECT_OPTION_WIDTH
-            )
-        );
+    const debouncedUpdateWidth = debounce(
+        () => forceRerender((prev) => !prev),
+        500
+    );
 
-    const updateWidth = () => {
-        const valueContainerWidth = assertNumber(
-            element?.getBoundingClientRect()?.width
-        );
-        const visibleItems = getVisibleItems(valueContainerWidth);
-
-        setHiddenItemsNumber(
-            assertNumber(values?.length) - assertNumber(visibleItems?.length)
-        );
-    };
-
-    const debouncedUpdateWidth = debounce(updateWidth, 500);
-
-    useEffect(updateWidth, [numberOfValues]);
+    useEffect(() => forceRerender((prev) => !prev), [numberOfValues]);
 
     useLayoutEffect(() => {
         if (element) {
@@ -54,7 +46,7 @@ export const useCalculateItemVisibility = (
     }, [element, debouncedUpdateWidth]);
 
     return {
-        visibleItems: getVisibleItems(valueContainerWidth),
+        visibleItems,
         hiddenItemsNumber,
     };
 };
