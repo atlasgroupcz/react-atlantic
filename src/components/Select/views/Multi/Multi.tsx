@@ -12,6 +12,7 @@ import {
 } from './styles';
 import { Icon } from '../../../Icon';
 import { useCalculateItemVisibility } from '../../utils/calculateItemVisibility';
+import { PureButton } from '../../../Button';
 
 export const SelectMulti = forwardRef<HTMLDivElement, SelectMultiProps>(
     (
@@ -75,6 +76,11 @@ export const SelectMulti = forwardRef<HTMLDivElement, SelectMultiProps>(
                             <StyledSelectMultiInputOverflowNumber>{`+${hiddenItemsNumber}`}</StyledSelectMultiInputOverflowNumber>
                         )}
                     </StyledSelectMultiInputValue>
+                    {onClear && isOptionSelected && (
+                        <PureButton onClick={onClear} size={size}>
+                            <Icon name="crossInCircle" />
+                        </PureButton>
+                    )}
                     <StyledSelectMultiInputIcon
                         size={size}
                         name={isOpen ? 'arrowUp' : 'arrowDown'}

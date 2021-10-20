@@ -2,7 +2,7 @@ import { OVERFLOW_NUMBER_OFFSET, SELECT_OPTION_WIDTH } from './index';
 import { RefObject, useEffect, useLayoutEffect, useState } from 'react';
 import { SelectMultiProps } from '../types';
 import debounce from 'lodash/debounce';
-import { assertNumber } from '../../../utils/assert/assert';
+import { assertNumber } from '../../../utils';
 
 export type CalculateItemVisibilityValue = {
     visibleItems: SelectMultiProps['values'];
@@ -42,9 +42,7 @@ export const useCalculateItemVisibility = (
 
     const debouncedUpdateWidth = debounce(updateWidth, 500);
 
-    useEffect(() => {
-        if (numberOfValues) updateWidth();
-    }, [numberOfValues]);
+    useEffect(updateWidth, [numberOfValues]);
 
     useLayoutEffect(() => {
         if (element) {

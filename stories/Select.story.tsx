@@ -118,7 +118,7 @@ stories.add(
                 />
                 <div style={{ maxWidth: 500 }}>
                     <SelectMulti
-                        size={'large'}
+                        size={'medium'}
                         isFullWidth
                         {...multiSelectHandlers2}
                     />
