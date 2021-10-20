@@ -1,3 +1,3 @@
-export const OVERFLOW_NUMBER_OFFSET = 30;
+export const OVERFLOW_NUMBER_OFFSET = 50;
 
 export const SELECT_OPTION_WIDTH = 150;
