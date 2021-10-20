@@ -1,4 +1,4 @@
-import { ReactText, useMemo, useState } from 'react';
+import { ReactText, useState } from 'react';
 import {
     ControllerSelectMultiProps,
     OptionType,

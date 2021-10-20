@@ -11,7 +11,7 @@ import {
     StyledSelectMultiInputOverflowNumber,
 } from './styles';
 import { Icon } from '../../../Icon';
-import { calculateItemVisibility } from '../../utils/calculateItemVisibility';
+import { useCalculateItemVisibility } from '../../utils/calculateItemVisibility';
 
 export const SelectMulti = forwardRef<HTMLDivElement, SelectMultiProps>(
     (
@@ -35,7 +35,7 @@ export const SelectMulti = forwardRef<HTMLDivElement, SelectMultiProps>(
         ref
     ) => {
         const valueContainerRef = useRef<HTMLDivElement | null>(null);
-        const { hiddenItemsNumber, visibleItems } = calculateItemVisibility(
+        const { hiddenItemsNumber, visibleItems } = useCalculateItemVisibility(
             valueContainerRef,
             values
         );
