@@ -2,10 +2,22 @@ import { css, styled } from '../../../../../styled';
 import { SelectContainer, SelectInput, SelectList } from '../../../components';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import * as _ from 'styled-components/node_modules/@types/react';
+import { Text } from '../../../../Typography';
+import { PureButton } from '../../../../Button';
+import { StyledIcon } from '../../../../Icon';
 
-export const StyledSelectMultiContainer = styled(SelectContainer)``;
+export const StyledSelectMultiContainer = styled(SelectContainer)`
+    ${({ isFullWidth }) =>
+        isFullWidth
+            ? css`
+                  width: 100%;
+              `
+            : css`
+                  width: 280px;
+              `}
+`;
 
-export const StyledSelectMultiInput = styled(SelectInput)``;
+export const StyledSelectMultiInput = SelectInput;
 
 export const StyledSelectMultiInputValue = styled(SelectInput.Value)`
     ${({ isOptionSelected }) =>
@@ -18,8 +30,28 @@ export const StyledSelectMultiInputValue = styled(SelectInput.Value)`
               `}
 `;
 
-export const StyledSelectMultiInputIcon = styled(SelectInput.Icon)``;
+export const StyledSelectMultiInputHiddenItemsNumber = styled(Text)`
+    color: ${({ theme }) => theme.color.primary.beta};
+    margin-left: ${({ theme }) => theme.margin.md};
+`;
 
-export const StyledSelectMultiList = styled(SelectList)``;
+export const StyledSelectMultiInputClearButton = styled(PureButton)`
+    && {
+        padding: 0;
 
-export const StyledSelectMultiListItem = styled(SelectList.Item)``;
+        ${StyledIcon} {
+            color: ${({ theme }) => theme.color.text.beta};
+        }
+    }
+`;
+
+export const StyledSelectMultiInputIcon = SelectInput.Icon;
+
+export const StyledSelectMultiList = SelectList;
+
+export const StyledSelectMultiListItem = styled(SelectList.Item)`
+    ${StyledIcon} {
+        margin-right: ${({ theme }) => theme.margin.sm};
+        vertical-align: middle;
+    }
+`;

@@ -14,27 +14,38 @@ export type SelectMultiOptionProps = {
 export type SelectMultiOptionType = FC<SelectMultiOptionProps>;
 
 type SharedSelectMultiProps<
-    T extends OptionType<ReactText> = OptionType<ReactText>
-> = SharedSelectProps<T> & {
+    O extends SelectMultiOptionOptionType = SelectMultiOptionOptionType,
+    V extends OptionType<ReactText> = OptionType<ReactText>
+> = SharedSelectProps<O> & {
     onValueClick?: (
-        option: T,
-        event?: React.MouseEvent<HTMLDivElement, MouseEvent>
+        option: V,
+        event?: React.MouseEvent<HTMLElement, MouseEvent>
     ) => void;
     SelectedOption?: SelectMultiOptionType;
 };
 
 export type ControllerSelectMultiProps<
-    T extends OptionType<ReactText> = OptionType<ReactText>
-> = SharedSelectMultiProps<T> & {
-    defaultValue?: T[];
+    O extends SelectMultiOptionOptionType = SelectMultiOptionOptionType,
+    V extends OptionType<ReactText> = OptionType<ReactText>
+> = SharedSelectMultiProps<O, V> & {
+    options: O[];
+    defaultValue?: V[];
+};
+
+export type SelectMultiOptionOptionType<
+    T extends ReactText = ReactText
+> = OptionType<T> & {
+    isSelected?: boolean;
 };
 
 export type SelectMultiProps<
-    T extends OptionType<ReactText> = OptionType<ReactText>
-> = SharedSelectMultiProps<T> & {
-    values?: T[];
-    placeholder?: T['label'];
+    O extends SelectMultiOptionOptionType = SelectMultiOptionOptionType,
+    V extends OptionType<ReactText> = OptionType<ReactText>
+> = SharedSelectMultiProps<O, V> & {
+    values?: V[];
+    placeholder?: O['label'];
     ref?: RefObject<HTMLDivElement>;
     isOptionSelected?: boolean;
+    onClear?: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void;
 } & StyledSelectProps &
     ElementProps<HTMLDivElement>;
