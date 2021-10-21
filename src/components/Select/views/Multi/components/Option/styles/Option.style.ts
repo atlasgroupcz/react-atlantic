@@ -39,18 +39,11 @@ export const StyledSelectMultiOptionContainer = styled.div<
     vertical-align: middle;
     justify-content: space-between;
     align-items: center;
-    padding: ${({ theme }) => theme.padding.xs}
-        ${({ theme }) => theme.padding.md};
+    padding: ${({ theme }) => `${theme.padding.xs} ${theme.padding.md}`};
     margin: ${({ theme }) => theme.margin.xs};
     border-radius: ${({ theme }) => theme.radius};
     background: ${({ theme }) => theme.color.primary.epsilon};
     width: ${SELECT_OPTION_WIDTH}px;
-
-    &:hover {
-        ${StyledSelectMultiOptionIcon} {
-            transform: rotate(-90deg);
-        }
-    }
 
     ${({ theme, size }) =>
         size === 'small' &&
