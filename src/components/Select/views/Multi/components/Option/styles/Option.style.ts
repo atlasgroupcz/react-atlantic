@@ -43,7 +43,7 @@ export const StyledSelectMultiOptionContainer = styled.div<
     margin: ${({ theme }) => theme.margin.xs};
     border-radius: ${({ theme }) => theme.radius};
     background: ${({ theme }) => theme.color.primary.epsilon};
-    width: ${SELECT_OPTION_WIDTH}px;
+    max-width: ${SELECT_OPTION_WIDTH}px;
 
     ${({ theme, size }) =>
         size === 'small' &&

@@ -3,6 +3,8 @@ import { SelectContainer, SelectInput, SelectList } from '../../../components';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import * as _ from 'styled-components/node_modules/@types/react';
 import { Text } from '../../../../Typography';
+import { PureButton } from '../../../../Button';
+import { StyledIcon } from '../../../../Icon';
 
 export const StyledSelectMultiContainer = styled(SelectContainer)`
     ${({ isFullWidth }) =>
@@ -28,9 +30,19 @@ export const StyledSelectMultiInputValue = styled(SelectInput.Value)`
               `}
 `;
 
-export const StyledSelectMultiInputOverflowNumber = styled(Text)`
+export const StyledSelectMultiInputHiddenItemsNumber = styled(Text)`
     color: ${({ theme }) => theme.color.primary.beta};
-    padding-left: ${({ theme }) => theme.padding.md};
+    margin-left: ${({ theme }) => theme.margin.md};
+`;
+
+export const StyledSelectMultiInputClearButton = styled(PureButton)`
+    && {
+        padding: 0;
+
+        ${StyledIcon} {
+            color: ${({ theme }) => theme.color.text.beta};
+        }
+    }
 `;
 
 export const StyledSelectMultiInputIcon = SelectInput.Icon;

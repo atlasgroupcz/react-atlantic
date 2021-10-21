@@ -8,11 +8,11 @@ import {
     StyledSelectMultiInputValue,
     StyledSelectMultiList,
     StyledSelectMultiListItem,
-    StyledSelectMultiInputOverflowNumber,
+    StyledSelectMultiInputHiddenItemsNumber,
+    StyledSelectMultiInputClearButton,
 } from './styles';
 import { Icon } from '../../../Icon';
 import { useCalculateItemVisibility } from '../../utils/calculateItemVisibility';
-import { PureButton } from '../../../Button';
 
 export const SelectMulti = forwardRef<HTMLDivElement, SelectMultiProps>(
     (
@@ -73,13 +73,16 @@ export const SelectMulti = forwardRef<HTMLDivElement, SelectMultiProps>(
                               ))
                             : placeholder}
                         {!!hiddenItemsNumber && (
-                            <StyledSelectMultiInputOverflowNumber>{`+${hiddenItemsNumber}`}</StyledSelectMultiInputOverflowNumber>
+                            <StyledSelectMultiInputHiddenItemsNumber>{`+${hiddenItemsNumber}`}</StyledSelectMultiInputHiddenItemsNumber>
                         )}
                     </StyledSelectMultiInputValue>
                     {onClear && isOptionSelected && (
-                        <PureButton onClick={onClear} size={size}>
-                            <Icon name="crossInCircle" />
-                        </PureButton>
+                        <StyledSelectMultiInputClearButton
+                            onClick={onClear}
+                            size={size}
+                        >
+                            <Icon name="clear" />
+                        </StyledSelectMultiInputClearButton>
                     )}
                     <StyledSelectMultiInputIcon
                         size={size}
