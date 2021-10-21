@@ -50,10 +50,8 @@ export const StyledSelectMultiInputIcon = SelectInput.Icon;
 export const StyledSelectMultiList = SelectList;
 
 export const StyledSelectMultiListItem = styled(SelectList.Item)`
-    display: flex;
-    align-items: center;
-
-    ${({ theme }) => css`
-        gap: ${theme.gap.md};
-    `}
+    ${StyledIcon} {
+        margin-right: ${({ theme }) => theme.margin.sm};
+        vertical-align: middle;
+    }
 `;
