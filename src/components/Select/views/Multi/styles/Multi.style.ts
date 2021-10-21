@@ -4,9 +4,18 @@ import { SelectContainer, SelectInput, SelectList } from '../../../components';
 import * as _ from 'styled-components/node_modules/@types/react';
 import { Text } from '../../../../Typography';
 
-export const StyledSelectMultiContainer = styled(SelectContainer)``;
+export const StyledSelectMultiContainer = styled(SelectContainer)`
+    ${({ isFullWidth }) =>
+        isFullWidth
+            ? css`
+                  width: 100%;
+              `
+            : css`
+                  width: 280px;
+              `}
+`;
 
-export const StyledSelectMultiInput = styled(SelectInput)``;
+export const StyledSelectMultiInput = SelectInput;
 
 export const StyledSelectMultiInputValue = styled(SelectInput.Value)`
     ${({ isOptionSelected }) =>
@@ -24,9 +33,9 @@ export const StyledSelectMultiInputOverflowNumber = styled(Text)`
     padding-left: ${({ theme }) => theme.padding.md};
 `;
 
-export const StyledSelectMultiInputIcon = styled(SelectInput.Icon)``;
+export const StyledSelectMultiInputIcon = SelectInput.Icon;
 
-export const StyledSelectMultiList = styled(SelectList)``;
+export const StyledSelectMultiList = SelectList;
 
 export const StyledSelectMultiListItem = styled(SelectList.Item)`
     display: flex;

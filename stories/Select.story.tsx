@@ -9,6 +9,7 @@ import {
     SelectMultiOptionOptionType,
     SelectProps,
     Size,
+    Title,
     useSelect,
 } from '../src';
 import { boolean, select, withKnobs } from '@storybook/addon-knobs';
@@ -109,20 +110,20 @@ stories.add(
 
         return (
             <>
+                <Title level={4}>Default Select</Title>
                 <Select isFullWidth size={'large'} {...iconHandlers} />
+                <br />
                 <Select {...textHandlers} />
+                <br />
+
+                <Title level={4}>Multi Select</Title>
                 <SelectMulti
                     size={'large'}
                     isFullWidth
                     {...multiSelectHandlers}
                 />
-                <div style={{ maxWidth: 500 }}>
-                    <SelectMulti
-                        size={'medium'}
-                        isFullWidth
-                        {...multiSelectHandlers2}
-                    />
-                </div>
+                <br />
+                <SelectMulti size={'medium'} {...multiSelectHandlers2} />
             </>
         );
     },
