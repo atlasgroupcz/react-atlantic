@@ -1,52 +1,40 @@
-import { ReactText, useMemo, useState } from 'react';
+import { ReactText, useState } from 'react';
 import {
     ControllerSelectMultiProps,
     OptionType,
+    SelectMultiOptionOptionType,
     SelectMultiProps,
 } from '../types';
 import { useOutsideClick } from '../../../hooks/useOutsideClick';
 
 export const useSelectMulti = <
-    T extends OptionType<ReactText> = OptionType<ReactText>
+    O extends SelectMultiOptionOptionType = SelectMultiOptionOptionType,
+    V extends OptionType<ReactText> = OptionType<ReactText>
 >({
     defaultValue,
     isDisabled,
     options,
     ...args
-}: ControllerSelectMultiProps<T>): SelectMultiProps<T> => {
-    const [values, setValues] = useState<T[] | undefined>(defaultValue);
+}: ControllerSelectMultiProps<O, V>): SelectMultiProps<O, V> => {
+    const [values, setValues] = useState<V[] | undefined>(defaultValue);
     const [isOpen, setOpen] = useState<boolean>(false);
     const ref = useOutsideClick<HTMLDivElement>(() => setOpen(false));
 
-    const filteredValues = useMemo(
-        () =>
-            options?.filter(
-                (option) =>
-                    !values?.some((value) => value.value === option.value)
-            ),
-        [options, values]
-    );
-
     const onClick: SelectMultiProps['onClick'] = () => {
-        if (!isDisabled && filteredValues && filteredValues.length > 0) {
+        if (!isDisabled) {
             setOpen((prev) => !prev);
         }
     };
 
-    const onOptionClick: ControllerSelectMultiProps<T>['onOptionClick'] = (
-        option
-    ) => {
+    const onClear: SelectMultiProps['onClear'] = (event) => {
         if (!isDisabled) {
-            const newValues: T[] = values || [];
-            newValues.push(option);
-
-            setValues(newValues);
-            args.onOptionClick?.(option);
+            event.stopPropagation();
+            setValues([]);
             setOpen(false);
         }
     };
 
-    const onValueClick: ControllerSelectMultiProps<T>['onValueClick'] = (
+    const onValueClick: ControllerSelectMultiProps<O, V>['onValueClick'] = (
         option,
         event
     ) => {
@@ -64,10 +52,31 @@ export const useSelectMulti = <
         }
     };
 
+    const onOptionClick: ControllerSelectMultiProps<O, V>['onOptionClick'] = (
+        option,
+        event
+    ) => {
+        if (!isDisabled) {
+            if (option.isSelected) {
+                onValueClick?.((option as unknown) as V, event);
+            } else {
+                const newValues: V[] = values || [];
+                newValues.push((option as unknown) as V);
+                setValues(newValues);
+            }
+            args.onOptionClick?.(option, event);
+            setOpen(false);
+        }
+    };
+
     return {
         ...args,
         values,
-        options: filteredValues,
+        options: options?.map((option) => ({
+            ...option,
+            isSelected:
+                values?.some((value) => value.value === option.value) || false,
+        })),
         isDisabled,
         isOpen,
         ref,
@@ -76,5 +85,6 @@ export const useSelectMulti = <
         onValueClick,
         isOptionSelected: typeof values !== 'undefined' && values.length > 0,
         placeholder: `Vyberte...`,
+        onClear,
     };
 };

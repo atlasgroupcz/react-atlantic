@@ -6,8 +6,10 @@ import {
     OptionType,
     Select,
     SelectMulti,
+    SelectMultiOptionOptionType,
     SelectProps,
     Size,
+    Title,
     useSelect,
 } from '../src';
 import { boolean, select, withKnobs } from '@storybook/addon-knobs';
@@ -56,7 +58,30 @@ stories.add(
             ],
         });
 
-        const multiSelectHandlers = useSelectMulti<OptionType<ReactText>>({
+        const multiSelectHandlers = useSelectMulti<SelectMultiOptionOptionType>(
+            {
+                options: [
+                    {
+                        value: 1,
+                        label: 'Česká Republika',
+                    },
+                    {
+                        value: 2,
+                        label: 'Slovenská Republika',
+                    },
+                    {
+                        value: 3,
+                        label: 'Evropa',
+                    },
+                ],
+                onOptionClick: (option) => console.log(option.label),
+                onValueClick: (option) => console.log(option.label),
+            }
+        );
+
+        const multiSelectHandlers2 = useSelectMulti<
+            SelectMultiOptionOptionType
+        >({
             options: [
                 {
                     value: 1,
@@ -68,7 +93,15 @@ stories.add(
                 },
                 {
                     value: 3,
-                    label: 'Evropa',
+                    label: 'UK',
+                },
+                {
+                    value: 4,
+                    label: 'USA',
+                },
+                {
+                    value: 5,
+                    label: 'Čína',
                 },
             ],
             onOptionClick: (option) => console.log(option.label),
@@ -77,13 +110,20 @@ stories.add(
 
         return (
             <>
+                <Title level={4}>Default Select</Title>
                 <Select isFullWidth size={'large'} {...iconHandlers} />
+                <br />
                 <Select {...textHandlers} />
+                <br />
+
+                <Title level={4}>Multi Select</Title>
                 <SelectMulti
                     size={'large'}
                     isFullWidth
                     {...multiSelectHandlers}
                 />
+                <br />
+                <SelectMulti size={'medium'} {...multiSelectHandlers2} />
             </>
         );
     },
