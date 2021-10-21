@@ -24,7 +24,7 @@ export const StyledSelectMultiOptionIcon = styled(Icon)`
     width: 10px;
     height: 10px;
     margin-left: ${({ theme }) => theme.margin.md};
-    transition: transform 300ms;
+    flex-shrink: 0;
 
     && {
         color: ${({ theme }) => theme.color.text.beta};
