@@ -1,3 +1,9 @@
+## [2.5.3](https://github.com/atlasgroupcz/react-atlantic/compare/2.5.0...2.5.3) (2021-10-21)
+
+### Bug Fixes
+
+-   🐛 shrink ([184b803](https://github.com/atlasgroupcz/react-atlantic/commit/184b803f1198b3acd9da4315be526fb3fd74187d))
+
 ## [2.5.2](https://github.com/atlasgroupcz/react-atlantic/compare/2.5.0...2.5.2) (2021-10-19)
 
 ## [2.5.1](https://github.com/atlasgroupcz/react-atlantic/compare/2.4.5...2.5.1) (2021-10-13)
