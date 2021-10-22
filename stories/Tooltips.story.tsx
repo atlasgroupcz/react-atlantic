@@ -164,10 +164,22 @@ stories.add('Overflow Prevention', () => {
             }}
         >
             <Tooltips>
-                <TestComponent position={'top-left'} />
-                <TestComponent position={'top-right'} />
-                <TestComponent position={'bottom-left'} />
-                <TestComponent position={'bottom-right'} />
+                <TestComponent
+                    position={'top-left'}
+                    preferredPosition={'left'}
+                />
+                <TestComponent
+                    position={'top-right'}
+                    preferredPosition={'right'}
+                />
+                <TestComponent
+                    position={'bottom-left'}
+                    preferredPosition={'left'}
+                />
+                <TestComponent
+                    position={'bottom-right'}
+                    preferredPosition={'right'}
+                />
             </Tooltips>
         </div>
     );
