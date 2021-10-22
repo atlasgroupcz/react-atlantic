@@ -1,4 +1,3 @@
-import { OptionType } from '../../Select';
 import { Dispatch, ReactNode, RefObject, SetStateAction } from 'react';
 import { CommonHTMLProps, Size } from '../../../types';
 import { UseTransferPosition } from './UseTransferPositionProps';
@@ -17,7 +16,7 @@ export type TransferComponentsProps = {
     label?: ReactNode;
 };
 
-type SharedTransferProps<T extends OptionType> = {
+type SharedTransferProps<T extends UseTransferT = UseTransferT> = {
     options: T[];
     onOptionClick?: (option: T) => void;
     value?: T[];
@@ -29,9 +28,9 @@ type SharedTransferProps<T extends OptionType> = {
     innerTransferController?: UseInnerTransfer;
 } & TransferComponentsProps;
 
-export type ControllerTransferProps<T extends OptionType> = SharedTransferProps<
-    T
-> & {
+export type ControllerTransferProps<
+    T extends UseTransferT = UseTransferT
+> = SharedTransferProps<T> & {
     defaultValue?: T[];
 };
 
@@ -47,7 +46,9 @@ export type StyledComponentTransferProps = {
     positionController?: UseTransferPosition;
 };
 
-export type TransferProps<T extends UseTransferT> = SharedTransferProps<T> & {
+export type TransferProps<
+    T extends UseTransferT = UseTransferT
+> = SharedTransferProps<T> & {
     ref: RefObject<HTMLDivElement>;
 } & StyledComponentTransferProps &
     Omit<CommonHTMLProps, 'ref'>;
