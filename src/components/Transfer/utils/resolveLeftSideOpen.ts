@@ -1,6 +1,6 @@
-import { OptionType } from '../../Select';
+import { UseTransferT } from '../hooks/useTransfer';
 
 export const resolveLeftSideOpen = (
     isOpen: boolean,
-    value: OptionType<string, string>[] | undefined
+    value: UseTransferT[] | undefined
 ) => isOpen && !!value;

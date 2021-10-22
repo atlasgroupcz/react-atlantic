@@ -2,26 +2,26 @@ import React, { FC } from 'react';
 import { withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import { Transfer } from '../src/components/Transfer';
-import { useTransfer } from '../src/components/Transfer/hooks/useTransfer';
+import {
+    useTransfer,
+    UseTransferT,
+} from '../src/components/Transfer/hooks/useTransfer';
 import { TestComponentProps } from './types/TestComponentProps';
 import { resolveStyle } from './utils/resolveStyle';
-import { OptionType } from '../src';
 
 const stories = storiesOf('Transfer', module);
 
 stories.addDecorator(withKnobs);
 
-const generateOptions = (num: number): OptionType<string, string>[] => {
-    const options: OptionType<string, string>[] = [...new Array(num)].map(
-        (_, i) => ({
-            label: `Label ${i}`,
-            value: `Value ${i}`,
-        })
-    );
+const generateOptions = (num: number): UseTransferT[] => {
+    const options: UseTransferT[] = [...new Array(num)].map((_, i) => ({
+        label: `Label ${i}`,
+        value: `Value ${i}`,
+    }));
     return options;
 };
 
-const LONG_LABEL_OPTION: OptionType<string, string> = {
+const LONG_LABEL_OPTION: UseTransferT = {
     label: 'TEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEST',
     value: 'TEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEST',
 };
