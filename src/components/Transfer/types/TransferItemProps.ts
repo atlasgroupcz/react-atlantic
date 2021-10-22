@@ -1,9 +1,9 @@
 import { Size } from '../../../types';
-import { OptionType } from '../../Select';
+import { UseTransferT } from '../hooks/useTransfer';
 
 export type TransferCommonItemProps = {
     onClick?: React.MouseEventHandler<HTMLElement>;
-    option: OptionType<string, string>;
+    option: UseTransferT;
     size: Size;
     isChecked?: boolean;
 };
