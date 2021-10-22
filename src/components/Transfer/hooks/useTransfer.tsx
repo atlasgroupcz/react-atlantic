@@ -1,17 +1,26 @@
 import { ControllerTransferProps, TransferProps } from '../types';
-import { OptionType } from '../../Select';
 import { useCallback, useState } from 'react';
 import { useOutsideClick } from '../../../hooks/useOutsideClick';
 import { transferOptionClick } from '../utils';
 
-export const useTransfer = <T extends OptionType<string, string>>({
+export type UseTransferT = {
+    value: string;
+    label: string | React.ReactElement;
+};
+
+export const useTransfer = <T extends UseTransferT>({
     options,
     defaultValue,
     isDisabled,
     noResults,
     ...props
 }: ControllerTransferProps<T>): TransferProps<T> => {
-    const [value, setValue] = useState<T[]>(defaultValue || []);
+    const processedDefaultValue = defaultValue?.map((v) => ({
+        ...v,
+        label: typeof v.label === 'string' ? v.label : v.label.props.children,
+    }));
+
+    const [value, setValue] = useState<T[]>(processedDefaultValue || []);
     const [isOpen, setOpen] = useState<boolean>(false);
 
     const handleOutsideClick = useCallback(() => {
