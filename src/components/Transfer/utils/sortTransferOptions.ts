@@ -2,23 +2,10 @@ import { UseTransferT } from '../hooks/useTransfer';
 
 export const sortTransferOptions = <T extends UseTransferT>(options: T[]) =>
     options.sort((a, b) => {
-        if (typeof a.label !== 'string' && typeof b.label !== 'string') {
-            return a.label.props.children
-                .toString()
-                .localeCompare(b.label.props.children.toString());
-        }
+        const a_label =
+            typeof a.label === 'string' ? a.label : a.label.props.children;
+        const b_label =
+            typeof b.label === 'string' ? b.label : b.label.props.children;
 
-        if (typeof a.label === 'string' && typeof b.label !== 'string') {
-            return a.label
-                .toString()
-                .localeCompare(b.label.props.children.toString());
-        }
-
-        if (typeof a.label !== 'string' && typeof b.label === 'string') {
-            return a.label.props.children
-                .toString()
-                .localeCompare(b.label.toString());
-        }
-
-        return a.label.toString().localeCompare(b.label.toString());
+        return a_label.toString().localeCompare(b_label.toString());
     });
