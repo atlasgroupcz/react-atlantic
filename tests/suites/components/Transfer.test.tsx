@@ -22,4 +22,13 @@ describe('Transfer', () => {
     mountTest(Transfer);
     toBeDefinedTest(Transfer, mockTransferProps);
     mockPropsCheckTest(mockTransferProps, Transfer as FC);
+
+    it('should have correct options', () => {
+        const component = <Transfer {...mockTransferProps} />;
+
+        expect(component.props.options).toEqual(mockTransferProps.options);
+        expect(component.props.defaultValue).toEqual(
+            mockTransferProps.defaultValue
+        );
+    });
 });
