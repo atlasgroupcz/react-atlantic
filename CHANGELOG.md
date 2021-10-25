@@ -1,3 +1,15 @@
+## [2.5.4](https://github.com/atlasgroupcz/react-atlantic/compare/2.5.0...2.5.4) (2021-10-25)
+
+### Bug Fixes
+
+-   🐛 conditional type check and add missing text ([6a796dd](https://github.com/atlasgroupcz/react-atlantic/commit/6a796dd0adad51ff66f95a4aa32746af96f77f3c))
+-   🐛 shrink ([184b803](https://github.com/atlasgroupcz/react-atlantic/commit/184b803f1198b3acd9da4315be526fb3fd74187d))
+-   🐛 types and props ([1aa8e15](https://github.com/atlasgroupcz/react-atlantic/commit/1aa8e1543d68165a92462d534a115f7b65a0cdde))
+
+### Features
+
+-   ✨ extend Transfer options label ([ed2b851](https://github.com/atlasgroupcz/react-atlantic/commit/ed2b851a830f3644d01dd9b38ae76b701c5275fe))
+
 ## [2.5.3](https://github.com/atlasgroupcz/react-atlantic/compare/2.5.0...2.5.3) (2021-10-21)
 
 ### Bug Fixes
