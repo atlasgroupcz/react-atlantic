@@ -1,11 +1,8 @@
 import React, { FC } from 'react';
 import { withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
-import { Transfer } from '../src/components/Transfer';
-import {
-    useTransfer,
-    UseTransferT,
-} from '../src/components/Transfer/hooks/useTransfer';
+import { Transfer, UseTransferOptionT } from '../src/components/Transfer';
+import { useTransfer } from '../src/components/Transfer/hooks/useTransfer';
 import { TestComponentProps } from './types/TestComponentProps';
 import { resolveStyle } from './utils/resolveStyle';
 
@@ -13,15 +10,15 @@ const stories = storiesOf('Transfer', module);
 
 stories.addDecorator(withKnobs);
 
-const generateOptions = (num: number): UseTransferT[] => {
-    const options: UseTransferT[] = [...new Array(num)].map((_, i) => ({
+const generateOptions = (num: number): UseTransferOptionT[] => {
+    const options: UseTransferOptionT[] = [...new Array(num)].map((_, i) => ({
         label: `Label ${i}`,
         value: `Value ${i}`,
     }));
     return options;
 };
 
-const LONG_LABEL_OPTION: UseTransferT = {
+const LONG_LABEL_OPTION: UseTransferOptionT = {
     label: 'TEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEST',
     value: 'TEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEST',
 };

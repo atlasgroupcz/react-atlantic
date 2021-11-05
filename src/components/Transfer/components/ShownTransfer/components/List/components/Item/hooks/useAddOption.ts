@@ -1,8 +1,8 @@
 import { useCallback } from 'react';
 import { useInnerTransferContext } from '../../../../../../../context';
-import { UseTransferT } from '../../../../../../../hooks/useTransfer';
+import { UseTransferOptionT } from '../../../../../../../types/Transfer';
 
-export const useAddOption = <T extends UseTransferT>(option: T) => {
+export const useAddOption = (option: UseTransferOptionT) => {
     const { setInnerValue } = useInnerTransferContext();
     return useCallback(() => {
         setInnerValue?.((prev) => {

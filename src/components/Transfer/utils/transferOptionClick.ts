@@ -1,8 +1,8 @@
-import { UseTransferT } from '../hooks/useTransfer';
+import { UseTransferOptionT } from '..';
 
-export const transferOptionClick = <T extends UseTransferT>(
-    option: T,
-    prevStateValue?: T[]
+export const transferOptionClick = (
+    option: UseTransferOptionT,
+    prevStateValue?: UseTransferOptionT[]
 ) => {
     if (!prevStateValue) return [];
 

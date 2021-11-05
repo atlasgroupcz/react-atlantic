@@ -1,11 +1,10 @@
 import { useTransferContext } from '../../context';
-import { TransferOpenSides } from '../../types';
+import { TransferOpenSides, UseTransferOptionT } from '../../types';
 import { resolveLeftSideOpen } from '../../utils/resolveLeftSideOpen';
 import { resolveRightSideOpen } from '../../utils/resolveRightSideOpen';
-import { UseTransferT } from '../useTransfer';
 
 export const useTransferOpenSides = (
-    value: UseTransferT[] | undefined
+    value: UseTransferOptionT[] | undefined
 ): TransferOpenSides => {
     const { isOpen } = useTransferContext();
     const isLeftSideOpen = resolveLeftSideOpen(!!isOpen, value);

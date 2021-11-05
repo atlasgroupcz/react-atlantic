@@ -3,7 +3,11 @@ import { CommonHTMLProps, Size } from '../../../types';
 import { UseTransferPosition } from './UseTransferPositionProps';
 import { TransferPosition } from './TransferPosition';
 import { UseInnerTransfer } from './UseInnerTransfer';
-import { UseTransferT } from '../hooks/useTransfer';
+
+export type UseTransferOptionT = {
+    value: string;
+    label: string | React.ReactElement;
+};
 
 export type TransferComponentsProps = {
     hiddenTransferComponent?: ReactNode;
@@ -16,11 +20,11 @@ export type TransferComponentsProps = {
     label?: ReactNode;
 };
 
-type SharedTransferProps<T extends UseTransferT = UseTransferT> = {
-    options: T[];
-    onOptionClick?: (option: T) => void;
-    value?: T[];
-    setValue?: Dispatch<SetStateAction<T[]>>;
+type SharedTransferProps = {
+    options: UseTransferOptionT[];
+    onOptionClick?: (option: UseTransferOptionT) => void;
+    value?: UseTransferOptionT[];
+    setValue?: Dispatch<SetStateAction<UseTransferOptionT[]>>;
     setOpen?: Dispatch<SetStateAction<boolean>>;
     isOpen?: boolean;
     isDisabled?: boolean;
@@ -28,10 +32,8 @@ type SharedTransferProps<T extends UseTransferT = UseTransferT> = {
     innerTransferController?: UseInnerTransfer;
 } & TransferComponentsProps;
 
-export type ControllerTransferProps<
-    T extends UseTransferT = UseTransferT
-> = SharedTransferProps<T> & {
-    defaultValue?: T[];
+export type ControllerTransferProps = SharedTransferProps & {
+    defaultValue?: UseTransferOptionT[];
 };
 
 export type StyledComponentTransferProps = {
@@ -46,9 +48,7 @@ export type StyledComponentTransferProps = {
     positionController?: UseTransferPosition;
 };
 
-export type TransferProps<
-    T extends UseTransferT = UseTransferT
-> = SharedTransferProps<T> & {
+export type TransferProps = SharedTransferProps & {
     ref: RefObject<HTMLDivElement>;
 } & StyledComponentTransferProps &
     Omit<CommonHTMLProps, 'ref'>;

@@ -1,6 +1,6 @@
-import { UseTransferT } from '../hooks/useTransfer';
+import { UseTransferOptionT } from '..';
 
 export const resolveLeftSideOpen = (
     isOpen: boolean,
-    value: UseTransferT[] | undefined
+    value: UseTransferOptionT[] | undefined
 ) => isOpen && !!value;

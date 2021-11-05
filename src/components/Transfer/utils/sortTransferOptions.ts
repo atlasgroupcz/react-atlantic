@@ -1,6 +1,6 @@
-import { UseTransferT } from '../hooks/useTransfer';
+import { UseTransferOptionT } from '../';
 
-export const sortTransferOptions = <T extends UseTransferT>(options: T[]) =>
+export const sortTransferOptions = (options: UseTransferOptionT[]) =>
     options.sort((a, b) => {
         const a_label =
             typeof a.label === 'string' ? a.label : a.label.props.children;

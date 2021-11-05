@@ -1,9 +1,7 @@
 import { Position } from '../../../types';
-import { OptionType } from '../../Select';
 import { TransferProps } from './Transfer';
 
-// TODO: Fix onOptionClick type
-export type TransferLeftSideViewProps<T extends OptionType = OptionType> = {
+export type TransferLeftSideViewProps = {
     isLeftSideOpen?: boolean;
     isRightSideOpen?: boolean;
     position: Position;
