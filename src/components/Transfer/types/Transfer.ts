@@ -3,7 +3,6 @@ import { CommonHTMLProps, Size } from '../../../types';
 import { UseTransferPosition } from './UseTransferPositionProps';
 import { TransferPosition } from './TransferPosition';
 import { UseInnerTransfer } from './UseInnerTransfer';
-import { UseTransferT } from '../hooks/useTransfer';
 
 export type TransferComponentsProps = {
     hiddenTransferComponent?: ReactNode;
@@ -16,7 +15,7 @@ export type TransferComponentsProps = {
     label?: ReactNode;
 };
 
-type SharedTransferProps<T extends UseTransferT = UseTransferT> = {
+type SharedTransferProps<T extends OptionType = OptionType> = {
     options: T[];
     onOptionClick?: (option: T) => void;
     value?: T[];
@@ -29,7 +28,7 @@ type SharedTransferProps<T extends UseTransferT = UseTransferT> = {
 } & TransferComponentsProps;
 
 export type ControllerTransferProps<
-    T extends UseTransferT = UseTransferT
+    T extends OptionType = OptionType
 > = SharedTransferProps<T> & {
     defaultValue?: T[];
 };
@@ -47,7 +46,7 @@ export type StyledComponentTransferProps = {
 };
 
 export type TransferProps<
-    T extends UseTransferT = UseTransferT
+    T extends OptionType<string, string> = OptionType<string, string>
 > = SharedTransferProps<T> & {
     ref: RefObject<HTMLDivElement>;
 } & StyledComponentTransferProps &

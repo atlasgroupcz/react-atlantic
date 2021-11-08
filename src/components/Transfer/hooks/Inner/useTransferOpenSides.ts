@@ -1,11 +1,11 @@
+import { OptionType } from '../../../Select';
 import { useTransferContext } from '../../context';
 import { TransferOpenSides } from '../../types';
 import { resolveLeftSideOpen } from '../../utils/resolveLeftSideOpen';
 import { resolveRightSideOpen } from '../../utils/resolveRightSideOpen';
-import { UseTransferT } from '../useTransfer';
 
 export const useTransferOpenSides = (
-    value: UseTransferT[] | undefined
+    value: OptionType<string, string>[] | undefined
 ): TransferOpenSides => {
     const { isOpen } = useTransferContext();
     const isLeftSideOpen = resolveLeftSideOpen(!!isOpen, value);
