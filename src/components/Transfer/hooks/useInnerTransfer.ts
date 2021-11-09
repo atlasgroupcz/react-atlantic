@@ -38,7 +38,7 @@ export const useInnerTransfer: UseInnerTransfer = ({
         [transferOptionClickProps]
     );
 
-    const outvalue = useMemo(
+    const outValue = useMemo(
         () =>
             isSorted
                 ? sortTransferOptionsProps
@@ -60,7 +60,7 @@ export const useInnerTransfer: UseInnerTransfer = ({
 
     return {
         ...props,
-        innerValue: outvalue,
+        innerValue: outValue,
         innerOptions: outoptions,
         setInnerValue,
         setInnerOptions,
