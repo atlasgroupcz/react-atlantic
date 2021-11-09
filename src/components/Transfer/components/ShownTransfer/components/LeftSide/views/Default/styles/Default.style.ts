@@ -5,11 +5,15 @@ import { TransferProps } from '../../../../../../../types';
 import { StyledIcon } from '../../../../../../../../Icon';
 import { Position } from '../../../../../../../../../types';
 import { StyledInputContainer } from '../../../../../../../../Input';
+import { OptionType } from '../../../../../../../../Select';
 
 type StyledTransferAbstractProps = {
     isLeftSideOpen?: boolean;
     isRightSideOpen?: boolean;
-} & Pick<TransferProps, 'size' | 'visibleRows' | 'isDisabled' | 'isFullWidth'>;
+} & Pick<
+    TransferProps<OptionType<string, any>>,
+    'size' | 'visibleRows' | 'isDisabled' | 'isFullWidth'
+>;
 
 type StyledTransferLeftSideProps = StyledTransferAbstractProps & {
     position: Position;

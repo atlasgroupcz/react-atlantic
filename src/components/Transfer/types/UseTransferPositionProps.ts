@@ -1,10 +1,11 @@
 import { MutableRefObject } from 'react';
 import { HorizontalPosition } from '../../../types';
+import { OptionType } from '../../Select';
 import { TransferProps } from './Transfer';
 import { TransferPosition } from './TransferPosition';
 
 export type UseTransferPositionProps = Pick<
-    TransferProps,
+    TransferProps<OptionType<string, any>>,
     'preferredPosition' | 'customWidth'
 > & {
     rectFromHiddenTransfer: MutableRefObject<DOMRect | null>;
