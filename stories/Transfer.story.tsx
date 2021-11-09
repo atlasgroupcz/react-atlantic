@@ -5,7 +5,7 @@ import { Transfer } from '../src/components/Transfer';
 import { useTransfer } from '../src/components/Transfer/hooks/useTransfer';
 import { TestComponentProps } from './types/TestComponentProps';
 import { resolveStyle } from './utils/resolveStyle';
-import { OptionType } from '../src';
+import { InputDefaultProps, OptionType } from '../src';
 
 const stories = storiesOf('Transfer', module);
 
@@ -24,6 +24,64 @@ const generateOptions = (num: number): OptionType<string, string>[] => {
 const LONG_LABEL_OPTION: OptionType<string, string> = {
     label: 'TEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEST',
     value: 'TEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEST',
+};
+
+const returnStringFromElement = (
+    element: string | React.ReactElement
+): string => {
+    console.log(element);
+    if (typeof element === 'string') {
+        return element;
+    } else if (typeof element === 'object') {
+        return element.props.children;
+    } else {
+        throw new Error('Unsupported type');
+    }
+};
+
+// Custom functions for tranfer
+const filterFactory = (value: InputDefaultProps['value']) => {
+    const normalizedValue = returnStringFromElement(value as string)
+        ?.trim()
+        .toLowerCase();
+    return (option: OptionType<string, string>) => {
+        const normalizedOptionLabel = returnStringFromElement(
+            option.label
+        ).toLocaleLowerCase();
+        return normalizedOptionLabel.includes(normalizedValue);
+    };
+};
+
+const createInputPlaceholder = (
+    options?: OptionType<string, string | React.ReactElement>[]
+) => options?.map(({ label }) => returnStringFromElement(label)).join(`, `);
+
+const sortTransferOptions = (
+    options: OptionType<string, string | React.ReactElement>[]
+) =>
+    options.sort((a, b) =>
+        returnStringFromElement(a.label)
+            .toString()
+            .localeCompare(returnStringFromElement(b.label).toString())
+    );
+
+const transferOptionClick = (
+    option: OptionType<string, string | React.ReactElement>,
+    prevStateValue?: OptionType<string, string | React.ReactElement>[]
+) => {
+    if (!prevStateValue) return [];
+
+    return prevStateValue.some(
+        (item) =>
+            returnStringFromElement(item.value) ===
+            returnStringFromElement(option.value)
+    )
+        ? prevStateValue.filter(
+              (item) =>
+                  returnStringFromElement(item.value) !==
+                  returnStringFromElement(option.value)
+          )
+        : [...prevStateValue, option];
 };
 
 export const TestTransferComponent: FC<TestComponentProps> = ({
@@ -51,11 +109,24 @@ export const TestTransferComponent: FC<TestComponentProps> = ({
 stories.add(
     'Overview',
     () => {
-        const options = generateOptions(10);
+        const options = ([
+            ...generateOptions(10),
+            {
+                label: <h1>KEKW</h1>,
+                value: 'F',
+            },
+        ] as unknown) as OptionType<string, string>[];
+
         const defaultValue = [options[0]];
-        const transferProps = useTransfer({
+        const transferProps = useTransfer<
+            OptionType<string, string | React.ReactElement>
+        >({
             options,
             defaultValue,
+            transferOptionClick,
+            sortTransferOptions,
+            createInputPlaceholder,
+            filterFactory,
         });
 
         return (
