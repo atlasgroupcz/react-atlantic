@@ -4,11 +4,12 @@ import { useCallback, useState } from 'react';
 import { useOutsideClick } from '../../../hooks/useOutsideClick';
 import { transferOptionClick } from '../utils';
 
-export const useTransfer = <T extends OptionType<string, string>>({
+export const useTransfer = <T extends OptionType = OptionType<string, string>>({
     options,
     defaultValue,
     isDisabled,
     noResults,
+    transferOptionClick: transferOptionClickProp,
     ...props
 }: ControllerTransferProps<T>): TransferProps<T> => {
     const [value, setValue] = useState<T[]>(defaultValue || []);
@@ -23,7 +24,11 @@ export const useTransfer = <T extends OptionType<string, string>>({
         option
     ) => {
         if (!isDisabled) {
-            setValue((prev) => transferOptionClick(option, prev));
+            if (transferOptionClickProp) {
+                setValue((prev) => transferOptionClickProp(option, prev));
+            } else {
+                setValue((prev) => transferOptionClick(option, prev));
+            }
         }
     };
 

@@ -20,16 +20,25 @@ export const useTransferDefaultFilterInput = ({
         setInnerOptions(options);
     }, [options, setInnerOptions]);
 
+    const { filterFactory: filterFactoryProp } = useTransferContext();
+
     const handleChange = useCallback<
         NonNullable<InputDefaultProps['onChange']>
     >(
         (e) => {
             const { value } = e.currentTarget;
-            setFilterValue(value);
-            const filterFunc = filterFactory(value);
-            setInnerOptions(options.filter(filterFunc));
+
+            if (filterFactoryProp) {
+                setFilterValue(value);
+                const filterFunc = filterFactoryProp(value);
+                setInnerOptions(options.filter(filterFunc));
+            } else {
+                setFilterValue(value);
+                const filterFunc = filterFactory(value);
+                setInnerOptions(options.filter(filterFunc));
+            }
         },
-        [options, setInnerOptions]
+        [filterFactoryProp, options, setInnerOptions]
     );
 
     return {
