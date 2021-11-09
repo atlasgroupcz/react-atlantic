@@ -4,7 +4,7 @@ import { useCallback, useState } from 'react';
 import { useOutsideClick } from '../../../hooks/useOutsideClick';
 import { transferOptionClick } from '../utils';
 
-export const useTransfer = <T extends OptionType = OptionType<string, string>>({
+export const useTransfer = <T extends OptionType>({
     options,
     defaultValue,
     isDisabled,

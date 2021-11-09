@@ -29,7 +29,6 @@ const LONG_LABEL_OPTION: OptionType<string, string> = {
 const returnStringFromElement = (
     element: string | React.ReactElement
 ): string => {
-    console.log(element);
     if (typeof element === 'string') {
         return element;
     } else if (typeof element === 'object') {
@@ -44,7 +43,7 @@ const filterFactory = (value: InputDefaultProps['value']) => {
     const normalizedValue = returnStringFromElement(value as string)
         ?.trim()
         .toLowerCase();
-    return (option: OptionType<string, string>) => {
+    return (option: OptionType<string, string | React.ReactElement>) => {
         const normalizedOptionLabel = returnStringFromElement(
             option.label
         ).toLocaleLowerCase();
@@ -56,9 +55,11 @@ const createInputPlaceholder = (
     options?: OptionType<string, string | React.ReactElement>[]
 ) => options?.map(({ label }) => returnStringFromElement(label)).join(`, `);
 
-const sortTransferOptions = (
-    options: OptionType<string, string | React.ReactElement>[]
-) =>
+const sortTransferOptions = <
+    T extends OptionType<string, string | React.ReactElement>
+>(
+    options: T[]
+): T[] =>
     options.sort((a, b) =>
         returnStringFromElement(a.label)
             .toString()
@@ -109,13 +110,10 @@ export const TestTransferComponent: FC<TestComponentProps> = ({
 stories.add(
     'Overview',
     () => {
-        const options = ([
+        const options = [
             ...generateOptions(10),
-            {
-                label: <h1>KEKW</h1>,
-                value: 'F',
-            },
-        ] as unknown) as OptionType<string, string>[];
+            //{ label: <span>Label 3.0</span>, value: 'thespecialone' },
+        ];
 
         const defaultValue = [options[0]];
         const transferProps = useTransfer<
