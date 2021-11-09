@@ -112,7 +112,7 @@ stories.add(
     () => {
         const options = [
             ...generateOptions(10),
-            //{ label: <span>Label 3.0</span>, value: 'thespecialone' },
+            { label: <span>Label 3.0</span>, value: 'thespecialone' },
         ];
 
         const defaultValue = [options[0]];

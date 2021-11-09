@@ -5,8 +5,8 @@ import { useInnerTransferContext } from '../../../../../../../context';
 export const useAddOption = <T extends OptionType>(option: T) => {
     const { setInnerValue } = useInnerTransferContext();
     return useCallback(() => {
-        setInnerValue?.((prev: any) => {
-            return [...prev, option as any];
+        setInnerValue?.((prev: OptionType<string, any>[]) => {
+            return [...prev, option];
         });
     }, [option, setInnerValue]);
 };
