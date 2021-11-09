@@ -1,3 +1,15 @@
+## [2.5.5](https://github.com/atlasgroupcz/react-atlantic/compare/v2.5.4...v2.5.5) (2021-11-09)
+
+### Bug Fixes
+
+-   🐛 threads ([7405def](https://github.com/atlasgroupcz/react-atlantic/commit/7405def4b08a294eec7cd0119fe3b544df315614))
+-   **transfer:** 🐛 revert ([c0a456c](https://github.com/atlasgroupcz/react-atlantic/commit/c0a456c13982d2471f40f255408cdf070196a3ea))
+
+### Features
+
+-   ✨ typo ([7416b71](https://github.com/atlasgroupcz/react-atlantic/commit/7416b7115300d48a5557a68b1a0976e5c2c4d827))
+-   ✨ WIP custom functions for transfer ([45d15fc](https://github.com/atlasgroupcz/react-atlantic/commit/45d15fcd0d804c12e4607176251d3134f243e94f))
+
 ## [2.5.4](https://github.com/atlasgroupcz/react-atlantic/compare/2.5.0...2.5.4) (2021-10-25)
 
 ### Bug Fixes
