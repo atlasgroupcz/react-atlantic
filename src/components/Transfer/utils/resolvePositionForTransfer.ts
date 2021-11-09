@@ -1,10 +1,11 @@
+import { OptionType } from '../../Select';
 import { TransferProps } from '../types';
 
 export const resolvePositionForTransfer = (
     componentWidth: number,
     rect: DOMRect,
-    prefPosition: TransferProps['preferredPosition']
-): TransferProps['preferredPosition'] => {
+    prefPosition: TransferProps<OptionType<string, any>>['preferredPosition']
+): TransferProps<OptionType<string, any>>['preferredPosition'] => {
     if (!rect) return prefPosition;
 
     const { left } = rect;

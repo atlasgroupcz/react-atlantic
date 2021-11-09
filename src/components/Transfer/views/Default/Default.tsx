@@ -12,6 +12,7 @@ import { TransferDefaultHiddenComponent } from '../../components/HiddenTransfer'
 import { TransferDefaultRightHeader } from '../../components/ShownTransfer/components/RightHeader';
 import { TransferDefaultRightList } from '../../components/ShownTransfer/components/List';
 import { TransferDefaultNoResults } from '../../components/ShownTransfer/components/NoResults';
+import { OptionType } from '../../../Select';
 
 const createSaveRect = (ref: MutableRefObject<DOMRect | null>) => {
     const saveRef: Ref<HTMLDivElement> = (r) => {
@@ -22,7 +23,10 @@ const createSaveRect = (ref: MutableRefObject<DOMRect | null>) => {
     return saveRef;
 };
 
-export const DefaultTransfer = forwardRef<HTMLDivElement, TransferProps>(
+export const DefaultTransfer = forwardRef<
+    HTMLDivElement,
+    TransferProps<OptionType<string, any>>
+>(
     (
         {
             innerTransferController = useInnerTransfer,

@@ -1,8 +1,8 @@
-import { ReactElement, ReactText } from 'react';
+import { ReactChild, ReactText } from 'react';
 import { ElementProps } from '../../../types/utils';
 import { Size } from '../../../types';
 
-export interface OptionType<V = string, L = ReactElement | null | string> {
+export interface OptionType<V = string, L = ReactChild> {
     value: V;
     label: L;
 }

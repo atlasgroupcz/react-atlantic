@@ -8,7 +8,7 @@ export type TransferLeftSideViewProps<T extends OptionType = OptionType> = {
     isRightSideOpen?: boolean;
     position: Position;
 } & Pick<
-    TransferProps,
+    TransferProps<OptionType<string, any>>,
     | 'noResults'
     | 'size'
     | 'isDisabled'

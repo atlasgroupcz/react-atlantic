@@ -13,6 +13,11 @@ export const useInnerTransfer: UseInnerTransfer = ({
     isSorted,
     ...props
 }) => {
+    const {
+        sortTransferOptions: sortTransferOptionsProps,
+        transferOptionClick: transferOptionClickProps,
+    } = props;
+
     const [innerValue, setInnerValue] = useState<
         NonNullable<UseInnerTransferProps['value']>
     >(value);
@@ -22,18 +27,35 @@ export const useInnerTransfer: UseInnerTransfer = ({
 
     const innerOptionClick = useCallback<
         NonNullable<UseInnerTransferValue['onOptionClick']>
-    >((option) => {
-        setInnerValue((prev) => transferOptionClick(option, prev));
-    }, []);
+    >(
+        (option) => {
+            setInnerValue((prev) =>
+                transferOptionClickProps
+                    ? transferOptionClickProps(option, prev)
+                    : transferOptionClick(option, prev)
+            );
+        },
+        [transferOptionClickProps]
+    );
 
     const outvalue = useMemo(
-        () => (isSorted ? sortTransferOptions(innerValue) : innerValue),
-        [innerValue, isSorted]
+        () =>
+            isSorted
+                ? sortTransferOptionsProps
+                    ? sortTransferOptionsProps(innerValue)
+                    : sortTransferOptions(innerValue)
+                : innerValue,
+        [innerValue, isSorted, sortTransferOptionsProps]
     );
 
     const outoptions = useMemo(
-        () => (isSorted ? sortTransferOptions(innerOptions) : innerOptions),
-        [innerOptions, isSorted]
+        () =>
+            isSorted
+                ? sortTransferOptionsProps
+                    ? sortTransferOptionsProps(innerOptions)
+                    : sortTransferOptions(innerOptions)
+                : innerOptions,
+        [innerOptions, isSorted, sortTransferOptionsProps]
     );
 
     return {

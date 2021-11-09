@@ -2,5 +2,5 @@ import { OptionType } from '../../Select';
 
 export const resolveLeftSideOpen = (
     isOpen: boolean,
-    value: OptionType<string, string>[] | undefined
+    value: OptionType[] | undefined
 ) => isOpen && !!value;

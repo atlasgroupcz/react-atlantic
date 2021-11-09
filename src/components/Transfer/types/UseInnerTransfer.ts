@@ -1,17 +1,22 @@
 import { Dispatch, SetStateAction } from 'react';
+import { OptionType } from '../../Select';
 import { TransferProps } from './Transfer';
 
 export type UseInnerTransferValue = Pick<
-    TransferProps,
+    TransferProps<OptionType<string, any>>,
     'isDisabled' | 'onOptionClick'
 > & {
-    innerValue: TransferProps['value'];
-    setInnerValue: TransferProps['setValue'];
-    innerOptions: TransferProps['options'];
-    setInnerOptions: Dispatch<SetStateAction<TransferProps['options']>>;
+    innerValue: TransferProps<OptionType<string, any>>['value'];
+    setInnerValue: TransferProps<OptionType<string, any>>['setValue'];
+    innerOptions: TransferProps<OptionType<string, any>>['options'];
+    setInnerOptions: Dispatch<
+        SetStateAction<TransferProps<OptionType<string, any>>['options']>
+    >;
 };
 
-export type UseInnerTransferProps = TransferProps & { isSorted?: boolean };
+export type UseInnerTransferProps = TransferProps<OptionType<string, any>> & {
+    isSorted?: boolean;
+};
 
 export type UseInnerTransfer = (
     props: UseInnerTransferProps
