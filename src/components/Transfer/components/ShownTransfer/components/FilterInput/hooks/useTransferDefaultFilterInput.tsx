@@ -28,15 +28,11 @@ export const useTransferDefaultFilterInput = ({
         (e) => {
             const { value } = e.currentTarget;
 
-            if (filterFactoryProp) {
-                setFilterValue(value);
-                const filterFunc = filterFactoryProp(value);
-                setInnerOptions(options.filter(filterFunc));
-            } else {
-                setFilterValue(value);
-                const filterFunc = filterFactory(value);
-                setInnerOptions(options.filter(filterFunc));
-            }
+            setFilterValue(value);
+            const filterFunc = filterFactoryProp
+                ? filterFactoryProp(value)
+                : filterFactory(value);
+            setInnerOptions(options.filter(filterFunc));
         },
         [filterFactoryProp, options, setInnerOptions]
     );
