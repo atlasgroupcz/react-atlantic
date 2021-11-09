@@ -8,7 +8,7 @@ export const useDeleteOption = <T extends OptionType<string, any>>(
     const { setInnerValue } = useInnerTransferContext();
     return useCallback(() => {
         setInnerValue?.((prev: OptionType<string, any>[]) =>
-            prev.filter((v: any) => v.value !== option.value)
+            prev.filter((v) => v.value !== option.value)
         );
     }, [option.value, setInnerValue]);
 };
