@@ -3,6 +3,10 @@ import { CommonHTMLProps, Size } from '../../../types';
 import { UseTransferPosition } from './UseTransferPositionProps';
 import { TransferPosition } from './TransferPosition';
 import { UseInnerTransfer } from './UseInnerTransfer';
+import { OptionType } from '../../Select/types';
+import { InputDefaultProps } from '../../Input';
+
+export type TranferValue = OptionType<string, string>;
 
 export type TransferComponentsProps = {
     hiddenTransferComponent?: ReactNode;
@@ -15,7 +19,7 @@ export type TransferComponentsProps = {
     label?: ReactNode;
 };
 
-type SharedTransferProps<T extends OptionType = OptionType> = {
+type SharedTransferProps<T extends TranferValue = TranferValue> = {
     options: T[];
     onOptionClick?: (option: T) => void;
     value?: T[];
@@ -25,10 +29,16 @@ type SharedTransferProps<T extends OptionType = OptionType> = {
     isDisabled?: boolean;
     isSorted?: boolean;
     innerTransferController?: UseInnerTransfer;
+    filterFactory?: (value: InputDefaultProps['value']) => any;
+    createInputPlaceholder?: (
+        options?: TranferValue[] | undefined
+    ) => string | undefined;
+    sortTransferOptions?: (options: T[], term: string) => T[];
+    transferOptionClick?: (option: T, prevStateValue?: T[] | undefined) => T[];
 } & TransferComponentsProps;
 
 export type ControllerTransferProps<
-    T extends OptionType = OptionType
+    T extends TranferValue = TranferValue
 > = SharedTransferProps<T> & {
     defaultValue?: T[];
 };
@@ -46,7 +56,7 @@ export type StyledComponentTransferProps = {
 };
 
 export type TransferProps<
-    T extends OptionType<string, string> = OptionType<string, string>
+    T extends TranferValue = TranferValue
 > = SharedTransferProps<T> & {
     ref: RefObject<HTMLDivElement>;
 } & StyledComponentTransferProps &
