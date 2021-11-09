@@ -1,9 +1,10 @@
 import styled, { css } from 'styled-components';
 import { getTransferSideHeight } from '../../../../../../../utils';
 import { TransferProps } from '../../../../../../../types';
+import { OptionType } from '../../../../../../../../Select';
 
 type StyledTransferLeftSideNoResultsProps = Pick<
-    TransferProps,
+    TransferProps<OptionType<string, any>>,
     'size' | 'visibleRows'
 >;
 

@@ -5,7 +5,7 @@ import { resolveLeftSideOpen } from '../../utils/resolveLeftSideOpen';
 import { resolveRightSideOpen } from '../../utils/resolveRightSideOpen';
 
 export const useTransferOpenSides = (
-    value: OptionType<string, string>[] | undefined
+    value: OptionType[] | undefined
 ): TransferOpenSides => {
     const { isOpen } = useTransferContext();
     const isLeftSideOpen = resolveLeftSideOpen(!!isOpen, value);

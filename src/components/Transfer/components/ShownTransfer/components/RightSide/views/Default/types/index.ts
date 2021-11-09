@@ -4,6 +4,7 @@ import {
 } from '../../../../../../../types';
 import { ElementProps } from '../../../../../../../../../types/utils';
 import { Position } from '../../../../../../../../../types';
+import { OptionType } from '../../../../../../../../Select';
 
 export type StyledTransformRightSideProps = Pick<
     StyledComponentTransferProps,
@@ -24,7 +25,7 @@ export type TransferRightSideProps<
 > = FunctionalTransferRightSideProps &
     StyledTransformRightSideProps &
     Pick<
-        TransferProps,
+        TransferProps<OptionType<string, any>>,
         | 'label'
         | 'value'
         | 'size'
