@@ -1,0 +1,15 @@
+node_modules
+.husky
+
+# Next files
+.next/*
+out/*
+build/*
+
+# Yarn files
+.yarn/*
+!.yarn/patches
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
