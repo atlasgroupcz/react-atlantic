@@ -2,8 +2,7 @@
 stories
 tests
 .github
-.storybook
-storybook-static
+.docz
 scripts
 
 # config

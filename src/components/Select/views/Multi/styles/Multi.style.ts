@@ -1,7 +1,5 @@
 import { css, styled } from '../../../../../styled';
 import { SelectContainer, SelectInput, SelectList } from '../../../components';
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import * as _ from 'styled-components/node_modules/@types/react';
 import { Text } from '../../../../Typography';
 import { PureButton } from '../../../../Button';
 import { StyledIcon } from '../../../../Icon';

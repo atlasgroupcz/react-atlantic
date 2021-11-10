@@ -1,0 +1,41 @@
+---
+name: Collapse
+menu: Components
+---
+
+import { Playground } from 'docz';
+import { Collapse, useCollapseUnique } from '.';
+
+# Collapse
+
+Is an alternative to the [`<details>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details) element. Can be used as an accordion, where only one item can be expanded at a time.
+
+## API
+
+TODO: Props
+
+## Basic collapse
+
+```tsx
+import { Collapse as AtlanticCollapse, useCollapseUnique } from '@atlasgroup/react-atlantic';
+
+// also, that's kinda bs, pls fix
+const Collapse = wrap(AtlanticCollapse, useCollapseUnique);
+```
+
+> `Collapse` must be wrapped with `useCollapseUnique` to make the element interactive. Using the component with a custom hook is encouraged.
+
+<Playground>
+    <Collapse activeUnique="1">
+        <Collapse.Panel header={<strong>Expanded</strong>} unique="1">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultricies, lorem sed ultrices sagittis, nisi
+            orci aliquam tortor, eget facilisis nunc eros eu nisl.
+        </Collapse.Panel>
+        <Collapse.Panel header={<strong>Hidden</strong>} unique="2">
+            Lorem ipsum dolor sit amet.
+        </Collapse.Panel>
+        <Collapse.Panel header={<strong>Hidden</strong>} unique="3">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget ex eu nisi aliquam sagittis.
+        </Collapse.Panel>
+    </Collapse>
+</Playground>
