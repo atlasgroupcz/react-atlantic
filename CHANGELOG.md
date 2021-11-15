@@ -1,3 +1,9 @@
+## [2.5.6](https://github.com/atlasgroupcz/react-atlantic/compare/2.5.5...2.5.6) (2021-11-15)
+
+### Bug Fixes
+
+-   **transfer:** 🐛 display no results warning ([20ad538](https://github.com/atlasgroupcz/react-atlantic/commit/20ad5387bc03902f723acfa961a9e1ba4aa5de03))
+
 ## [2.5.5](https://github.com/atlasgroupcz/react-atlantic/compare/v2.5.4...v2.5.5) (2021-11-09)
 
 ### Bug Fixes
