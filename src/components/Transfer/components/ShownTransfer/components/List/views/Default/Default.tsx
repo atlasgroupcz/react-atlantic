@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import { useTransferContext } from '../../../../../../context/TransferContext/TransferContext';
 import { TransferListProps } from '../../../../../../types/TransferListProps';
 import { StyledTransferList } from './styles';
 
@@ -9,6 +10,7 @@ export const TransferDefaultListView: FC<TransferListProps> = ({
     value,
     visibleRows,
 }) => {
+    const { noResults } = useTransferContext();
     const selectedOptionsSet = new Set(value?.map((option) => option.value));
 
     return !!options.length ? (
@@ -22,5 +24,7 @@ export const TransferDefaultListView: FC<TransferListProps> = ({
                 />
             ))}
         </StyledTransferList>
-    ) : null;
+    ) : (
+        <>{noResults}</>
+    );
 };
