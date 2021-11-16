@@ -1,0 +1,101 @@
+import { Tooltips } from './Tooltips';
+
+---
+
+import { useTooltip } from './hooks';
+import { Playground } from 'docz';
+import { Text } from '../Typography';
+import { WrapperVertical } from '../../gatsby-theme-docz/components/Wrapper';
+
+# Tooltips
+
+Is a component that displays a tooltip when the user hovers over an element.
+
+## Tooltip usage
+
+### Predisposition
+
+> Before usage, you need to wrap your `App` in `Tooltips` provider
+
+```tsx
+import { Tooltips } from '@atlasgroup/react-atlantic';
+
+// App.tsx
+export const App = () => (
+    <OtherProvider>
+        <Tooltips>// Your app</Tooltips>
+    </OtherProvider>
+);
+```
+
+### Then you are set to go for specific tooltip usage
+
+```tsx
+import { useTooltip, Text } from '@atlasgroup/react-atlantic';
+
+export const Component = () => {
+    const tooltip = useTooltip();
+    return (
+        <Text ref={tooltip} data-title="Text to display" position="left">
+            Czech Republic🇨🇿
+        </Text>
+    );
+};
+```
+
+## Different positions
+
+<Playground>
+    {() => {
+        const Component = () => {
+            const tooltip = useTooltip();
+            return (
+                <WrapperVertical>
+                    <Text ref={tooltip} data-title="Left" data-position="left">
+                        Hover over me 👋🏻
+                    </Text>
+                    <Text ref={tooltip} data-title="Right" data-position="right">
+                        Hover over me 👋🏼
+                    </Text>
+                    <Text ref={tooltip} data-title="Top" data-position="top">
+                        Hover over me 👋🏾
+                    </Text>
+                    <Text ref={tooltip} data-title="Bottom" data-position="bottom">
+                        Hover over me 👋🏿
+                    </Text>
+                </WrapperVertical>
+            );
+        };
+        return (
+            <Tooltips>
+                <Component />
+            </Tooltips>
+        );
+    }}
+</Playground>
+
+## Tooltips provider props
+
+> You can hide the tooltips globally by passing `hideTooltip` prop to `Tooltips` provider
+
+```tsx
+<Tooltips hideTooltips={true}>{/*Component*/}</Tooltips>
+```
+
+> You can also pass `contentAttr` & `positionAttr` props to the `Tooltips` provider to change the `content` and `position` attribute of tooltips respectfully
+
+```tsx
+<Tooltips contentAttr="data-content" positionAttr="data-place">
+    {/*Component*/}
+</Tooltips>
+```
+
+> Last but not least, you can pass `Tooltip` prop to the `Tooltips` provider to change the component used for tooltips
+
+```tsx
+const StyledTooltip = styled.div`
+    color: red;
+`;
+
+<Tooltips Tooltip={StyledTooltip}>{/*Component*/}</Tooltips>;
+```
