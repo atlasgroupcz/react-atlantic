@@ -3,12 +3,13 @@ import { IndicatorProps } from '../../types';
 
 export const getIndicatorDefaultStyles = () => css`
     display: block;
+    width: ${({ theme }) => theme.padding.md};
+    height: ${({ theme }) => theme.padding.md};
+    border-radius: ${({ theme }) => theme.padding.md};
     background-color: ${({ theme }) => theme.color.default};
 `;
 
-export const getIndicatorDefaultTypeStyles = (
-    type: IndicatorProps['type']
-) => css`
+export const getIndicatorDefaultTypeStyles = (type: IndicatorProps['type']) => css`
     ${({ theme }) =>
         type === 'primary' &&
         css`
@@ -40,9 +41,7 @@ export const getIndicatorDefaultTypeStyles = (
         `}
 `;
 
-export const getIndicatorDefaultSizeStyles = (
-    size: IndicatorProps['size']
-) => css`
+export const getIndicatorDefaultSizeStyles = (size: IndicatorProps['size']) => css`
     ${({ theme }) =>
         size === 'small' &&
         css`

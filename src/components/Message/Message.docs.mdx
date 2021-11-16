@@ -1,0 +1,68 @@
+---
+name: Message
+menu: Components
+---
+
+import { Playground } from 'docz';
+import { Message, MessageLight } from './Message';
+import { WrapperVertical, WrapperHorizontal } from '../../gatsby-theme-docz/components/Wrapper';
+
+# Message
+
+## Basic usage
+
+<Playground>
+    <Message>Message</Message>
+</Playground>
+
+## Using different types
+
+<Playground>
+    <WrapperHorizontal>
+        <Message type="default">Default</Message>
+        <Message type="primary">Primary</Message>
+        <Message type="success">Success</Message>
+        <Message type="warning">Warning</Message>
+        <Message type="error">Error</Message>
+        <Message type="info">Info</Message>
+    </WrapperHorizontal>
+</Playground>
+
+## Props
+
+### isReversedColor
+
+<Playground>
+    <WrapperVertical>
+        <Message type="primary" isReversedColor>
+            Message with reversed color
+        </Message>
+        <Message type="success" isReversedColor>
+            Message with reversed color
+        </Message>
+        <Message type="warning" isReversedColor>
+            Message with reversed color
+        </Message>
+        <Message type="error" isReversedColor>
+            Message with reversed color
+        </Message>
+        <Message type="info" isReversedColor>
+            Message with reversed color
+        </Message>
+    </WrapperVertical>
+</Playground>
+
+## Other views
+
+### MessageLight
+
+<Playground>
+    <WrapperHorizontal>
+        <MessageLight type="default">MessageLight</MessageLight>
+        <MessageLight type="primary">MessageLight</MessageLight>
+        <MessageLight type="success">MessageLight</MessageLight>
+        <MessageLight type="warning">MessageLight</MessageLight>
+        <MessageLight type="error">MessageLight</MessageLight>
+        <MessageLight type="info">MessageLight</MessageLight>
+    </WrapperHorizontal>
+</Playground>
