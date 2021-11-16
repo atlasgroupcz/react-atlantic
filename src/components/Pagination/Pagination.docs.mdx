@@ -1,0 +1,75 @@
+---
+name: Pagination
+menu: Components
+---
+
+import { Playground, Props } from 'docz';
+import { Pagination } from './Pagination';
+import { WrapperHorizontal } from '../../gatsby-theme-docz/components/Wrapper';
+
+export const total = 500;
+export const pageSize = 10;
+export const page = 5;
+
+# Pagination
+
+```tsx
+const total = 1000;
+const pageSize = 10;
+const page = 5;
+```
+
+## Different types
+
+### Default
+
+<Playground>
+    <Pagination total={total} pageSize={pageSize} page={page} />
+</Playground>
+
+### hide arrows
+
+<Playground>
+    <Pagination total={total} pageSize={pageSize} page={page} showArrows={false} />
+</Playground>
+
+### custom arrows
+
+<Playground>
+    <Pagination
+        total={total}
+        pageSize={pageSize}
+        page={page}
+        left={(props) => <span {...props}>⬅️</span>}
+        right={(props) => <span {...props}>➡️</span>}
+    />
+</Playground>
+
+### custom pages
+
+<Playground>
+    <Pagination
+        total={total}
+        pageSize={pageSize}
+        page={page}
+        as={(props) => <a {...props} href={`#`} style={{ color: props.isActive && `red` }} />}
+    />
+</Playground>
+
+### custom separators
+
+<Playground>
+    <Pagination
+        total={total}
+        pageSize={pageSize}
+        page={page}
+        separatorLeft={<span>⏪</span>}
+        separatorRight={<span>⏩️</span>}
+    />
+</Playground>
+
+### without separators
+
+<Playground>
+    <Pagination total={total} pageSize={pageSize} page={page} separatorLeft={null} separatorRight={null} />
+</Playground>
