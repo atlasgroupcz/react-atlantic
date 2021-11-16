@@ -1,0 +1,91 @@
+---
+name: DatePicker
+menu: Components
+---
+
+import { Playground } from 'docz';
+import { DatePicker } from './view';
+
+# DatePicker
+
+-   This component is dependent on https://github.com/Hacker0x01/react-datepicker/ with custom input and header components
+-   Dependency docs https://reactdatepicker.com/
+
+## Common usage
+
+<Playground>
+    {() => {
+        const [selectedDate, setSelectedDate] = React.useState(new Date());
+        return (
+            <div style={{ width: 200 }}>
+                <DatePicker
+                    todayButton={`Dnes`}
+                    placeholderText={`Vyberte datum`}
+                    isFullWidth
+                    dateFormat="dd. MM. yyyy"
+                    selected={selectedDate}
+                    onChange={setSelectedDate}
+                    minDate={new Date('2021/01/01')}
+                />
+            </div>
+        );
+    }}
+</Playground>
+
+## Selected date
+
+<Playground>
+    <DatePicker selected={new Date()} />
+</Playground>
+
+## Custom date format
+
+<Playground>
+    <DatePicker dateFormat="dd. MM. yyyy" selected={new Date()} />
+</Playground>
+
+## Min/Max date
+
+<Playground>
+    <DatePicker minDate={new Date()} />
+    <DatePicker maxDate={new Date()} />
+</Playground>
+
+## disabled
+
+<Playground>
+    <DatePicker disabled selected={new Date()} />
+</Playground>
+
+## Custom Input
+
+<Playground>
+    <DatePicker customInput={<input placeholder="custom input" />} selected={new Date()} />
+</Playground>
+
+## Custom placeholder text
+
+<Playground>
+    <DatePicker placeholderText="Custom placeholder" />
+</Playground>
+
+## Today Button
+
+<Playground>
+    <DatePicker todayButton="Today" selected={new Date()} />
+</Playground>
+
+## Month Picker
+
+<Playground>
+    <DatePicker dateFormat="MM/yyyy" showMonthYearPicker />
+</Playground>
+
+## Different locales
+
+<Playground>
+    <>
+        <DatePicker locale="cs" />
+        <DatePicker locale="en" />
+    </>
+</Playground>
