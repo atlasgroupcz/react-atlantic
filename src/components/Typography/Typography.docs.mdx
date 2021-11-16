@@ -1,0 +1,72 @@
+---
+name: Typography
+menu: Components
+---
+
+import { Playground } from 'docz';
+import { Title, Text, Paragraph, Link } from '.';
+
+# TextArea
+
+Better looking alternative to native HTML typography elements
+
+## API
+
+TODO: Props
+
+## Title
+
+<Playground>
+    <Title>{`Title`}</Title>
+</Playground>
+
+## Title levels
+
+<Playground>
+    <WrapperVertical>
+        <Title level={1}>{`Title 1`}</Title>
+        <Title level={2}>{`Title 2`}</Title>
+        <Title level={3}>{`Title 3`}</Title>
+        <Title level={4}>{`Title 4`}</Title>
+        <Title level={5}>{`Title 5`}</Title>
+    </WrapperVertical>
+</Playground>
+
+## Text
+
+<Playground>
+    <Text>{`Text`}</Text>
+</Playground>
+
+## Text element
+
+<Playground>
+    <Text element={`code`}>{`code`}</Text>
+    <Text element={`del`}>{`del`}</Text>
+    <Text element={`mark`}>{`mark`}</Text>
+    <Text element={`span`}>{`span`}</Text>
+    <Text element={`strong`}>{`strong`}</Text>
+</Playground>
+
+## Text type
+
+<Playground>
+    <Text type="default">{`default`}</Text>
+    <Text type="primary">{`primary`}</Text>
+    <Text type="success">{`success`}</Text>
+    <Text type="warning">{`warning`}</Text>
+    <Text type="error">{`error`}</Text>
+    <Text type="info">{`info`}</Text>
+</Playground>
+
+## Paragraph
+
+<Playground>
+    <Paragraph>{`Paragraph`}</Paragraph>
+</Playground>
+
+## Link
+
+<Playground>
+    <Link href="https://agrp.dev">{`Link`}</Link>
+</Playground>
