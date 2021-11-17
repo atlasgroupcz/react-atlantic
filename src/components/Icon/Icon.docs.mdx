@@ -6,26 +6,23 @@ menu: Components
 import { Playground } from 'docz';
 import { Icon } from '.';
 import { IconsMap } from '.';
+import { WrapperHorizontal } from '../../gatsby-theme-docz/components/Wrapper';
 export const supportedNames = Object.keys(IconsMap);
 
 # Icon
 
 Icon component provides set of basic svg icons commonly used in web apps
 
-## API
-
-TODO: Props
-
 ## Supported Icons
 
 Name of specific icon is in title of each icon - just hover icon to see its name
 
 <Playground>
-    <>
+    <WrapperHorizontal>
         {supportedNames.map((name) => (
             <Icon name={name} title={name} key={name} />
         ))}
-    </>
+    </WrapperHorizontal>
 </Playground>
 
 ## Rotating prop

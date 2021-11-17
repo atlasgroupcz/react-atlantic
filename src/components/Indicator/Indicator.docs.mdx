@@ -5,12 +5,11 @@ menu: Components
 
 import { Playground } from 'docz';
 import { Indicator } from './view/Indicator';
+import { WrapperHorizontal } from '../../gatsby-theme-docz/components/Wrapper';
 
 # Indicator
 
 Used to indicate some news or changes.
-
-## Props
 
 ## Basic usage
 
@@ -21,18 +20,22 @@ Used to indicate some news or changes.
 ## Using different types
 
 <Playground>
-    <Indicator type="default" />
-    <Indicator type="primary" />
-    <Indicator type="success" />
-    <Indicator type="warning" />
-    <Indicator type="error" />
-    <Indicator type="info" />
+    <WrapperHorizontal>
+        <Indicator type="default" />
+        <Indicator type="primary" />
+        <Indicator type="success" />
+        <Indicator type="warning" />
+        <Indicator type="error" />
+        <Indicator type="info" />
+    </WrapperHorizontal>
 </Playground>
 
 ## Using different sizes
 
 <Playground>
-    <Indicator size="small" />
-    <Indicator size="medium" />
-    <Indicator size="large" />
+    <WrapperHorizontal>
+        <Indicator size="small" type="primary" />
+        <Indicator size="medium" type="primary" />
+        <Indicator size="large" type="primary" />
+    </WrapperHorizontal>
 </Playground>

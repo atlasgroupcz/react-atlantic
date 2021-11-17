@@ -7,6 +7,7 @@ import { Playground } from 'docz';
 import { InputFloatingLabelView, InputDefaultView, useInputFloatingLabel, useInputChange, useInputClearable } from '.';
 import { wrap } from '@atlasgroup/react-wrap';
 import { Icon } from '../Icon';
+import { WrapperHorizontal, WrapperVertical } from '../../gatsby-theme-docz/components/Wrapper';
 
 export const Inputs = {
     Default: wrap(InputDefaultView, useInputChange),
@@ -18,42 +19,51 @@ export const Inputs = {
 
 Alternative to basic HTML input
 
-## API
-
-TODO: Props
-
 ## Basic usage
 
 <Playground>
     <InputDefaultView />
-    <InputDefaultView isRound />
-    <InputDefaultView isFullWidth />
-    <InputFloatingLabelView label={'Input label'} />
-    <InputFloatingLabelView isRound label={'Input label'} />
-    <InputFloatingLabelView isFullWidth label={'Input label'} />
 </Playground>
 
-## Sizes
+## Using different sizes
 
 <Playground>
-    <InputDefaultView size="small" />
-    <InputDefaultView size="medium" />
-    <InputDefaultView size="large" />
-    <InputFloatingLabelView label={'Input label'} size="small" />
-    <InputFloatingLabelView label={'Input label'} size="medium" />
-    <InputFloatingLabelView label={'Input label'} size="large" />
+    <WrapperHorizontal>
+        <InputDefaultView size="small" />
+        <InputDefaultView size="medium" />
+        <InputDefaultView size="large" />
+    </WrapperHorizontal>
+</Playground>
+
+## Full width
+
+<Playground>
+    <InputDefaultView isFullWidth />
+</Playground>
+
+## Other props
+
+<Playground>
+    <InputDefaultView isRound />
+</Playground>
+
+## Floating label
+
+<Playground>
+    <WrapperHorizontal>
+        <InputFloatingLabelView label={'Input label'} size="small" />
+        <InputFloatingLabelView label={'Input label'} size="medium" />
+        <InputFloatingLabelView label={'Input label'} size="large" />
+    </WrapperHorizontal>
 </Playground>
 
 ## Prefix & sufix
 
 <Playground>
-    <InputDefaultView prefix={<Icon name={'close'} />} />
-    <br />
-    <InputDefaultView suffix={<Icon name={'close'} />} />
-    <br />
-    <InputFloatingLabelView prefix={<Icon name={'close'} />} label={'Input label'} />
-    <br />
-    <InputFloatingLabelView suffix={<Icon name={'close'} />} label={'Input label'} />
+    <WrapperHorizontal>
+        <InputDefaultView prefix={<Icon name={'close'} />} />
+        <InputDefaultView suffix={<Icon name={'close'} />} />
+    </WrapperHorizontal>
 </Playground>
 
 ## Hooks variants
