@@ -13,27 +13,29 @@ export const page = 5;
 
 # Pagination
 
+Pagination allows you to break large amounts of content to multiple pages.
+
+## Basic usage
+
 ```tsx
 const total = 1000;
 const pageSize = 10;
 const page = 5;
 ```
 
-## Different types
-
-### Default
-
 <Playground>
     <Pagination total={total} pageSize={pageSize} page={page} />
 </Playground>
 
-### hide arrows
+## Props
+
+### Hide arrows
 
 <Playground>
     <Pagination total={total} pageSize={pageSize} page={page} showArrows={false} />
 </Playground>
 
-### custom arrows
+### Custom arrows
 
 <Playground>
     <Pagination
@@ -45,7 +47,7 @@ const page = 5;
     />
 </Playground>
 
-### custom pages
+### Custom pages
 
 <Playground>
     <Pagination
@@ -56,7 +58,7 @@ const page = 5;
     />
 </Playground>
 
-### custom separators
+### Custom separators
 
 <Playground>
     <Pagination
@@ -68,7 +70,7 @@ const page = 5;
     />
 </Playground>
 
-### without separators
+### Without separators
 
 <Playground>
     <Pagination total={total} pageSize={pageSize} page={page} separatorLeft={null} separatorRight={null} />

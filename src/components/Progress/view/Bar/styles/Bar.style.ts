@@ -18,6 +18,7 @@ const animationFill = keyframes`
 export const StyledProgressBar = styled.div<StyledProgressBarProps>`
     display: flex;
     justify-content: space-between;
+    min-width: 350px;
     width: 100%;
     box-sizing: border-box;
     padding: 0;
@@ -32,9 +33,7 @@ export const StyledProgressBarLine = styled.div<StyledProgressBarProps>`
     border-radius: ${({ theme }) => theme.radius};
 `;
 
-export const StyledProgressBarFillContainer = styled.div<
-    StyledProgressBarProps
->`
+export const StyledProgressBarFillContainer = styled.div<StyledProgressBarProps>`
     width: ${({ progress = 0 }) => progress}%;
     height: 100%;
     transition: width 0.5s cubic-bezier(0.79, 0.14, 0.15, 0.86);

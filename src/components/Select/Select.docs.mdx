@@ -21,7 +21,7 @@ export const options = [
 
 Is an alternative to the [`<select>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select) element.
 
-## Basic usage
+## Common usage
 
 ```tsx
 import { Select, useSelect, styled } from '@atlasgroup/react-atlantic';
@@ -39,9 +39,7 @@ const ProjectSpecificSelect = wrap(ProjectSpecificStyledSelect, useSelect);
 
 > Same goes for `SelectMulti` that should be wrapped with `useSelectMulti`.
 
-## Different types
-
-### Default
+## Basic usage
 
 <Playground>
     <Select options={options} />
@@ -63,7 +61,7 @@ const ProjectSpecificSelect = wrap(ProjectSpecificStyledSelect, useSelect);
     </WrapperHorizontal>
 </Playground>
 
-## FullWidth
+## Full width
 
 <Playground>
     <Select options={options} isFullWidth />
