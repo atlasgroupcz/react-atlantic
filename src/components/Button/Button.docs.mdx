@@ -5,14 +5,11 @@ menu: Components
 
 import { Playground } from 'docz';
 import { Button, SimpleButton, PureButton } from './view';
+import { WrapperVertical, WrapperHorizontal } from '../../gatsby-theme-docz/components/Wrapper';
 
 # Button
 
 Just a button, you click it, stuff happens.
-
-## API
-
-TODO: Props
 
 ## Basic button
 
@@ -23,38 +20,44 @@ TODO: Props
 ## Using different types
 
 <Playground>
-    <Button type="default">Default</Button>
-    <Button type="primary">Primary</Button>
-    <Button type="success">Success</Button>
-    <Button type="warning">Warning</Button>
-    <Button type="error">Error</Button>
-    <Button type="info">Info</Button>
-    <Button type="dashed">Dashed</Button>
-</Playground>
-
-## Full width button
-
-<Playground>
-    <Button isFullWidth>Full width</Button>
+    <WrapperHorizontal>
+        <Button type="default">Default</Button>
+        <Button type="primary">Primary</Button>
+        <Button type="success">Success</Button>
+        <Button type="warning">Warning</Button>
+        <Button type="error">Error</Button>
+        <Button type="info">Info</Button>
+        <Button type="dashed">Dashed</Button>
+    </WrapperHorizontal>
 </Playground>
 
 ## Using different sizes
 
 <Playground>
-    <Button size="small">Small</Button>
-    <Button size="medium">Medium</Button>
-    <Button size="large">Large</Button>
+    <WrapperHorizontal>
+        <Button size="small">Small</Button>
+        <Button size="medium">Medium</Button>
+        <Button size="large">Large</Button>
+    </WrapperHorizontal>
 </Playground>
 
-## Using other props
+## Full width
 
 <Playground>
-    <Button isRound>Round</Button>
-    <Button isTransparent>Transparent</Button>
-    <Button isDisabled>Disabled</Button>
+    <Button isFullWidth>Full width</Button>
 </Playground>
 
-## Variants
+## Other props
+
+<Playground>
+    <WrapperHorizontal>
+        <Button isRound>Round</Button>
+        <Button isDisabled>Disabled</Button>
+        <Button isTransparent>Transparent</Button>
+    </WrapperHorizontal>
+</Playground>
+
+## Other variants
 
 <Playground>
     <SimpleButton>Simple Button</SimpleButton>
