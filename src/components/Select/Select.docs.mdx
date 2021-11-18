@@ -4,14 +4,12 @@ menu: Components
 ---
 
 import { Playground } from 'docz';
-import { Select, SelectMulti, useSelect, useSelectMulti } from '.';
+import { Select as SelectView, SelectMulti as SelectMultiView, useSelect, useSelectMulti } from '.';
 import { wrap } from '@atlasgroup/react-wrap';
 import { WrapperHorizontal } from '../../gatsby-theme-docz/components/Wrapper';
 
-export const Selects = {
-    Default: wrap(Select, useSelect),
-    Multi: wrap(SelectMulti, useSelectMulti),
-};
+export const Select = wrap(SelectView, useSelect);
+export const SelectMulti = wrap(SelectMultiView, useSelectMulti);
 
 export const options = [
     { value: 'UK', label: 'England 🇬🇧' },
@@ -28,7 +26,10 @@ Is an alternative to the [`<select>`](https://developer.mozilla.org/en-US/docs/W
 import { Select, useSelect, styled } from '@atlasgroup/react-atlantic';
 import { wrap } from '@atlasgroup/react-wrap';
 
-const ProjectSpecificStyledSelect = styled(Select)``;
+// Optional
+const ProjectSpecificStyledSelect = styled(Select)`
+    // ... Project specific styles ...
+`;
 
 const ProjectSpecificSelect = wrap(ProjectSpecificStyledSelect, useSelect);
 ```
@@ -42,27 +43,33 @@ const ProjectSpecificSelect = wrap(ProjectSpecificStyledSelect, useSelect);
 ### Default
 
 <Playground>
-    <Selects.Default options={options} />;
+    <Select options={options} />
 </Playground>
 
 ### Multi
 
 <Playground>
-    <Selects.Multi options={options} />;
+    <Select options={options} />
 </Playground>
 
 ## Different sizes
 
 <Playground>
     <WrapperHorizontal>
-        <Selects.Default options={options} size="small" />
-        <Selects.Default options={options} size="medium" />
-        <Selects.Default options={options} size="large" />
+        <Select options={options} size="small" />
+        <Select options={options} size="medium" />
+        <Select options={options} size="large" />
     </WrapperHorizontal>
 </Playground>
 
 ## FullWidth
 
 <Playground>
-    <Selects.Default options={options} isFullWidth />;
+    <Select options={options} isFullWidth />
 </Playground>
+
+## Known issues
+
+-   [#1] - Unnecessary wrapping of the component in each project
+-   [#2] - The component is not accessible via keyboard (might be useful for accessibility)
+-   [#3] - Third party component is used
