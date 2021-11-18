@@ -5,22 +5,21 @@ menu: Components
 
 import { Playground } from 'docz';
 import { Title, Text, Paragraph } from '.';
+import { WrapperVertical } from '../../gatsby-theme-docz/components/Wrapper';
 
-# TextArea
+# Typography
 
 Better looking alternative to native HTML typography elements
 
-## API
-
-TODO: Props
-
 ## Title
+
+All HTML headings, `<h1>` through `<h5>`
 
 <Playground>
     <Title>{`Title`}</Title>
 </Playground>
 
-## Title levels
+### Title sizing
 
 <Playground>
     <WrapperVertical>
@@ -38,28 +37,34 @@ TODO: Props
     <Text>{`Text`}</Text>
 </Playground>
 
-## Text element
+### Text type
 
 <Playground>
-    <Text element={`code`}>{`code`}</Text>
-    <Text element={`del`}>{`del`}</Text>
-    <Text element={`mark`}>{`mark`}</Text>
-    <Text element={`span`}>{`span`}</Text>
-    <Text element={`strong`}>{`strong`}</Text>
+    <WrapperVertical>
+        <Text type="default">{`default`}</Text>
+        <Text type="primary">{`primary`}</Text>
+        <Text type="success">{`success`}</Text>
+        <Text type="warning">{`warning`}</Text>
+        <Text type="error">{`error`}</Text>
+        <Text type="info">{`info`}</Text>
+    </WrapperVertical>
 </Playground>
 
-## Text type
+### Text element
 
 <Playground>
-    <Text type="default">{`default`}</Text>
-    <Text type="primary">{`primary`}</Text>
-    <Text type="success">{`success`}</Text>
-    <Text type="warning">{`warning`}</Text>
-    <Text type="error">{`error`}</Text>
-    <Text type="info">{`info`}</Text>
+    <WrapperVertical>
+        <Text element={`code`}>{`code`}</Text>
+        <Text element={`del`}>{`del`}</Text>
+        <Text element={`mark`}>{`mark`}</Text>
+        <Text element={`span`}>{`span`}</Text>
+        <Text element={`strong`}>{`strong`}</Text>
+    </WrapperVertical>
 </Playground>
 
 ## Paragraph
+
+The `<p>` element defines a paragraph
 
 <Playground>
     <Paragraph>{`Paragraph`}</Paragraph>
