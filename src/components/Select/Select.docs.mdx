@@ -21,7 +21,9 @@ export const options = [
 
 Is an alternative to the [`<select>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select) element.
 
-## Basic usage
+## Common usage
+
+> `Select` must be wrapped with `useSelect` to make the element interactive. Using the component with a custom hook is encouraged.
 
 ```tsx
 import { Select, useSelect, styled } from '@atlasgroup/react-atlantic';
@@ -35,25 +37,13 @@ const ProjectSpecificStyledSelect = styled(Select)`
 const ProjectSpecificSelect = wrap(ProjectSpecificStyledSelect, useSelect);
 ```
 
-> `Select` must be wrapped with `useSelect` to make the element interactive. Using the component with a custom hook is encouraged.
-
-> Same goes for `SelectMulti` that should be wrapped with `useSelectMulti`.
-
-## Different types
-
-### Default
+## Basic usage
 
 <Playground>
     <Select options={options} />
 </Playground>
 
-### Multi
-
-<Playground>
-    <SelectMulti options={options} />
-</Playground>
-
-## Different sizes
+## Sizes
 
 <Playground>
     <WrapperHorizontal>
@@ -63,10 +53,20 @@ const ProjectSpecificSelect = wrap(ProjectSpecificStyledSelect, useSelect);
     </WrapperHorizontal>
 </Playground>
 
-## FullWidth
+## Full width
 
 <Playground>
     <Select options={options} isFullWidth />
+</Playground>
+
+## Other views
+
+### Multi
+
+> `SelectMulti` should be wrapped with `useSelectMulti`.
+
+<Playground>
+    <SelectMulti options={options} />
 </Playground>
 
 ## Known issues

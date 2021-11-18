@@ -11,23 +11,39 @@ import { DatePicker } from './view';
 -   This component is dependent on https://github.com/Hacker0x01/react-datepicker/ with custom input and header components
 -   Dependency docs https://reactdatepicker.com/
 
-## Common usage
+## Basic usage
 
 <Playground>
     {() => {
         const [selectedDate, setSelectedDate] = React.useState(new Date());
         return (
-            <div style={{ width: 200 }}>
-                <DatePicker
-                    todayButton={`Dnes`}
-                    placeholderText={`Vyberte datum`}
-                    isFullWidth
-                    dateFormat="dd. MM. yyyy"
-                    selected={selectedDate}
-                    onChange={setSelectedDate}
-                    minDate={new Date('2021/01/01')}
-                />
-            </div>
+            <DatePicker
+                todayButton={`Dnes`}
+                placeholderText={`Vyberte datum`}
+                dateFormat="dd. MM. yyyy"
+                selected={selectedDate}
+                onChange={setSelectedDate}
+                minDate={new Date('2021/01/01')}
+            />
+        );
+    }}
+</Playground>
+
+## Full width
+
+<Playground>
+    {() => {
+        const [selectedDate, setSelectedDate] = React.useState(new Date());
+        return (
+            <DatePicker
+                todayButton={`Dnes`}
+                placeholderText={`Vyberte datum`}
+                isFullWidth
+                dateFormat="dd. MM. yyyy"
+                selected={selectedDate}
+                onChange={setSelectedDate}
+                minDate={new Date('2021/01/01')}
+            />
         );
     }}
 </Playground>
@@ -36,6 +52,12 @@ import { DatePicker } from './view';
 
 <Playground>
     <DatePicker selected={new Date()} />
+</Playground>
+
+## Disabled
+
+<Playground>
+    <DatePicker disabled selected={new Date()} />
 </Playground>
 
 ## Custom date format
@@ -49,12 +71,6 @@ import { DatePicker } from './view';
 <Playground>
     <DatePicker minDate={new Date()} />
     <DatePicker maxDate={new Date()} />
-</Playground>
-
-## disabled
-
-<Playground>
-    <DatePicker disabled selected={new Date()} />
 </Playground>
 
 ## Custom Input
@@ -84,8 +100,6 @@ import { DatePicker } from './view';
 ## Different locales
 
 <Playground>
-    <>
-        <DatePicker locale="cs" />
-        <DatePicker locale="en" />
-    </>
+    <DatePicker locale="cs" />
+    <DatePicker locale="en" />
 </Playground>

@@ -5,56 +5,59 @@ menu: Components
 
 import { Playground } from 'docz';
 import { Button, SimpleButton, PureButton } from './view';
+import { WrapperVertical, WrapperHorizontal } from '../../gatsby-theme-docz/components/Wrapper';
 
 # Button
 
 Just a button, you click it, stuff happens.
 
-## API
-
-TODO: Props
-
-## Basic button
+## Basic usage
 
 <Playground>
     <Button>Button</Button>
 </Playground>
 
-## Using different types
+## Types
 
 <Playground>
-    <Button type="default">Default</Button>
-    <Button type="primary">Primary</Button>
-    <Button type="success">Success</Button>
-    <Button type="warning">Warning</Button>
-    <Button type="error">Error</Button>
-    <Button type="info">Info</Button>
-    <Button type="dashed">Dashed</Button>
+    <WrapperHorizontal>
+        <Button type="default">Default</Button>
+        <Button type="primary">Primary</Button>
+        <Button type="success">Success</Button>
+        <Button type="warning">Warning</Button>
+        <Button type="error">Error</Button>
+        <Button type="info">Info</Button>
+        <Button type="dashed">Dashed</Button>
+    </WrapperHorizontal>
 </Playground>
 
-## Full width button
+## Sizes
+
+<Playground>
+    <WrapperHorizontal>
+        <Button size="small">Small</Button>
+        <Button size="medium">Medium</Button>
+        <Button size="large">Large</Button>
+    </WrapperHorizontal>
+</Playground>
+
+## Full width
 
 <Playground>
     <Button isFullWidth>Full width</Button>
 </Playground>
 
-## Using different sizes
+## Other props
 
 <Playground>
-    <Button size="small">Small</Button>
-    <Button size="medium">Medium</Button>
-    <Button size="large">Large</Button>
+    <WrapperHorizontal>
+        <Button isRound>Round</Button>
+        <Button isDisabled>Disabled</Button>
+        <Button isTransparent>Transparent</Button>
+    </WrapperHorizontal>
 </Playground>
 
-## Using other props
-
-<Playground>
-    <Button isRound>Round</Button>
-    <Button isTransparent>Transparent</Button>
-    <Button isDisabled>Disabled</Button>
-</Playground>
-
-## Variants
+## Other variants
 
 <Playground>
     <SimpleButton>Simple Button</SimpleButton>

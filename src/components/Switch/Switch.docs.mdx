@@ -12,7 +12,16 @@ import { WrapperHorizontal, WrapperVertical } from '../../gatsby-theme-docz/comp
 
 Is a component that allows the user to toggle between two states.
 
-## Using different types
+## Basic usage
+
+<Playground>
+    <WrapperVertical>
+        <Switch />
+        <Switch isChecked />
+    </WrapperVertical>
+</Playground>
+
+## Types
 
 <Playground>
     <WrapperVertical>
@@ -25,7 +34,9 @@ Is a component that allows the user to toggle between two states.
     </WrapperVertical>
 </Playground>
 
-## Using on & off texts
+## Other props
+
+### On & Off texts
 
 <Playground>
     <WrapperVertical>
@@ -34,21 +45,23 @@ Is a component that allows the user to toggle between two states.
     </WrapperVertical>
 </Playground>
 
-## Using check states
+## isDisabled
+
+<Playground>
+    <WrapperVertical>
+        <Switch isChecked isDisabled />
+        <Switch isChecked={false} isDisabled />
+    </WrapperVertical>
+</Playground>
+
+### isPartiallyChecked state
+
+Represent that multiple sub-options are selected in the list.
 
 <Playground>
     <WrapperVertical>
         <Switch isChecked={false} isPartiallyChecked />
         <Switch isChecked isPartiallyChecked />
         <Switch isChecked={false} isPartiallyChecked={false} />
-    </WrapperVertical>
-</Playground>
-
-## Using disabled state
-
-<Playground>
-    <WrapperVertical>
-        <Switch isChecked isDisabled />
-        <Switch isChecked={false} isDisabled />
     </WrapperVertical>
 </Playground>

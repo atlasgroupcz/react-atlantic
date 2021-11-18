@@ -5,19 +5,26 @@ menu: Components
 
 import { Playground } from 'docz';
 import { Skeleton } from '.';
+import { WrapperVertical } from '../../gatsby-theme-docz/components/Wrapper';
 
 # Skeleton
 
 Element to use while the main component in loading
 
-## API
-
-TODO: Props
-
-## Basic Skeleton
+## Basic usage
 
 <Playground>
     <Skeleton height={50} width={100} />
+</Playground>
+
+## Sizes
+
+<Playground>
+    <WrapperVertical>
+        <Skeleton size="small" width={200} />
+        <Skeleton size="medium" width={200} />
+        <Skeleton size="large" width={200} />
+    </WrapperVertical>
 </Playground>
 
 ## Known bugs
