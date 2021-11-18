@@ -3,10 +3,20 @@ name: Select
 menu: Components
 ---
 
-import { Playground, Props } from 'docz';
+import { Playground } from 'docz';
 import { Select, SelectMulti, useSelect, useSelectMulti } from '.';
 import { wrap } from '@atlasgroup/react-wrap';
 import { WrapperHorizontal } from '../../gatsby-theme-docz/components/Wrapper';
+
+export const Selects = {
+    Default: wrap(Select, useSelect),
+    Multi: wrap(SelectMulti, useSelectMulti),
+};
+
+export const options = [
+    { value: 'UK', label: 'England 🇬🇧' },
+    { value: 'CZ', label: 'Czech Republic 🇨🇿' },
+];
 
 # Select
 
@@ -16,6 +26,7 @@ Is an alternative to the [`<select>`](https://developer.mozilla.org/en-US/docs/W
 
 ```tsx
 import { Select, useSelect, styled } from '@atlasgroup/react-atlantic';
+import { wrap } from '@atlasgroup/react-wrap';
 
 const ProjectSpecificStyledSelect = styled(Select)``;
 
@@ -31,63 +42,27 @@ const ProjectSpecificSelect = wrap(ProjectSpecificStyledSelect, useSelect);
 ### Default
 
 <Playground>
-    {() => {
-        const ProjectSelect = wrap(Select, useSelect);
-        return (
-            <ProjectSelect
-                options={[
-                    { value: 'UK', label: 'Anglie 🇬🇧' },
-                    { value: 'CZ', label: 'Česko 🇨🇿' },
-                ]}
-            />
-        );
-    }}
+    <Selects.Default options={options} />;
 </Playground>
 
 ### Multi
 
 <Playground>
-    {() => {
-        const ProjectMultiSelect = wrap(SelectMulti, useSelectMulti);
-        return (
-            <ProjectMultiSelect
-                options={[
-                    { value: 'UK', label: 'Anglie 🇬🇧' },
-                    { value: 'CZ', label: 'Česko 🇨🇿' },
-                ]}
-            />
-        );
-    }}
+    <Selects.Multi options={options} />;
 </Playground>
 
 ## Different sizes
 
 <Playground>
-    {() => {
-        const ProjectSelect = wrap(Select, useSelect);
-        const options = [
-            { value: 'UK', label: 'Anglie 🇬🇧' },
-            { value: 'CZ', label: 'Česko 🇨🇿' },
-        ];
-        return (
-            <WrapperHorizontal>
-                <ProjectSelect options={options} size="small" />
-                <ProjectSelect options={options} size="medium" />
-                <ProjectSelect options={options} size="large" />
-            </WrapperHorizontal>
-        );
-    }}
+    <WrapperHorizontal>
+        <Selects.Default options={options} size="small" />
+        <Selects.Default options={options} size="medium" />
+        <Selects.Default options={options} size="large" />
+    </WrapperHorizontal>
 </Playground>
 
 ## FullWidth
 
 <Playground>
-    {() => {
-        const ProjectSelect = wrap(Select, useSelect);
-        const options = [
-            { value: 'UK', label: 'Anglie 🇬🇧' },
-            { value: 'CZ', label: 'Česko 🇨🇿' },
-        ];
-        return <ProjectSelect options={options} isFullWidth />;
-    }}
+    <Selects.Default options={options} isFullWidth />;
 </Playground>
