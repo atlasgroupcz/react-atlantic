@@ -6,6 +6,10 @@ menu: Components
 import { Playground } from 'docz';
 import { RadioButtons, RadioCircular } from './views';
 import { WrapperVertical } from '../../gatsby-theme-docz/components/Wrapper';
+export const values = [
+    { value: 'UK', label: 'Anglie 🇬🇧' },
+    { value: 'CZ', label: 'Česko 🇨🇿' },
+];
 
 # Radio
 
@@ -14,15 +18,15 @@ Component to display switch between defined options
 ## Common usage
 
 ```tsx
-import React from 'react';
+import React, { useState } from 'react';
 import { RadioButtons, RadioButtonProps } from '@atlasgroup/react-atlantic';
 
 const Component = () => {
     const values = [
-        { value: 'UK', label: 'Anglie 🇬🇧' },
-        { value: 'CZ', label: 'Česko 🇨🇿' },
+        { value: 'UK', label: 'England 🇬🇧' },
+        { value: 'CZ', label: 'Czech Republic 🇨🇿' },
     ];
-    const [value, setValue] = useState<string>(values[0]);
+    const [value, setValue] = useState<string>(values[0].value);
 
     const onChange: RadioButtonProps['onChange'] = (e) => setValue(e.currentTarget.value);
 
@@ -34,20 +38,8 @@ const Component = () => {
 
 <Playground>
     <WrapperVertical>
-        <RadioButtons
-            values={[
-                { value: 'UK', label: 'Anglie 🇬🇧' },
-                { value: 'CZ', label: 'Česko 🇨🇿' },
-            ]}
-            value="UK"
-        />
-        <RadioCircular
-            values={[
-                { value: 'UK', label: 'Anglie 🇬🇧' },
-                { value: 'CZ', label: 'Česko 🇨🇿' },
-            ]}
-            value="CZ"
-        />
+        <RadioButtons values={values} value="UK" />
+        <RadioCircular values={values} value="CZ" />
     </WrapperVertical>
 </Playground>
 
