@@ -8,8 +8,9 @@ import { Select as SelectView, SelectMulti as SelectMultiView, useSelect, useSel
 import { wrap } from '@atlasgroup/react-wrap';
 import { WrapperHorizontal } from '../../gatsby-theme-docz/components/Wrapper';
 
-export const Select = wrap(SelectView, useSelect);
 export const SelectMulti = wrap(SelectMultiView, useSelectMulti);
+
+export const Select = wrap(SelectView, useSelect);
 
 export const options = [
     { value: 'UK', label: 'England 🇬🇧' },
