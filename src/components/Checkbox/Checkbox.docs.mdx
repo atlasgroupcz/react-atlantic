@@ -21,7 +21,7 @@ import { Checkbox as CheckboxView, useCheckbox } from '@atlasgroup/react-atlanti
 const Checkbox = wrap(CheckboxView, useCheckbox);
 ```
 
-> `Checkbox` must be wrapped with `useCheckbox` to make the element interactive. But be aware `useCheckbox` hook provides basic checkbox logic only such as handling `isChecked` prop
+> `Checkbox` must be wrapped with `useCheckbox` to make the element interactive. But be aware `useCheckbox` hook provides basic checkbox logic only such as handling `isChecked` prop, for more info see [known bugs section](#known-bugs)
 
 <Playground>
     <Checkbox>Check ME</Checkbox>
@@ -54,6 +54,7 @@ const Checkbox = wrap(CheckboxView, useCheckbox);
 ## Known bugs
 
 -   `useCheckbox` hook does not handle correctly `isPartiallyChecked` prop
+-   `useCheckbox` hook does not pass props (e.g. `size`, `horizontalPosition`, ...)
 -   `CheckboxView` can not have `isPartiallyChecked` and `isChecked` prop at the same time
 
 <Playground>
