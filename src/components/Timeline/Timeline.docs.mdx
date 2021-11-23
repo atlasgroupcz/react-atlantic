@@ -6,49 +6,37 @@ menu: Components
 import { Playground } from 'docz';
 import { Timeline } from '.';
 import { TimelineItem } from './view/Default/components';
-import { WrapperHorizontal } from '../../gatsby-theme-docz/components/Wrapper';
+import { WrapperHorizontal, WrapperVertical } from '../../gatsby-theme-docz/components/Wrapper';
 
 # Timeline
 
 Component designed for visualization of history
 
-## API
-
-TODO: Props
-
 ## Basic Timeline
 
 <Playground>
     <Timeline>
-        <TimelineItem>{`item 1`}</TimelineItem>
-        <TimelineItem>{`item 2`}</TimelineItem>
-        <TimelineItem>{`item 3`}</TimelineItem>
+        <TimelineItem>Item 1</TimelineItem>
+        <TimelineItem>Item 2</TimelineItem>
+        <TimelineItem>Item 3</TimelineItem>
     </Timeline>
 </Playground>
 
 ## Align Timeline
 
 <Playground>
-<WrapperHorizontal>
-    <Timeline align="right">
-        <TimelineItem>{`item 1`}</TimelineItem>
-        <TimelineItem>{`item 2`}</TimelineItem>
-        <TimelineItem>{`item 3`}</TimelineItem>
-    </Timeline>
-
-    <Timeline align="left">
-        <TimelineItem>{`item 1`}</TimelineItem>
-        <TimelineItem>{`item 2`}</TimelineItem>
-        <TimelineItem>{`item 3`}</TimelineItem>
-    </Timeline>
-
-    <Timeline align="alternate">
-        <TimelineItem>{`item 1`}</TimelineItem>
-        <TimelineItem>{`item 2`}</TimelineItem>
-        <TimelineItem>{`item 3`}</TimelineItem>
-    </Timeline>
-
-</WrapperHorizontal>
+    <WrapperVertical>
+        <Timeline align="right">
+            <TimelineItem>Item 1</TimelineItem>
+            <TimelineItem>Item 2</TimelineItem>
+            <TimelineItem>Item 3</TimelineItem>
+        </Timeline>
+        <Timeline align="left">
+            <TimelineItem>Item 1</TimelineItem>
+            <TimelineItem>Item 2</TimelineItem>
+            <TimelineItem>Item 3</TimelineItem>
+        </Timeline>
+    </WrapperVertical>
 </Playground>
 
 ## Custom dot for TimelineItem
@@ -76,9 +64,9 @@ TODO: Props
 
 <Playground>
     <Timeline>
-        <TimelineItem oppositeContent={<p>Opposite content</p>}>{`item 1`}</TimelineItem>
-        <TimelineItem>{`item 2`}</TimelineItem>
-        <TimelineItem>{`item 3`}</TimelineItem>
+        <TimelineItem oppositeContent="Opposite content">Item 1</TimelineItem>
+        <TimelineItem>Item 2</TimelineItem>
+        <TimelineItem>Item 3</TimelineItem>
     </Timeline>
 </Playground>
 
@@ -86,12 +74,12 @@ TODO: Props
 
 <Playground>
     <Timeline>
-        <TimelineItem type="default">{`item 1`}</TimelineItem>
-        <TimelineItem type="primary">{`item 2`}</TimelineItem>
-        <TimelineItem type="success">{`item 3`}</TimelineItem>
-        <TimelineItem type="warning">{`item 4`}</TimelineItem>
-        <TimelineItem type="error">{`item 5`}</TimelineItem>
-        <TimelineItem type="info">{`item 6`}</TimelineItem>
+        <TimelineItem type="default">Item 1</TimelineItem>
+        <TimelineItem type="primary">Item 2</TimelineItem>
+        <TimelineItem type="success">Item 3</TimelineItem>
+        <TimelineItem type="warning">Item 4</TimelineItem>
+        <TimelineItem type="error">Item 5</TimelineItem>
+        <TimelineItem type="info">Item 6</TimelineItem>
     </Timeline>
 </Playground>
 
@@ -99,9 +87,9 @@ TODO: Props
 
 <Playground>
     <Timeline>
-        <TimelineItem unique="YES">{`item 1`}</TimelineItem>
-        <TimelineItem unique={20}>{`item 2`}</TimelineItem>
-        <TimelineItem>{`item 3`}</TimelineItem>
+        <TimelineItem unique="YES">Item 1</TimelineItem>
+        <TimelineItem unique={20}>Item 2</TimelineItem>
+        <TimelineItem>Item 3</TimelineItem>
     </Timeline>
 </Playground>
 
@@ -109,9 +97,9 @@ TODO: Props
 
 <Playground>
     <Timeline>
-        <TimelineItem align="left">{`item 1`}</TimelineItem>
-        <TimelineItem align="left">{`item 2`}</TimelineItem>
-        <TimelineItem align="right">{`item 3`}</TimelineItem>
+        <TimelineItem align="left">Item 1</TimelineItem>
+        <TimelineItem align="left">Item 2</TimelineItem>
+        <TimelineItem align="right">Item 3</TimelineItem>
     </Timeline>
 </Playground>
 
