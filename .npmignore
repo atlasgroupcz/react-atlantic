@@ -14,3 +14,4 @@ scripts
 .babelrc
 .commitlint.config.json
 jest.config.js
+gatsby-config.js
