@@ -213,6 +213,7 @@ export const IconsMap = {
     shareSolid: <Icons.ShareSolid />,
     shieldCheck: <Icons.ShieldCheck />,
     timesOctagon: <Icons.TimesOctagon />,
+    marker: <Icons.Marker />,
 };
 
 export type IconName = keyof typeof IconsMap;
