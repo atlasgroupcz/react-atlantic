@@ -13,7 +13,7 @@ jobs:
         steps:
             - uses: actions/checkout@v2
               with:
-                  token: '${{ secrets.PAT }}'
+                  token: '${{ secrets.PRIVATE_ACCESS_TOKEN_DEPLOYMENT }}'
             - uses: fusion-engineering/setup-git-credentials@v2
               with:
                   credentials: ${{ secrets.GIT_CREDENTIALS }}
