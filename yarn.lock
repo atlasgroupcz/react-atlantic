@@ -38,6 +38,7 @@ __metadata:
     "@wojtekmaj/enzyme-adapter-react-17": ^0.6.5
     babel-preset-react-app: ^10.0.0
     conventional-changelog: ^3.1.24
+    conventional-changelog-cli: ^2.1.1
     cross-env: ^7.0.3
     devmoji: ^2.3.0
     docz: ^2.3.1
@@ -6838,6 +6839,21 @@ __metadata:
   dependencies:
     q: ^1.5.1
   checksum: 12ecbd928f8c261f9afaac067fcc0cf10ff6ac8505e4285dc3d9959ee072a8937ac942d505e850dce27c4527046009adb22b498ba0b10802916d2c7d2dc1f7bc
+  languageName: node
+  linkType: hard
+
+"conventional-changelog-cli@npm:^2.1.1":
+  version: 2.1.1
+  resolution: "conventional-changelog-cli@npm:2.1.1"
+  dependencies:
+    add-stream: ^1.0.0
+    conventional-changelog: ^3.1.24
+    lodash: ^4.17.15
+    meow: ^8.0.0
+    tempfile: ^3.0.0
+  bin:
+    conventional-changelog: cli.js
+  checksum: 631b84aa8c1f2f9118bd23e33ff5f86425ce85f8a6ea47bd0ef1452aee49e8f1c7737c560cccddfcefa96230ba5ca6cb3195fd8242a79a55716a98eb9ebf4dd1
   languageName: node
   linkType: hard
 
@@ -21747,6 +21763,23 @@ __metadata:
     mkdirp: ^1.0.3
     yallist: ^4.0.0
   checksum: a04c07bb9e2d8f46776517d4618f2406fb977a74d914ad98b264fc3db0fe8224da5bec11e5f8902c5b9bcb8ace22d95fbe3c7b36b8593b7dfc8391a25898f32f
+  languageName: node
+  linkType: hard
+
+"temp-dir@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "temp-dir@npm:2.0.0"
+  checksum: cc4f0404bf8d6ae1a166e0e64f3f409b423f4d1274d8c02814a59a5529f07db6cd070a749664141b992b2c1af337fa9bb451a460a43bb9bcddc49f235d3115aa
+  languageName: node
+  linkType: hard
+
+"tempfile@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "tempfile@npm:3.0.0"
+  dependencies:
+    temp-dir: ^2.0.0
+    uuid: ^3.3.2
+  checksum: ebf07b7e580ab0a0673093d84007783f3d3bef9f82108e463c353974382296ba2d3309c8ac9574efba0dec8c99c27c5392f11b3de85d3f3a88a22850e9f782ef
   languageName: node
   linkType: hard
 

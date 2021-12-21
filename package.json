@@ -49,6 +49,7 @@
         "@wojtekmaj/enzyme-adapter-react-17": "^0.6.5",
         "babel-preset-react-app": "^10.0.0",
         "conventional-changelog": "^3.1.24",
+        "conventional-changelog-cli": "^2.1.1",
         "cross-env": "^7.0.3",
         "devmoji": "^2.3.0",
         "docz": "^2.3.1",
