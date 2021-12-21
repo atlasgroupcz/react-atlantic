@@ -1,0 +1,67 @@
+---
+name: Switch
+menu: Components
+---
+
+import { Playground, Props } from 'docz';
+import { Switch, useSwitch } from '.';
+import { wrap } from '@atlasgroup/react-wrap';
+import { WrapperHorizontal, WrapperVertical } from '../../gatsby-theme-docz/components/Wrapper';
+
+# Switch
+
+Is a component that allows the user to toggle between two states.
+
+## Basic usage
+
+<Playground>
+    <WrapperVertical>
+        <Switch />
+        <Switch isChecked />
+    </WrapperVertical>
+</Playground>
+
+## Types
+
+<Playground>
+    <WrapperVertical>
+        <Switch type="default" isChecked />
+        <Switch type="primary" isChecked />
+        <Switch type="info" isChecked />
+        <Switch type="success" isChecked />
+        <Switch type="warning" isChecked />
+        <Switch type="error" isChecked />
+    </WrapperVertical>
+</Playground>
+
+## Other props
+
+### On & Off texts
+
+<Playground>
+    <WrapperVertical>
+        <Switch textOn="On" isChecked />
+        <Switch textOff="Off" isChecked={false} />
+    </WrapperVertical>
+</Playground>
+
+## isDisabled
+
+<Playground>
+    <WrapperVertical>
+        <Switch isChecked isDisabled />
+        <Switch isChecked={false} isDisabled />
+    </WrapperVertical>
+</Playground>
+
+### isPartiallyChecked state
+
+Represent that multiple sub-options are selected in the list.
+
+<Playground>
+    <WrapperVertical>
+        <Switch isChecked={false} isPartiallyChecked />
+        <Switch isChecked isPartiallyChecked />
+        <Switch isChecked={false} isPartiallyChecked={false} />
+    </WrapperVertical>
+</Playground>

@@ -9,3 +9,4 @@ Dockerfile
 Dockerfile.dev
 yarn.lock
 lib
+.yarn

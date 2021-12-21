@@ -1,0 +1,65 @@
+---
+name: Checkbox
+menu: Components
+---
+
+import { Playground } from 'docz';
+import { Checkbox as CheckboxView, useCheckbox } from '.';
+import { WrapperHorizontal } from '../../gatsby-theme-docz/components/Wrapper';
+import { wrap } from '@atlasgroup/react-wrap';
+export const Checkbox = wrap(CheckboxView, useCheckbox);
+
+# Checkbox
+
+Better looking alternative to native HTML checkbox
+
+## Basic usage
+
+```tsx
+import { Checkbox as CheckboxView, useCheckbox } from '@atlasgroup/react-atlantic';
+
+const Checkbox = wrap(CheckboxView, useCheckbox);
+```
+
+> `Checkbox` must be wrapped with `useCheckbox` to make the element interactive. But be aware `useCheckbox` hook provides basic checkbox logic only such as handling `isChecked` prop, for more info see [known bugs section](#known-bugs)
+
+<Playground>
+    <Checkbox>Check ME</Checkbox>
+</Playground>
+
+## Sizes
+
+<Playground>
+    <CheckboxView size="small">Check ME</CheckboxView>
+    <CheckboxView size="medium">Check ME</CheckboxView>
+    <CheckboxView size="large">Check ME</CheckboxView>
+</Playground>
+
+## Other props
+
+<Playground>
+    <Checkbox isDefaultChecked>Check ME</Checkbox>
+    <Checkbox isDisabled>Check ME</Checkbox>
+</Playground>
+
+## Text positions
+
+<Playground>
+    <WrapperHorizontal>
+        <CheckboxView horizontalPosition="left">Check ME</CheckboxView>
+        <CheckboxView horizontalPosition="right">Check ME</CheckboxView>
+    </WrapperHorizontal>
+</Playground>
+
+## Known bugs
+
+-   `useCheckbox` hook does not handle correctly `isPartiallyChecked` prop
+-   `useCheckbox` hook does not pass props (e.g. `size`, `horizontalPosition`, ...)
+-   `CheckboxView` can not have `isPartiallyChecked` and `isChecked` prop at the same time
+
+<Playground>
+    <Checkbox isPartiallyChecked>Check ME</Checkbox>
+    <CheckboxView isPartiallyChecked isChecked>
+        Check ME
+    </CheckboxView>
+</Playground>

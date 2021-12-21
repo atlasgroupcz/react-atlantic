@@ -72,6 +72,7 @@ export const StyledMessageContainer = styled.div.withConfig({
 export const StyledMessageIcon = styled(Icon).withConfig({
     shouldForwardProp: (prop) => !['isReversedColor'].includes(prop),
 })<MessageProps>`
+    flex-shrink: 0;
     margin-right: ${({ theme }) => theme.padding.md};
 
     ${({ theme, isReversedColor }) =>

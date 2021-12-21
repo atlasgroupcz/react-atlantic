@@ -1,0 +1,51 @@
+---
+name: Tabs
+menu: Components
+---
+
+import { Playground } from 'docz';
+import { Tabs } from '.';
+import { Text, Title } from '../Typography';
+import { useState } from 'react';
+import { WrapperHorizontal } from '../../gatsby-theme-docz/components/Wrapper';
+
+# Tabs
+
+Is a component that allows you to switch between different views.
+
+## Basic usage
+
+> Children of `Tabs` must have a key that corresponds with key of the tab in list, otherwise children order (index) is used.
+
+<Playground>
+    {() => {
+        const DEFAULT_TAB = '1';
+        const [activeTab, setActiveTab] = useState(DEFAULT_TAB);
+        const onClick = (event, key) => setActiveTab(key);
+        const List = ({ onClick }) => (
+            <WrapperHorizontal>
+                {[0, 1, 2].map((key) => (
+                    <Text element="strong" key={key} onClick={(e) => onClick(e, `${key}`)}>
+                        {`Tab ${key}`}
+                    </Text>
+                ))}
+            </WrapperHorizontal>
+        );
+        return (
+            <Tabs activeKey={activeTab} onClick={onClick} List={List}>
+                <Title level={5} key="0">{`Tab content 0️⃣`}</Title>
+                <Title level={5} key="1">{`Tab content 1️⃣`}</Title>
+                <Title level={5} key="2">{`Tab content 2️⃣`}</Title>
+            </Tabs>
+        );
+    }}
+</Playground>
+
+## Props
+
+Mandatory props to make everything work as it is supposed to are `activeKey`, `onClick`, `List` and `children`.
+
+-   **activeKey**: accepts string or number and indicates which tab is active at the moment
+-   **onClick**: accepts function and is called when user clicks on tab
+-   **List**: accepts a function component that is used to render list of tabs
+-   **children**: accepts children of `Tabs` component where each child is a tab content

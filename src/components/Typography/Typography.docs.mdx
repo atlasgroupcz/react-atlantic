@@ -1,0 +1,69 @@
+---
+name: Typography
+menu: Components
+---
+
+import { Playground } from 'docz';
+import { Title, Text, Paragraph } from '.';
+import { WrapperVertical } from '../../gatsby-theme-docz/components/Wrapper';
+
+# Typography
+
+Better looking alternative to native HTML typography elements
+
+## Title
+
+All HTML headings, `<h1>` through `<h5>`
+
+<Playground>
+    <Title>{`Title`}</Title>
+</Playground>
+
+### Title sizing
+
+<Playground>
+    <Title level={1}>{`Title 1`}</Title>
+    <Title level={2}>{`Title 2`}</Title>
+    <Title level={3}>{`Title 3`}</Title>
+    <Title level={4}>{`Title 4`}</Title>
+    <Title level={5}>{`Title 5`}</Title>
+</Playground>
+
+## Text
+
+<Playground>
+    <Text>{`Text`}</Text>
+</Playground>
+
+### Text type
+
+<Playground>
+    <WrapperVertical>
+        <Text type="default">{`default`}</Text>
+        <Text type="primary">{`primary`}</Text>
+        <Text type="success">{`success`}</Text>
+        <Text type="warning">{`warning`}</Text>
+        <Text type="error">{`error`}</Text>
+        <Text type="info">{`info`}</Text>
+    </WrapperVertical>
+</Playground>
+
+### Text element
+
+<Playground>
+    <WrapperVertical>
+        <Text element={`code`}>{`code`}</Text>
+        <Text element={`del`}>{`del`}</Text>
+        <Text element={`mark`}>{`mark`}</Text>
+        <Text element={`span`}>{`span`}</Text>
+        <Text element={`strong`}>{`strong`}</Text>
+    </WrapperVertical>
+</Playground>
+
+## Paragraph
+
+The `<p>` element defines a paragraph
+
+<Playground>
+    <Paragraph>{`Paragraph`}</Paragraph>
+</Playground>

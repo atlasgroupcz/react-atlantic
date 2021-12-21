@@ -1,0 +1,112 @@
+---
+name: Progress
+menu: Components
+---
+
+import { Playground } from 'docz';
+import { ProgressBar, ProgressCircle } from './view';
+import { WrapperVertical, WrapperHorizontal } from '../../gatsby-theme-docz/components/Wrapper';
+
+# Progress
+
+Components to display progress state.
+
+## Basic usage
+
+### Bar
+
+<Playground>
+    <ProgressBar value={0} />
+</Playground>
+
+### Circle
+
+<Playground>
+    <ProgressCircle value={0} />
+</Playground>
+
+## Progress bar
+
+<Playground>
+    <WrapperVertical>
+        <ProgressBar value={0} />
+        <ProgressBar value={25} />
+        <ProgressBar value={50} />
+        <ProgressBar value={75} />
+        <ProgressBar value={100} />
+    </WrapperVertical>
+</Playground>
+
+## Progress circle
+
+<Playground>
+    <WrapperHorizontal>
+        <ProgressCircle value={0} />
+        <ProgressCircle value={25} />
+        <ProgressCircle value={50} />
+        <ProgressCircle value={75} />
+        <ProgressCircle value={100} />
+    </WrapperHorizontal>
+</Playground>
+
+## Complete
+
+### Bar
+
+<Playground>
+    <ProgressBar value={100} />
+</Playground>
+
+### Circle
+
+<Playground>
+    <ProgressCircle value={100} />
+</Playground>
+
+## Failed
+
+### Bar
+
+<Playground>
+    <ProgressBar value={100} failed />
+</Playground>
+
+### Circle
+
+<Playground>
+    <ProgressCircle value={100} failed />
+</Playground>
+
+## Circle different sizes
+
+<Playground>
+    <WrapperHorizontal>
+        <ProgressCircle value={50} circleSize={0} />
+        <ProgressCircle value={50} circleSize={25} />
+        <ProgressCircle value={50} circleSize={50} />
+        <ProgressCircle value={50} circleSize={75} />
+        <ProgressCircle value={50} circleSize={100} />
+    </WrapperHorizontal>
+</Playground>
+
+## Custom colors
+
+### Bar
+
+<Playground>
+    <WrapperVertical>
+        <ProgressBar value={25} transitionColors={['pink', 'violet', 'purple']} />
+        <ProgressBar value={50} transitionColors={['pink', 'violet', 'purple']} />
+        <ProgressBar value={75} transitionColors={['pink', 'violet', 'purple']} />
+    </WrapperVertical>
+</Playground>
+
+### Circle
+
+<Playground>
+    <WrapperHorizontal>
+        <ProgressCircle value={25} transitionColors={['pink', 'violet', 'purple']} />
+        <ProgressCircle value={50} transitionColors={['pink', 'violet', 'purple']} />
+        <ProgressCircle value={75} transitionColors={['pink', 'violet', 'purple']} />
+    </WrapperHorizontal>
+</Playground>

@@ -1,0 +1,58 @@
+---
+name: Notification
+menu: Components
+---
+
+import { Playground } from 'docz';
+import { Notification } from './Notification';
+import { Link } from '../Typography/Link';
+import { WrapperVertical, WrapperHorizontal } from '../../gatsby-theme-docz/components/Wrapper';
+
+# Notification
+
+Provide contextual feedback messages for typical user actions.
+
+## Basic usage
+
+Container width is limited to 350px and longer text is wrapped.
+
+<Playground>
+    <Notification>Notification</Notification>
+</Playground>
+
+## Types
+
+<Playground>
+    <WrapperVertical>
+        <Notification type="default">Default</Notification>
+        <Notification type="primary">Primary</Notification>
+        <Notification type="success">Success</Notification>
+        <Notification type="warning">Warning</Notification>
+        <Notification type="error">Error</Notification>
+        <Notification type="info">Info</Notification>
+    </WrapperVertical>
+</Playground>
+
+## Other props
+
+### Notification with description text
+
+<Playground>
+    <Notification description="Notification description">Notification with description text</Notification>
+</Playground>
+
+### Notification with MoreLink
+
+Add any Link componet for action or redirection
+
+<Playground>
+    <Notification
+        MoreLink={
+            <Link href="#" target="_blank">
+                Více
+            </Link>
+        }
+    >
+        Notification with MoreLink
+    </Notification>
+</Playground>

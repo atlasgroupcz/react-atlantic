@@ -1,0 +1,76 @@
+---
+name: Select
+menu: Components
+---
+
+import { Playground } from 'docz';
+import { Select as SelectView, SelectMulti as SelectMultiView, useSelect, useSelectMulti } from '.';
+import { wrap } from '@atlasgroup/react-wrap';
+import { WrapperHorizontal } from '../../gatsby-theme-docz/components/Wrapper';
+
+export const SelectMulti = wrap(SelectMultiView, useSelectMulti);
+
+export const Select = wrap(SelectView, useSelect);
+
+export const options = [
+    { value: 'UK', label: 'England 🇬🇧' },
+    { value: 'CZ', label: 'Czech Republic 🇨🇿' },
+];
+
+# Select
+
+Is an alternative to the [`<select>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select) element.
+
+## Common usage
+
+> `Select` must be wrapped with `useSelect` to make the element interactive. Using the component with a custom hook is encouraged.
+
+```tsx
+import { Select, useSelect, styled } from '@atlasgroup/react-atlantic';
+import { wrap } from '@atlasgroup/react-wrap';
+
+// Optional
+const ProjectSpecificStyledSelect = styled(Select)`
+    // ... Project specific styles ...
+`;
+
+const ProjectSpecificSelect = wrap(ProjectSpecificStyledSelect, useSelect);
+```
+
+## Basic usage
+
+<Playground>
+    <Select options={options} />
+</Playground>
+
+## Sizes
+
+<Playground>
+    <WrapperHorizontal>
+        <Select options={options} size="small" />
+        <Select options={options} size="medium" />
+        <Select options={options} size="large" />
+    </WrapperHorizontal>
+</Playground>
+
+## Full width
+
+<Playground>
+    <Select options={options} isFullWidth />
+</Playground>
+
+## Other views
+
+### Multi
+
+> `SelectMulti` should be wrapped with `useSelectMulti`.
+
+<Playground>
+    <SelectMulti options={options} />
+</Playground>
+
+## Known issues
+
+-   [#1] - Unnecessary wrapping of the component in each project
+-   [#2] - The component is not accessible via keyboard (might be useful for accessibility)
+-   [#3] - Third party component is used

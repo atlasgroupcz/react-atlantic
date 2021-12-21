@@ -1,0 +1,60 @@
+---
+name: Radio
+menu: Components
+---
+
+import { Playground } from 'docz';
+import { RadioButtons, RadioCircular } from './views';
+import { WrapperVertical } from '../../gatsby-theme-docz/components/Wrapper';
+export const values = [
+    { value: 'UK', label: 'Anglie 🇬🇧' },
+    { value: 'CZ', label: 'Česko 🇨🇿' },
+];
+
+# Radio
+
+Component to display switch between defined options
+
+## Common usage
+
+```tsx
+import React, { useState } from 'react';
+import { RadioButtons, RadioButtonProps } from '@atlasgroup/react-atlantic';
+
+const Component = () => {
+    const values = [
+        { value: 'UK', label: 'England 🇬🇧' },
+        { value: 'CZ', label: 'Czech Republic 🇨🇿' },
+    ];
+    const [value, setValue] = useState<string>(values[0].value);
+
+    const onChange: RadioButtonProps['onChange'] = (e) => setValue(e.currentTarget.value);
+
+    return <RadioButtons values={values} value={value} onChange={onChange} groupName="groupToFocusBy" />;
+};
+```
+
+## Basic usage
+
+### Buttons
+
+<Playground>
+    <WrapperVertical>
+        <RadioButtons values={values} value="UK" />
+        <RadioCircular values={values} value="CZ" />
+    </WrapperVertical>
+</Playground>
+
+## Disabled values
+
+> Values can be disabled by providing them isDisabled value in values definition → defaults to false
+
+<Playground>
+    <RadioButtons
+        values={[
+            { value: 'UK', label: 'Anglie 🇬🇧', isDisabled: true },
+            { value: 'CZ', label: 'Česko 🇨🇿' },
+        ]}
+        value="UK"
+    />
+</Playground>

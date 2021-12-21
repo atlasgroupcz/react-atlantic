@@ -1,7 +1,5 @@
 import { styled } from '../../../../../styled';
 import { SelectContainer, SelectInput, SelectList } from '../../../components';
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import * as _ from 'styled-components/node_modules/@types/react';
 
 export const StyledSelectDefaultContainer = styled(SelectContainer)``;
 

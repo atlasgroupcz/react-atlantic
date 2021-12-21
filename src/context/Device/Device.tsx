@@ -11,12 +11,7 @@ import {
 } from 'react';
 import debounce from 'lodash.debounce';
 
-export type DeviceType =
-    | 'mobile'
-    | 'tabletVertical'
-    | 'tabletHorizontal'
-    | 'laptop'
-    | 'desktop';
+export type DeviceType = 'mobile' | 'tabletVertical' | 'tabletHorizontal' | 'laptop' | 'desktop';
 
 export interface DeviceObject {
     min?: Readonly<number>;
@@ -53,17 +48,16 @@ export const DeviceContext = createContext<Readonly<ContextProps>>({
     isTouchable: false,
 });
 
-export const useDevice = () =>
-    useContext<Readonly<ContextProps>>(DeviceContext);
+export const useDevice = () => useContext<Readonly<ContextProps>>(DeviceContext);
 
 export interface DeviceProviderProps {
     devices?: Readonly<Devices>;
     currentDevice?: Readonly<DeviceType>;
 }
 
-export const DeviceProvider: FC<Readonly<
-    PropsWithChildren<Readonly<DeviceProviderProps>>
->> = (props): Readonly<ReactElement> => {
+export const DeviceProvider: FC<Readonly<PropsWithChildren<Readonly<DeviceProviderProps>>>> = (
+    props
+): Readonly<ReactElement> => {
     const { children } = props;
     const devices = props.devices || defaultValue.devices;
 
@@ -95,12 +89,7 @@ export const DeviceProvider: FC<Readonly<
                 clientWidth <= tabletHorizontal.max
             ) {
                 return 'tabletHorizontal';
-            } else if (
-                laptop?.min &&
-                laptop.max &&
-                clientWidth >= laptop.min &&
-                clientWidth <= laptop.max
-            ) {
+            } else if (laptop?.min && laptop.max && clientWidth >= laptop.min && clientWidth <= laptop.max) {
                 return 'laptop';
             } else if (desktop?.min && clientWidth >= desktop.min) {
                 return 'desktop';
@@ -137,9 +126,7 @@ export const DeviceProvider: FC<Readonly<
         typeof window !== 'undefined' &&
         currentDevice !== 'laptop' &&
         currentDevice !== 'desktop' &&
-        ('ontouchstart' in window ||
-            navigator.maxTouchPoints > 0 ||
-            navigator.msMaxTouchPoints > 0);
+        ('ontouchstart' in window || navigator.maxTouchPoints > 0);
 
     const memoizedValue = useMemo(
         () => ({
@@ -149,9 +136,5 @@ export const DeviceProvider: FC<Readonly<
         [currentDevice, isTouchable]
     );
 
-    return (
-        <DeviceContext.Provider value={memoizedValue}>
-            {children}
-        </DeviceContext.Provider>
-    );
+    return <DeviceContext.Provider value={memoizedValue}>{children}</DeviceContext.Provider>;
 };

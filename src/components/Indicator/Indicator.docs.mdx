@@ -1,0 +1,41 @@
+---
+name: Indicator
+menu: Components
+---
+
+import { Playground } from 'docz';
+import { Indicator } from './view/Indicator';
+import { WrapperHorizontal } from '../../gatsby-theme-docz/components/Wrapper';
+
+# Indicator
+
+Used to indicate some news or changes.
+
+## Basic usage
+
+<Playground>
+    <Indicator />
+</Playground>
+
+## Types
+
+<Playground>
+    <WrapperHorizontal>
+        <Indicator type="default" />
+        <Indicator type="primary" />
+        <Indicator type="success" />
+        <Indicator type="warning" />
+        <Indicator type="error" />
+        <Indicator type="info" />
+    </WrapperHorizontal>
+</Playground>
+
+## Sizes
+
+<Playground>
+    <WrapperHorizontal>
+        <Indicator size="small" type="primary" />
+        <Indicator size="medium" type="primary" />
+        <Indicator size="large" type="primary" />
+    </WrapperHorizontal>
+</Playground>

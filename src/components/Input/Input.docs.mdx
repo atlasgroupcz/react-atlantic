@@ -1,0 +1,115 @@
+---
+name: Input
+menu: Components
+---
+
+import { Playground } from 'docz';
+import { Input, InputFloatingLabel, useInputFloatingLabel, useInputChange, useInputClearable } from '.';
+import { wrap } from '@atlasgroup/react-wrap';
+import { Icon } from '../Icon';
+import { WrapperHorizontal, WrapperVertical } from '../../gatsby-theme-docz/components/Wrapper';
+
+export const Inputs = {
+    Default: wrap(Input, useInputChange),
+    Clearable: wrap(Input, useInputClearable),
+    ClearableFlaotingLabel: wrap(InputFloatingLabel, useInputClearable),
+};
+
+# Input
+
+Alternative to basic HTML input
+
+## Basic usage
+
+<Playground>
+    <Input />
+</Playground>
+
+## Sizes
+
+<Playground>
+    <WrapperHorizontal>
+        <Input size="small" />
+        <Input size="medium" />
+        <Input size="large" />
+    </WrapperHorizontal>
+</Playground>
+
+## Full width
+
+<Playground>
+    <Input isFullWidth />
+</Playground>
+
+## Other props
+
+### isRound
+
+<Playground>
+    <Input isRound />
+</Playground>
+
+### Prefix & sufix
+
+<Playground>
+    <WrapperHorizontal>
+        <Input prefix={<Icon name={'close'} />} />
+        <Input suffix={<Icon name={'close'} />} />
+    </WrapperHorizontal>
+</Playground>
+
+## Other views
+
+### Floating label
+
+<Playground>
+    <WrapperHorizontal>
+        <InputFloatingLabel label={'Input label'} size="small" />
+        <InputFloatingLabel label={'Input label'} size="medium" />
+        <InputFloatingLabel label={'Input label'} size="large" />
+    </WrapperHorizontal>
+</Playground>
+
+## Hooks variants
+
+It's highly reccomended to use custom hooks instead default ones provided by this lib, for more info see [know bugs section](#known-bugs)
+
+```tsx
+import { Input, useInputChange, useInputClearable } from '@atlasgroup/react-atlantic';
+import { wrap } from '@atlasgroup/react-wrap';
+
+export const Inputs = {
+    Default: wrap(Input, useInputChange),
+    Clearable: wrap(Input, useInputClearable),
+};
+```
+
+### useInputChange
+
+<Playground>
+    <WrapperHorizontal>
+        <Inputs.Default isDisabled />
+        <Inputs.Default defaultValue="Super input" />
+    </WrapperHorizontal>
+</Playground>
+
+### useInputClearable
+
+<Playground>
+    <WrapperHorizontal>
+        <Inputs.Clearable isDisabled />
+        <Inputs.Clearable defaultValue="Super input" />
+    </WrapperHorizontal>
+</Playground>
+
+## Known bugs
+
+-   `useInputClearable` clears value on input click
+-   hooks do not accept nor pass props that are not handled by them
+-   `useInputFloatingLabel` wraps `useInputDefault` nothing else
+-   `InputFloatingLabel` label overlflows input value
+
+<Playground>
+    <Inputs.Clearable defaultValue="Value to be cleared" />
+    <InputFloatingLabel value="Value to be cleared" label={'text which overflows value'} />
+</Playground>

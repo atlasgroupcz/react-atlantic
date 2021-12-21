@@ -1,0 +1,41 @@
+---
+name: Badge
+menu: Components
+---
+
+import { Playground } from 'docz';
+import { Badge } from './view/Badge';
+import { WrapperHorizontal, WrapperVertical } from '../../gatsby-theme-docz/components/Wrapper';
+
+# Badge
+
+Is used as a tag for displaying a number or short text.
+
+## Basic usage
+
+<Playground>
+    <Badge>Badge</Badge>
+</Playground>
+
+## Types
+
+<Playground>
+    <WrapperHorizontal>
+        <Badge type="default">Default</Badge>
+        <Badge type="primary">Primary</Badge>
+        <Badge type="success">Success</Badge>
+        <Badge type="warning">Warning</Badge>
+        <Badge type="error">Error</Badge>
+        <Badge type="info">Info</Badge>
+    </WrapperHorizontal>
+</Playground>
+
+## Sizes
+
+<Playground>
+    <WrapperHorizontal>
+        <Badge size="small">Small</Badge>
+        <Badge size="medium">Medium</Badge>
+        <Badge size="large">Large</Badge>
+    </WrapperHorizontal>
+</Playground>

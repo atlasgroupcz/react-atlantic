@@ -1,0 +1,46 @@
+---
+name: TextArea
+menu: Components
+---
+
+import { Playground } from 'docz';
+import { TextArea } from '.';
+
+# TextArea
+
+Better looking alternative to native HTML textarea
+
+## Basic usage
+
+<Playground>
+    <TextArea />
+</Playground>
+
+## Placeholder
+
+<Playground>
+    <TextArea placeholder="Zadejte..." />
+</Playground>
+
+## Full width
+
+<Playground>
+    <TextArea isFullWidth />
+</Playground>
+
+## Disable
+
+<Playground>
+    <TextArea isDisabled />
+</Playground>
+
+## Resize
+
+<Playground>
+    <TextArea allowResize />
+</Playground>
+
+## Known bugs
+
+-   `size` does not work
+-   `isDisabled` makes the component look like its disabled, but it is not => you can write into

@@ -1,5 +1,4 @@
 import { shallow } from 'enzyme';
-import 'jest-styled-components';
 import React from 'react';
 import { Typography } from '../../../src/components/Typography';
 

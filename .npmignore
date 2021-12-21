@@ -2,8 +2,7 @@
 stories
 tests
 .github
-.storybook
-storybook-static
+.docz
 scripts
 
 # config
@@ -15,3 +14,4 @@ scripts
 .babelrc
 .commitlint.config.json
 jest.config.js
+gatsby-config.js
