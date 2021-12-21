@@ -4,14 +4,18 @@ tests
 .github
 .docz
 scripts
+.yarn
+.docz
+.vscode
+gatsby-theme-docz
 
 # config
 .prettierrc
 .prettierignore
 .eslintignore
-.eslintrc
+.eslintrc.json
 .babelrc.build.json
 .babelrc
-.commitlint.config.json
+commitlint.config.js
 jest.config.js
 gatsby-config.js

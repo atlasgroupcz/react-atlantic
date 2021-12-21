@@ -1,6 +1,6 @@
 {
     "name": "@atlasgroup/react-atlantic",
-    "version": "2.5.6",
+    "version": "2.5.7",
     "homepage": "https://atlasgroupcz.github.io/react-atlantic",
     "main": "lib/index.js",
     "dependencies": {
@@ -27,8 +27,7 @@
         "lint": "eslint -c ./.eslintrc.json",
         "typecheck": "tsc --noEmit",
         "prepublishOnly": "yarn build",
-        "deploy": "gh-pages -d .docz/dist",
-        "predeploy": "yarn build:docz",
+        "deploy": "yarn build:docz && gh-pages -d .docz/dist",
         "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md",
         "changelog:all": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
         "version": "yarn changelog && git stage CHANGELOG.md",
@@ -50,6 +49,7 @@
         "@wojtekmaj/enzyme-adapter-react-17": "^0.6.5",
         "babel-preset-react-app": "^10.0.0",
         "conventional-changelog": "^3.1.24",
+        "conventional-changelog-cli": "^2.1.1",
         "cross-env": "^7.0.3",
         "devmoji": "^2.3.0",
         "docz": "^2.3.1",
