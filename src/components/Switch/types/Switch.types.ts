@@ -1,9 +1,4 @@
-import {
-    CommonHTMLProps,
-    HorizontalPositionWithDocs,
-    MouseEvents,
-    Type,
-} from '../../../types';
+import { CommonHTMLProps, HorizontalPositionWithDocs, MouseEvents, Type } from '../../../types';
 import { FC, PropsWithChildren, ReactElement } from 'react';
 
 export type SwitchType = FC<PropsWithChildren<SwitchProps>>;
@@ -18,6 +13,7 @@ export type CommonSwitchProps = {
     isChecked?: boolean;
     textOn?: ReactElement | null | string;
     textOff?: ReactElement | null | string;
+    description?: string;
 };
 
 export type StyledSwitchProps = {

@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { Text } from '../../../Typography';
 import { Type } from '../../../../types';
 import { StyledIcon } from '../../../Icon';
 
@@ -17,6 +18,13 @@ const togglerSize = '20px';
 
 export const StyledSwitchContainer = styled.div`
     display: flex;
+    align-items: center;
+    gap: ${({ theme }) => theme.gap.md};
+`;
+
+export const StyledSwitchDescription = styled(Text)`
+    margin: 0;
+    font-size: ${({ theme }) => theme.font.size.sm};
 `;
 
 export const StyledSwitchLabel = styled.label<StyledSwitchProps>`
@@ -74,35 +82,27 @@ export const StyledSwitcherTrue = styled.div<StyledSwitchProps>`
     ${({ theme, isChecked, type }) =>
         isChecked &&
         css`
-            background-color: ${theme.color[
-                type === 'default' ? 'primary' : (type as Type)
-            ].alpha};
+            background-color: ${theme.color[type === 'default' ? 'primary' : (type as Type)].alpha};
         `}
 
     ${({ theme, isDisabled, isChecked, type }) =>
         isDisabled &&
         isChecked &&
         css`
-            background-color: ${theme.color[
-                type !== 'default' ? (type as Type) : 'primary'
-            ].delta};
+            background-color: ${theme.color[type !== 'default' ? (type as Type) : 'primary'].delta};
         `}
 
     ${({ theme, isPartiallyChecked, type }) =>
         isPartiallyChecked &&
         css`
-            background-color: ${theme.color[
-                type === 'default' ? 'warning' : (type as Type)
-            ].alpha};
+            background-color: ${theme.color[type === 'default' ? 'warning' : (type as Type)].alpha};
         `}
     
     ${({ theme, isDisabled, isPartiallyChecked, type }) =>
         isDisabled &&
         isPartiallyChecked &&
         css`
-            background-color: ${theme.color[
-                type !== 'default' ? (type as Type) : 'warning'
-            ].delta};
+            background-color: ${theme.color[type !== 'default' ? (type as Type) : 'warning'].delta};
         `}
 `;
 
@@ -155,18 +155,14 @@ export const StyledSwitcherFalse = styled.div<StyledSwitchProps>`
     ${({ theme, isPartiallyChecked, type }) =>
         isPartiallyChecked &&
         css`
-            background-color: ${theme.color[
-                type === 'default' ? 'warning' : (type as Type)
-            ].alpha};
+            background-color: ${theme.color[type === 'default' ? 'warning' : (type as Type)].alpha};
         `}
 
     ${({ theme, isDisabled, isPartiallyChecked, type }) =>
         isDisabled &&
         isPartiallyChecked &&
         css`
-            background-color: ${theme.color[
-                type !== 'default' ? (type as Type) : 'warning'
-            ].delta};
+            background-color: ${theme.color[type !== 'default' ? (type as Type) : 'warning'].delta};
         `}
 `;
 
