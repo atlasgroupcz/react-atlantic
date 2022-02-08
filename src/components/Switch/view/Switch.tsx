@@ -6,9 +6,11 @@ import {
     StyledSwitcherTrue,
     StyledSwitcherContainer,
     StyledSwitchLabel,
+    StyledSwitchDescription,
 } from './styles';
 import { HiddenCheckbox } from '../../Checkbox/view/alpha/styles';
 import { SwitchType } from '../types';
+import { Text } from '../../Typography';
 
 export const Switch: SwitchType = ({
     isPartiallyChecked,
@@ -18,20 +20,12 @@ export const Switch: SwitchType = ({
     textOn,
     textOff,
     type = 'default',
+    description,
     ...props
 }) => (
     <StyledSwitchContainer>
-        <StyledSwitchLabel
-            type={type}
-            isChecked={isChecked}
-            isDisabled={isDisabled}
-            className={className}
-        >
-            <HiddenCheckbox
-                checked={isChecked}
-                disabled={isDisabled}
-                {...props}
-            />
+        <StyledSwitchLabel type={type} isChecked={isChecked} isDisabled={isDisabled} className={className}>
+            <HiddenCheckbox checked={isChecked} disabled={isDisabled} {...props} />
             <StyledSwitcherContainer type={type} isChecked={isChecked}>
                 <StyledSwitcherTrue
                     type={type}
@@ -57,5 +51,6 @@ export const Switch: SwitchType = ({
                 </StyledSwitcherFalse>
             </StyledSwitcherContainer>
         </StyledSwitchLabel>
+        {description && <StyledSwitchDescription>{description}</StyledSwitchDescription>}
     </StyledSwitchContainer>
 );
