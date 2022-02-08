@@ -1,3 +1,25 @@
+## [2.5.8](https://github.com/atlasgroupcz/react-atlantic/compare/2.5.6...2.5.8) (2022-02-08)
+
+
+### Bug Fixes
+
+* 🐛 conditional type check and add missing text ([6a796dd](https://github.com/atlasgroupcz/react-atlantic/commit/6a796dd0adad51ff66f95a4aa32746af96f77f3c))
+* 🐛 fail ([a32c3b7](https://github.com/atlasgroupcz/react-atlantic/commit/a32c3b77744aba8dac4e455132b4811faf48b4d4))
+* 🐛 message icon shrink ([33d81cc](https://github.com/atlasgroupcz/react-atlantic/commit/33d81cc889d83b1f23ad440e59767233b5a8ff3a))
+* 🐛 threads ([7405def](https://github.com/atlasgroupcz/react-atlantic/commit/7405def4b08a294eec7cd0119fe3b544df315614))
+* 🐛 types and props ([1aa8e15](https://github.com/atlasgroupcz/react-atlantic/commit/1aa8e1543d68165a92462d534a115f7b65a0cdde))
+* **transfer:** 🐛 revert ([c0a456c](https://github.com/atlasgroupcz/react-atlantic/commit/c0a456c13982d2471f40f255408cdf070196a3ea))
+
+
+### Features
+
+* ✨ extend Transfer options label ([ed2b851](https://github.com/atlasgroupcz/react-atlantic/commit/ed2b851a830f3644d01dd9b38ae76b701c5275fe))
+* ✨ typo ([7416b71](https://github.com/atlasgroupcz/react-atlantic/commit/7416b7115300d48a5557a68b1a0976e5c2c4d827))
+* ✨ WIP custom functions for transfer ([45d15fc](https://github.com/atlasgroupcz/react-atlantic/commit/45d15fcd0d804c12e4607176251d3134f243e94f))
+* **docs:** ✨ 📚️ Skeleton & TextArea & Typography ([449c4c7](https://github.com/atlasgroupcz/react-atlantic/commit/449c4c742aa91e169e64afe2d627e13466e44872))
+
+
+
 ## [2.5.7](https://github.com/atlasgroupcz/react-atlantic/compare/2.5.6...2.5.7) (2021-12-21)
 
 ### Bug Fixes
