@@ -64,6 +64,7 @@ export const StyledSwitcherContainer = styled.div<StyledSwitchProps>`
 `;
 
 export const StyledSwitcherTrue = styled.div<StyledSwitchProps>`
+    box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -96,6 +97,11 @@ export const StyledSwitcherTrue = styled.div<StyledSwitchProps>`
         isPartiallyChecked &&
         css`
             background-color: ${theme.color[type === 'default' ? 'warning' : (type as Type)].alpha};
+            color: transparent;
+
+            ${StyledIcon} {
+                color: transparent;
+            }
         `}
     
     ${({ theme, isDisabled, isPartiallyChecked, type }) =>
@@ -103,6 +109,11 @@ export const StyledSwitcherTrue = styled.div<StyledSwitchProps>`
         isPartiallyChecked &&
         css`
             background-color: ${theme.color[type !== 'default' ? (type as Type) : 'warning'].delta};
+            color: transparent;
+
+            ${StyledIcon} {
+                color: transparent;
+            }
         `}
 `;
 
@@ -138,11 +149,13 @@ export const StyledSwitcherToggler = styled.div<StyledSwitchProps>`
 `;
 
 export const StyledSwitcherFalse = styled.div<StyledSwitchProps>`
+    box-sizing: border-box;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
     flex: 0 0 50%;
     height: 100%;
+    padding-right: ${({ theme }) => theme.padding.md};
     user-select: none;
     color: ${({ theme }) => theme.color.text.beta};
     background-color: ${({ theme }) => theme.color.border};
@@ -156,6 +169,11 @@ export const StyledSwitcherFalse = styled.div<StyledSwitchProps>`
         isPartiallyChecked &&
         css`
             background-color: ${theme.color[type === 'default' ? 'warning' : (type as Type)].alpha};
+            color: transparent;
+
+            ${StyledIcon} {
+                color: transparent;
+            }
         `}
 
     ${({ theme, isDisabled, isPartiallyChecked, type }) =>
@@ -163,6 +181,11 @@ export const StyledSwitcherFalse = styled.div<StyledSwitchProps>`
         isPartiallyChecked &&
         css`
             background-color: ${theme.color[type !== 'default' ? (type as Type) : 'warning'].delta};
+            color: transparent;
+
+            ${StyledIcon} {
+                color: transparent;
+            }
         `}
 `;
 
