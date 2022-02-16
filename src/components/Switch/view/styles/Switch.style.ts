@@ -100,7 +100,7 @@ export const StyledSwitcherTrue = styled.div<StyledSwitchProps>`
             color: transparent;
 
             ${StyledIcon} {
-                color: transparent;
+                display: none;
             }
         `}
     
@@ -112,7 +112,7 @@ export const StyledSwitcherTrue = styled.div<StyledSwitchProps>`
             color: transparent;
 
             ${StyledIcon} {
-                color: transparent;
+                display: none;
             }
         `}
 `;
@@ -172,7 +172,7 @@ export const StyledSwitcherFalse = styled.div<StyledSwitchProps>`
             color: transparent;
 
             ${StyledIcon} {
-                color: transparent;
+                display: none;
             }
         `}
 
@@ -184,7 +184,7 @@ export const StyledSwitcherFalse = styled.div<StyledSwitchProps>`
             color: transparent;
 
             ${StyledIcon} {
-                color: transparent;
+                display: none;
             }
         `}
 `;
