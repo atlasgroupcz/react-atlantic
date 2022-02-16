@@ -7,6 +7,7 @@ import { Playground, Props } from 'docz';
 import { Switch, useSwitch } from '.';
 import { wrap } from '@atlasgroup/react-wrap';
 import { WrapperHorizontal, WrapperVertical } from '../../gatsby-theme-docz/components/Wrapper';
+import { Icon } from '../Icon';
 
 # Switch
 
@@ -36,12 +37,15 @@ Is a component that allows the user to toggle between two states.
 
 ## Other props
 
-### On & Off texts
+### On & Off content
 
 <Playground>
     <WrapperVertical>
         <Switch textOn="On" isChecked />
         <Switch textOff="Off" isChecked={false} />
+        <Switch textOn={<Icon name="check" />} isChecked />
+        <Switch textOff={<Icon name="close" />} isChecked={false} />
+        <Switch textOn="On" textOff="Off" isPartiallyChecked />
     </WrapperVertical>
 </Playground>
 

@@ -1,3 +1,13 @@
+## [2.5.9](https://github.com/atlasgroupcz/react-atlantic/compare/v2.5.8...v2.5.9) (2022-02-16)
+
+
+### Bug Fixes
+
+* hide icon ([2b6a9be](https://github.com/atlasgroupcz/react-atlantic/commit/2b6a9be8cb790a0604ed4c41490a50c0010d47b9))
+* switch box-sizing, transparent content for isPartiallyChecked ([4ca7b9d](https://github.com/atlasgroupcz/react-atlantic/commit/4ca7b9d8036445e0ab8b601db2d3ebf55c83b82e))
+
+
+
 ## [2.5.8](https://github.com/atlasgroupcz/react-atlantic/compare/2.5.6...2.5.8) (2022-02-08)
 
 
