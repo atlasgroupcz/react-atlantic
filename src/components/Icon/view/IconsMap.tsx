@@ -219,6 +219,12 @@ export const IconsMap = {
     calendarStar: <Icons.CalendarStar />,
     calendarWeek: <Icons.CalendarWeek />,
     dotsSolid: <Icons.DotsSolid />,
+    cloudSolid: <Icons.CloudSolid />,
+    networkServer: <Icons.NetworkServer />,
+    networkServers: <Icons.NetworkServers />,
+    bellOn: <Icons.BellOn />,
+    listCheckSolid: <Icons.ListCheckSolid />,
+    arrowDownDots: <Icons.ArrowDownDots />,
 };
 
 export type IconName = keyof typeof IconsMap;
