@@ -1,3 +1,12 @@
+## [2.5.11](https://github.com/atlasgroupcz/react-atlantic/compare/v2.5.10...v2.5.11) (2022-06-02)
+
+
+### Bug Fixes
+
+* icons viewbox ([20c3280](https://github.com/atlasgroupcz/react-atlantic/commit/20c3280cf72f8638ccdfebef5314b1754c3e5ecb))
+
+
+
 ## [2.5.10](https://github.com/atlasgroupcz/react-atlantic/compare/v2.5.9...v2.5.10) (2022-06-02)
 
 
