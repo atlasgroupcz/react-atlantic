@@ -115,6 +115,7 @@ export const IconsMap = {
     prev: <Icons.Prev />,
     next: <Icons.Next />,
     external: <Icons.External />,
+    rating: <Icons.Rating />,
     change: <Icons.Change />,
     print: <Icons.Print />,
     squaresGrid: <Icons.SquaresGrid />,
