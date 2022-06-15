@@ -226,6 +226,9 @@ export const IconsMap = {
     bellOn: <Icons.BellOn />,
     listCheckSolid: <Icons.ListCheckSolid />,
     arrowDownDots: <Icons.ArrowDownDots />,
+    arrowDownRandom: <Icons.ArrowDownRandom />,
+    arrowDownAZ: <Icons.ArrowDownAZ />,
+    arrowDownBigSmall: <Icons.ArrowDownBigSmall />,
 };
 
 export type IconName = keyof typeof IconsMap;
