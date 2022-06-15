@@ -1,3 +1,7 @@
+## [2.5.12](https://github.com/atlasgroupcz/react-atlantic/compare/v2.5.11...v2.5.12) (2022-06-15)
+
+
+
 ## [2.5.11](https://github.com/atlasgroupcz/react-atlantic/compare/v2.5.10...v2.5.11) (2022-06-02)
 
 
