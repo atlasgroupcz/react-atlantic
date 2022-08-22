@@ -229,6 +229,7 @@ export const IconsMap = {
     arrowDownRandom: <Icons.ArrowDownRandom />,
     arrowDownAZ: <Icons.ArrowDownAZ />,
     arrowDownBigSmall: <Icons.ArrowDownBigSmall />,
+    notificationOff: <Icons.NotificationOff />,
 };
 
 export type IconName = keyof typeof IconsMap;
