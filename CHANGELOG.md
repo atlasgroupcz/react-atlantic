@@ -1,3 +1,12 @@
+## [2.5.16](https://github.com/atlasgroupcz/react-atlantic/compare/v2.5.14...v2.5.16) (2022-10-21)
+
+## [2.5.13](https://github.com/atlasgroupcz/react-atlantic/compare/2.5.12...2.5.13) (2022-06-15)
+
+### Features
+
+-   ✨ version ([fe6f573](https://github.com/atlasgroupcz/react-atlantic/commit/fe6f57363cdd05757743ffcc358c615b5d50e45f))
+-   icon - rating ([3868448](https://github.com/atlasgroupcz/react-atlantic/commit/386844829faa391915e2633c04b22ef8f5e92400))
+
 ## [2.5.15](https://github.com/atlasgroupcz/react-atlantic/compare/2.5.13...2.5.15) (2022-08-22)
 
 ### Features
