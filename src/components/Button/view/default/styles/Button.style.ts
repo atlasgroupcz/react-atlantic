@@ -156,18 +156,14 @@ export const getButtonDefaultTypeStyles = (
     }}
 `;
 
-export const getButtonDefaultRoundStyles = (
-    isRound: StyledButtonProps['isRound']
-) => css`
+export const getButtonDefaultRoundStyles = (isRound: StyledButtonProps['isRound']) => css`
     ${isRound &&
     css`
         border-radius: ${({ theme }) => theme.rounded};
     `}
 `;
 
-export const getButtonDefaultSizeStyles = (
-    size: StyledButtonProps['size']
-) => css`
+export const getButtonDefaultSizeStyles = (size: StyledButtonProps['size']) => css`
     ${({ theme }) =>
         size === 'small' &&
         css`
@@ -215,18 +211,14 @@ export const getButtonDefaultSizeStyles = (
         `}
 `;
 
-export const getButtonDefaultFullWidthStyles = (
-    isFullWidth: StyledButtonProps['isFullWidth']
-) => css`
+export const getButtonDefaultFullWidthStyles = (isFullWidth: StyledButtonProps['isFullWidth']) => css`
     ${isFullWidth &&
     css`
         width: 100%;
     `}
 `;
 
-export const getButtonDefaultDisabledStyles = (
-    isDisabled: StyledButtonProps['isDisabled']
-) =>
+export const getButtonDefaultDisabledStyles = (isDisabled: StyledButtonProps['isDisabled']) =>
     css`
         ${isDisabled &&
         css`
@@ -236,6 +228,10 @@ export const getButtonDefaultDisabledStyles = (
             opacity: 0.6;
             cursor: not-allowed;
 
+            & > ${StyledIcon}, ${StyledText} {
+                color: ${({ theme }) => theme.color.text.alpha};
+            }
+
             &:hover {
                 background: ${({ theme }) => theme.color.background.gamma};
             }
@@ -244,24 +240,9 @@ export const getButtonDefaultDisabledStyles = (
 
 export const StyledButton = styled.button.withConfig({
     shouldForwardProp: (prop) =>
-        ![
-            'isRound',
-            'isDisabled',
-            'isFullWidth',
-            'isTransparent',
-            'size',
-            'atlanticType',
-        ].includes(prop),
+        !['isRound', 'isDisabled', 'isFullWidth', 'isTransparent', 'size', 'atlanticType'].includes(prop),
 })<StyledButtonProps>`
-    ${({
-        theme,
-        atlanticType,
-        isTransparent,
-        isRound,
-        size,
-        isFullWidth,
-        isDisabled,
-    }) => css`
+    ${({ theme, atlanticType, isTransparent, isRound, size, isFullWidth, isDisabled }) => css`
         ${getButtonDefaultStyles()};
         ${getButtonDefaultTypeStyles(atlanticType, isTransparent)};
         ${getButtonDefaultRoundStyles(isRound)}
