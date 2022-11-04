@@ -218,6 +218,8 @@ export const IconsMap = {
     calendarAltSolid: <Icons.CalendarAltSolid />,
     calendarCheck: <Icons.CalendarCheck />,
     calendarStar: <Icons.CalendarStar />,
+    calendarXmark: <Icons.CalendarXmark />,
+    calendarExclamation: <Icons.CalendarExclamation />,
     calendarWeek: <Icons.CalendarWeek />,
     dotsSolid: <Icons.DotsSolid />,
     cloudSolid: <Icons.CloudSolid />,
