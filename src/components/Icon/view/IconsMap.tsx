@@ -232,6 +232,7 @@ export const IconsMap = {
     arrowDownAZ: <Icons.ArrowDownAZ />,
     arrowDownBigSmall: <Icons.ArrowDownBigSmall />,
     notificationOff: <Icons.NotificationOff />,
+    arrowLongRight: <Icons.ArrowLongRight />,
 };
 
 export type IconName = keyof typeof IconsMap;
