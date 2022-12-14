@@ -235,6 +235,10 @@ export const getButtonDefaultDisabledStyles = (isDisabled: StyledButtonProps['is
             &:hover {
                 background: ${({ theme }) => theme.color.background.gamma};
             }
+
+            &:active {
+                pointer-events: none;
+            }
         `}
     `;
 
