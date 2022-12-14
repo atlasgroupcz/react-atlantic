@@ -1,3 +1,10 @@
+## [2.5.23](https://github.com/atlasgroupcz/react-atlantic/compare/2.5.16...2.5.23) (2022-12-14)
+
+### Bug Fixes
+
+-   **button:** 🐛 fixes disabled state ([2acda5a](https://github.com/atlasgroupcz/react-atlantic/commit/2acda5ae3c0c0c18905d885d3a614c988379bee3))
+-   **button:** 🐛 fixes isDisabled state text and icon color ([58bb64d](https://github.com/atlasgroupcz/react-atlantic/commit/58bb64d989a252587cd9ed9d8651983dc084833f))
+
 ## [2.5.22](https://github.com/atlasgroupcz/react-atlantic/compare/v2.5.21...v2.5.22) (2022-11-10)
 
 ## [2.5.21](https://github.com/atlasgroupcz/react-atlantic/compare/v2.5.19...v2.5.21) (2022-11-07)
