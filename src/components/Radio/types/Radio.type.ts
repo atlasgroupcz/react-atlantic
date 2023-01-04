@@ -23,4 +23,7 @@ export type StyledRadioProps = {
     isChecked?: boolean;
 } & Pick<UseRadioArgs, 'isFullWidth'>;
 
-export type RadioButtonProps = CommonRadioProps & StyledRadioProps & UseRadioArgs & ElementProps<HTMLDivElement>;
+export type RadioButtonProps = CommonRadioProps &
+    StyledRadioProps &
+    UseRadioArgs &
+    Omit<ElementProps<HTMLDivElement>, 'onChange'>;
