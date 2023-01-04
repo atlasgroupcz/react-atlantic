@@ -1,3 +1,9 @@
+## [2.6.1](https://github.com/atlasgroupcz/react-atlantic/compare/v2.6.0...v2.6.1) (2023-01-04)
+
+### Bug Fixes
+
+-   🐛 omit onClick/onChange from native props ([55a5815](https://github.com/atlasgroupcz/react-atlantic/commit/55a581596644a0949520a5521da3ee43fb1e0fc0))
+
 # [2.6.0](https://github.com/atlasgroupcz/react-atlantic/compare/v2.5.23...v2.6.0) (2023-01-04)
 
 ## [2.5.23](https://github.com/atlasgroupcz/react-atlantic/compare/2.5.16...2.5.23) (2022-12-14)
