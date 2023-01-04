@@ -1,4 +1,5 @@
-import { Size, Shape, CommonHTMLProps } from '../../../types';
+import { Size, Shape } from '../../../types';
+import { ElementProps } from '../../../types/utils';
 
 export type StyledSkeletonProps = {
     /** small | medium | large */
@@ -21,5 +22,4 @@ export type StyledSkeletonProps = {
     };
 };
 
-export type SkeletonProps = StyledSkeletonProps &
-    CommonHTMLProps<HTMLDivElement>;
+export type SkeletonProps = StyledSkeletonProps & ElementProps<HTMLDivElement>;

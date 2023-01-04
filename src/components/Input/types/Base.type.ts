@@ -1,6 +1,5 @@
 import { ElementProps } from '../../../types/utils';
 import {
-    CommonHTMLProps,
     FocusEvents,
     FormEvents,
     HTMLInputDefaultElementProps,
@@ -31,15 +30,13 @@ export type StyledInputProps = {
 } & InputElementExtraProps &
     SizeWithDocs;
 
-type InputElementProps = HTMLInputElementProps &
-    HTMLInputDefaultElementProps &
-    InputElementExtraProps;
+type InputElementProps = HTMLInputElementProps & HTMLInputDefaultElementProps & InputElementExtraProps;
 
 export type InputEventProps = FormEvents<HTMLInputElement> &
     KeyboardEvents<HTMLInputElement> &
     FocusEvents<HTMLInputElement>;
 
-export type ControllerInputProps = CommonHTMLProps<HTMLInputElement> &
+export type ControllerInputProps = Omit<ElementProps<HTMLInputElement>, 'size' | 'prefix'> &
     InputEventProps &
     InputElementProps;
 

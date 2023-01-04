@@ -1,6 +1,6 @@
-import { CommonHTMLProps } from '../../../../types';
 import { StyledCollapseProps } from '../../types';
 import { PropsWithChildren, ReactNode, ReactText } from 'react';
+import { ElementProps } from '../../../../types/utils';
 
 export type StyledPanelProps = {};
 
@@ -9,12 +9,10 @@ export type StyledPanelProps = {};
 //     FocusEvents<HTMLDivElement> &
 //     MouseEvents<HTMLDivElement>;
 
-export type ControllerPanelProps = CommonHTMLProps<HTMLLIElement> & {
+export type ControllerPanelProps = ElementProps<HTMLLIElement> & {
     unique: ReactText;
     header: ReactNode;
     isDisabled?: boolean;
 };
 
-export type PanelProps = PropsWithChildren<
-    StyledCollapseProps & ControllerPanelProps
->;
+export type PanelProps = PropsWithChildren<StyledCollapseProps & ControllerPanelProps>;

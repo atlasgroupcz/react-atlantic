@@ -1,5 +1,4 @@
 import {
-    CommonHTMLProps,
     FocusEvents,
     FormEvents,
     HTMLInputDefaultElementProps,
@@ -10,10 +9,7 @@ import {
 } from '../../../types';
 import { ElementProps } from '../../../types/utils';
 
-type TextAreaElementExtraProps = Pick<
-    ElementProps<HTMLTextAreaElement>,
-    'placeholder'
->;
+type TextAreaElementExtraProps = Pick<ElementProps<HTMLTextAreaElement>, 'placeholder'>;
 
 export type StyledTextAreaProps = {
     isFullWidth?: boolean;
@@ -22,18 +18,12 @@ export type StyledTextAreaProps = {
 } & TextAreaElementExtraProps &
     SizeWithDocs;
 
-type TextAreaElementProps = HTMLInputElementProps &
-    HTMLInputDefaultElementProps &
-    TextAreaElementExtraProps;
+type TextAreaElementProps = HTMLInputElementProps & HTMLInputDefaultElementProps & TextAreaElementExtraProps;
 
 export type TextAreaEventProps = FormEvents<HTMLTextAreaElement> &
     KeyboardEvents<HTMLTextAreaElement> &
     FocusEvents<HTMLTextAreaElement>;
 
-export type ControllerTextAreaProps = CommonHTMLProps<HTMLTextAreaElement> &
-    TextAreaEventProps &
-    TextAreaElementProps;
+export type ControllerTextAreaProps = ElementProps<HTMLTextAreaElement> & TextAreaEventProps & TextAreaElementProps;
 
-export type TextAreaProps = PropsWithoutChildren<
-    StyledTextAreaProps & ControllerTextAreaProps
->;
+export type TextAreaProps = PropsWithoutChildren<StyledTextAreaProps & ControllerTextAreaProps>;

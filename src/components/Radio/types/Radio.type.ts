@@ -1,6 +1,7 @@
-import { CommonHTMLProps, Type } from '../../../types';
+import { Type } from '../../../types';
 import { FC, FormEvent, PropsWithChildren } from 'react';
 import { OptionType } from '../../Select';
+import { ElementProps } from '../../../types/utils';
 
 export type RadioType = FC<PropsWithChildren<RadioButtonProps>>;
 
@@ -22,7 +23,4 @@ export type StyledRadioProps = {
     isChecked?: boolean;
 } & Pick<UseRadioArgs, 'isFullWidth'>;
 
-export type RadioButtonProps = CommonRadioProps &
-    StyledRadioProps &
-    UseRadioArgs &
-    CommonHTMLProps<HTMLDivElement>;
+export type RadioButtonProps = CommonRadioProps & StyledRadioProps & UseRadioArgs & ElementProps<HTMLDivElement>;
