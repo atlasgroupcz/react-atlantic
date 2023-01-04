@@ -1,10 +1,6 @@
-import {
-    CommonHTMLProps,
-    HorizontalPositionWithDocs,
-    MouseEvents,
-    Size,
-} from '../../../types';
+import { HorizontalPositionWithDocs, MouseEvents, Size } from '../../../types';
 import { FC, PropsWithChildren } from 'react';
+import { ElementProps } from '../../../types/utils';
 
 export type CheckboxType = FC<PropsWithChildren<CheckboxProps>>;
 
@@ -25,6 +21,6 @@ export type StyledCheckboxProps = {
 export type CheckboxProps = CommonCheckboxProps &
     StyledCheckboxProps &
     Omit<UseCheckboxArgs, 'isDefaultChecked'> &
-    CommonHTMLProps<HTMLInputElement> &
+    Omit<ElementProps<HTMLInputElement>, 'type' | 'size'> &
     MouseEvents<HTMLInputElement> &
     HorizontalPositionWithDocs;

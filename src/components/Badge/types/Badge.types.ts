@@ -1,8 +1,9 @@
 import { ReactText } from 'react';
-import { CommonHTMLProps, SizeWithDocs, TypeWithDocs } from '../../../types';
+import { SizeWithDocs, TypeWithDocs } from '../../../types';
+import { ElementProps } from '../../../types/utils';
 
 export type BadgeProps = {
     children?: ReactText;
-} & CommonHTMLProps &
+} & ElementProps &
     TypeWithDocs &
     SizeWithDocs;

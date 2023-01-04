@@ -1,8 +1,9 @@
 import { IconName } from '../view/IconsMap';
-import { CommonHTMLProps, MouseEvents } from '../../../types';
+import { MouseEvents } from '../../../types';
+import { ElementProps } from '../../../types/utils';
 
 export type IconProps = {
     name: IconName;
     isRotating?: boolean;
-} & CommonHTMLProps &
+} & ElementProps &
     MouseEvents;

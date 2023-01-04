@@ -1,10 +1,11 @@
-import { CommonHTMLProps, MouseEvents } from '../../../types';
+import { MouseEvents } from '../../../types';
+import { ElementProps } from '../../../types/utils';
 
 export type ProgressProps = {
     value: number;
     transitionColors?: string[];
     failed?: boolean;
-} & CommonHTMLProps<HTMLDivElement> &
+} & ElementProps<HTMLDivElement> &
     MouseEvents<HTMLDivElement>;
 
 export type ProgressBarProps = {} & ProgressProps;

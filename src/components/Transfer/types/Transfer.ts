@@ -1,10 +1,11 @@
 import { Dispatch, ReactNode, RefObject, SetStateAction } from 'react';
-import { CommonHTMLProps, Size } from '../../../types';
+import { Size } from '../../../types';
 import { UseTransferPosition } from './UseTransferPositionProps';
 import { TransferPosition } from './TransferPosition';
 import { UseInnerTransfer } from './UseInnerTransfer';
 import { OptionType } from '../../Select/types';
 import { InputDefaultProps } from '../../Input';
+import { ElementProps } from '../../../types/utils';
 
 export type TransferComponentsProps = {
     hiddenTransferComponent?: ReactNode;
@@ -33,9 +34,7 @@ type SharedTransferProps<T extends OptionType> = {
     transferOptionClick?: (option: T, prevStateValue?: T[] | undefined) => T[];
 } & TransferComponentsProps;
 
-export type ControllerTransferProps<T extends OptionType> = SharedTransferProps<
-    T
-> & {
+export type ControllerTransferProps<T extends OptionType> = SharedTransferProps<T> & {
     defaultValue?: T[];
 };
 
@@ -54,4 +53,4 @@ export type StyledComponentTransferProps = {
 export type TransferProps<T extends OptionType> = SharedTransferProps<T> & {
     ref: RefObject<HTMLDivElement>;
 } & StyledComponentTransferProps &
-    Omit<CommonHTMLProps, 'ref'>;
+    Omit<ElementProps, 'ref'>;

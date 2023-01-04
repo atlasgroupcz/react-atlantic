@@ -10,7 +10,6 @@ import {
 } from './styles';
 import { HiddenCheckbox } from '../../Checkbox/view/alpha/styles';
 import { SwitchType } from '../types';
-import { Text } from '../../Typography';
 
 export const Switch: SwitchType = ({
     isPartiallyChecked,

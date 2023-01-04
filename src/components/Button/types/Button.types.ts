@@ -1,11 +1,6 @@
 import { FC } from 'react';
-import {
-    CommonHTMLProps,
-    MouseEvents,
-    SizeWithDocs,
-    Type,
-    TypeWithDocs,
-} from '../../../types';
+import { MouseEvents, SizeWithDocs, Type, TypeWithDocs } from '../../../types';
+import { ElementProps } from '../../../types/utils';
 
 export type ButtonStyleType = Type | 'dashed';
 
@@ -21,7 +16,7 @@ export type ButtonProps = {
     isDisabled?: boolean;
     isFullWidth?: boolean;
     isTransparent?: boolean;
-} & CommonHTMLProps<HTMLButtonElement> &
+} & ElementProps<HTMLButtonElement> &
     MouseEvents<HTMLButtonElement> &
     SizeWithDocs &
     ButtonTypeWithDocs & {
