@@ -7,6 +7,7 @@ export type ColorType = {
         gamma: string;
         delta: string;
         epsilon: string;
+        zeta: string;
     };
     success: {
         alpha: string;
@@ -14,6 +15,7 @@ export type ColorType = {
         gamma: string;
         delta: string;
         epsilon: string;
+        zeta: string;
     };
     warning: {
         alpha: string;
@@ -21,6 +23,7 @@ export type ColorType = {
         gamma: string;
         delta: string;
         epsilon: string;
+        zeta: string;
     };
     error: {
         alpha: string;
@@ -28,6 +31,7 @@ export type ColorType = {
         gamma: string;
         delta: string;
         epsilon: string;
+        zeta: string;
     };
     info: {
         alpha: string;
@@ -35,6 +39,7 @@ export type ColorType = {
         gamma: string;
         delta: string;
         epsilon: string;
+        zeta: string;
     };
     text: {
         alpha: string;
@@ -61,6 +66,7 @@ export const defaultColor: ColorType = {
         gamma: `#75BCF2`,
         delta: `#A3D2F7`,
         epsilon: `#D1E9FB`,
+        zeta: `#E7F4FD`,
     },
     success: {
         alpha: `#7CB305`,
@@ -68,6 +74,7 @@ export const defaultColor: ColorType = {
         gamma: `#B0D169`,
         delta: `#CAE19B`,
         epsilon: `#E5F0CD`,
+        zeta: `#F2F7E5`,
     },
     warning: {
         alpha: `#FFA500`,
@@ -75,6 +82,7 @@ export const defaultColor: ColorType = {
         gamma: `#FFC966`,
         delta: `#FFDB99`,
         epsilon: `#FFEDCC`,
+        zeta: `#FFF6E5`,
     },
     error: {
         alpha: `#D9121A`,
@@ -82,6 +90,7 @@ export const defaultColor: ColorType = {
         gamma: `#E87075`,
         delta: `#F0A0A3`,
         epsilon: `#F8CFD1`,
+        zeta: `#FBE6E7`,
     },
     info: {
         alpha: `#1990EA`,
@@ -89,6 +98,7 @@ export const defaultColor: ColorType = {
         gamma: `#75BCF2`,
         delta: `#A3D2F7`,
         epsilon: `#D1E9FB`,
+        zeta: `#E7F4FD`,
     },
     text: {
         alpha: `#000000`,
