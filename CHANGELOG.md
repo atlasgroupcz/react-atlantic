@@ -1,3 +1,10 @@
+## [2.6.2](https://github.com/atlasgroupcz/react-atlantic/compare/v2.5.20...v2.6.2) (2023-01-16)
+
+### Bug Fixes
+
+-   🐛 omit onClick/onChange from native props ([55a5815](https://github.com/atlasgroupcz/react-atlantic/commit/55a581596644a0949520a5521da3ee43fb1e0fc0))
+-   **button:** 🐛 fixes disabled state ([2acda5a](https://github.com/atlasgroupcz/react-atlantic/commit/2acda5ae3c0c0c18905d885d3a614c988379bee3))
+
 ## [2.6.1](https://github.com/atlasgroupcz/react-atlantic/compare/v2.6.0...v2.6.1) (2023-01-04)
 
 ### Bug Fixes
