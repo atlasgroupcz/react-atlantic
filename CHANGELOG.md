@@ -1,3 +1,9 @@
+## [2.6.3](https://github.com/atlasgroupcz/react-atlantic/compare/v2.6.2...v2.6.3) (2023-01-18)
+
+### Features
+
+-   ✨ add content to RadioCircular ([0ef65b5](https://github.com/atlasgroupcz/react-atlantic/commit/0ef65b5a26871b86e80c9115273e57ac1eca9ca8))
+
 ## [2.6.2](https://github.com/atlasgroupcz/react-atlantic/compare/v2.5.20...v2.6.2) (2023-01-16)
 
 ### Bug Fixes

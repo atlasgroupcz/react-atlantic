@@ -1,11 +1,11 @@
 import { Type } from '../../../types';
-import { FC, FormEvent, PropsWithChildren } from 'react';
+import { FC, FormEvent, PropsWithChildren, ReactElement } from 'react';
 import { OptionType } from '../../Select';
 import { ElementProps } from '../../../types/utils';
 
 export type RadioType = FC<PropsWithChildren<RadioButtonProps>>;
 
-export type RadioOptionType = OptionType & { isDisabled?: boolean };
+export type RadioOptionType = OptionType & { isDisabled?: boolean; content?: ReactElement };
 
 export type UseRadioArgs = {
     values: Array<RadioOptionType>;
