@@ -17,7 +17,7 @@ export const RadioCircular: RadioType = ({
     isFullWidth,
     ...props
 }) => (
-    <StyledRadioCircularContainer isFullWidth={isFullWidth} {...props}>
+    <StyledRadioCircularContainer isFullWidth={isFullWidth} data-is-full-width={isFullWidth} {...props}>
         {values?.map(({ value, label, isDisabled, content }) => {
             const isChecked = value === currentValue;
 

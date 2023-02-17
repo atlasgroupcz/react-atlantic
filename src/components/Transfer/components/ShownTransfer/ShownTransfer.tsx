@@ -3,10 +3,7 @@ import { InnerTransferProvider, useTransferContext } from '../../context';
 import { StyledTransfer } from '../../styles';
 import { resolveLeftSideOpen } from '../../utils/resolveLeftSideOpen';
 import { resolveRightSideOpen } from '../../utils/resolveRightSideOpen';
-import {
-    TransferDefaultLeftSide,
-    TransferDefaultRightSide,
-} from './components';
+import { TransferDefaultLeftSide, TransferDefaultRightSide } from './components';
 
 export const ShownTransfer: FC = () => {
     const {
@@ -33,12 +30,7 @@ export const ShownTransfer: FC = () => {
     });
 
     return (
-        <InnerTransferProvider
-            {...innerRest}
-            innerValue={innerValue}
-            position={position}
-            leftRight={leftRight}
-        >
+        <InnerTransferProvider {...innerRest} innerValue={innerValue} position={position} leftRight={leftRight}>
             <StyledTransfer
                 leftRight={leftRight}
                 position={position}
@@ -46,6 +38,9 @@ export const ShownTransfer: FC = () => {
                 isRightSideOpen={isRightSideOpen}
                 isFullWidth={isFullWidth}
                 customWidth={customWidth}
+                data-is-full-width={isFullWidth}
+                data-is-left-side-open={isLeftSideOpen}
+                data-is-right-side-open={isRightSideOpen}
             >
                 <TransferDefaultLeftSide />
                 <TransferDefaultRightSide />

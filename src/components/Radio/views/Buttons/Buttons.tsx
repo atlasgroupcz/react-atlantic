@@ -11,7 +11,7 @@ export const RadioButtons: RadioType = ({
     isFullWidth,
     ...props
 }) => (
-    <StyledRadioButtonsContainer isFullWidth={isFullWidth} {...props}>
+    <StyledRadioButtonsContainer isFullWidth={isFullWidth} data-is-full-width={isFullWidth} {...props}>
         {values?.map(({ value, label, isDisabled }) => {
             const isChecked = value === currentValue;
             const type = isChecked && !isDisabled ? `primary` : `default`;

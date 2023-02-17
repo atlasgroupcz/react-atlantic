@@ -16,6 +16,8 @@ export const InputDefaultView = forwardRef<HTMLInputElement, InputDefaultProps>(
                 isDisabled={props.isDisabled}
                 isRound={props.isRound}
                 data-is-disabled={props.isDisabled}
+                data-is-full-width={props.isFullWidth}
+                data-is-round={props.isRound}
             >
                 {prefix && <InputPrefix>{prefix}</InputPrefix>}
                 <InputBase {...props} size={size} ref={handleSetRef} />
