@@ -10,8 +10,8 @@ export const TransferDefaultLeftSideItemView: FC<TransferLeftSideItemProps> = ({
     onClick,
 }) => {
     return (
-        <StyledTransferDefaultLeftSideListItem size={size} key={option.value}>
-            <Checkbox isChecked={isChecked} onClick={onClick} size={size}>
+        <StyledTransferDefaultLeftSideListItem size={size} key={option.value} data-size={size}>
+            <Checkbox isChecked={isChecked} onClick={onClick} size={size} data-size={size} data-is-checked={isChecked}>
                 {option.label}
             </Checkbox>
         </StyledTransferDefaultLeftSideListItem>

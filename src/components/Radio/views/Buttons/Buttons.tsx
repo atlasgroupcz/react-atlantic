@@ -23,6 +23,7 @@ export const RadioButtons: RadioType = ({
                         type={type}
                         isDisabled={isDisabled}
                         data-is-disabled={isDisabled}
+                        data-type={type}
                     >
                         <StyledRadioButtonsInputHidden
                             name={groupName}

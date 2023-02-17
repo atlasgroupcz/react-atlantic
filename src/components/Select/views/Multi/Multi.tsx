@@ -53,11 +53,13 @@ export const SelectMulti = forwardRef<HTMLDivElement, SelectMultiProps>(
                     isDisabled={isDisabled}
                     data-is-disabled={isDisabled}
                     data-is-open={isOpen}
+                    data-size={size}
                 >
                     <StyledSelectMultiInputValue
                         ref={valueContainerRef}
                         size={size}
                         isOptionSelected={isOptionSelected}
+                        data-size={size}
                     >
                         {isOptionSelected && visibleItems
                             ? visibleItems.map((value) => (
@@ -65,6 +67,7 @@ export const SelectMulti = forwardRef<HTMLDivElement, SelectMultiProps>(
                                       size={size}
                                       value={value.label}
                                       onClick={(event) => onValueClick?.(value, event)}
+                                      data-size={size}
                                   />
                               ))
                             : placeholder}
@@ -73,11 +76,11 @@ export const SelectMulti = forwardRef<HTMLDivElement, SelectMultiProps>(
                         )}
                     </StyledSelectMultiInputValue>
                     {onClear && isOptionSelected && (
-                        <StyledSelectMultiInputClearButton onClick={onClear} size={size}>
+                        <StyledSelectMultiInputClearButton onClick={onClear} size={size} data-size={size}>
                             <Icon name="clear" />
                         </StyledSelectMultiInputClearButton>
                     )}
-                    <StyledSelectMultiInputIcon size={size} name={isOpen ? 'arrowUp' : 'arrowDown'} />
+                    <StyledSelectMultiInputIcon size={size} name={isOpen ? 'arrowUp' : 'arrowDown'} data-size={size} />
                 </StyledSelectMultiInput>
 
                 {isOpen && options && (
@@ -90,6 +93,7 @@ export const SelectMulti = forwardRef<HTMLDivElement, SelectMultiProps>(
                                     size={size}
                                     onClick={(event) => onOptionClick?.(option, event)}
                                     data-is-selected={option.isSelected}
+                                    data-size={size}
                                 >
                                     {option?.isSelected && <Icon name="check" />}
                                     {option.label}

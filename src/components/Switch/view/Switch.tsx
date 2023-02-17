@@ -30,6 +30,7 @@ export const Switch: SwitchType = ({
             className={className}
             data-is-disabled={isDisabled}
             data-is-checked={isChecked}
+            data-type={type}
         >
             <HiddenCheckbox
                 checked={isChecked}
@@ -38,7 +39,7 @@ export const Switch: SwitchType = ({
                 data-is-checked={isChecked}
                 {...props}
             />
-            <StyledSwitcherContainer type={type} isChecked={isChecked} data-is-checked={isChecked}>
+            <StyledSwitcherContainer type={type} isChecked={isChecked} data-is-checked={isChecked} data-type={type}>
                 <StyledSwitcherTrue
                     type={type}
                     isChecked={isChecked}
@@ -47,6 +48,7 @@ export const Switch: SwitchType = ({
                     data-is-disabled={isDisabled}
                     data-is-checked={isChecked}
                     data-is-partially-checked={isPartiallyChecked}
+                    data-type={type}
                 >
                     {textOn}
                 </StyledSwitcherTrue>
@@ -58,6 +60,7 @@ export const Switch: SwitchType = ({
                     data-is-disabled={isDisabled}
                     data-is-checked={isChecked}
                     data-is-partially-checked={isPartiallyChecked}
+                    data-type={type}
                 />
                 <StyledSwitcherFalse
                     type={type}
@@ -67,6 +70,7 @@ export const Switch: SwitchType = ({
                     data-is-disabled={isDisabled}
                     data-is-checked={isChecked}
                     data-is-partially-checked={isPartiallyChecked}
+                    data-type={type}
                 >
                     {textOff}
                 </StyledSwitcherFalse>

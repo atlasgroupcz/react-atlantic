@@ -28,10 +28,8 @@ export const NotificationView: NotificationViewType = ({
     ...ContainerProps
 }) => {
     return (
-        <StyledNotification ref={innerRef} type={type} {...ContainerProps}>
-            <StyledNotificationIconContainer>
-                {Icon}
-            </StyledNotificationIconContainer>
+        <StyledNotification ref={innerRef} type={type} data-type={type} {...ContainerProps}>
+            <StyledNotificationIconContainer>{Icon}</StyledNotificationIconContainer>
             <StyledNotificationMainContainer>
                 <StyledNotificationTextContainer>
                     <Text element="strong">{children}</Text>

@@ -41,11 +41,12 @@ export const Select = forwardRef<HTMLDivElement, SelectProps<any>>(
                 isDisabled={isDisabled}
                 data-is-disabled={isDisabled}
                 data-is-open={isOpen}
+                data-size={size}
             >
-                <StyledSelectDefaultInputValue size={size} isOptionSelected={isOptionSelected}>
+                <StyledSelectDefaultInputValue size={size} isOptionSelected={isOptionSelected} data-size={size}>
                     {isOptionSelected ? value.label : placeholder}
                 </StyledSelectDefaultInputValue>
-                <StyledSelectDefaultInputIcon size={size} name={isOpen ? 'arrowUp' : 'arrowDown'} />
+                <StyledSelectDefaultInputIcon size={size} name={isOpen ? 'arrowUp' : 'arrowDown'} data-size={size} />
             </StyledSelectDefaultInput>
 
             {isOpen && !!options?.length && (
@@ -55,6 +56,7 @@ export const Select = forwardRef<HTMLDivElement, SelectProps<any>>(
                             key={`${option.value}`}
                             size={size}
                             onClick={() => onOptionClick?.(option)}
+                            data-size={size}
                         >
                             {option.label}
                         </StyledSelectDefaultListItem>

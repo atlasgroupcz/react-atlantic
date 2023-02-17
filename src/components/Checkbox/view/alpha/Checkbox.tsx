@@ -28,6 +28,7 @@ export const Checkbox: CheckboxType = ({
         size={size}
         data-is-disabled={isDisabled}
         data-is-checked={isChecked}
+        data-size={size}
     >
         {horizontalPosition === 'right' && children && (
             <StyledCheckboxSpan
@@ -35,6 +36,7 @@ export const Checkbox: CheckboxType = ({
                 isDisabled={isDisabled}
                 size={size}
                 data-is-disabled={isDisabled}
+                data-size={size}
             >
                 {children}
             </StyledCheckboxSpan>
@@ -60,6 +62,7 @@ export const Checkbox: CheckboxType = ({
                 isDisabled={isDisabled}
                 size={size}
                 data-is-disabled={isDisabled}
+                data-size={size}
             >
                 {children}
             </StyledCheckboxSpan>

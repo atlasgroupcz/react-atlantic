@@ -4,17 +4,9 @@ import { StyledTransformRightSideListItem } from './styles';
 import { Text } from '../../../../../../../../../../../Typography';
 import { Icon } from '../../../../../../../../../../../Icon';
 
-export const TransferDefaultRightSideItemView: FC<TransferRightSideItemProps> = ({
-    onClick,
-    size,
-    option,
-}) => {
+export const TransferDefaultRightSideItemView: FC<TransferRightSideItemProps> = ({ onClick, size, option }) => {
     return (
-        <StyledTransformRightSideListItem
-            size={size}
-            key={option.value}
-            onClick={onClick}
-        >
+        <StyledTransformRightSideListItem size={size} key={option.value} onClick={onClick} data-size={size}>
             <Text>{option.label}</Text>
             <Icon name={'clear'} />
         </StyledTransformRightSideListItem>

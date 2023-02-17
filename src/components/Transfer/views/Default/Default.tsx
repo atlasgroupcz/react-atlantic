@@ -69,7 +69,7 @@ export const DefaultTransfer = forwardRef<HTMLDivElement, TransferProps<OptionTy
                 isSorted={isSorted}
                 {...props}
             >
-                <StyledTransferContainer size={size} ref={ref}>
+                <StyledTransferContainer size={size} data-size={size} ref={ref}>
                     {!isOpen ? (
                         <StyledTransfer
                             ref={saveRect}

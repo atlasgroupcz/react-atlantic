@@ -26,6 +26,8 @@ export const TransferDefaultLeftSideView: TransferLeftSideViewType = ({
             data-is-disabled={isDisabled}
             data-is-left-side-open={isLeftSideOpen}
             data-is-right-side-open={isRightSideOpen}
+            data-size={size}
+            data-position={position}
         >
             {leftHeader}
             {leftContainer}

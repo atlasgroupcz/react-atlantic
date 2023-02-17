@@ -18,9 +18,10 @@ export const InputDefaultView = forwardRef<HTMLInputElement, InputDefaultProps>(
                 data-is-disabled={props.isDisabled}
                 data-is-full-width={props.isFullWidth}
                 data-is-round={props.isRound}
+                data-size={size}
             >
                 {prefix && <InputPrefix>{prefix}</InputPrefix>}
-                <InputBase {...props} size={size} ref={handleSetRef} />
+                <InputBase {...props} size={size} ref={handleSetRef} data-size={size} />
                 {suffix && <InputSuffix>{suffix}</InputSuffix>}
             </InputContainer>
         );
