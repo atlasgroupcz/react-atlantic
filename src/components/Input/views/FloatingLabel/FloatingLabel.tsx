@@ -24,6 +24,7 @@ export const InputFloatingLabelView = forwardRef<HTMLInputElement, InputFloating
                 data-is-disabled={props.isDisabled}
                 data-is-full-width={props.isFullWidth}
                 data-is-round={props.isRound}
+                data-size={props.size}
             >
                 {prefix && <InputPrefix>{prefix}</InputPrefix>}
                 <StyledInputFloatingLabelInputContainer>

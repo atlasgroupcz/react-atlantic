@@ -23,6 +23,7 @@ export const TransferDefaultListView: FC<TransferListProps> = ({
                     isChecked={selectedOptionsSet.has(option.value)}
                     data-size={size}
                     data-is-checked={selectedOptionsSet.has(option.value)}
+                    data-option={option}
                 />
             ))}
         </StyledTransferList>

@@ -30,7 +30,14 @@ export const ShownTransfer: FC = () => {
     });
 
     return (
-        <InnerTransferProvider {...innerRest} innerValue={innerValue} position={position} leftRight={leftRight}>
+        <InnerTransferProvider
+            {...innerRest}
+            innerValue={innerValue}
+            position={position}
+            leftRight={leftRight}
+            data-position={position}
+            data-left-right={leftRight}
+        >
             <StyledTransfer
                 leftRight={leftRight}
                 position={position}
@@ -41,6 +48,8 @@ export const ShownTransfer: FC = () => {
                 data-is-full-width={isFullWidth}
                 data-is-left-side-open={isLeftSideOpen}
                 data-is-right-side-open={isRightSideOpen}
+                data-position={position}
+                data-left-right={leftRight}
             >
                 <TransferDefaultLeftSide />
                 <TransferDefaultRightSide />
