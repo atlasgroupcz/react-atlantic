@@ -23,14 +23,32 @@ export const Switch: SwitchType = ({
     ...props
 }) => (
     <StyledSwitchContainer>
-        <StyledSwitchLabel type={type} isChecked={isChecked} isDisabled={isDisabled} className={className}>
-            <HiddenCheckbox checked={isChecked} disabled={isDisabled} {...props} />
-            <StyledSwitcherContainer type={type} isChecked={isChecked}>
+        <StyledSwitchLabel
+            type={type}
+            isChecked={isChecked}
+            isDisabled={isDisabled}
+            className={className}
+            data-is-disabled={isDisabled}
+            data-is-checked={isChecked}
+            data-type={type}
+        >
+            <HiddenCheckbox
+                checked={isChecked}
+                disabled={isDisabled}
+                data-is-disabled={isDisabled}
+                data-is-checked={isChecked}
+                {...props}
+            />
+            <StyledSwitcherContainer type={type} isChecked={isChecked} data-is-checked={isChecked} data-type={type}>
                 <StyledSwitcherTrue
                     type={type}
                     isChecked={isChecked}
                     isPartiallyChecked={isPartiallyChecked}
                     isDisabled={isDisabled}
+                    data-is-disabled={isDisabled}
+                    data-is-checked={isChecked}
+                    data-is-partially-checked={isPartiallyChecked}
+                    data-type={type}
                 >
                     {textOn}
                 </StyledSwitcherTrue>
@@ -39,12 +57,20 @@ export const Switch: SwitchType = ({
                     isChecked={isChecked}
                     isPartiallyChecked={isPartiallyChecked}
                     isDisabled={isDisabled}
+                    data-is-disabled={isDisabled}
+                    data-is-checked={isChecked}
+                    data-is-partially-checked={isPartiallyChecked}
+                    data-type={type}
                 />
                 <StyledSwitcherFalse
                     type={type}
                     isChecked={isChecked}
                     isPartiallyChecked={isPartiallyChecked}
                     isDisabled={isDisabled}
+                    data-is-disabled={isDisabled}
+                    data-is-checked={isChecked}
+                    data-is-partially-checked={isPartiallyChecked}
+                    data-type={type}
                 >
                     {textOff}
                 </StyledSwitcherFalse>

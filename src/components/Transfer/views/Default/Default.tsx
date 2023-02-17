@@ -23,10 +23,7 @@ const createSaveRect = (ref: MutableRefObject<DOMRect | null>) => {
     return saveRef;
 };
 
-export const DefaultTransfer = forwardRef<
-    HTMLDivElement,
-    TransferProps<OptionType<string, any>>
->(
+export const DefaultTransfer = forwardRef<HTMLDivElement, TransferProps<OptionType<string, any>>>(
     (
         {
             innerTransferController = useInnerTransfer,
@@ -72,12 +69,13 @@ export const DefaultTransfer = forwardRef<
                 isSorted={isSorted}
                 {...props}
             >
-                <StyledTransferContainer size={size} ref={ref}>
+                <StyledTransferContainer size={size} data-size={size} ref={ref}>
                     {!isOpen ? (
                         <StyledTransfer
                             ref={saveRect}
                             isFullWidth={isFullWidth}
                             customWidth={customWidth}
+                            data-is-full-width={isFullWidth}
                         >
                             {hiddenTransferComponent}
                         </StyledTransfer>

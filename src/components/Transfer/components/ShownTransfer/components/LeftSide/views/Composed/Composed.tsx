@@ -16,10 +16,7 @@ export const TransferComposedLeftSideView: TransferLeftSideComposedType = ({
         <>
             <TransferDefaultLeftList />
             {!options?.length && !isDisabled && (
-                <StyledTransferLeftSideNoResults
-                    size={size}
-                    visibleRows={visibleRows}
-                >
+                <StyledTransferLeftSideNoResults size={size} visibleRows={visibleRows} data-size={size}>
                     {noResults}
                 </StyledTransferLeftSideNoResults>
             )}

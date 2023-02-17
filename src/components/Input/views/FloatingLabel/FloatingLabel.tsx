@@ -9,35 +9,30 @@ import {
     StyledInputFloatingLabelLabel,
 } from './styles';
 
-export const InputFloatingLabelView = forwardRef<
-    HTMLInputElement,
-    InputFloatingLabelProps
->(({ className, label, prefix, suffix, placeholder = ' ', ...props }, ref) => {
-    const { setInputFocus, handleSetRef } = useInputFloatingLabel({ ref });
+export const InputFloatingLabelView = forwardRef<HTMLInputElement, InputFloatingLabelProps>(
+    ({ className, label, prefix, suffix, placeholder = ' ', ...props }, ref) => {
+        const { setInputFocus, handleSetRef } = useInputFloatingLabel({ ref });
 
-    return (
-        <StyledInputFloatingLabelContainer
-            className={className}
-            onClick={setInputFocus}
-            size={props.size}
-            isFullWidth={props.isFullWidth}
-            isDisabled={props.isDisabled}
-            isRound={props.isRound}
-        >
-            {prefix && <InputPrefix>{prefix}</InputPrefix>}
-            <StyledInputFloatingLabelInputContainer>
-                <StyledInputFloatingLabelInput
-                    placeholder={placeholder}
-                    {...props}
-                    ref={handleSetRef}
-                />
-                {label && (
-                    <StyledInputFloatingLabelLabel>
-                        {label}
-                    </StyledInputFloatingLabelLabel>
-                )}
-            </StyledInputFloatingLabelInputContainer>
-            {suffix && <InputSuffix>{suffix}</InputSuffix>}
-        </StyledInputFloatingLabelContainer>
-    );
-});
+        return (
+            <StyledInputFloatingLabelContainer
+                className={className}
+                onClick={setInputFocus}
+                size={props.size}
+                isFullWidth={props.isFullWidth}
+                isDisabled={props.isDisabled}
+                isRound={props.isRound}
+                data-is-disabled={props.isDisabled}
+                data-is-full-width={props.isFullWidth}
+                data-is-round={props.isRound}
+                data-size={props.size}
+            >
+                {prefix && <InputPrefix>{prefix}</InputPrefix>}
+                <StyledInputFloatingLabelInputContainer>
+                    <StyledInputFloatingLabelInput placeholder={placeholder} {...props} ref={handleSetRef} />
+                    {label && <StyledInputFloatingLabelLabel>{label}</StyledInputFloatingLabelLabel>}
+                </StyledInputFloatingLabelInputContainer>
+                {suffix && <InputSuffix>{suffix}</InputSuffix>}
+            </StyledInputFloatingLabelContainer>
+        );
+    }
+);

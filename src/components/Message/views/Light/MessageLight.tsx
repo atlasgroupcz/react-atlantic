@@ -23,6 +23,7 @@ export const MessageLightView: MessageLightViewType = ({
             className={className}
             ref={innerRef}
             type={type}
+            data-type={type}
             {...ContainerProps}
         >
             {Icon}

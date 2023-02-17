@@ -26,6 +26,8 @@ export const MessageView: MessageViewType = ({
             ref={innerRef}
             type={type}
             isReversedColor={isReversedColor}
+            data-type={type}
+            data-is-reversed-color={isReversedColor}
             {...ContainerProps}
         >
             {Icon}
