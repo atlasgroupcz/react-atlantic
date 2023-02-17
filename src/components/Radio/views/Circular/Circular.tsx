@@ -17,15 +17,21 @@ export const RadioCircular: RadioType = ({
     isFullWidth,
     ...props
 }) => (
-    <StyledRadioCircularContainer isFullWidth={isFullWidth} {...props}>
+    <StyledRadioCircularContainer isFullWidth={isFullWidth} data-is-full-width={isFullWidth} {...props}>
         {values?.map(({ value, label, isDisabled, content }) => {
             const isChecked = value === currentValue;
 
             return (
                 <Fragment key={value}>
-                    <StyledRadioCircularLabel htmlFor={value} isDisabled={isDisabled} isChecked={isChecked}>
+                    <StyledRadioCircularLabel
+                        htmlFor={value}
+                        isDisabled={isDisabled}
+                        isChecked={isChecked}
+                        data-is-disabled={isDisabled}
+                        data-is-checked={isChecked}
+                    >
                         <StyledRadioCircularRadio>
-                            <StyledRadioCircularRadioMark isChecked={isChecked} />
+                            <StyledRadioCircularRadioMark isChecked={isChecked} data-is-checked={isChecked} />
                         </StyledRadioCircularRadio>
                         <StyledRadioCircularInputHidden
                             name={groupName}

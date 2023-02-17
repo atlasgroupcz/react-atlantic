@@ -39,22 +39,19 @@ export const PaginationWithArrows: FC<PaginationWithArrowsProps> = ({
                         <LeftComponent
                             onClick={handlePrev}
                             isDisabled={isDisabledPrev}
+                            data-is-disabled={isDisabledPrev}
                         />
                     }
                 </li>
             )}
-            <PaginationBase
-                {...props}
-                onClick={onClick}
-                page={page}
-                count={count}
-            />
+            <PaginationBase {...props} onClick={onClick} page={page} count={count} />
             {RightComponent && (
                 <li>
                     {
                         <RightComponent
                             onClick={handleNext}
                             isDisabled={isDisabledNext}
+                            data-is-disabled={isDisabledNext}
                         />
                     }
                 </li>

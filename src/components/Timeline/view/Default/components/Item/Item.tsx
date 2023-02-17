@@ -11,19 +11,7 @@ import { Text } from '../../../../../Typography/Text';
 import { useTimelineContext } from '../../../../context';
 
 export const TimelineItem: TimelineItemType = forwardRef(
-    (
-        {
-            dot,
-            oppositeContent,
-            children,
-            type,
-            unique,
-            onClick,
-            align = 'right',
-            ...props
-        },
-        ref
-    ) => {
+    ({ dot, oppositeContent, children, type, unique, onClick, align = 'right', ...props }, ref) => {
         const isOppositeContent = useTimelineContext();
 
         const handleClick = useCallback(
@@ -37,11 +25,7 @@ export const TimelineItem: TimelineItemType = forwardRef(
             <StyledTimelineItemContentContainer>
                 {oppositeContent && (
                     <StyledTimelineItemContent>
-                        {typeof oppositeContent === 'string' ? (
-                            <Text>{oppositeContent}</Text>
-                        ) : (
-                            oppositeContent
-                        )}
+                        {typeof oppositeContent === 'string' ? <Text>{oppositeContent}</Text> : oppositeContent}
                     </StyledTimelineItemContent>
                 )}
             </StyledTimelineItemContentContainer>
@@ -49,19 +33,12 @@ export const TimelineItem: TimelineItemType = forwardRef(
 
         const ChildrenContent = children && (
             <StyledTimelineItemContentContainer>
-                <StyledTimelineItemContent>
-                    {children}
-                </StyledTimelineItemContent>
+                <StyledTimelineItemContent>{children}</StyledTimelineItemContent>
             </StyledTimelineItemContentContainer>
         );
 
         return (
-            <StyledTimelineItem
-                {...props}
-                type={type}
-                ref={ref}
-                onClick={handleClick}
-            >
+            <StyledTimelineItem {...props} type={type} ref={ref} onClick={handleClick} data-type={type}>
                 {align === 'left' ? ChildrenContent : OppositeContent}
                 <StyledTimelineItemCircleContainer>
                     {dot ?? <StyledTimelineItemCircle />}
