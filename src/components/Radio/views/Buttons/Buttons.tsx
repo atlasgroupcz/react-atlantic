@@ -18,7 +18,12 @@ export const RadioButtons: RadioType = ({
 
             return (
                 <Fragment key={value}>
-                    <StyledRadioButtonsLabel htmlFor={value} type={type} isDisabled={isDisabled}>
+                    <StyledRadioButtonsLabel
+                        htmlFor={value}
+                        type={type}
+                        isDisabled={isDisabled}
+                        data-is-disabled={isDisabled}
+                    >
                         <StyledRadioButtonsInputHidden
                             name={groupName}
                             checked={isChecked}

@@ -27,30 +27,18 @@ export const Select = forwardRef<HTMLDivElement, SelectProps<any>>(
         },
         ref
     ) => (
-        <StyledSelectDefaultContainer
-            {...rest}
-            isFullWidth={isFullWidth}
-            ref={ref}
-            className={className}
-        >
+        <StyledSelectDefaultContainer {...rest} isFullWidth={isFullWidth} ref={ref} className={className}>
             <StyledSelectDefaultInput
-                onClick={(e: MouseEvent<HTMLDivElement>) =>
-                    !isDisabled && onClick?.(e!)
-                }
+                onClick={(e: MouseEvent<HTMLDivElement>) => !isDisabled && onClick?.(e!)}
                 isOpen={isOpen}
                 size={size}
                 isDisabled={isDisabled}
+                data-is-disabled={isDisabled}
             >
-                <StyledSelectDefaultInputValue
-                    size={size}
-                    isOptionSelected={isOptionSelected}
-                >
+                <StyledSelectDefaultInputValue size={size} isOptionSelected={isOptionSelected}>
                     {isOptionSelected ? value.label : placeholder}
                 </StyledSelectDefaultInputValue>
-                <StyledSelectDefaultInputIcon
-                    size={size}
-                    name={isOpen ? 'arrowUp' : 'arrowDown'}
-                />
+                <StyledSelectDefaultInputIcon size={size} name={isOpen ? 'arrowUp' : 'arrowDown'} />
             </StyledSelectDefaultInput>
 
             {isOpen && !!options?.length && (
