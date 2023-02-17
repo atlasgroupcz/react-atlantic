@@ -39,7 +39,13 @@ export const SelectMulti = forwardRef<HTMLDivElement, SelectMultiProps>(
         const { hiddenItemsNumber, visibleItems } = useCalculateItemVisibility(valueContainerRef, values);
 
         return (
-            <StyledSelectMultiContainer isFullWidth={isFullWidth} ref={ref} className={className} {...props}>
+            <StyledSelectMultiContainer
+                isFullWidth={isFullWidth}
+                data-is-full-width={isFullWidth}
+                ref={ref}
+                className={className}
+                {...props}
+            >
                 <StyledSelectMultiInput
                     onClick={(e: MouseEvent<HTMLDivElement>) => !isDisabled && onClick?.(e!)}
                     isOpen={isOpen}
@@ -83,6 +89,7 @@ export const SelectMulti = forwardRef<HTMLDivElement, SelectMultiProps>(
                                     key={`${option.value}`}
                                     size={size}
                                     onClick={(event) => onOptionClick?.(option, event)}
+                                    data-is-selected={option.isSelected}
                                 >
                                     {option?.isSelected && <Icon name="check" />}
                                     {option.label}
