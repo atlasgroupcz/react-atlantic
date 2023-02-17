@@ -30,20 +30,37 @@ export const Checkbox: CheckboxType = ({
         data-is-checked={isChecked}
     >
         {horizontalPosition === 'right' && children && (
-            <StyledCheckboxSpan position={horizontalPosition} isDisabled={isDisabled} size={size}>
+            <StyledCheckboxSpan
+                position={horizontalPosition}
+                isDisabled={isDisabled}
+                size={size}
+                data-is-disabled={isDisabled}
+            >
                 {children}
             </StyledCheckboxSpan>
         )}
 
         <HiddenCheckbox id={id} readOnly defaultChecked={isChecked} disabled={isDisabled} {...props} />
-        <StyledCheckboxInputShown isDisabled={isDisabled}>
-            <StyledCheckboxMark isDisabled={isDisabled} isChecked={isChecked} isPartiallyChecked={isPartiallyChecked}>
+        <StyledCheckboxInputShown isDisabled={isDisabled} data-is-disabled={isDisabled}>
+            <StyledCheckboxMark
+                isDisabled={isDisabled}
+                isChecked={isChecked}
+                isPartiallyChecked={isPartiallyChecked}
+                data-is-disabled={isDisabled}
+                data-is-checked={isChecked}
+                data-is-partially-checked={isPartiallyChecked}
+            >
                 <Icon name="check" />
             </StyledCheckboxMark>
         </StyledCheckboxInputShown>
 
         {horizontalPosition === 'left' && children && (
-            <StyledCheckboxSpan position={horizontalPosition} isDisabled={isDisabled} size={size}>
+            <StyledCheckboxSpan
+                position={horizontalPosition}
+                isDisabled={isDisabled}
+                size={size}
+                data-is-disabled={isDisabled}
+            >
                 {children}
             </StyledCheckboxSpan>
         )}
