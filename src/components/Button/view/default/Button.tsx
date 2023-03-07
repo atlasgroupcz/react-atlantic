@@ -6,10 +6,14 @@ export const Button = forwardRef<HTMLButtonElement, PropsWithChildren<ButtonProp
     ({ htmlType, type = 'default', className, isDisabled, isRound, isFullWidth, isTransparent, ...props }, ref) => {
         return (
             <StyledButton
+                {...props}
                 atlanticType={type}
                 type={htmlType}
                 className={className}
-                {...props}
+                isDisabled={isDisabled}
+                isRound={isRound}
+                isFullWidth={isFullWidth}
+                isTransparent={isTransparent}
                 ref={ref}
                 data-is-disabled={isDisabled}
                 data-is-round={isRound}
