@@ -1,3 +1,9 @@
+## [2.7.1](https://github.com/atlasgroupcz/react-atlantic/compare/v2.7.0...v2.7.1) (2023-03-07)
+
+### Bug Fixes
+
+-   🐛 fixes props and data-attributes ([c51fefa](https://github.com/atlasgroupcz/react-atlantic/commit/c51fefa67355d6ae64cdd25e2b3a9f1367c7a740))
+
 # [2.7.0](https://github.com/atlasgroupcz/react-atlantic/compare/v2.6.1...v2.7.0) (2023-03-07)
 
 ### Features
