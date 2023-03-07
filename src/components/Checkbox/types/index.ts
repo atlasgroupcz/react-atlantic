@@ -2,8 +2,6 @@ import { HorizontalPositionWithDocs, MouseEvents, Size } from '../../../types';
 import { FC, PropsWithChildren } from 'react';
 import { ElementProps } from '../../../types/utils';
 
-export type CheckboxType = FC<PropsWithChildren<CheckboxProps>>;
-
 export type UseCheckboxArgs = {
     isDefaultChecked?: boolean;
     isPartiallyChecked?: boolean;
