@@ -60,6 +60,7 @@ export const SelectMulti = forwardRef<HTMLDivElement, SelectMultiProps>(
                         size={size}
                         isOptionSelected={isOptionSelected}
                         data-size={size}
+                        data-is-option-selected={isOptionSelected}
                     >
                         {isOptionSelected && visibleItems
                             ? visibleItems.map((value) => (

@@ -43,7 +43,12 @@ export const Select = forwardRef<HTMLDivElement, SelectProps<any>>(
                 data-is-open={isOpen}
                 data-size={size}
             >
-                <StyledSelectDefaultInputValue size={size} isOptionSelected={isOptionSelected} data-size={size}>
+                <StyledSelectDefaultInputValue
+                    size={size}
+                    isOptionSelected={isOptionSelected}
+                    data-size={size}
+                    data-is-option-selected={isOptionSelected}
+                >
                     {isOptionSelected ? value.label : placeholder}
                 </StyledSelectDefaultInputValue>
                 <StyledSelectDefaultInputIcon size={size} name={isOpen ? 'arrowUp' : 'arrowDown'} data-size={size} />

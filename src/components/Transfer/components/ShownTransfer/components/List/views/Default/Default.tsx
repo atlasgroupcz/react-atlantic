@@ -14,7 +14,7 @@ export const TransferDefaultListView: FC<TransferListProps> = ({
     const selectedOptionsSet = new Set(value?.map((option) => option.value));
 
     return !!options.length ? (
-        <StyledTransferList size={size} visibleRows={visibleRows} data-size={size}>
+        <StyledTransferList size={size} visibleRows={visibleRows} data-size={size} data-visible-rows={visibleRows}>
             {options?.map((option) => (
                 <Item
                     key={option.value}
